@@ -1,6 +1,6 @@
 # 项目补充资料（查阅用）
 
-日常操作只看[README](../README.md)。本文件集中保存字段、规则、报告与复现细节。数据版本v1与配置保持不变；rainfall_v1_r3是下载说明更新后的交接修订；正式数据包沿用rainfall_v1_r2。archive/history_v1保存原始阶段说明、原课程要求与上一版清单，供追溯。
+日常操作只看[README](../README.md)。本文件集中保存字段、规则、报告与复现细节。数据版本v1与配置保持不变；rainfall_v1_r2是说明整理后的交接修订。archive/history_v1保存原始阶段说明、原课程要求与上一版清单，供追溯。
 
 目录：
 
@@ -393,9 +393,9 @@ Suggested AI disclosure for A, to be reviewed and supplemented by the team: Open
 
 日常有三个入口：read_data_release检查读写接口，reproduce_a_sample重跑真实原始片段，record_result_metadata记录实际下游结果来源。首次两项A本机验证通过，不代表B/C／macOS已经完成实机验收。P1-5接口样本不是训练代表样本；P1-6片段包含114个选定锚点所需的实际上下文，缺槽保留。
 
-原始全量质量证据在outputs/p0_2_audit/p0_2_v1、outputs/p0_3_clean/p0_3_v1、outputs/p0_4_targets/p0_4_v1；A资源与数量表在outputs/p1_6_support。原收据保留原发布标识，r2交接验证在outputs/team_handoff，r3下载说明更新验证在outputs/readme_download_r3。processing_status是当前进度，release_manifest是当前交付身份；不要运行旧阶段发布脚本覆盖当前说明和进度。
+原始全量质量证据在outputs/p0_2_audit/p0_2_v1、outputs/p0_3_clean/p0_3_v1、outputs/p0_4_targets/p0_4_v1；A资源与数量表在outputs/p1_6_support。原收据保留原发布标识，本次交接修订的验证在outputs/team_handoff。processing_status是当前进度，release_manifest是当前交付身份；不要运行旧阶段发布脚本覆盖当前说明和进度。
 
-旧的全量入口和校验脚本有固定v1路径及签名依赖。完整重建须在独立工作副本逐阶段生成新证据及清单；仅改--source/--output不是通用全量runner。当前正式CSV／Parquet不在小包中，获取完整数据后保持README路径。正式Parquet已发布到[GitHub Releases](https://github.com/yangaier0920-afk/DSA5208_Project2/releases/tag/rainfall_v1_r2)，下载和解压步骤集中在README；课程提交包仍需全组合并确认。
+旧的全量入口和校验脚本有固定v1路径及签名依赖。完整重建须在独立工作副本逐阶段生成新证据及清单；仅改--source/--output不是通用全量runner。当前正式CSV／Parquet不在小包中，获取完整数据后保持README路径。GitHub未发布，最终下载渠道和课程提交包还需确认。
 
 data_version只在数据内容／口径变化时提升；本次只修订文档发布标识。config_hash是project.json原始字节SHA-256，实验配置另存experiment_config_hash。新报告、特征、模型记录当前发布标识，旧结果保留其原记录，不静默替换。
 

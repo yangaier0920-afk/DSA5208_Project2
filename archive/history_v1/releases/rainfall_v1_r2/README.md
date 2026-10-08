@@ -2,40 +2,7 @@
 
 A已完成八年审计、清洗、未来累计量及本地复现。**B/C直接使用下面的正式Parquet，不用重新清洗原始CSV。** 日常只需本README；需要字段、规则或报告文字时查[补充资料](docs/reference.md)。
 
-## 1. 下载正式数据（B/C先从这里开始）
-
-**[打开正式数据下载页：2017—2024八年 Parquet](https://github.com/yangaier0920-afk/DSA5208_Project2/releases/tag/rainfall_v1_r2)**
-
-1. 先[下载最新版项目代码ZIP](https://github.com/yangaier0920-afk/DSA5208_Project2/archive/refs/heads/main.zip)并解压，也可以clone仓库。
-2. 下载下表**全部8个年度包**。合计约2.70GB，解压后的正式数据约4.68GB；保留下载包和解压数据时，数据部分需约7.4GB空间。
-3. 在代码中`README.md`所在目录打开终端，把8个包解压到该目录，保留`data/processed/`下的路径。每包包含对应年份的观测、标签、异常隔离、重复追溯和站点元数据。
-
-| 年份 | 下载链接 | 压缩包大小（约） |
-|---|---|---|
-| 2017 | [下载ZIP](https://github.com/yangaier0920-afk/DSA5208_Project2/releases/download/rainfall_v1_r2/rainfall_v1_2017.zip) | 295 MB |
-| 2018 | [下载ZIP](https://github.com/yangaier0920-afk/DSA5208_Project2/releases/download/rainfall_v1_r2/rainfall_v1_2018.zip) | 253 MB |
-| 2019 | [下载ZIP](https://github.com/yangaier0920-afk/DSA5208_Project2/releases/download/rainfall_v1_r2/rainfall_v1_2019.zip) | 277 MB |
-| 2020 | [下载ZIP](https://github.com/yangaier0920-afk/DSA5208_Project2/releases/download/rainfall_v1_r2/rainfall_v1_2020.zip) | 363 MB |
-| 2021 | [下载ZIP](https://github.com/yangaier0920-afk/DSA5208_Project2/releases/download/rainfall_v1_r2/rainfall_v1_2021.zip) | 391 MB |
-| 2022 | [下载ZIP](https://github.com/yangaier0920-afk/DSA5208_Project2/releases/download/rainfall_v1_r2/rainfall_v1_2022.zip) | 401 MB |
-| 2023 | [下载ZIP](https://github.com/yangaier0920-afk/DSA5208_Project2/releases/download/rainfall_v1_r2/rainfall_v1_2023.zip) | 373 MB |
-| 2024 | [下载ZIP](https://github.com/yangaier0920-afk/DSA5208_Project2/releases/download/rainfall_v1_r2/rainfall_v1_2024.zip) | 350 MB |
-
-**Windows解压**（假设8个ZIP保存在默认Downloads目录）：
-
-```powershell
-2017..2024 | ForEach-Object { Expand-Archive -LiteralPath (Join-Path $HOME "Downloads\rainfall_v1_$_.zip") -DestinationPath . -Force }
-```
-
-**macOS解压**（同样假设ZIP保存在Downloads目录）：
-
-```bash
-for year in {2017..2024}; do unzip -o "$HOME/Downloads/rainfall_v1_${year}.zip" -d .; done
-```
-
-若ZIP存在其他目录，替换命令中的Downloads路径。解压后应看到`data/processed/p0_3_v1/`和`data/processed/p0_4_v1/`，然后按第3节安装环境并检查读取。仓库代码与交接小样本包用于代码／接口准备，正式分析和训练使用这8个年度包。
-
-## 2. 交付给B/C的是什么
+## 1. 交付给B/C的是什么
 
 | 文件／目录 | 用途 |
 |---|---|
@@ -45,9 +12,9 @@ for year in {2017..2024}; do unzip -o "$HOME/Downloads/rainfall_v1_${year}.zip" 
 | `configs/project.json` + `manifests/release_manifest.json` | 固定规则、数据版本、schema、文件哈希；请勿各自修改 |
 | `data/samples/p1_5_v1/` | 环境／接口检查样本，每张表1,309行；不用于正式训练或结论 |
 
-数据版本为`v1`，观测表版本`p0_3_v1`，标签表版本`p0_4_v1`；当前交接说明修订为`rainfall_v1_r3`。正式数据包使用已发布的`rainfall_v1_r2`下载，Parquet内容、字段、表路径与规则完全一致。
+数据版本为`v1`，观测表版本`p0_3_v1`，标签表版本`p0_4_v1`；当前交接发布标识`rainfall_v1_r2`仅更新说明组织。样本包没有约4.68GB的正式大表，正式分析／训练须另外取得大表并保持上表路径。GitHub及下载链接等待最终确认，目前尚未发布。
 
-## 3. 安装环境与读取检查
+## 2. 先确认本机能读取
 
 在本README所在目录打开终端。A现有环境可直接使用；新电脑只需首次安装。
 
@@ -76,21 +43,9 @@ export JAVA_HOME=$(/usr/libexec/java_home -v 17)
 python scripts/read_data_release.py --member B
 ```
 
-看到`PASS: sample`且退出码0即通过；本机收据在`outputs/p1_5_receipts/B_sample.json`。复跑时加`--receipt outputs/p1_5_receipts/B_run2.json`选择新收据，避免覆盖。下载并解压8个年度包后，再执行**全量读取检查**，耗时及资源需求更高：
+看到`PASS: sample`且退出码0即通过；本机收据在`outputs/p1_5_receipts/B_sample.json`。复跑时加`--receipt outputs/p1_5_receipts/B_run2.json`选择新收据，避免覆盖。取得全部正式Parquet后可加`--scope full`校验全表，耗时及资源需求更高。
 
-```powershell
-# Windows，B执行；C把成员和收据文件名中的B改成C
-.\.venv\Scripts\python.exe scripts\read_data_release.py --member B --scope full --receipt outputs/p1_5_receipts/B_full_r3.json
-```
-
-```bash
-# macOS，先激活上面的虚拟环境
-python scripts/read_data_release.py --member B --scope full --receipt outputs/p1_5_receipts/B_full_r3.json
-```
-
-看到`PASS: full`且退出码0即通过。每次复跑选择新的收据文件名。
-
-## 4. B/C各自下一步
+## 3. B/C各自下一步
 
 | 成员 | 操作 |
 |---|---|
@@ -115,7 +70,7 @@ data_identity = provenance(root)
 
 必须记住：雨量单位mm；缺测不是0；标签严格比较`future_30m_mm > threshold_mm`，累计量为null不能变成负例。未来累计量、未来缺测及含未来信息的资格字段不可进入模型特征或事前预测门槛。Task 1按`rain_period_start_ts`归属日历，跨年比较使用覆盖合格的同月站点交集。完整规则和E2分区见补充资料。
 
-## 5. 结果如何注明版本
+## 4. 结果如何注明版本
 
 每份特征、图表来源表、模型或评价结果保存`result_metadata.json`，记录`data_version`、`config_hash`、发布标识和实验参数哈希。已有实际结果和实验配置后，可用下面的入口；示例路径需替换成自己的真实文件：
 
@@ -125,7 +80,7 @@ data_identity = provenance(root)
 
 C改成员与运行名；macOS把Python入口改成`python`。请把自己的实验配置随结果保留，不修改A的project.json。接口样本产生的测试结果应注明`--input-scope sample`。
 
-## 6. A的复现与当前待办
+## 5. A的复现与当前待办
 
 A的真实原始片段重跑入口（可选；B/C正常使用数据不必先跑）：
 
@@ -135,4 +90,4 @@ A的真实原始片段重跑入口（可选；B/C正常使用数据不必先跑�
 
 每次换一个新输出目录；macOS用`python`。该测试重跑1,297条真实片段、114个锚点，验证清洗和标签，与正式参照比较；不训练模型。环境、清洗报告中英文稿、局限和189个字段定义全部放在补充资料。
 
-A本地数据工作、复现和正式数据发布已完成；B/C实机验收、分析／特征／模型、最终模型重载、全组报告合并及课程最终提交仍待完成。`archive/`保存历史说明和收据，日常使用以上入口即可；其他阶段脚本是A的内部处理／归档工具，不是B/C必跑步骤。
+当前A本地数据工作和复现通过；B/C实机验收、分析／特征／模型、最终模型重载、全组报告合并及最终发布仍待完成。`archive/`保存历史说明和收据，日常使用以上入口即可；其他阶段脚本是A的内部处理／归档工具，不是B/C必跑步骤。

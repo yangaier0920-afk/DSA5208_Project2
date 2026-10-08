@@ -1,0 +1,20 @@
+{
+  "status": "FAIL",
+  "member": "A",
+  "scope": "sample",
+  "started_at": "2026-10-08T15:42:22.177125+00:00",
+  "os": "Windows-10-10.0.26200-SP0",
+  "architecture": "",
+  "python": "3.11.5",
+  "checked_files": 333,
+  "release_id": "rainfall_v1_r3",
+  "data_version": "v1",
+  "config_hash": "e5258b99925606c8ba88207cb44a6756514fa84cd60f37adea3f9db64103248b",
+  "release_manifest_sha256": "8ebfb9ff0a91cb7e171fadee1d4c25069a74cc779588671ace1b4cf247134b3e",
+  "error": "PermissionError: [WinError 5] 拒绝访问。: 'outputs\\\\readme_download_r3\\\\p1_5_7z6q2qtl\\\\roundtrip'",
+  "shutdown": {
+    "passed": true,
+    "gateway_exit_code": 0
+  },
+  "finished_at": "2026-10-08T15:42:54.023259+00:00"
+}

@@ -41,31 +41,33 @@
   "P1-5": {
     "status": "LOCAL_HANDOFF_READY",
     "owner": "A",
-    "release_id": "rainfall_v1_r2",
+    "release_id": "rainfall_v1_r3",
     "data_version": "v1",
     "config_hash": "e5258b99925606c8ba88207cb44a6756514fa84cd60f37adea3f9db64103248b",
     "manifest": "manifests/release_manifest.json",
-    "validation": "outputs/team_handoff/validation.json",
+    "validation": "outputs/readme_download_r3/validation.json",
     "B_actual_receipt": "PENDING",
     "C_actual_receipt": "PENDING",
-    "github_publication": "NOT_STARTED"
+    "github_publication": "PUBLISHED_VERIFIED",
+    "published_data_url": "https://github.com/yangaier0920-afk/DSA5208_Project2/releases/tag/rainfall_v1_r2"
   },
   "P1-6": {
     "status": "LOCAL_A_COMPLETE",
     "owner": "A",
     "data_version": "v1",
-    "support_version": "a_support_v1_r2",
+    "support_version": "a_support_v1_r3",
     "manifest": "manifests/a_support_manifest.json",
     "readme": "README.md",
-    "validation": "outputs/team_handoff/validation.json",
+    "validation": "outputs/readme_download_r3/validation.json",
     "B_C_other_machine_reproduction": "PENDING",
     "final_model_validation": "PENDING_C_MODEL",
-    "github_publication": "NOT_STARTED"
+    "github_publication": "PUBLISHED_VERIFIED",
+    "published_data_url": "https://github.com/yangaier0920-afk/DSA5208_Project2/releases/tag/rainfall_v1_r2"
   },
   "documentation": {
     "entrypoint": "README.md",
     "reference": "docs/reference.md",
     "history": "archive/history_v1",
-    "release_id": "rainfall_v1_r2"
+    "release_id": "rainfall_v1_r3"
   }
 }

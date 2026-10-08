@@ -1,7 +1,7 @@
 {
   "manifest_format_version": 1,
   "status": "FROZEN_LOCAL",
-  "release_id": "rainfall_v1_r3",
+  "release_id": "rainfall_v1_r2",
   "data_version": "v1",
   "config_hash": "e5258b99925606c8ba88207cb44a6756514fa84cd60f37adea3f9db64103248b",
   "config_hash_algorithm": "sha256 of exact configs/project.json bytes",
@@ -4510,14 +4510,14 @@
     },
     {
       "path": "README.md",
-      "bytes": 8500,
-      "sha256": "a7a2d1dd2dd7eb7caf9cb8d13ca574101e62be2e2ab79a6b6645ecc08ddb4a74",
+      "bytes": 5426,
+      "sha256": "1ff3dc479d9f98a599d862be122e77072f7e76f360154bda9a4301c1ec7ed43c",
       "kind": "metadata"
     },
     {
       "path": "docs/reference.md",
-      "bytes": 42039,
-      "sha256": "2edc547072bb98b67fe6c12478ce46bc1694f1fd105c53f0030e04cceb1c9596",
+      "bytes": 41811,
+      "sha256": "6f6572741a493a46d62ba7140c39799466ad36e7c22d25ee41f07d4a827e8d66",
       "kind": "metadata"
     },
     {
@@ -4525,54 +4525,9 @@
       "bytes": 16800,
       "sha256": "93f0ce16e0fddc9e4ef35c5539e8f405ede66f61ea6624ec97db9d0616236ca5",
       "kind": "metadata"
-    },
-    {
-      "path": "archive/history_v1/releases/rainfall_v1_r2/README.md",
-      "bytes": 5426,
-      "sha256": "1ff3dc479d9f98a599d862be122e77072f7e76f360154bda9a4301c1ec7ed43c",
-      "kind": "metadata"
-    },
-    {
-      "path": "archive/history_v1/releases/rainfall_v1_r2/docs/reference.md",
-      "bytes": 41811,
-      "sha256": "6f6572741a493a46d62ba7140c39799466ad36e7c22d25ee41f07d4a827e8d66",
-      "kind": "metadata"
-    },
-    {
-      "path": "archive/history_v1/releases/rainfall_v1_r2/manifests/release_manifest.json",
-      "bytes": 168547,
-      "sha256": "f1c41ab0db2386ccb4da3dfaef5379d958cefe142db9f15988b6ad1c2b6bf841",
-      "kind": "metadata"
-    },
-    {
-      "path": "archive/history_v1/releases/rainfall_v1_r2/manifests/a_support_manifest.json",
-      "bytes": 7312,
-      "sha256": "0a0e34eb17b71e7d8fc769f284159f850ed24eb8039d1ee781c05793be1dd89a",
-      "kind": "metadata"
-    },
-    {
-      "path": "archive/history_v1/releases/rainfall_v1_r2/data/samples/p1_6_v1/fixture_manifest.json",
-      "bytes": 17348,
-      "sha256": "d14b2e6718c633cfae1fc51c56e807982cb2addff22c91b74a8c8303b8223a62",
-      "kind": "metadata"
-    },
-    {
-      "path": "scripts/update_download_readme.py",
-      "bytes": 9234,
-      "sha256": "8edb3745e000917846034f342429d6247b7cd4825c2f32306c8a44a1f5f33413",
-      "kind": "metadata"
     }
   ],
-  "previous_release_manifest": "archive/history_v1/releases/rainfall_v1_r2/manifests/release_manifest.json",
-  "revision_scope": "README published downloads and documentation metadata only; data/configuration/table paths unchanged",
-  "reference_document": "docs/reference.md",
-  "documentation_updated_at": "2026-10-08T15:38:55.708413+00:00",
-  "published_data_release": {
-    "release_id": "rainfall_v1_r2",
-    "url": "https://github.com/yangaier0920-afk/DSA5208_Project2/releases/tag/rainfall_v1_r2",
-    "release_manifest_sha256": "f1c41ab0db2386ccb4da3dfaef5379d958cefe142db9f15988b6ad1c2b6bf841",
-    "download_manifest_sha256": "55d65f1be03d44ce57ce7002640216b4c1d28e416486ebc597c45ab9bbb03312",
-    "data_version": "v1",
-    "same_full_data_file_hashes": true
-  }
+  "previous_release_manifest": "archive/history_v1/manifests/release_manifest.json",
+  "revision_scope": "Documentation consolidation only; data/configuration/table paths unchanged",
+  "reference_document": "docs/reference.md"
 }

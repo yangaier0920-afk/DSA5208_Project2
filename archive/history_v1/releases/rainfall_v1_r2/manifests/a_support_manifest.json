@@ -1,11 +1,11 @@
 {
   "format_version": 1,
-  "support_version": "a_support_v1_r3",
+  "support_version": "a_support_v1_r2",
   "status": "FROZEN_LOCAL_A_SUPPORT",
-  "release_id": "rainfall_v1_r3",
+  "release_id": "rainfall_v1_r2",
   "data_version": "v1",
   "config_hash": "e5258b99925606c8ba88207cb44a6756514fa84cd60f37adea3f9db64103248b",
-  "release_manifest_sha256": "8ebfb9ff0a91cb7e171fadee1d4c25069a74cc779588671ace1b4cf247134b3e",
+  "release_manifest_sha256": "f1c41ab0db2386ccb4da3dfaef5379d958cefe142db9f15988b6ad1c2b6bf841",
   "created_at": "2026-10-08T11:24:35.405178+00:00",
   "base_release_manifest": "manifests/release_manifest.json",
   "scope": "A local reproduction and report materials; no downstream modelling, no remote publication",
@@ -31,7 +31,7 @@
     {
       "path": "data/samples/p1_6_v1/fixture_manifest.json",
       "bytes": 17348,
-      "sha256": "2811926bc659b20970999f966a9f92d67d095803082cd8392af5b5ffa1d91d7f"
+      "sha256": "d14b2e6718c633cfae1fc51c56e807982cb2addff22c91b74a8c8303b8223a62"
     },
     {
       "path": "data/samples/p1_6_v1/raw/2017.csv",
@@ -175,14 +175,14 @@
     },
     {
       "path": "README.md",
-      "bytes": 8500,
-      "sha256": "a7a2d1dd2dd7eb7caf9cb8d13ca574101e62be2e2ab79a6b6645ecc08ddb4a74"
+      "bytes": 5426,
+      "sha256": "1ff3dc479d9f98a599d862be122e77072f7e76f360154bda9a4301c1ec7ed43c"
     },
     {
       "path": "docs/reference.md",
-      "bytes": 42039,
-      "sha256": "2edc547072bb98b67fe6c12478ce46bc1694f1fd105c53f0030e04cceb1c9596"
+      "bytes": 41811,
+      "sha256": "6f6572741a493a46d62ba7140c39799466ad36e7c22d25ee41f07d4a827e8d66"
     }
   ],
-  "previous_support_manifest": "archive/history_v1/releases/rainfall_v1_r2/manifests/a_support_manifest.json"
+  "previous_support_manifest": "archive/history_v1/manifests/a_support_manifest.json"
 }
