@@ -1,0 +1,2 @@
+﻿year,station_id,name_variants,device_variants,numeric_coordinate_variants,rows,first_epoch_s,last_epoch_s
+2020,TEST_A,2,1,1,10,1577808000,1577811600

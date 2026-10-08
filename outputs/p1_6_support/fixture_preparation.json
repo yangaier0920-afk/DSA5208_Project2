@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "release_id": "rainfall_v1",
+  "data_version": "v1",
+  "config_hash": "e5258b99925606c8ba88207cb44a6756514fa84cd60f37adea3f9db64103248b",
+  "release_manifest_sha256": "ace127c660226745afce10642ae51b417c7cc88ecb501a360de6c74f8472a173",
+  "input_verification": {
+    "status": "PASS",
+    "scope": "full",
+    "checked_files": 540,
+    "release_id": "rainfall_v1",
+    "data_version": "v1",
+    "config_hash": "e5258b99925606c8ba88207cb44a6756514fa84cd60f37adea3f9db64103248b",
+    "release_manifest_sha256": "ace127c660226745afce10642ae51b417c7cc88ecb501a360de6c74f8472a173"
+  },
+  "raw_records": 1297,
+  "anchors": 114,
+  "shutdown": {
+    "passed": true,
+    "gateway_exit_code": 0
+  }
+}

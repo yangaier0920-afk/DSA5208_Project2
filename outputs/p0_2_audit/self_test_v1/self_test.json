@@ -1,0 +1,97 @@
+{
+  "status": "PASS",
+  "checks": {
+    "spark_record_rows": {
+      "expected": 14,
+      "actual": 14,
+      "passed": true
+    },
+    "csv_field_count_mismatch_rows": {
+      "expected": 2,
+      "actual": 2,
+      "passed": true
+    },
+    "nonfinite_rainfall_rows": {
+      "expected": 2,
+      "actual": 2,
+      "passed": true
+    },
+    "negative_rainfall_rows": {
+      "expected": 1,
+      "actual": 1,
+      "passed": true
+    },
+    "missing_rainfall_rows": {
+      "expected": 1,
+      "actual": 1,
+      "passed": true
+    },
+    "invalid_rainfall_number_rows": {
+      "expected": 1,
+      "actual": 1,
+      "passed": true
+    },
+    "invalid_timestamp_rows": {
+      "expected": 1,
+      "actual": 1,
+      "passed": true
+    },
+    "missing_station_id_rows": {
+      "expected": 1,
+      "actual": 1,
+      "passed": true
+    },
+    "unexpected_unit_rows": {
+      "expected": 2,
+      "actual": 2,
+      "passed": true
+    },
+    "off_five_minute_grid_rows": {
+      "expected": 1,
+      "actual": 1,
+      "passed": true
+    },
+    "duplicate_key_excess_rows": {
+      "expected": 2,
+      "actual": 2,
+      "passed": true
+    },
+    "exact_duplicate_excess_key_eligible_rows": {
+      "expected": 1,
+      "actual": 1,
+      "passed": true
+    },
+    "conflicting_reading_key_groups": {
+      "expected": 1,
+      "actual": 1,
+      "passed": true
+    },
+    "unique_station_time_keys": {
+      "expected": 8,
+      "actual": 8,
+      "passed": true
+    },
+    "candidate_valid_rows": {
+      "expected": 4,
+      "actual": 4,
+      "passed": true
+    },
+    "candidate_unique_keys": {
+      "expected": 2,
+      "actual": 2,
+      "passed": true
+    },
+    "slot_collision": {
+      "passed": true
+    },
+    "leap_year_february": {
+      "passed": true
+    },
+    "quoted_comma_preserved": {
+      "passed": true
+    },
+    "phase_change_cadence": {
+      "passed": true
+    }
+  }
+}

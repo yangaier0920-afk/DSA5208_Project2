@@ -1,0 +1,6 @@
+﻿measure,count,denominator,effect,percent
+merged_duplicate_rows,86,48538713,Removed from observations; two-sided lineage retained,0.00017718
+quarantine_rows,0,48538713,Invalid/conflicting source records; empty table retained,0.0
+future_invalid_anchors,901794,48538627,Retained in targets with null cumulative rainfall; not supervised negatives,1.85788939
+history_invalid_anchors,1190794,48538627,Retained; incomplete historical inputs under H1,2.45329148
+base_window_ineligible_anchors,1489755,48538627,Union of history/future invalidity; still subject to fold boundaries and I1 scope,3.06921537

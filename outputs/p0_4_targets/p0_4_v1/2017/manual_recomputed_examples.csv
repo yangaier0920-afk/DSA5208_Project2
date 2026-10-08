@@ -1,0 +1,9 @@
+﻿case,station_id,prediction_epoch_s,prediction_ts,future_30m_mm,future_missing_offsets_s,historical_missing_offsets_s,passed
+valid_nonzero,S06,1483256100,2017-01-01 15:35:00,1.200000000000000000,[],[],True
+valid_zero,S06,1483229100,2017-01-01 08:05:00,0E-18,[],"[-3300, -3000, -2700, -2400, -2100, -1800, -1500, -1200, -900, -600, -300]",True
+internal_missing_future,S06,1483568400,2017-01-05 06:20:00,,[1800],[],True
+cross_day,S06,1483284600,2017-01-01 23:30:00,0E-18,[],[],True
+cross_month,S06,1485876600,2017-01-31 23:30:00,0E-18,[],[],True
+cross_year,S07,1514734200,2017-12-31 23:30:00,4.400000000000000000,[],[],True
+incomplete_history,S06,1483229100,2017-01-01 08:05:00,0E-18,[],"[-3300, -3000, -2700, -2400, -2100, -1800, -1500, -1200, -900, -600, -300]",True
+alignment_transition,S113,1493089200,2017-04-25 11:00:00,0E-18,[],[],True

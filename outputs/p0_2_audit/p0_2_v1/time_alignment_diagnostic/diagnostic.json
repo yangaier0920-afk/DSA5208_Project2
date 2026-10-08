@@ -1,0 +1,54 @@
+{
+  "status": "PASS",
+  "scope": "Diagnostic comparison only; source data and cleaned timestamps are not changed.",
+  "proposed_rule": "only offset=299 seconds: add 1 second; all other offsets unchanged",
+  "started_at_sgt": "2026-10-08T15:03:37.931135+08:00",
+  "source": {
+    "year": 2017,
+    "path": "Raw_Dataset/HistoricalRainfallacrossSingapore2017.csv",
+    "bytes": 881206891,
+    "sha256": "a51a27378607c6c37d51b72383259b27dae5dc7d5760a8b8fff04e86d9f92ddf",
+    "physical_data_lines": 5256106,
+    "columns": [
+      "date",
+      "timestamp",
+      "update_timestamp",
+      "station_id",
+      "station_name",
+      "station_device_id",
+      "location_longitude",
+      "location_latitude",
+      "reading_update_timestamp",
+      "reading_value",
+      "reading_type",
+      "reading_unit"
+    ],
+    "dataset_id": "d_1990a5a1aeaf3dd243cf4dae294a61c4",
+    "source_page": "https://data.gov.sg/datasets/d_1990a5a1aeaf3dd243cf4dae294a61c4/view",
+    "source_title": "Historical Rainfall across Singapore (2017)",
+    "downloaded_at": null,
+    "original_download_url": null,
+    "mtime_ns": 1791183211759628100
+  },
+  "code_sha256": "0150540dbc4f313deb529b5523dfb0eb2a2d5937d399aefe4373c4e95ce8eb1f",
+  "rows": 5256106,
+  "proposed_unique_keys": 5256020,
+  "proposed_collision_groups": 86,
+  "proposed_collision_excess_rows": 86,
+  "proposed_numeric_rainfall_conflicts": 0,
+  "proposed_metadata_conflicts": 2,
+  "proposed_date_changes": 6191,
+  "phase_transition_events": 139,
+  "sub_300s_pairs": 129,
+  "checks": {
+    "row_count_matches_full_audit": true,
+    "short_gaps_match_full_audit": true,
+    "proposed_key_reconciliation": true,
+    "source_unchanged": true
+  },
+  "shutdown": {
+    "passed": true,
+    "gateway_exit_code": 0
+  },
+  "finished_at_sgt": "2026-10-08T15:05:54.146365+08:00"
+}

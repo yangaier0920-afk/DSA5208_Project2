@@ -1,0 +1,8 @@
+﻿case,station_id,prediction_epoch_s,prediction_ts,future_30m_mm,future_missing_offsets_s,historical_missing_offsets_s,passed
+valid_nonzero,S07,1546289100,2019-01-01 04:45:00,0.200000000000000000,[],[],True
+valid_zero,S07,1546272000,2019-01-01 00:00:00,0E-18,[],[],True
+internal_missing_future,S07,1546515300,2019-01-03 19:35:00,,[1800],[],True
+cross_day,S07,1546356600,2019-01-01 23:30:00,0E-18,[],[],True
+cross_month,S07,1548948600,2019-01-31 23:30:00,0E-18,[],[],True
+cross_year,S07,1577806200,2019-12-31 23:30:00,0E-18,[],[],True
+incomplete_history,S07,1546517400,2019-01-03 20:10:00,0E-18,[],[-300],True

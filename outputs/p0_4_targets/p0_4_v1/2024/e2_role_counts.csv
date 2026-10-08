@@ -1,0 +1,6 @@
+﻿year,protocol,role,anchors,base_model_eligible
+2024,fold1_role,UNUSED,6406260,6338426
+2024,fold2_role,UNUSED,6406260,6338426
+2024,fold3_role,UNUSED,6406260,6338426
+2024,final_role,TEST,6405884,6338426
+2024,final_role,EXCLUDED_BOUNDARY,376,0

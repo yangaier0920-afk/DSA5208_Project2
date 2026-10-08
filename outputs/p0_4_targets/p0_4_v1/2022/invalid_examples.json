@@ -1,0 +1,378 @@
+[
+  {
+    "station_id": "S08",
+    "prediction_epoch_s": 1642300500,
+    "historical_n_valid": 12,
+    "prediction_ts": "2022-01-16 10:35:00",
+    "label_end_epoch_s": 1642302300,
+    "label_end_ts": "2022-01-16 11:05:00",
+    "future_missing_offsets_s": [
+      1800
+    ],
+    "historical_missing_offsets_s": [],
+    "future_n_valid": 5,
+    "target_valid": false,
+    "historical_valid": true,
+    "future_30m_mm": null,
+    "model_anchor_eligible": false,
+    "year_boundary_safe": true,
+    "invalid_reason": [
+      "MISSING_FUTURE_SLOTS"
+    ],
+    "historical_invalid_reason": [],
+    "fold1_role": "UNUSED",
+    "fold2_role": "VALIDATION",
+    "fold3_role": "TRAIN",
+    "final_role": "TRAIN",
+    "targets_version": "p0_4_v1",
+    "observations_version": "p0_3_v1",
+    "month": 1,
+    "year": 2022
+  },
+  {
+    "station_id": "S08",
+    "prediction_epoch_s": 1642300800,
+    "historical_n_valid": 12,
+    "prediction_ts": "2022-01-16 10:40:00",
+    "label_end_epoch_s": 1642302600,
+    "label_end_ts": "2022-01-16 11:10:00",
+    "future_missing_offsets_s": [
+      1500,
+      1800
+    ],
+    "historical_missing_offsets_s": [],
+    "future_n_valid": 4,
+    "target_valid": false,
+    "historical_valid": true,
+    "future_30m_mm": null,
+    "model_anchor_eligible": false,
+    "year_boundary_safe": true,
+    "invalid_reason": [
+      "MISSING_FUTURE_SLOTS"
+    ],
+    "historical_invalid_reason": [],
+    "fold1_role": "UNUSED",
+    "fold2_role": "VALIDATION",
+    "fold3_role": "TRAIN",
+    "final_role": "TRAIN",
+    "targets_version": "p0_4_v1",
+    "observations_version": "p0_3_v1",
+    "month": 1,
+    "year": 2022
+  },
+  {
+    "station_id": "S08",
+    "prediction_epoch_s": 1642301100,
+    "historical_n_valid": 12,
+    "prediction_ts": "2022-01-16 10:45:00",
+    "label_end_epoch_s": 1642302900,
+    "label_end_ts": "2022-01-16 11:15:00",
+    "future_missing_offsets_s": [
+      1200,
+      1500,
+      1800
+    ],
+    "historical_missing_offsets_s": [],
+    "future_n_valid": 3,
+    "target_valid": false,
+    "historical_valid": true,
+    "future_30m_mm": null,
+    "model_anchor_eligible": false,
+    "year_boundary_safe": true,
+    "invalid_reason": [
+      "MISSING_FUTURE_SLOTS"
+    ],
+    "historical_invalid_reason": [],
+    "fold1_role": "UNUSED",
+    "fold2_role": "VALIDATION",
+    "fold3_role": "TRAIN",
+    "final_role": "TRAIN",
+    "targets_version": "p0_4_v1",
+    "observations_version": "p0_3_v1",
+    "month": 1,
+    "year": 2022
+  },
+  {
+    "station_id": "S08",
+    "prediction_epoch_s": 1642301400,
+    "historical_n_valid": 12,
+    "prediction_ts": "2022-01-16 10:50:00",
+    "label_end_epoch_s": 1642303200,
+    "label_end_ts": "2022-01-16 11:20:00",
+    "future_missing_offsets_s": [
+      900,
+      1200,
+      1500,
+      1800
+    ],
+    "historical_missing_offsets_s": [],
+    "future_n_valid": 2,
+    "target_valid": false,
+    "historical_valid": true,
+    "future_30m_mm": null,
+    "model_anchor_eligible": false,
+    "year_boundary_safe": true,
+    "invalid_reason": [
+      "MISSING_FUTURE_SLOTS"
+    ],
+    "historical_invalid_reason": [],
+    "fold1_role": "UNUSED",
+    "fold2_role": "VALIDATION",
+    "fold3_role": "TRAIN",
+    "final_role": "TRAIN",
+    "targets_version": "p0_4_v1",
+    "observations_version": "p0_3_v1",
+    "month": 1,
+    "year": 2022
+  },
+  {
+    "station_id": "S08",
+    "prediction_epoch_s": 1642301700,
+    "historical_n_valid": 12,
+    "prediction_ts": "2022-01-16 10:55:00",
+    "label_end_epoch_s": 1642303500,
+    "label_end_ts": "2022-01-16 11:25:00",
+    "future_missing_offsets_s": [
+      600,
+      900,
+      1200,
+      1500,
+      1800
+    ],
+    "historical_missing_offsets_s": [],
+    "future_n_valid": 1,
+    "target_valid": false,
+    "historical_valid": true,
+    "future_30m_mm": null,
+    "model_anchor_eligible": false,
+    "year_boundary_safe": true,
+    "invalid_reason": [
+      "MISSING_FUTURE_SLOTS"
+    ],
+    "historical_invalid_reason": [],
+    "fold1_role": "UNUSED",
+    "fold2_role": "VALIDATION",
+    "fold3_role": "TRAIN",
+    "final_role": "TRAIN",
+    "targets_version": "p0_4_v1",
+    "observations_version": "p0_3_v1",
+    "month": 1,
+    "year": 2022
+  },
+  {
+    "station_id": "S08",
+    "prediction_epoch_s": 1642302000,
+    "historical_n_valid": 12,
+    "prediction_ts": "2022-01-16 11:00:00",
+    "label_end_epoch_s": 1642303800,
+    "label_end_ts": "2022-01-16 11:30:00",
+    "future_missing_offsets_s": [
+      300,
+      600,
+      900,
+      1200,
+      1500,
+      1800
+    ],
+    "historical_missing_offsets_s": [],
+    "future_n_valid": 0,
+    "target_valid": false,
+    "historical_valid": true,
+    "future_30m_mm": null,
+    "model_anchor_eligible": false,
+    "year_boundary_safe": true,
+    "invalid_reason": [
+      "MISSING_FUTURE_SLOTS"
+    ],
+    "historical_invalid_reason": [],
+    "fold1_role": "UNUSED",
+    "fold2_role": "VALIDATION",
+    "fold3_role": "TRAIN",
+    "final_role": "TRAIN",
+    "targets_version": "p0_4_v1",
+    "observations_version": "p0_3_v1",
+    "month": 1,
+    "year": 2022
+  },
+  {
+    "station_id": "S08",
+    "prediction_epoch_s": 1642305600,
+    "historical_n_valid": 1,
+    "prediction_ts": "2022-01-16 12:00:00",
+    "label_end_epoch_s": 1642307400,
+    "label_end_ts": "2022-01-16 12:30:00",
+    "future_missing_offsets_s": [
+      900,
+      1200,
+      1500,
+      1800
+    ],
+    "historical_missing_offsets_s": [
+      -3300,
+      -3000,
+      -2700,
+      -2400,
+      -2100,
+      -1800,
+      -1500,
+      -1200,
+      -900,
+      -600,
+      -300
+    ],
+    "future_n_valid": 2,
+    "target_valid": false,
+    "historical_valid": false,
+    "future_30m_mm": null,
+    "model_anchor_eligible": false,
+    "year_boundary_safe": true,
+    "invalid_reason": [
+      "MISSING_FUTURE_SLOTS"
+    ],
+    "historical_invalid_reason": [
+      "MISSING_HISTORY_SLOTS"
+    ],
+    "fold1_role": "UNUSED",
+    "fold2_role": "VALIDATION",
+    "fold3_role": "TRAIN",
+    "final_role": "TRAIN",
+    "targets_version": "p0_4_v1",
+    "observations_version": "p0_3_v1",
+    "month": 1,
+    "year": 2022
+  },
+  {
+    "station_id": "S08",
+    "prediction_epoch_s": 1642305900,
+    "historical_n_valid": 2,
+    "prediction_ts": "2022-01-16 12:05:00",
+    "label_end_epoch_s": 1642307700,
+    "label_end_ts": "2022-01-16 12:35:00",
+    "future_missing_offsets_s": [
+      600,
+      900,
+      1200,
+      1500,
+      1800
+    ],
+    "historical_missing_offsets_s": [
+      -3300,
+      -3000,
+      -2700,
+      -2400,
+      -2100,
+      -1800,
+      -1500,
+      -1200,
+      -900,
+      -600
+    ],
+    "future_n_valid": 1,
+    "target_valid": false,
+    "historical_valid": false,
+    "future_30m_mm": null,
+    "model_anchor_eligible": false,
+    "year_boundary_safe": true,
+    "invalid_reason": [
+      "MISSING_FUTURE_SLOTS"
+    ],
+    "historical_invalid_reason": [
+      "MISSING_HISTORY_SLOTS"
+    ],
+    "fold1_role": "UNUSED",
+    "fold2_role": "VALIDATION",
+    "fold3_role": "TRAIN",
+    "final_role": "TRAIN",
+    "targets_version": "p0_4_v1",
+    "observations_version": "p0_3_v1",
+    "month": 1,
+    "year": 2022
+  },
+  {
+    "station_id": "S08",
+    "prediction_epoch_s": 1642306200,
+    "historical_n_valid": 3,
+    "prediction_ts": "2022-01-16 12:10:00",
+    "label_end_epoch_s": 1642308000,
+    "label_end_ts": "2022-01-16 12:40:00",
+    "future_missing_offsets_s": [
+      300,
+      600,
+      900,
+      1200,
+      1500,
+      1800
+    ],
+    "historical_missing_offsets_s": [
+      -3300,
+      -3000,
+      -2700,
+      -2400,
+      -2100,
+      -1800,
+      -1500,
+      -1200,
+      -900
+    ],
+    "future_n_valid": 0,
+    "target_valid": false,
+    "historical_valid": false,
+    "future_30m_mm": null,
+    "model_anchor_eligible": false,
+    "year_boundary_safe": true,
+    "invalid_reason": [
+      "MISSING_FUTURE_SLOTS"
+    ],
+    "historical_invalid_reason": [
+      "MISSING_HISTORY_SLOTS"
+    ],
+    "fold1_role": "UNUSED",
+    "fold2_role": "VALIDATION",
+    "fold3_role": "TRAIN",
+    "final_role": "TRAIN",
+    "targets_version": "p0_4_v1",
+    "observations_version": "p0_3_v1",
+    "month": 1,
+    "year": 2022
+  },
+  {
+    "station_id": "S08",
+    "prediction_epoch_s": 1642318500,
+    "historical_n_valid": 1,
+    "prediction_ts": "2022-01-16 15:35:00",
+    "label_end_epoch_s": 1642320300,
+    "label_end_ts": "2022-01-16 16:05:00",
+    "future_missing_offsets_s": [],
+    "historical_missing_offsets_s": [
+      -3300,
+      -3000,
+      -2700,
+      -2400,
+      -2100,
+      -1800,
+      -1500,
+      -1200,
+      -900,
+      -600,
+      -300
+    ],
+    "future_n_valid": 6,
+    "target_valid": true,
+    "historical_valid": false,
+    "future_30m_mm": "0E-18",
+    "model_anchor_eligible": false,
+    "year_boundary_safe": true,
+    "invalid_reason": [],
+    "historical_invalid_reason": [
+      "MISSING_HISTORY_SLOTS"
+    ],
+    "fold1_role": "UNUSED",
+    "fold2_role": "VALIDATION",
+    "fold3_role": "TRAIN",
+    "final_role": "TRAIN",
+    "targets_version": "p0_4_v1",
+    "observations_version": "p0_3_v1",
+    "month": 1,
+    "year": 2022
+  }
+]

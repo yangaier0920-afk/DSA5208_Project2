@@ -1,0 +1,164 @@
+{
+  "status": "PASS",
+  "release_id": "rainfall_v1",
+  "data_version": "v1",
+  "config_hash": "e5258b99925606c8ba88207cb44a6756514fa84cd60f37adea3f9db64103248b",
+  "release_manifest_sha256": "ace127c660226745afce10642ae51b417c7cc88ecb501a360de6c74f8472a173",
+  "hardware": {
+    "recorded_at": "2026-10-08T19:11:37.0834476+08:00",
+    "cpu": {
+      "Name": "12th Gen Intel(R) Core(TM) i7-12700H",
+      "NumberOfCores": 14,
+      "NumberOfLogicalProcessors": 20
+    },
+    "ram": {
+      "TotalPhysicalMemory": 34071896064
+    },
+    "os": {
+      "Caption": "Microsoft Windows 11 家庭版 中文版",
+      "Version": "10.0.26200",
+      "OSArchitecture": "64 位"
+    },
+    "scope": "Current hardware inventory; not historical peak consumption"
+  },
+  "hardware_scope": "Measured hardware inventory at P1-6, on the same host; no historical peak-memory instrument was running",
+  "full_run_timings": [
+    {
+      "stage": "P0-2",
+      "scope": "original_eight_year_full_run",
+      "run_record": "outputs/p0_2_audit/p0_2_v1/run_status.json",
+      "started_at_sgt": "2026-10-08T14:31:29.786931+08:00",
+      "finished_at_sgt": "2026-10-08T15:02:58.626576+08:00",
+      "wall_seconds": 1888.84,
+      "wall_minutes": 31.4807,
+      "sum_annual_seconds": 1875.267,
+      "overhead_seconds": 13.573,
+      "master": "local[4]",
+      "driver_memory_config": "4g",
+      "shuffle_partitions": 48,
+      "configuration_evidence": "run environment",
+      "peak_rss_bytes": "",
+      "peak_rss_status": "NOT_MEASURED",
+      "includes": "stage startup/processing/readback and shutdown; excludes separate validators, dependency setup and inter-stage human work"
+    },
+    {
+      "stage": "P0-3",
+      "scope": "original_eight_year_full_run",
+      "run_record": "outputs/p0_3_clean/p0_3_v1/run_status.json",
+      "started_at_sgt": "2026-10-08T16:16:25.831926+08:00",
+      "finished_at_sgt": "2026-10-08T16:50:42.021320+08:00",
+      "wall_seconds": 2056.189,
+      "wall_minutes": 34.2698,
+      "sum_annual_seconds": 2036.67,
+      "overhead_seconds": 19.519,
+      "master": "local[4]",
+      "driver_memory_config": "4g",
+      "shuffle_partitions": 48,
+      "configuration_evidence": "hashed scripts/spark_session.py defaults and src main entrypoint",
+      "peak_rss_bytes": "",
+      "peak_rss_status": "NOT_MEASURED",
+      "includes": "stage startup/processing/readback and shutdown; excludes separate validators, dependency setup and inter-stage human work"
+    },
+    {
+      "stage": "P0-4",
+      "scope": "original_eight_year_full_run",
+      "run_record": "outputs/p0_4_targets/p0_4_v1/run_status.json",
+      "started_at_sgt": "2026-10-08T17:21:07.888294+08:00",
+      "finished_at_sgt": "2026-10-08T17:30:57.155746+08:00",
+      "wall_seconds": 589.267,
+      "wall_minutes": 9.8211,
+      "sum_annual_seconds": 579.43,
+      "overhead_seconds": 9.837,
+      "master": "local[4]",
+      "driver_memory_config": "4g",
+      "shuffle_partitions": 48,
+      "configuration_evidence": "hashed scripts/spark_session.py defaults and src main entrypoint",
+      "peak_rss_bytes": "",
+      "peak_rss_status": "NOT_MEASURED",
+      "includes": "stage startup/processing/readback and shutdown; excludes separate validators, dependency setup and inter-stage human work"
+    }
+  ],
+  "raw_records": 48538713,
+  "observations": 48538627,
+  "cleaning_totals": {
+    "observations": 48538627,
+    "quarantine_rows": 0,
+    "merged_duplicate_rows": 86,
+    "zero_rainfall_rows": 47121647,
+    "aligned_retained_rows": 1775241,
+    "metadata_conflict_observations": 2
+  },
+  "target_totals": {
+    "anchors": 48538627,
+    "future_valid": 47636833,
+    "future_invalid": 901794,
+    "history_valid": 47347833,
+    "history_invalid": 1190794,
+    "base_model_eligible": 47048872,
+    "future_valid_history_invalid": 587961,
+    "cross_calendar_year_anchors": 2869
+  },
+  "losses": [
+    {
+      "measure": "merged_duplicate_rows",
+      "count": 86,
+      "denominator": 48538713,
+      "effect": "Removed from observations; two-sided lineage retained",
+      "percent": 0.00017718
+    },
+    {
+      "measure": "quarantine_rows",
+      "count": 0,
+      "denominator": 48538713,
+      "effect": "Invalid/conflicting source records; empty table retained",
+      "percent": 0.0
+    },
+    {
+      "measure": "future_invalid_anchors",
+      "count": 901794,
+      "denominator": 48538627,
+      "effect": "Retained in targets with null cumulative rainfall; not supervised negatives",
+      "percent": 1.85788939
+    },
+    {
+      "measure": "history_invalid_anchors",
+      "count": 1190794,
+      "denominator": 48538627,
+      "effect": "Retained; incomplete historical inputs under H1",
+      "percent": 2.45329148
+    },
+    {
+      "measure": "base_window_ineligible_anchors",
+      "count": 1489755,
+      "denominator": 48538627,
+      "effect": "Union of history/future invalidity; still subject to fold boundaries and I1 scope",
+      "percent": 3.06921537
+    }
+  ],
+  "sample_replay": {
+    "scope": "A_local_real_raw_fragment_replay_no_training",
+    "counts": {
+      "raw_records": 1297,
+      "observations": 1211,
+      "quarantine": 0,
+      "merged_duplicate_rows": 86,
+      "target_anchors": 114
+    },
+    "elapsed_seconds": 72.578,
+    "environment": {
+      "os": "Windows-10-10.0.26200-SP0",
+      "architecture": "",
+      "python": "3.11.5",
+      "pyspark": "3.5.7",
+      "py4j": "0.10.9.7",
+      "java": "17.0.20.1",
+      "master": "local[2]",
+      "driver_memory": "2g",
+      "shuffle_partitions": 8,
+      "timezone": "Asia/Singapore",
+      "jvm_max_heap_bytes": 2147483648
+    }
+  },
+  "downstream_training": "NOT_STARTED_BY_A",
+  "generated_at": "2026-10-08T11:24:21.603897+00:00"
+}

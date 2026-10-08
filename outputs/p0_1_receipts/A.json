@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "member": "A",
+  "sample_version": "p0_1_v1",
+  "sample_manifest_sha256": "5e21f2aa77af7c832e3e8e65a8506c918bf4406ecc1b1df3f5b3118896afd1a0",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "architecture": "",
+  "python": "3.11.5",
+  "pyspark": "3.5.7",
+  "py4j": "0.10.9.7",
+  "java": "17.0.20.1",
+  "rows": 16000,
+  "groups": 473,
+  "payload_hashes_passed": true,
+  "schema_passed": true,
+  "aggregate_comparison_passed": true,
+  "python_worker_passed": true,
+  "timezone": "Asia/Singapore",
+  "checked_at_sgt": "2026-10-08T14:20:30.681883+08:00"
+}

@@ -1,0 +1,89 @@
+{
+  "status": "PASS",
+  "started_at_sgt": "2026-10-08T14:31:29.786931+08:00",
+  "signature": {
+    "version": "p0_2_v1",
+    "code_sha256": "e2ddcdc3562395fb18882cb0dde912fc5df666fc6a371291c7d9a82ef3007da1",
+    "session_helper_sha256": "a3a8b9cd1a9db30aa70bacc6d51d1552822ceb81ff15ee7cd2e4867710970790",
+    "manifest_sha256": "27b32fc5e2fdd8d3681cc05455547668e6af8657758558984df6043bed693c56",
+    "source_sizes_mtimes": [
+      [
+        "Raw_Dataset/HistoricalRainfallacrossSingapore2017.csv",
+        881206891,
+        1791183211759628100
+      ],
+      [
+        "Raw_Dataset/HistoricalRainfallacrossSingapore2018.csv",
+        769547920,
+        1791183263775858800
+      ],
+      [
+        "Raw_Dataset/HistoricalRainfallacrossSingapore2019.csv",
+        842751786,
+        1791183324771955000
+      ],
+      [
+        "Raw_Dataset/HistoricalRainfallacrossSingapore2020.csv",
+        1048946924,
+        1791183467983837900
+      ],
+      [
+        "Raw_Dataset/HistoricalRainfallacrossSingapore2021.csv",
+        1158573170,
+        1791183544613339800
+      ],
+      [
+        "Raw_Dataset/HistoricalRainfallacrossSingapore2022.csv",
+        1172655651,
+        1791183638715995700
+      ],
+      [
+        "Raw_Dataset/HistoricalRainfallacrossSingapore2023.csv",
+        1107489275,
+        1791183726975070000
+      ],
+      [
+        "Raw_Dataset/HistoricalRainfallacrossSingapore2024.csv",
+        1065873084,
+        1791183909491766600
+      ]
+    ]
+  },
+  "completed_years": [
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024
+  ],
+  "environment": {
+    "python": "3.11.5 | packaged by Anaconda, Inc. | (main, Sep 11 2023, 13:26:23) [MSC v.1916 64 bit (AMD64)]",
+    "spark": "3.5.7",
+    "java": "17.0.20.1",
+    "master": "local[4]",
+    "driver_memory": "4g",
+    "shuffle_partitions": 48,
+    "timezone": "Asia/Singapore"
+  },
+  "current_year": 2024,
+  "summary": {
+    "status": "PASS",
+    "scope": "Full raw-data audit; candidate-valid records are not approved cleaned data.",
+    "station_count_full_period": 91,
+    "total_spark_record_rows": 48538713,
+    "total_structurally_valid_rows": 48538713,
+    "total_candidate_valid_rows": 48538713,
+    "total_unique_station_time_keys_within_files": 48538713,
+    "all_reconciliation_checks_passed": true,
+    "source_sizes_mtimes_unchanged": true,
+    "completed_at_sgt": "2026-10-08T15:02:54.947318+08:00"
+  },
+  "shutdown": {
+    "passed": true,
+    "gateway_exit_code": 0
+  },
+  "finished_at_sgt": "2026-10-08T15:02:58.626576+08:00"
+}

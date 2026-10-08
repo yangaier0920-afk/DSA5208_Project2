@@ -1,0 +1,557 @@
+{
+  "sample_version": "p1_5_v1",
+  "rows_per_table": 1309,
+  "selection": "S08 first 96 January observations/year plus +/-60min around the 29 pre-existing 2017-2020 manual cases; deduplicated keys",
+  "purpose": "Interface/read-write fixtures only; not a representative training or evaluation dataset",
+  "context_warning": "Targets were calculated from full observations; sample is sparse and does not guarantee complete context for every sample anchor. Do not rebuild production labels from it.",
+  "expected_by_year": [
+    {
+      "year": 2017,
+      "rows": 245,
+      "future_valid": 239,
+      "history_valid": 223
+    },
+    {
+      "year": 2018,
+      "rows": 215,
+      "future_valid": 193,
+      "history_valid": 179
+    },
+    {
+      "year": 2019,
+      "rows": 233,
+      "future_valid": 227,
+      "history_valid": 222
+    },
+    {
+      "year": 2020,
+      "rows": 232,
+      "future_valid": 224,
+      "history_valid": 220
+    },
+    {
+      "year": 2021,
+      "rows": 96,
+      "future_valid": 90,
+      "history_valid": 96
+    },
+    {
+      "year": 2022,
+      "rows": 96,
+      "future_valid": 96,
+      "history_valid": 96
+    },
+    {
+      "year": 2023,
+      "rows": 96,
+      "future_valid": 90,
+      "history_valid": 96
+    },
+    {
+      "year": 2024,
+      "rows": 96,
+      "future_valid": 96,
+      "history_valid": 96
+    }
+  ],
+  "tables": {
+    "observations": {
+      "version": "p0_3_v1",
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "raw_line",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "field_count",
+            "type": "integer",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "odd_quotes",
+            "type": "boolean",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "raw_date",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "raw_timestamp",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "raw_update_timestamp",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "raw_station_id",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "raw_station_name",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "raw_station_device_id",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "raw_location_longitude",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "raw_location_latitude",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "raw_reading_update_timestamp",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "raw_reading_value",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "raw_reading_type",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "raw_reading_unit",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "_corrupt_record",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "source_year",
+            "type": "integer",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "source_file",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "source_sha256",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "raw_record_sha256",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "station_id",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "station_name",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "station_device_id",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "event_ts",
+            "type": "timestamp",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "update_ts",
+            "type": "timestamp",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "reading_update_ts",
+            "type": "timestamp",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "rain_mm",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "rain_decimal_mm",
+            "type": "decimal(38,18)",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "longitude",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "latitude",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "event_epoch_s",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "original_offset_s",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "alignment_offset_s",
+            "type": "integer",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "alignment_rule",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "slot_end_epoch_s",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "slot_end_ts",
+            "type": "timestamp",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "rain_period_start_ts",
+            "type": "timestamp",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "observation_date",
+            "type": "date",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "rain_period_date",
+            "type": "date",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "rain_period_hour",
+            "type": "integer",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "update_delay_s",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "reading_update_delay_s",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "quarantine_reasons",
+            "type": {
+              "type": "array",
+              "elementType": "string",
+              "containsNull": true
+            },
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "metadata_warning",
+            "type": "boolean",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "source_effective_decimal_scale",
+            "type": "integer",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "decimal_representation_error",
+            "type": "boolean",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "rules_version",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "aligned_source_count",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "metadata_conflict",
+            "type": "boolean",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "year",
+            "type": "integer",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "month",
+            "type": "integer",
+            "nullable": true,
+            "metadata": {}
+          }
+        ]
+      }
+    },
+    "targets": {
+      "version": "p0_4_v1",
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "station_id",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "prediction_epoch_s",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "historical_n_valid",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "prediction_ts",
+            "type": "timestamp",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "label_end_epoch_s",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "label_end_ts",
+            "type": "timestamp",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "future_missing_offsets_s",
+            "type": {
+              "type": "array",
+              "elementType": "integer",
+              "containsNull": true
+            },
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "historical_missing_offsets_s",
+            "type": {
+              "type": "array",
+              "elementType": "integer",
+              "containsNull": true
+            },
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "future_n_valid",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "target_valid",
+            "type": "boolean",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "historical_valid",
+            "type": "boolean",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "future_30m_mm",
+            "type": "decimal(38,18)",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "model_anchor_eligible",
+            "type": "boolean",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "year_boundary_safe",
+            "type": "boolean",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "invalid_reason",
+            "type": {
+              "type": "array",
+              "elementType": "string",
+              "containsNull": true
+            },
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "historical_invalid_reason",
+            "type": {
+              "type": "array",
+              "elementType": "string",
+              "containsNull": true
+            },
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "fold1_role",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "fold2_role",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "fold3_role",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "final_role",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "targets_version",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "observations_version",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "year",
+            "type": "integer",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "month",
+            "type": "integer",
+            "nullable": true,
+            "metadata": {}
+          }
+        ]
+      }
+    }
+  },
+  "payload_files": [
+    {
+      "path": "observations/part-00000-5467bf84-12da-4b8d-a2bf-55c3e1f17909-c000.snappy.parquet",
+      "bytes": 240009,
+      "sha256": "728e4fc75d35628b16303b16e8f6a418995777ea3c1104ff84e40e6c800bde58"
+    },
+    {
+      "path": "targets/part-00000-04ac0c4e-3646-4aea-aada-4aae399fb14e-c000.snappy.parquet",
+      "bytes": 38251,
+      "sha256": "aaa1c9d04b862a0ce7786ba125bd744d6911d7549563ff887f9eac92be5999a8"
+    }
+  ]
+}

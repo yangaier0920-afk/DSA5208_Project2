@@ -1,0 +1,17 @@
+{
+  "recorded_at": "2026-10-08T19:11:37.0834476+08:00",
+  "cpu": {
+    "Name": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "NumberOfCores": 14,
+    "NumberOfLogicalProcessors": 20
+  },
+  "ram": {
+    "TotalPhysicalMemory": 34071896064
+  },
+  "os": {
+    "Caption": "Microsoft Windows 11 家庭版 中文版",
+    "Version": "10.0.26200",
+    "OSArchitecture": "64 位"
+  },
+  "scope": "Current hardware inventory; not historical peak consumption"
+}

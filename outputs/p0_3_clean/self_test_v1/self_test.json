@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "checks": {
+    "count_balance": true,
+    "primary_key_unique": true,
+    "time_grid_valid": true,
+    "no_invalid_measurements": true,
+    "decimal_valid": true,
+    "alignment_valid": true,
+    "interval_valid": true,
+    "partitions_valid": true,
+    "standard_grid_row_preferred": true,
+    "metadata_conflict_flagged": true,
+    "both_collision_records_traceable": true,
+    "unequal_rainfall_whole_group_quarantined": true,
+    "zero_retained": true,
+    "gap_not_filled": true,
+    "extreme_retained": true,
+    "decimal_lossless": true,
+    "scientific_decimal_supported": true,
+    "midnight_interval_previous_day": true,
+    "raw_time_preserved": true,
+    "bad_values_quarantined": true,
+    "precision_overflow_stops_before_rounding": true
+  }
+}

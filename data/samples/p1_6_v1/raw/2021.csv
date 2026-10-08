@@ -1,0 +1,2 @@
+date,timestamp,update_timestamp,station_id,station_name,station_device_id,location_longitude,location_latitude,reading_update_timestamp,reading_value,reading_type,reading_unit
+2021-01-01,2021-01-01T00:00:00+08:00,2021-01-01T00:09:49+08:00,S07,Lornie Road,S07,103.8334,1.3415,2021-01-01T00:09:49+08:00,0.0,TB1 Rainfall 5 Minute Total F,mm

@@ -1,0 +1,80 @@
+{
+  "status": "PASS",
+  "verifier_sha256": "a7f0384efabeed6be0b492106415436527c562775d968f76cfafc8ce8bd51c96",
+  "builder_signature": {
+    "version": "p0_4_v1",
+    "code_sha256": "4d26470cef1ac53202e6d2edf416a77784f999c3724705c01ab01e2d5254211a",
+    "config_sha256": "e5258b99925606c8ba88207cb44a6756514fa84cd60f37adea3f9db64103248b",
+    "source_output_manifest_sha256": "3a3ae46f32ad63a05d1c6cd7f6c45b216996fe5abc0265b01df2e3f346465f1a",
+    "source_validation_sha256": "4a3fe4dd8c489d1e887bf56ad3621190a52198a45397935466b28ee0c9564e0f",
+    "session_helper_sha256": "a3a8b9cd1a9db30aa70bacc6d51d1552822ceb81ff15ee7cd2e4867710970790",
+    "runtime_helper_sha256": "f59a20f7f5bfbc26011ce6b2a5e8981e67b3ea402b1eae690a5d913022932376",
+    "output": "D:/桌面文件/NUS_sem1/DSA5208/project2/data/processed/p0_4_v1",
+    "source": "D:/桌面文件/NUS_sem1/DSA5208/project2/data/processed/p0_3_v1/observations",
+    "self_test": false
+  },
+  "checks": {
+    "all_observations_have_anchor": true,
+    "primary_key_unique": true,
+    "future_count_balance": true,
+    "history_count_balance": true,
+    "unknown_future_is_null": true,
+    "valid_future_nonnegative": true,
+    "six_future_positions_accounted": true,
+    "twelve_history_positions_accounted": true,
+    "target_flags_consistent": true,
+    "history_flags_consistent": true,
+    "base_eligibility_consistent": true,
+    "label_endpoint_correct": true,
+    "partitions_correct": true,
+    "all_e2_roles_safe": true,
+    "annual_counts_match": true,
+    "decimal_truth_schema": true,
+    "all_91_stations": true,
+    "exact_observation_keys_match": true,
+    "spark_strict_threshold_and_unknown_label": true
+  },
+  "metrics": {
+    "anchors": 48538627,
+    "unique_keys": 48538627,
+    "future_valid": 47636833,
+    "future_invalid": 901794,
+    "history_valid": 47347833,
+    "history_invalid": 1190794,
+    "base_model_eligible": 47048872,
+    "future_valid_history_invalid": 587961,
+    "cross_calendar_year_anchors": 2869,
+    "invalid_nonnull_future": 0,
+    "bad_valid_future": 0,
+    "bad_future_slot_account": 0,
+    "bad_history_slot_account": 0,
+    "bad_target_flag": 0,
+    "bad_history_flag": 0,
+    "bad_eligibility_flag": 0,
+    "bad_label_end": 0,
+    "bad_partition": 0,
+    "bad_fold1_role": 0,
+    "bad_fold2_role": 0,
+    "bad_fold3_role": 0,
+    "bad_final_role": 0
+  },
+  "by_year": {
+    "2023": 6742890,
+    "2021": 7044646,
+    "2020": 6334473,
+    "2022": 7133230,
+    "2024": 6406260,
+    "2019": 5026862,
+    "2018": 4594246,
+    "2017": 5256020
+  },
+  "key_match": {
+    "joined_rows": 48538627,
+    "target_without_observation": 0,
+    "observation_without_target": 0
+  },
+  "shutdown": {
+    "passed": true,
+    "gateway_exit_code": 0
+  }
+}

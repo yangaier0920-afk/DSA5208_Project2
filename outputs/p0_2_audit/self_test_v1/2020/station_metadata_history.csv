@@ -1,0 +1,3 @@
+﻿year,station_id,station_name,station_device_id,location_longitude,location_latitude,rows,first_epoch_s,last_epoch_s
+2020,TEST_A,"Test, station",device1,103.8,1.3,9,1577808000,1577811600
+2020,TEST_A,Changed,device1,103.8,1.3,1,1577808299,1577808299

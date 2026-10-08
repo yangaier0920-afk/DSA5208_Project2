@@ -1,0 +1,71 @@
+{
+  "P0-2": {
+    "status": "PASS",
+    "validation": "outputs/p0_2_audit/p0_2_v1/validation.json"
+  },
+  "P0-3": {
+    "status": "PASS",
+    "version": "p0_3_v1",
+    "validation": "outputs/p0_3_clean/p0_3_v1/validation.json",
+    "observations": "data/processed/p0_3_v1/observations",
+    "totals": {
+      "observations": 48538627,
+      "quarantine_rows": 0,
+      "merged_duplicate_rows": 86,
+      "zero_rainfall_rows": 47121647,
+      "aligned_retained_rows": 1775241,
+      "metadata_conflict_observations": 2
+    }
+  },
+  "P0-4": {
+    "status": "PASS",
+    "owner": "A",
+    "version": "p0_4_v1",
+    "validation": "outputs/p0_4_targets/p0_4_v1/validation.json",
+    "targets": "data/processed/p0_4_v1/targets",
+    "totals": {
+      "anchors": 48538627,
+      "future_valid": 47636833,
+      "future_invalid": 901794,
+      "history_valid": 47347833,
+      "history_invalid": 1190794,
+      "base_model_eligible": 47048872,
+      "future_valid_history_invalid": 587961,
+      "cross_calendar_year_anchors": 2869
+    }
+  },
+  "E2": {
+    "decision": "CONFIRMED",
+    "training_status": "NOT_STARTED"
+  },
+  "P1-5": {
+    "status": "LOCAL_HANDOFF_READY",
+    "owner": "A",
+    "release_id": "rainfall_v1_r2",
+    "data_version": "v1",
+    "config_hash": "e5258b99925606c8ba88207cb44a6756514fa84cd60f37adea3f9db64103248b",
+    "manifest": "manifests/release_manifest.json",
+    "validation": "outputs/team_handoff/validation.json",
+    "B_actual_receipt": "PENDING",
+    "C_actual_receipt": "PENDING",
+    "github_publication": "NOT_STARTED"
+  },
+  "P1-6": {
+    "status": "LOCAL_A_COMPLETE",
+    "owner": "A",
+    "data_version": "v1",
+    "support_version": "a_support_v1_r2",
+    "manifest": "manifests/a_support_manifest.json",
+    "readme": "README.md",
+    "validation": "outputs/team_handoff/validation.json",
+    "B_C_other_machine_reproduction": "PENDING",
+    "final_model_validation": "PENDING_C_MODEL",
+    "github_publication": "NOT_STARTED"
+  },
+  "documentation": {
+    "entrypoint": "README.md",
+    "reference": "docs/reference.md",
+    "history": "archive/history_v1",
+    "release_id": "rainfall_v1_r2"
+  }
+}

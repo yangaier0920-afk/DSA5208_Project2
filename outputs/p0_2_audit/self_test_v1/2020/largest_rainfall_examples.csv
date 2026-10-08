@@ -1,0 +1,5 @@
+﻿year,date,timestamp,update_timestamp,station_id,station_name,station_device_id,location_longitude,location_latitude,reading_update_timestamp,reading_value,reading_type,reading_unit
+2020,2020-01-01,2020-01-01T00:00:00+08:00,2020-01-01T00:05:00+08:00,TEST_A,"Test, station",device1,103.8,1.3,2020-01-01T00:05:00+08:00,0.4,TB1 Rainfall 5 Minute Total F,mm
+2020,2020-01-01,2020-01-01T00:00:00+08:00,2020-01-01T00:05:00+08:00,TEST_A,"Test, station",device1,103.8,1.3,2020-01-01T00:05:00+08:00,0.2,TB1 Rainfall 5 Minute Total F,mm
+2020,2020-01-01,2020-01-01T00:00:00+08:00,2020-01-01T00:05:00+08:00,TEST_A,"Test, station",device1,103.8,1.3,2020-01-01T00:05:00+08:00,0.2,TB1 Rainfall 5 Minute Total F,mm
+2020,2020-01-01,2020-01-01T00:04:59+08:00,2020-01-01T00:05:00+08:00,TEST_A,Changed,device1,103.8,1.3,2020-01-01T00:05:00+08:00,0.2,TB1 Rainfall 5 Minute Total F,mm

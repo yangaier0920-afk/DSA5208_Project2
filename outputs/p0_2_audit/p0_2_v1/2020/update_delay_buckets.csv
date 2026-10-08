@@ -1,0 +1,8 @@
+﻿year,update_delay_bucket,reading_update_delay_bucket,count
+2020,0_to_5min,0_to_5min,414
+2020,1day_to_7days,1day_to_7days,184994
+2020,1hour_to_1day,1hour_to_1day,136256
+2020,1hour_to_1day,5min_to_1hour,444
+2020,5min_to_1hour,0_to_5min,2696
+2020,5min_to_1hour,5min_to_1hour,6009521
+2020,over_7days,over_7days,148

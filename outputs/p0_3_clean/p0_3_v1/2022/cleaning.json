@@ -1,0 +1,69 @@
+{
+  "status": "PASS",
+  "year": 2022,
+  "source": {
+    "year": 2022,
+    "path": "Raw_Dataset/HistoricalRainfallacrossSingapore2022.csv",
+    "bytes": 1172655651,
+    "sha256": "481eeafe94025f03e7ca0e8a22e78ff0addf76b35aeaf392e8bc5066b6a4cf14",
+    "physical_data_lines": 7133230,
+    "columns": [
+      "date",
+      "timestamp",
+      "update_timestamp",
+      "station_id",
+      "station_name",
+      "station_device_id",
+      "location_longitude",
+      "location_latitude",
+      "reading_update_timestamp",
+      "reading_value",
+      "reading_type",
+      "reading_unit"
+    ],
+    "dataset_id": "d_42d64cc6c176ace1c52fbb40b9ede302",
+    "source_page": "https://data.gov.sg/datasets/d_42d64cc6c176ace1c52fbb40b9ede302/view",
+    "source_title": "Historical Rainfall across Singapore (2022)",
+    "downloaded_at": null,
+    "original_download_url": null,
+    "mtime_ns": 1791183638715995700
+  },
+  "profile": {
+    "raw_rows": 7133230,
+    "decimal_errors": 0,
+    "max_source_decimal_scale": 5,
+    "shifted_source_rows": 0,
+    "alignment_date_changed_rows": 0
+  },
+  "metrics": {
+    "observations": 7133230,
+    "unique_keys": 7133230,
+    "off_grid": 0,
+    "invalid_retained": 0,
+    "invalid_decimal": 0,
+    "bad_alignment": 0,
+    "bad_interval": 0,
+    "bad_year": 0,
+    "bad_month": 0,
+    "zero_rainfall_rows": 6912931,
+    "aligned_retained_rows": 0,
+    "metadata_conflict_observations": 0,
+    "rain_sum_mm": "198028.356050000000000000",
+    "quarantine_rows": 0,
+    "merged_duplicate_rows": 0,
+    "ledger_dispositions": {}
+  },
+  "checks": {
+    "count_balance": true,
+    "primary_key_unique": true,
+    "time_grid_valid": true,
+    "no_invalid_measurements": true,
+    "decimal_valid": true,
+    "alignment_valid": true,
+    "interval_valid": true,
+    "partitions_valid": true,
+    "rainfall_amount_balance": true
+  },
+  "duplicate_groups": 0,
+  "elapsed_seconds": 298.84
+}

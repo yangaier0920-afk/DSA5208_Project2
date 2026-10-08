@@ -1,0 +1,604 @@
+[
+  {
+    "station_id": "S07",
+    "slot_end_epoch_s": 1493090400,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S07",
+    "slot_end_epoch_s": 1493090700,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S08",
+    "slot_end_epoch_s": 1493090400,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S08",
+    "slot_end_epoch_s": 1493090700,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S100",
+    "slot_end_epoch_s": 1493090400,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S100",
+    "slot_end_epoch_s": 1493090700,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S101",
+    "slot_end_epoch_s": 1493090400,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S101",
+    "slot_end_epoch_s": 1493090700,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S102",
+    "slot_end_epoch_s": 1493090400,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S102",
+    "slot_end_epoch_s": 1493090700,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S104",
+    "slot_end_epoch_s": 1493090400,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S104",
+    "slot_end_epoch_s": 1493090700,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S106",
+    "slot_end_epoch_s": 1493090400,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S106",
+    "slot_end_epoch_s": 1493090700,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S108",
+    "slot_end_epoch_s": 1493090400,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S108",
+    "slot_end_epoch_s": 1493090700,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S109",
+    "slot_end_epoch_s": 1493090400,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S109",
+    "slot_end_epoch_s": 1493090700,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S11",
+    "slot_end_epoch_s": 1493090400,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S11",
+    "slot_end_epoch_s": 1493090700,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S112",
+    "slot_end_epoch_s": 1493090400,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S112",
+    "slot_end_epoch_s": 1493090700,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S113",
+    "slot_end_epoch_s": 1493090400,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 2
+  },
+  {
+    "station_id": "S113",
+    "slot_end_epoch_s": 1493090700,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 2
+  },
+  {
+    "station_id": "S114",
+    "slot_end_epoch_s": 1493090400,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S114",
+    "slot_end_epoch_s": 1493090700,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S115",
+    "slot_end_epoch_s": 1493090400,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S115",
+    "slot_end_epoch_s": 1493090700,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S116",
+    "slot_end_epoch_s": 1493090400,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S116",
+    "slot_end_epoch_s": 1493090700,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S117",
+    "slot_end_epoch_s": 1493090400,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S117",
+    "slot_end_epoch_s": 1493090700,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S119",
+    "slot_end_epoch_s": 1493090400,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S119",
+    "slot_end_epoch_s": 1493090700,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S120",
+    "slot_end_epoch_s": 1493090400,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S120",
+    "slot_end_epoch_s": 1493090700,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S122",
+    "slot_end_epoch_s": 1493090400,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S122",
+    "slot_end_epoch_s": 1493090700,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S123",
+    "slot_end_epoch_s": 1493090400,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S123",
+    "slot_end_epoch_s": 1493090700,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S24",
+    "slot_end_epoch_s": 1493090400,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S24",
+    "slot_end_epoch_s": 1493090700,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S29",
+    "slot_end_epoch_s": 1493090400,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S29",
+    "slot_end_epoch_s": 1493090700,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S33",
+    "slot_end_epoch_s": 1493090400,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S33",
+    "slot_end_epoch_s": 1493090700,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S35",
+    "slot_end_epoch_s": 1493090400,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S35",
+    "slot_end_epoch_s": 1493090700,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S43",
+    "slot_end_epoch_s": 1493090400,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S43",
+    "slot_end_epoch_s": 1493090700,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S46",
+    "slot_end_epoch_s": 1493090400,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S46",
+    "slot_end_epoch_s": 1493090700,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S50",
+    "slot_end_epoch_s": 1493090400,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S50",
+    "slot_end_epoch_s": 1493090700,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S55",
+    "slot_end_epoch_s": 1493090400,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S55",
+    "slot_end_epoch_s": 1493090700,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S61",
+    "slot_end_epoch_s": 1493090400,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S61",
+    "slot_end_epoch_s": 1493090700,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S63",
+    "slot_end_epoch_s": 1493090400,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S63",
+    "slot_end_epoch_s": 1493090700,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S64",
+    "slot_end_epoch_s": 1493090400,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S64",
+    "slot_end_epoch_s": 1493090700,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S66",
+    "slot_end_epoch_s": 1493090400,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S66",
+    "slot_end_epoch_s": 1493090700,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S71",
+    "slot_end_epoch_s": 1493090400,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S71",
+    "slot_end_epoch_s": 1493090700,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S77",
+    "slot_end_epoch_s": 1493090400,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S77",
+    "slot_end_epoch_s": 1493090700,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S78",
+    "slot_end_epoch_s": 1493090400,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S78",
+    "slot_end_epoch_s": 1493090700,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S79",
+    "slot_end_epoch_s": 1493090400,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S79",
+    "slot_end_epoch_s": 1493090700,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S81",
+    "slot_end_epoch_s": 1493090400,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S81",
+    "slot_end_epoch_s": 1493090700,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S84",
+    "slot_end_epoch_s": 1493090400,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S84",
+    "slot_end_epoch_s": 1493090700,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S88",
+    "slot_end_epoch_s": 1493090400,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S88",
+    "slot_end_epoch_s": 1493090700,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S89",
+    "slot_end_epoch_s": 1493090400,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S89",
+    "slot_end_epoch_s": 1493090700,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S900",
+    "slot_end_epoch_s": 1493090400,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S900",
+    "slot_end_epoch_s": 1493090700,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S92",
+    "slot_end_epoch_s": 1493090400,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S92",
+    "slot_end_epoch_s": 1493090700,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S94",
+    "slot_end_epoch_s": 1493090400,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  },
+  {
+    "station_id": "S94",
+    "slot_end_epoch_s": 1493090700,
+    "aligned_source_count": 2,
+    "rain_variants": 1,
+    "metadata_variants": 1
+  }
+]

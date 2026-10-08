@@ -1,0 +1,165 @@
+{
+  "type": "struct",
+  "fields": [
+    {
+      "name": "station_id",
+      "type": "string",
+      "nullable": true,
+      "metadata": {}
+    },
+    {
+      "name": "prediction_epoch_s",
+      "type": "long",
+      "nullable": true,
+      "metadata": {}
+    },
+    {
+      "name": "historical_n_valid",
+      "type": "long",
+      "nullable": true,
+      "metadata": {}
+    },
+    {
+      "name": "prediction_ts",
+      "type": "timestamp",
+      "nullable": true,
+      "metadata": {}
+    },
+    {
+      "name": "label_end_epoch_s",
+      "type": "long",
+      "nullable": true,
+      "metadata": {}
+    },
+    {
+      "name": "label_end_ts",
+      "type": "timestamp",
+      "nullable": true,
+      "metadata": {}
+    },
+    {
+      "name": "future_missing_offsets_s",
+      "type": {
+        "type": "array",
+        "elementType": "integer",
+        "containsNull": true
+      },
+      "nullable": true,
+      "metadata": {}
+    },
+    {
+      "name": "historical_missing_offsets_s",
+      "type": {
+        "type": "array",
+        "elementType": "integer",
+        "containsNull": true
+      },
+      "nullable": true,
+      "metadata": {}
+    },
+    {
+      "name": "future_n_valid",
+      "type": "long",
+      "nullable": true,
+      "metadata": {}
+    },
+    {
+      "name": "target_valid",
+      "type": "boolean",
+      "nullable": true,
+      "metadata": {}
+    },
+    {
+      "name": "historical_valid",
+      "type": "boolean",
+      "nullable": true,
+      "metadata": {}
+    },
+    {
+      "name": "future_30m_mm",
+      "type": "decimal(38,18)",
+      "nullable": true,
+      "metadata": {}
+    },
+    {
+      "name": "model_anchor_eligible",
+      "type": "boolean",
+      "nullable": true,
+      "metadata": {}
+    },
+    {
+      "name": "year_boundary_safe",
+      "type": "boolean",
+      "nullable": true,
+      "metadata": {}
+    },
+    {
+      "name": "invalid_reason",
+      "type": {
+        "type": "array",
+        "elementType": "string",
+        "containsNull": true
+      },
+      "nullable": true,
+      "metadata": {}
+    },
+    {
+      "name": "historical_invalid_reason",
+      "type": {
+        "type": "array",
+        "elementType": "string",
+        "containsNull": true
+      },
+      "nullable": true,
+      "metadata": {}
+    },
+    {
+      "name": "fold1_role",
+      "type": "string",
+      "nullable": true,
+      "metadata": {}
+    },
+    {
+      "name": "fold2_role",
+      "type": "string",
+      "nullable": true,
+      "metadata": {}
+    },
+    {
+      "name": "fold3_role",
+      "type": "string",
+      "nullable": true,
+      "metadata": {}
+    },
+    {
+      "name": "final_role",
+      "type": "string",
+      "nullable": true,
+      "metadata": {}
+    },
+    {
+      "name": "targets_version",
+      "type": "string",
+      "nullable": true,
+      "metadata": {}
+    },
+    {
+      "name": "observations_version",
+      "type": "string",
+      "nullable": true,
+      "metadata": {}
+    },
+    {
+      "name": "year",
+      "type": "integer",
+      "nullable": true,
+      "metadata": {}
+    },
+    {
+      "name": "month",
+      "type": "integer",
+      "nullable": true,
+      "metadata": {}
+    }
+  ]
+}

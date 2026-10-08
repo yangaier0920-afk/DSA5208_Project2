@@ -1,0 +1,13 @@
+.venv/
+.runtime/
+outputs/spark_smoke/
+__pycache__/
+*.pyc
+
+# Full datasets are distributed separately; keep portable manifests and samples.
+Raw_Dataset/
+data/processed/
+outputs/p1_5_receipts/
+outputs/p1_5_release/
+*.zip
+*.crc

@@ -1,0 +1,655 @@
+{
+  "status": "PASS",
+  "files": [
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2017/anomaly_examples.csv",
+      "bytes": 5746,
+      "sha256": "98b17903d61611b76beb55af4a7aea934b127f73964807ab4f840412de804cd5"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2017/audit.json",
+      "bytes": 699182,
+      "sha256": "67c68d4f752e4defcf859583429cf233ea5e6fa170fa75843561a0806774b322"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2017/cadence_gap_counts.csv",
+      "bytes": 5876,
+      "sha256": "ee8c8dcf29f19b8992aa45fff3542ded09a12bfaa41821a7bc527004fd51a0a6"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2017/cadence_gap_examples.csv",
+      "bytes": 2487,
+      "sha256": "d71654ff2f422372cdcc279b64723e5df54ece0b74dfd86895d125bf442287e8"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2017/daily_timestamp_offsets.csv",
+      "bytes": 9411,
+      "sha256": "11fa3bb41593dbf505496d2e89d22338ed770aff39b1e085e7d458b630471b35"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2017/duplicate_key_examples.csv",
+      "bytes": 82,
+      "sha256": "2a6e6ea1a4f507a1c341e362a6d92bf47342a4886f18316f91a2d3d124a91b5f"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2017/largest_rainfall_examples.csv",
+      "bytes": 2827,
+      "sha256": "97cba546a6dc32e6a7e44c5ed82f1862e3f633f7f8c85cfe23c53647b0209aef"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2017/station_metadata_history.csv",
+      "bytes": 4900,
+      "sha256": "e5f3364e888b42baa5370460750fce98d1196ffc8ffad6b8d1bf8dc3a9868a2e"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2017/station_month_coverage.csv",
+      "bytes": 74400,
+      "sha256": "29769a916bc60204941c5d8889c0dda4f3a3cd162dc4dda6a694f67ac51da705"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2017/station_summary.csv",
+      "bytes": 2875,
+      "sha256": "deb6c8b2027f91c2132e631777458e2402192df23ee067816ded5479680c1615"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2017/timestamp_offsets.csv",
+      "bytes": 58,
+      "sha256": "077583164d0dfa03e7fb33ed55dfc00ab4a75eed5a5c7cdcd4868af69c51b0e1"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2017/units_types.csv",
+      "bytes": 88,
+      "sha256": "7e054a33e042633d063ac922c2b06f861123e434036c4733e1bb6079dc1ce82d"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2017/update_delay_buckets.csv",
+      "bytes": 287,
+      "sha256": "e1aa00698b3effad4394e63b6cf2638b8046edb73084f52e5b5b8b5a2430abb4"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2018/anomaly_examples.csv",
+      "bytes": 3917,
+      "sha256": "064f8a4aa2077066a02670530fd864419a138e5079472932342a4db6ac7d97bf"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2018/audit.json",
+      "bytes": 630718,
+      "sha256": "fbeb51b7555a56de39778b664e1813313ddea126b06361826ed83799de27376b"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2018/cadence_gap_counts.csv",
+      "bytes": 5163,
+      "sha256": "f326dfb250da2bb6600f3f41c5af7462bfb5d146c779d2184d0d8326543d786b"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2018/cadence_gap_examples.csv",
+      "bytes": 2498,
+      "sha256": "dbc5cd54cbd92c6e5846ad7cf5a7c9879cdd6ba782723938c6f77ffe65650b49"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2018/daily_timestamp_offsets.csv",
+      "bytes": 8169,
+      "sha256": "7e5d0407b3bfd96ea3f535d4062e98f977c44c08441abca2cd331ee9e338b3e3"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2018/duplicate_key_examples.csv",
+      "bytes": 82,
+      "sha256": "2a6e6ea1a4f507a1c341e362a6d92bf47342a4886f18316f91a2d3d124a91b5f"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2018/largest_rainfall_examples.csv",
+      "bytes": 2842,
+      "sha256": "1dd37938e5121d15fa532ce6fbc1fc8952b5fab3372ec1d334df2cf650a52286"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2018/station_metadata_history.csv",
+      "bytes": 4356,
+      "sha256": "b29d5c92819274d7103a3f887da28410563ac8ce019867adfc50298f8ea01e8e"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2018/station_month_coverage.csv",
+      "bytes": 70061,
+      "sha256": "ae0ebbccafbae41f07aee6a3d12d27c1b4eef0ff73cc11d3760b61eeed41c38c"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2018/station_summary.csv",
+      "bytes": 2597,
+      "sha256": "d4f1c8076afdb3d3608afb940230d0de9fde7083ef701c61a7fcc5ef1d0eb9d2"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2018/timestamp_offsets.csv",
+      "bytes": 40,
+      "sha256": "adb15a0604949ae29d6020513666ed47ddc823de6986f757328d24ee717ebaab"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2018/units_types.csv",
+      "bytes": 88,
+      "sha256": "06a0dda14aa3ee06c1bd627a1a2915f8f7ac6647489b7c4c83c4da10e437b646"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2018/update_delay_buckets.csv",
+      "bytes": 284,
+      "sha256": "ccfa7eb7669582fbd669c30953471ea1d2763184e9cf516702220cd7db5ccf95"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2019/anomaly_examples.csv",
+      "bytes": 3937,
+      "sha256": "1851cc9fb194d7c2835c54154a53a03bdca63d0f7c457f2fdd74920720843a89"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2019/audit.json",
+      "bytes": 621441,
+      "sha256": "e4af217db42819df229297cf45625049f0c89d7b17561aabd965b3008214d3e9"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2019/cadence_gap_counts.csv",
+      "bytes": 6095,
+      "sha256": "d7e6fc553b1498adf0db0c6f797ff16f0843d5a2e8e950f2df761f1e5d0ef772"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2019/cadence_gap_examples.csv",
+      "bytes": 2475,
+      "sha256": "c2738aa4b6f99a8e5a3067c81b5e3d2c807260bd36198dde39cd5e0f819fc9d6"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2019/daily_timestamp_offsets.csv",
+      "bytes": 8880,
+      "sha256": "fbd93a495351b75e6091f5b9e13b54f72cc3f4d779461a297e2c078acc31b4fb"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2019/duplicate_key_examples.csv",
+      "bytes": 82,
+      "sha256": "2a6e6ea1a4f507a1c341e362a6d92bf47342a4886f18316f91a2d3d124a91b5f"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2019/largest_rainfall_examples.csv",
+      "bytes": 2811,
+      "sha256": "48c5346137b22f35eb4562002828d6e9ae9170723d9c20a8c57a662f4d1f73a6"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2019/station_metadata_history.csv",
+      "bytes": 4229,
+      "sha256": "efdb43d976687c092b2e36df900246926284c0105b64b1d2bb0f3b5439183e29"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2019/station_month_coverage.csv",
+      "bytes": 67420,
+      "sha256": "3c58e22a107c04525add758c47c9298c785c796fe1db3c2e142802ebdb700f0d"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2019/station_summary.csv",
+      "bytes": 2533,
+      "sha256": "e55322139de7bb648ee45f666fa6edbb81ca76bfce7c58753f065dd1c093fc87"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2019/timestamp_offsets.csv",
+      "bytes": 40,
+      "sha256": "dd0a9946d90b0127d9fcbcf9474377709420426bdcac604a4a11800d22935c53"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2019/units_types.csv",
+      "bytes": 88,
+      "sha256": "a952fca2a26b21a51cba7f4a056f7a8c662839a0b0d4384a7153c9cb7fd7e7b1"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2019/update_delay_buckets.csv",
+      "bytes": 359,
+      "sha256": "5f1cdfb416e8c3c1528834408544fd605e68caf73defed487b42a1856be0d506"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2020/anomaly_examples.csv",
+      "bytes": 3957,
+      "sha256": "4b54f9de3728729749f468aac0c2995f811f79a2866d4f89c2dd80c4f28ae378"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2020/audit.json",
+      "bytes": 855295,
+      "sha256": "6a265778373ee15b2aef71bd0fac42a19acf85778011b328085536eba8e2f070"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2020/cadence_gap_counts.csv",
+      "bytes": 5802,
+      "sha256": "b366f50091f9354883f9adff0e685c15f9ea8b711897521f3de44d0ace99dfd9"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2020/cadence_gap_examples.csv",
+      "bytes": 2483,
+      "sha256": "4e9ab630d7f22e552f35abc5dd4c4a6f86d52c12f312c399fb2159b5ca3ff7dc"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2020/daily_timestamp_offsets.csv",
+      "bytes": 9114,
+      "sha256": "71fb42ff026514fe179958f9e9f1a3b7dc56aaa52b1c8f564e99158a99868a13"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2020/duplicate_key_examples.csv",
+      "bytes": 82,
+      "sha256": "2a6e6ea1a4f507a1c341e362a6d92bf47342a4886f18316f91a2d3d124a91b5f"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2020/largest_rainfall_examples.csv",
+      "bytes": 2805,
+      "sha256": "ca9c5e79c2cf8297bbec9773ddf50aefa572a462f527bda82e9f358ae586eea4"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2020/station_metadata_history.csv",
+      "bytes": 5961,
+      "sha256": "4885c49389ccd1327ba1e817c0b1f31a209b6f2e8f0ac5f45f6a54aaf36ed920"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2020/station_month_coverage.csv",
+      "bytes": 88454,
+      "sha256": "bf497c81f5291193c7dbd63c2a8c9478f33c9ee595ca48e2545413b9eacf886d"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2020/station_summary.csv",
+      "bytes": 3704,
+      "sha256": "78cd5eb184984e89dfad4669f75817df9797c948f45b15d4d91187149dc00221"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2020/timestamp_offsets.csv",
+      "bytes": 40,
+      "sha256": "6bc5a813d5c069a8a44fd0c4821bdbce1ab92e34ed7f83485d4404f7e72646a1"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2020/units_types.csv",
+      "bytes": 88,
+      "sha256": "ccd74cc88c70fe37b5484a747f73d5534ef1e70cb1a00b4398c9f4058b1fdcf0"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2020/update_delay_buckets.csv",
+      "bytes": 322,
+      "sha256": "4229684fe0e15fcef4153799d1ab3b4be69bd779109cb7b60cdf49ab3fdf80de"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2021/anomaly_examples.csv",
+      "bytes": 3965,
+      "sha256": "5db97e874533269f9147f13f4d37242272d76e114f9a9d515511d9ebee57de16"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2021/audit.json",
+      "bytes": 804042,
+      "sha256": "21490263d7221ce8a6efdc57ca235bd0dc903139f727684b1a0be1ec364f83b6"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2021/cadence_gap_counts.csv",
+      "bytes": 3951,
+      "sha256": "be5307526d57814bb8415a0a104954980c99b17963a0b304e322768231cac862"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2021/cadence_gap_examples.csv",
+      "bytes": 2468,
+      "sha256": "c089f2f98b2bbf2222cee457ce0c7c9dab79b0ae8d98c06beecc1c056841927b"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2021/daily_timestamp_offsets.csv",
+      "bytes": 9083,
+      "sha256": "8e02f51256cb859139014a8dbe487c3682e871038113b614fffb47a0f44d540c"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2021/duplicate_key_examples.csv",
+      "bytes": 82,
+      "sha256": "2a6e6ea1a4f507a1c341e362a6d92bf47342a4886f18316f91a2d3d124a91b5f"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2021/largest_rainfall_examples.csv",
+      "bytes": 2834,
+      "sha256": "bae155328ec77433ac8fd0dca280dc929ed754c2be109a538519b59f448024d9"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2021/station_metadata_history.csv",
+      "bytes": 5688,
+      "sha256": "496f2656cd7497647a1b78d53ea5a53cf96eda0b1fae2d175f8004b1459b642a"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2021/station_month_coverage.csv",
+      "bytes": 82854,
+      "sha256": "270af88fe6c2fee244cb55d17edb4b9659bad762f5ddfbffce070a69c4c9af2f"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2021/station_summary.csv",
+      "bytes": 3550,
+      "sha256": "f518cceafab24e1a58d3f059083b8835136a207e5f39a8bd4d9325ab0e65f380"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2021/timestamp_offsets.csv",
+      "bytes": 40,
+      "sha256": "f114ce37bfa654bf8c52ef0ca155d930365e89c8559fb131513dd51ecd40af96"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2021/units_types.csv",
+      "bytes": 88,
+      "sha256": "cfc2e80f95e056e41b2d097041f0e6bf0f13ce11b5a0c97fc8bf4214d31c9346"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2021/update_delay_buckets.csv",
+      "bytes": 223,
+      "sha256": "3607032d153bd82f12fee8c615ace9a06d496cba5ad30b47b7ff312286f8bc1a"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2022/anomaly_examples.csv",
+      "bytes": 3945,
+      "sha256": "4fb454e8379fb5dddb29989deac9edbaaf589b566670f471ac34730c034e5250"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2022/audit.json",
+      "bytes": 774741,
+      "sha256": "356f9a0b4e35cba2e06db9a3b15a9ea88090ded7b9b7a282a36ab332a29daae5"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2022/cadence_gap_counts.csv",
+      "bytes": 3927,
+      "sha256": "be19a548535127d2dbd80403bcc0cafbc9f098b0804b3f1fecf0d20d9cc78f90"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2022/cadence_gap_examples.csv",
+      "bytes": 2478,
+      "sha256": "aa1e53b4cace6143fc8db813ea0d068545215e457ace720a83413dc1a90a6230"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2022/daily_timestamp_offsets.csv",
+      "bytes": 9160,
+      "sha256": "402d29ca3f259b20fbf114e92d6664b234a949809a62444241e409bbcfb1b772"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2022/duplicate_key_examples.csv",
+      "bytes": 82,
+      "sha256": "2a6e6ea1a4f507a1c341e362a6d92bf47342a4886f18316f91a2d3d124a91b5f"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2022/largest_rainfall_examples.csv",
+      "bytes": 2821,
+      "sha256": "caa58382c6f5828ad3a8c62e950d61909c7b98187114565d763c52db37494084"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2022/station_metadata_history.csv",
+      "bytes": 5401,
+      "sha256": "36d1dd6ef4fba933fcee25c392b0a504a4291ec5af1ca1072603b8cce586cba0"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2022/station_month_coverage.csv",
+      "bytes": 85673,
+      "sha256": "6a78b8b08b3a32a870b71f793a9aa3cb8f41a094ec1f290a157e9fabcf51419c"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2022/station_summary.csv",
+      "bytes": 3388,
+      "sha256": "978a6c3fcf962b87b45315b461ece017a598cf5b23ec44d0538754a3824805e3"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2022/timestamp_offsets.csv",
+      "bytes": 40,
+      "sha256": "b19069cb5ac889d67e848f216da5367ce757a25222a08450f7e0e2744683a2c4"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2022/units_types.csv",
+      "bytes": 88,
+      "sha256": "92eafaa0afd8f5a3c73e63d396f97822a3fc92160d86a6b70f5d13df983b4add"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2022/update_delay_buckets.csv",
+      "bytes": 287,
+      "sha256": "b49af5aff397b80dcc0dfb709be70f262224bb7eee57ddccacdd3bbb28b04d9d"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2023/anomaly_examples.csv",
+      "bytes": 3905,
+      "sha256": "64157d00202e5f2734f3f4eb14002ef878234e607d34ccb83e84dc0bc07e68a9"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2023/audit.json",
+      "bytes": 783304,
+      "sha256": "67aa986f8bbce7c52e1228d2ce851c9f95e06fb5843bf4a4c88514d16b1cf539"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2023/cadence_gap_counts.csv",
+      "bytes": 2747,
+      "sha256": "f17515ee32fdd69f9ee7acea3f357334fbdff735ebc9b721d9d471dcbc872443"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2023/cadence_gap_examples.csv",
+      "bytes": 2478,
+      "sha256": "2273a1418ee7d314cede18212c5d1057804352070ac2746ff89ce6fdb91d7c15"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2023/daily_timestamp_offsets.csv",
+      "bytes": 8958,
+      "sha256": "17561b41ff702dd8dfa6a3c7ee202ade07cc7a65ea832513c8305661e1822270"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2023/duplicate_key_examples.csv",
+      "bytes": 82,
+      "sha256": "2a6e6ea1a4f507a1c341e362a6d92bf47342a4886f18316f91a2d3d124a91b5f"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2023/largest_rainfall_examples.csv",
+      "bytes": 2771,
+      "sha256": "556792b1a9cc92600b3b0f4541c0a94ba8b4cee41623c0034bc9ef1a3ebca656"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2023/station_metadata_history.csv",
+      "bytes": 5525,
+      "sha256": "59980915b08ab84bbefc7e0477568984ba429a1c0811d352fb3f42c24c4a6c3b"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2023/station_month_coverage.csv",
+      "bytes": 86052,
+      "sha256": "da87e942dbd26d521bce83817890d02716353e967531c40f4be6aa60ebe5867b"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2023/station_summary.csv",
+      "bytes": 3460,
+      "sha256": "ba618a05f12695be05bfd4228d2c08b5561e0798acb90449cdff34157b9b2e5e"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2023/timestamp_offsets.csv",
+      "bytes": 40,
+      "sha256": "2b99e5948f0621ea780f6cab3e081490c8556c0c486912b473252f9d91728050"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2023/units_types.csv",
+      "bytes": 88,
+      "sha256": "887efda3e1f20361469ba3edb4bcce0ff4da0076ed5413680a4de969895de43a"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2023/update_delay_buckets.csv",
+      "bytes": 291,
+      "sha256": "60f61be44247e66243c950aeadd8304bfd88e3644eae82e3a1f814bed6f006ab"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2024/anomaly_examples.csv",
+      "bytes": 3929,
+      "sha256": "6a33e62c71b628d5f83a0443c30a70b0271080397c3f445502928d265965d813"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2024/audit.json",
+      "bytes": 758553,
+      "sha256": "c828f6503eedbd64e5f7349930efc44a1ccebfffda3e9be5606fd467084b53ad"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2024/cadence_gap_counts.csv",
+      "bytes": 3337,
+      "sha256": "1eba88e2e4d5a73a78eecb26a58c9662f723d661bf87dbb2471a1b6a66f8fb73"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2024/cadence_gap_examples.csv",
+      "bytes": 2485,
+      "sha256": "d4917682497d2c6471cbf624525e7caed71e5a064bc2683f730916d85df07b10"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2024/daily_timestamp_offsets.csv",
+      "bytes": 9184,
+      "sha256": "2ba8701e038710d48f8b816cbcd0203f930d7f7262a8e6166d4ff3c61b09099a"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2024/duplicate_key_examples.csv",
+      "bytes": 82,
+      "sha256": "2a6e6ea1a4f507a1c341e362a6d92bf47342a4886f18316f91a2d3d124a91b5f"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2024/largest_rainfall_examples.csv",
+      "bytes": 2815,
+      "sha256": "abc3c647035e11be93ae80c473ab588dddeb6a4764eecaa4a0a980f79f81177e"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2024/station_metadata_history.csv",
+      "bytes": 7267,
+      "sha256": "e578da08adb46c4edce08b5695384663b632ea6bfe12093d17b1e19048fcd24b"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2024/station_month_coverage.csv",
+      "bytes": 80567,
+      "sha256": "076a4958fbec985cc70a08847bf6b8428be860a5477640049d9d6d8f1688e263"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2024/station_summary.csv",
+      "bytes": 3280,
+      "sha256": "ae6837c84603ce3713c20cdb4ec89fff858408d0024c5d1e15a3be5e7e76e6fb"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2024/timestamp_offsets.csv",
+      "bytes": 40,
+      "sha256": "84131cf2aa3b4334cd9e7736e112ddf175f611a52ec987e61994a57fda448aa1"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2024/units_types.csv",
+      "bytes": 88,
+      "sha256": "487d997b60b432c0ff4438d87baff367f2f05b0056c75be2a9a95c57efa5c274"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/2024/update_delay_buckets.csv",
+      "bytes": 223,
+      "sha256": "8872f64c5e960c79b8af9405471eb084f4b2e483ea275028aace0b481e587ab6"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/annual_quality.csv",
+      "bytes": 4243,
+      "sha256": "4fd0c8865723878d7bafac14cca97fd0e4ea293d8f8d33c85c716ec3a6357119"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/anomaly_examples.csv",
+      "bytes": 31698,
+      "sha256": "a827df02e8a4b4d5a60ef175c98a69a0d1a70fbf4d8e0b3a00eb18e00ed850f9"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/cadence_gap_counts.csv",
+      "bytes": 36751,
+      "sha256": "5c56bd369cbaa8f83973969c3aee8c8a654eed0f00e120bfad88d699683f2332"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/cadence_gap_examples.csv",
+      "bytes": 19110,
+      "sha256": "627c17ca8a5eb5eaee385cb65e2a8d8158477d2bee61bc4c324b8a89f5ec9cf1"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/common_station_month_network_coverage.csv",
+      "bytes": 4338,
+      "sha256": "5e8d8f0642893f7f723e2d45b7300394d74251a3868d4126526406e91b024a13"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/comparability_panel_candidates.json",
+      "bytes": 744,
+      "sha256": "73cfba51c3b065af1d5cc40dda6228f69441e5c07743ae27bd07b09bfa37f912"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/daily_network_record_counts.csv",
+      "bytes": 81635,
+      "sha256": "262fe1793456cc704bad972e355c30ce9b7d8a7ac325ed3ecd2e9f3a4de3d88f"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/daily_timestamp_offsets.csv",
+      "bytes": 71714,
+      "sha256": "f396fcfc95f1d2326d90af4a9df1c9233982b67cd002792de5b9de07f73ad410"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/duplicate_key_examples.csv",
+      "bytes": 82,
+      "sha256": "2a6e6ea1a4f507a1c341e362a6d92bf47342a4886f18316f91a2d3d124a91b5f"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/largest_rainfall_examples.csv",
+      "bytes": 21231,
+      "sha256": "d79e6cc66de3199a314f6ff0b58a05ed861edb336234a57818eb884dd1f8df84"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/run_status.json",
+      "bytes": 2628,
+      "sha256": "201e8928d38f9883516fe118adcf71e9e32b7d52b5125f0da49544964215991a"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/station_full_period_summary.csv",
+      "bytes": 6709,
+      "sha256": "e1dafd6ffa4c2e44219c49c94c87e323777bcfb682e5157aae0d67720eb2300c"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/station_metadata_history.csv",
+      "bytes": 42487,
+      "sha256": "21184499b890100e675b4e5295192d21e8ed83fe432217240881f6c5525ff532"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/station_month_coverage.csv",
+      "bytes": 632828,
+      "sha256": "bffc1ade9dabe44f194231fac93341c307e3ef382a9ab3ea860033986522d6a0"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/station_summary.csv",
+      "bytes": 24617,
+      "sha256": "fe28451900ed9f5e5706fc573d4a96c99b6761e79d75f6dc6f2790e2c1276c2b"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/summary.json",
+      "bytes": 30377,
+      "sha256": "f7483a930dfc264f61043b05bb1882fc651f20228630e9cfa0b38a1243e3db05"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/time_alignment_diagnostic/all_sub_300s_pairs.csv",
+      "bytes": 12522,
+      "sha256": "02bc190669e72edac65dc74e29808197a925f5ef929bf541d57a15502aa56045"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/time_alignment_diagnostic/diagnostic.json",
+      "bytes": 1864,
+      "sha256": "d841651eb3cd115eca0868a2dcf7a2933c05d2947a595557a4978753ab7fd732"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/time_alignment_diagnostic/phase_transition_events.csv",
+      "bytes": 13527,
+      "sha256": "033bb7915464a0257c1311f6d92da3fffe18981c9000eaf212d9bf04a8fdbf90"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/time_alignment_diagnostic/proposed_alignment_collision_groups.csv",
+      "bytes": 2200,
+      "sha256": "c401d5f615b3eebdb4b990ea25b5eef7b0942f10b846221fd11936c4027d0b2b"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/time_alignment_diagnostic/proposed_alignment_collision_records.csv",
+      "bytes": 34176,
+      "sha256": "be38f177293dd5178b2ffe27503f72b77e6bfffc0c7f6ac8f789b38b8e4365e1"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/timestamp_offsets.csv",
+      "bytes": 170,
+      "sha256": "4a13323a4aea6c9750dbd44664b36a5e1f5ab9eeb2eabe5cf57757e9ef128534"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/units_types.csv",
+      "bytes": 417,
+      "sha256": "413370232ed84460ec35877e6a7409f305fc7c5ea12354d306fc50e98c7ef7bc"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/update_delay_buckets.csv",
+      "bytes": 1835,
+      "sha256": "4bb69f805936d5e30ff84f6b567ad100c93b09a978b744b404d38895ec777c81"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/validation.json",
+      "bytes": 1869,
+      "sha256": "bb919e68d53b46338a97b8e6eaacb19b64bff364912263267d8490aaf5af6d9e"
+    },
+    {
+      "path": "outputs/p0_2_audit/p0_2_v1/year_boundary_gaps.csv",
+      "bytes": 19038,
+      "sha256": "27fbfb697b13d4482c5bf8aba00de74ee0d8ce99beceb431c2fca0786fa85485"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "status": "USER_CONFIRMED",
+  "recorded_at_sgt": "2026-10-08T15:42:03.652037+08:00",
+  "scope": "Current 2017-2024 annual CSVs, including 2018 and other whole-day gaps",
+  "user_statement": "文件确认是官方导出且完整获取",
+  "evidence_type": "Direct human confirmation in this conversation; not an independent remote checksum comparison",
+  "raw_manifest_sha256": "27b32fc5e2fdd8d3681cc05455547668e6af8657758558984df6043bed693c56",
+  "download_completeness_question": "RESOLVED_BY_USER",
+  "gap_handling": "Treat absent records as gaps in the supplied official export; physical cause of gaps remains unknown",
+  "source_files_modified": false
+}

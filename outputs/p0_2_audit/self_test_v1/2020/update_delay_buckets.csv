@@ -1,0 +1,5 @@
+﻿year,update_delay_bucket,reading_update_delay_bucket,count
+2020,0_to_5min,0_to_5min,7
+2020,negative,negative,5
+2020,unparsed,unparsed,1
+2020,zero,zero,1

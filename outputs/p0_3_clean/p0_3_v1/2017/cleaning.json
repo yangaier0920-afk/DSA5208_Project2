@@ -1,0 +1,72 @@
+{
+  "status": "PASS",
+  "year": 2017,
+  "source": {
+    "year": 2017,
+    "path": "Raw_Dataset/HistoricalRainfallacrossSingapore2017.csv",
+    "bytes": 881206891,
+    "sha256": "a51a27378607c6c37d51b72383259b27dae5dc7d5760a8b8fff04e86d9f92ddf",
+    "physical_data_lines": 5256106,
+    "columns": [
+      "date",
+      "timestamp",
+      "update_timestamp",
+      "station_id",
+      "station_name",
+      "station_device_id",
+      "location_longitude",
+      "location_latitude",
+      "reading_update_timestamp",
+      "reading_value",
+      "reading_type",
+      "reading_unit"
+    ],
+    "dataset_id": "d_1990a5a1aeaf3dd243cf4dae294a61c4",
+    "source_page": "https://data.gov.sg/datasets/d_1990a5a1aeaf3dd243cf4dae294a61c4/view",
+    "source_title": "Historical Rainfall across Singapore (2017)",
+    "downloaded_at": null,
+    "original_download_url": null,
+    "mtime_ns": 1791183211759628100
+  },
+  "profile": {
+    "raw_rows": 5256106,
+    "decimal_errors": 0,
+    "max_source_decimal_scale": 5,
+    "shifted_source_rows": 1775327,
+    "alignment_date_changed_rows": 6191
+  },
+  "metrics": {
+    "observations": 5256020,
+    "unique_keys": 5256020,
+    "off_grid": 0,
+    "invalid_retained": 0,
+    "invalid_decimal": 0,
+    "bad_alignment": 0,
+    "bad_interval": 0,
+    "bad_year": 0,
+    "bad_month": 0,
+    "zero_rainfall_rows": 5107326,
+    "aligned_retained_rows": 1775241,
+    "metadata_conflict_observations": 2,
+    "rain_sum_mm": "123323.600010000000000000",
+    "quarantine_rows": 0,
+    "merged_duplicate_rows": 86,
+    "ledger_dispositions": {
+      "RETAINED": 86,
+      "MERGED_DUPLICATE": 86
+    }
+  },
+  "checks": {
+    "count_balance": true,
+    "primary_key_unique": true,
+    "time_grid_valid": true,
+    "no_invalid_measurements": true,
+    "decimal_valid": true,
+    "alignment_valid": true,
+    "interval_valid": true,
+    "partitions_valid": true,
+    "rainfall_amount_balance": true
+  },
+  "duplicate_groups": 86,
+  "elapsed_seconds": 269.88
+}

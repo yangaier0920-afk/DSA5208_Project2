@@ -1,0 +1,5 @@
+﻿year,protocol,role,anchors,base_model_eligible
+2019,fold1_role,TRAIN,5026862,4935783
+2019,fold2_role,TRAIN,5026862,4935783
+2019,fold3_role,TRAIN,5026862,4935783
+2019,final_role,TRAIN,5026862,4935783

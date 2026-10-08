@@ -1,0 +1,216 @@
+{
+  "status": "CONFIRMED",
+  "applied": false,
+  "source_confirmation": "configs/source_confirmation.json",
+  "decision_document": "docs/P0-3及后续决策选项.md",
+  "items": {
+    "T": {
+      "topic": "2017时间",
+      "recommended": "T2",
+      "options": [
+        "T1",
+        "T2",
+        "T3"
+      ],
+      "selected": "T2",
+      "decision_source": "Direct user acceptance of recommended bundle, except unresolved E"
+    },
+    "C": {
+      "topic": "对齐碰撞",
+      "recommended": "C1",
+      "options": [
+        "C1",
+        "C2",
+        "C3"
+      ],
+      "selected": "C1",
+      "decision_source": "Direct user acceptance of recommended bundle, except unresolved E"
+    },
+    "L": {
+      "topic": "五分钟测量区间",
+      "recommended": "L1",
+      "options": [
+        "L1",
+        "L2"
+      ],
+      "selected": "L1",
+      "decision_source": "Direct user acceptance of recommended bundle, except unresolved E"
+    },
+    "D": {
+      "topic": "日月小时归属",
+      "recommended": "D1",
+      "options": [
+        "D1",
+        "D2"
+      ],
+      "selected": "D1",
+      "decision_source": "Direct user acceptance of recommended bundle, except unresolved E"
+    },
+    "M": {
+      "topic": "缺测存储",
+      "recommended": "M1",
+      "options": [
+        "M1",
+        "M2"
+      ],
+      "selected": "M1",
+      "decision_source": "Direct user acceptance of recommended bundle, except unresolved E"
+    },
+    "H": {
+      "topic": "模型历史完整性",
+      "recommended": "H1",
+      "options": [
+        "H1",
+        "H2",
+        "H3"
+      ],
+      "selected": "H1",
+      "decision_source": "Direct user acceptance of recommended bundle, except unresolved E"
+    },
+    "R": {
+      "topic": "合法雨量与极值",
+      "recommended": "R1",
+      "options": [
+        "R1",
+        "R2"
+      ],
+      "selected": "R1",
+      "decision_source": "Direct user acceptance of recommended bundle, except unresolved E"
+    },
+    "S": {
+      "topic": "站点元数据",
+      "recommended": "S1",
+      "options": [
+        "S1",
+        "S2"
+      ],
+      "selected": "S1",
+      "decision_source": "Direct user acceptance of recommended bundle, except unresolved E"
+    },
+    "B": {
+      "topic": "Task 1比较口径",
+      "recommended": "B1",
+      "options": [
+        "B1",
+        "B2",
+        "B3"
+      ],
+      "selected": "B1",
+      "decision_source": "Direct user acceptance of recommended bundle, except unresolved E"
+    },
+    "K": {
+      "topic": "Task 1月覆盖门槛",
+      "recommended": "K1",
+      "options": [
+        "K1",
+        "K2",
+        "K3"
+      ],
+      "selected": "K1",
+      "decision_source": "Direct user acceptance of recommended bundle, except unresolved E"
+    },
+    "A": {
+      "topic": "预测数据可用性",
+      "recommended": "A1",
+      "options": [
+        "A1",
+        "A2",
+        "A3"
+      ],
+      "selected": "A1",
+      "decision_source": "Direct user acceptance of recommended bundle, except unresolved E"
+    },
+    "E": {
+      "topic": "时间划分",
+      "recommended": "E2",
+      "options": [
+        "E1",
+        "E2"
+      ],
+      "selected": "E2",
+      "user_preference": "Confirmed E2, including proposal selection and final-refit rules",
+      "proposal_document": "docs/E2滚动验证实验方案.md",
+      "decision_source": "Explicit user confirmation of E2 proposal"
+    },
+    "P": {
+      "topic": "训练规模",
+      "recommended": "P1",
+      "options": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "selected": "P1",
+      "decision_source": "Direct user acceptance of recommended bundle, except unresolved E"
+    },
+    "V": {
+      "topic": "阈值输入方案",
+      "recommended": "V1",
+      "options": [
+        "V1",
+        "V2"
+      ],
+      "selected": "V1",
+      "decision_source": "Direct user acceptance of recommended bundle, except unresolved E"
+    },
+    "I": {
+      "topic": "预测接口边界",
+      "recommended": "I1",
+      "options": [
+        "I1",
+        "I2"
+      ],
+      "selected": "I1",
+      "decision_source": "Direct user acceptance of recommended bundle, except unresolved E"
+    }
+  },
+  "mandatory_rules": [
+    "keep immutable raw files and lineage",
+    "missing rainfall is unknown",
+    "strictly greater than threshold",
+    "no unresolved or missing future slots in primary labels",
+    "chronological split and no test-label selection",
+    "raw event_ts is preserved even when aligned timestamps are derived"
+  ],
+  "dependencies": [
+    "C applies only to T2",
+    "T1 needs native-phase prediction anchors; fixed grid cannot be silently substituted",
+    "L2 requires interval-start labels and completed-only historical features",
+    "B/K affect Task1 analytical views, not global observation retention or all Task2 samples",
+    "H2 removes complete-60min features; H3 uses observed-sum names/counts rather than complete-window claims"
+  ],
+  "later_parameter_rules": {
+    "V1_initial_training_thresholds_mm": [
+      0,
+      0.5,
+      1,
+      2,
+      5
+    ],
+    "threshold_range_confirmation": "Check training-only valid-window support; freeze numeric range before validation/test evaluation",
+    "decimal_precision": "Choose a lossless scale after raw precision audit; no unapproved rounding",
+    "model_hyperparameters": "Implementation detail chosen on training/validation data, not a cleaning decision"
+  },
+  "confirmed_at_sgt": "2026-10-08T16:01:06.692858+08:00",
+  "confirmed_items": [
+    "T",
+    "C",
+    "L",
+    "D",
+    "M",
+    "H",
+    "R",
+    "S",
+    "B",
+    "K",
+    "A",
+    "E",
+    "P",
+    "V",
+    "I"
+  ],
+  "pending_items": [],
+  "user_statement": "采用推荐组合，但 E 我有点纠结，觉得E2的方式作为实验更加有趣和有意义，但不知道最终结果如何。",
+  "e2_confirmed_at_sgt": "2026-10-08T16:08:42.231133+08:00",
+  "latest_user_statement": "确认目前方案，采用E2，且确认A成员的02完成后开始03"
+}

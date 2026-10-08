@@ -1,0 +1,22 @@
+{
+  "checked_at_sgt": "2026-10-08T14:19:14.663976+08:00",
+  "raw_file_hashes_rechecked": 8,
+  "raw_manifest": "manifests/raw_manifest.json",
+  "archive": "outputs/p0_1_shared_sample_v1.zip",
+  "archive_bytes": 136964,
+  "archive_sha256": "5c7c9d6caa3e3f78adf17ee09fbc502ec4d04124fd53576cc10f6aabcea3eb81",
+  "zip_crc_and_payload_hashes_passed": true,
+  "team_receipts": {
+    "A": {
+      "status": "PASS",
+      "receipt": "outputs/p0_1_receipts/A.json"
+    },
+    "B": {
+      "status": "pending"
+    },
+    "C": {
+      "status": "pending"
+    }
+  },
+  "team_p0_1_status": "A handoff complete; awaiting B/C actual device receipts"
+}

@@ -1,0 +1,20 @@
+{
+  "support_version": "a_support_v1",
+  "release_id": "rainfall_v1",
+  "data_version": "v1",
+  "config_hash": "e5258b99925606c8ba88207cb44a6756514fa84cd60f37adea3f9db64103248b",
+  "release_manifest_sha256": "ace127c660226745afce10642ae51b417c7cc88ecb501a360de6c74f8472a173",
+  "archive": "outputs/p1_6_support/rainfall_v1_A_support.zip",
+  "bytes": 1885365,
+  "sha256": "ea1126912fe2e55c203dfb8ad39cf11262cb7c69714203616faf254e9ce744eb",
+  "archive_members": 363,
+  "support_manifest_sha256": "1d1c07c24052f74e6c1445f1138321e8bfd5d1c7295564e29b54ae192c7d636e",
+  "contains_full_data": false,
+  "publication": "LOCAL_ONLY",
+  "progress_snapshot_files": [
+    "configs/processing_status.json",
+    "outputs/p1_6_support/validation.json",
+    "outputs/p1_6_support/relocated_replay_verification.json"
+  ],
+  "final_archive_crc_and_payload_hashes": "PASS"
+}

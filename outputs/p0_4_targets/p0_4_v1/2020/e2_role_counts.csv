@@ -1,0 +1,6 @@
+﻿year,protocol,role,anchors,base_model_eligible
+2020,fold1_role,EXCLUDED_BOUNDARY,438,432
+2020,fold1_role,TRAIN,6334035,6233723
+2020,fold2_role,TRAIN,6334473,6234155
+2020,fold3_role,TRAIN,6334473,6234155
+2020,final_role,TRAIN,6334473,6234155

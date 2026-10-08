@@ -1,0 +1,30 @@
+{
+  "metrics": {
+    "observations": 1,
+    "unique_keys": 1,
+    "off_grid": 0,
+    "invalid_retained": 0,
+    "invalid_decimal": 0,
+    "bad_alignment": 0,
+    "bad_interval": 0,
+    "bad_year": 0,
+    "bad_month": 0,
+    "zero_rainfall_rows": 1,
+    "aligned_retained_rows": 0,
+    "metadata_conflict_observations": 0,
+    "rain_sum_mm": "0E-18",
+    "quarantine_rows": 0,
+    "merged_duplicate_rows": 0,
+    "ledger_dispositions": {}
+  },
+  "checks": {
+    "count_balance": true,
+    "primary_key_unique": true,
+    "time_grid_valid": true,
+    "no_invalid_measurements": true,
+    "decimal_valid": true,
+    "alignment_valid": true,
+    "interval_valid": true,
+    "partitions_valid": true
+  }
+}

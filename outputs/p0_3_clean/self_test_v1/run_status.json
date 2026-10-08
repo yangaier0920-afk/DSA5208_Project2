@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "started_at_sgt": "2026-10-08T16:13:19.086187+08:00",
+  "signature": {
+    "version": "p0_3_v1",
+    "code_sha256": "cbaf8c9e6123eac68129cb3e0332f935642d6ab9871e86a75197e2d7cc36beeb",
+    "config_sha256": "e5258b99925606c8ba88207cb44a6756514fa84cd60f37adea3f9db64103248b",
+    "manifest_sha256": "27b32fc5e2fdd8d3681cc05455547668e6af8657758558984df6043bed693c56",
+    "session_helper_sha256": "a3a8b9cd1a9db30aa70bacc6d51d1552822ceb81ff15ee7cd2e4867710970790",
+    "runtime_helper_sha256": "f59a20f7f5bfbc26011ce6b2a5e8981e67b3ea402b1eae690a5d913022932376",
+    "output": "D:/桌面文件/NUS_sem1/DSA5208/project2/data/processed/p0_3_self_test_v1",
+    "self_test": true
+  },
+  "completed_years": [],
+  "sources": [],
+  "shutdown": {
+    "passed": true,
+    "gateway_exit_code": 0
+  },
+  "finished_at_sgt": "2026-10-08T16:14:19.865792+08:00"
+}

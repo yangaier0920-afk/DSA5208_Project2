@@ -1,0 +1,24 @@
+{
+  "lock_version": "1.0",
+  "reference_verified_run": "20261008_134521_945643",
+  "reference_os": "Windows 11 x64",
+  "reference_python_patch": "3.11.5",
+  "required_python_major_minor": "3.11",
+  "pyspark": "3.5.7",
+  "py4j": "0.10.9.7",
+  "required_java_major": 17,
+  "reference_java_build": "Microsoft OpenJDK 17.0.20.1",
+  "spark_timezone": "Asia/Singapore",
+  "windows_native_hadoop": {
+    "version": "3.3.5",
+    "repository": "https://github.com/cdarlint/winutils",
+    "commit": "7386986d5d8a079b5cd4464f4599766dd27e7d13"
+  },
+  "cross_platform_rule": "Use the same Python minor, PySpark/Py4J versions, Java major and timezone; record actual Python/Java patches, OS and architecture in each member receipt.",
+  "member_acceptance": {
+    "A_local_read_write": "passed",
+    "B": "pending_actual_receipt",
+    "C": "pending_actual_receipt",
+    "macos": "reader_provided_but_not_tested_on_a_mac"
+  }
+}

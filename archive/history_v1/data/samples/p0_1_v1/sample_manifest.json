@@ -1,0 +1,3077 @@
+{
+  "sample_version": "p0_1_v1",
+  "created_at_sgt": "2026-10-08T14:19:14.663976+08:00",
+  "source_run_id": "20261008_134521_945643",
+  "purpose": "Shared environment-read verification only; not cleaned or representative weather data.",
+  "sampling": "First 2000 records of each 2017-2024 CSV",
+  "rows": 16000,
+  "schema": {
+    "type": "struct",
+    "fields": [
+      {
+        "name": "date",
+        "type": "string",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "timestamp",
+        "type": "string",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "update_timestamp",
+        "type": "string",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "station_id",
+        "type": "string",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "station_name",
+        "type": "string",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "station_device_id",
+        "type": "string",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "location_longitude",
+        "type": "string",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "location_latitude",
+        "type": "string",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "reading_update_timestamp",
+        "type": "string",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "reading_value",
+        "type": "string",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "reading_type",
+        "type": "string",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "reading_unit",
+        "type": "string",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "event_ts",
+        "type": "timestamp",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "rain_mm",
+        "type": "double",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "year",
+        "type": "integer",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "month",
+        "type": "integer",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "epoch_s",
+        "type": "long",
+        "nullable": true,
+        "metadata": {}
+      }
+    ]
+  },
+  "expected_aggregates": [
+    {
+      "year": 2017,
+      "station_id": "S06",
+      "n": 36,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2017,
+      "station_id": "S07",
+      "n": 36,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2017,
+      "station_id": "S08",
+      "n": 36,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2017,
+      "station_id": "S100",
+      "n": 35,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2017,
+      "station_id": "S101",
+      "n": 36,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2017,
+      "station_id": "S102",
+      "n": 36,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2017,
+      "station_id": "S104",
+      "n": 35,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2017,
+      "station_id": "S106",
+      "n": 27,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2017,
+      "station_id": "S107",
+      "n": 36,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2017,
+      "station_id": "S108",
+      "n": 36,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2017,
+      "station_id": "S109",
+      "n": 36,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2017,
+      "station_id": "S11",
+      "n": 36,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2017,
+      "station_id": "S110",
+      "n": 36,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2017,
+      "station_id": "S112",
+      "n": 36,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2017,
+      "station_id": "S113",
+      "n": 36,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2017,
+      "station_id": "S114",
+      "n": 36,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2017,
+      "station_id": "S115",
+      "n": 36,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2017,
+      "station_id": "S116",
+      "n": 36,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2017,
+      "station_id": "S117",
+      "n": 36,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2017,
+      "station_id": "S118",
+      "n": 36,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2017,
+      "station_id": "S119",
+      "n": 36,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2017,
+      "station_id": "S120",
+      "n": 36,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2017,
+      "station_id": "S121",
+      "n": 36,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2017,
+      "station_id": "S122",
+      "n": 36,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2017,
+      "station_id": "S123",
+      "n": 36,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2017,
+      "station_id": "S24",
+      "n": 36,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2017,
+      "station_id": "S24B",
+      "n": 36,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2017,
+      "station_id": "S29",
+      "n": 36,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2017,
+      "station_id": "S33",
+      "n": 36,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2017,
+      "station_id": "S35",
+      "n": 36,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2017,
+      "station_id": "S36",
+      "n": 36,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2017,
+      "station_id": "S40",
+      "n": 36,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2017,
+      "station_id": "S43",
+      "n": 36,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2017,
+      "station_id": "S44",
+      "n": 36,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2017,
+      "station_id": "S46",
+      "n": 36,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2017,
+      "station_id": "S50",
+      "n": 36,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2017,
+      "station_id": "S55",
+      "n": 36,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2017,
+      "station_id": "S61",
+      "n": 36,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2017,
+      "station_id": "S63",
+      "n": 36,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2017,
+      "station_id": "S64",
+      "n": 36,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2017,
+      "station_id": "S66",
+      "n": 36,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2017,
+      "station_id": "S69",
+      "n": 32,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2017,
+      "station_id": "S71",
+      "n": 36,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2017,
+      "station_id": "S77",
+      "n": 36,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2017,
+      "station_id": "S78",
+      "n": 36,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2017,
+      "station_id": "S79",
+      "n": 36,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2017,
+      "station_id": "S81",
+      "n": 36,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2017,
+      "station_id": "S84",
+      "n": 36,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2017,
+      "station_id": "S88",
+      "n": 36,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2017,
+      "station_id": "S89",
+      "n": 36,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2017,
+      "station_id": "S90",
+      "n": 36,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2017,
+      "station_id": "S900",
+      "n": 36,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2017,
+      "station_id": "S91",
+      "n": 35,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2017,
+      "station_id": "S92",
+      "n": 36,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2017,
+      "station_id": "S94",
+      "n": 36,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2017,
+      "station_id": "S96",
+      "n": 36,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2018,
+      "station_id": "S07",
+      "n": 43,
+      "rain_sum_mm": 35.60000000000002
+    },
+    {
+      "year": 2018,
+      "station_id": "S08",
+      "n": 28,
+      "rain_sum_mm": 19.0
+    },
+    {
+      "year": 2018,
+      "station_id": "S100",
+      "n": 43,
+      "rain_sum_mm": 30.599999999999998
+    },
+    {
+      "year": 2018,
+      "station_id": "S106",
+      "n": 42,
+      "rain_sum_mm": 8.600000000000001
+    },
+    {
+      "year": 2018,
+      "station_id": "S107",
+      "n": 43,
+      "rain_sum_mm": 10.799999999999997
+    },
+    {
+      "year": 2018,
+      "station_id": "S109",
+      "n": 44,
+      "rain_sum_mm": 34.00000000000002
+    },
+    {
+      "year": 2018,
+      "station_id": "S11",
+      "n": 44,
+      "rain_sum_mm": 12.2
+    },
+    {
+      "year": 2018,
+      "station_id": "S111",
+      "n": 43,
+      "rain_sum_mm": 30.79999999999999
+    },
+    {
+      "year": 2018,
+      "station_id": "S112",
+      "n": 43,
+      "rain_sum_mm": 6.000000000000001
+    },
+    {
+      "year": 2018,
+      "station_id": "S113",
+      "n": 43,
+      "rain_sum_mm": 11.599999999999993
+    },
+    {
+      "year": 2018,
+      "station_id": "S114",
+      "n": 44,
+      "rain_sum_mm": 37.2
+    },
+    {
+      "year": 2018,
+      "station_id": "S115",
+      "n": 43,
+      "rain_sum_mm": 5.800000000000002
+    },
+    {
+      "year": 2018,
+      "station_id": "S116",
+      "n": 26,
+      "rain_sum_mm": 16.399999999999995
+    },
+    {
+      "year": 2018,
+      "station_id": "S117",
+      "n": 44,
+      "rain_sum_mm": 38.0
+    },
+    {
+      "year": 2018,
+      "station_id": "S118",
+      "n": 43,
+      "rain_sum_mm": 29.599999999999987
+    },
+    {
+      "year": 2018,
+      "station_id": "S119",
+      "n": 32,
+      "rain_sum_mm": 10.799999999999999
+    },
+    {
+      "year": 2018,
+      "station_id": "S120",
+      "n": 43,
+      "rain_sum_mm": 28.399999999999988
+    },
+    {
+      "year": 2018,
+      "station_id": "S121",
+      "n": 43,
+      "rain_sum_mm": 25.599999999999998
+    },
+    {
+      "year": 2018,
+      "station_id": "S122",
+      "n": 43,
+      "rain_sum_mm": 32.599999999999994
+    },
+    {
+      "year": 2018,
+      "station_id": "S123",
+      "n": 43,
+      "rain_sum_mm": 33.2
+    },
+    {
+      "year": 2018,
+      "station_id": "S24",
+      "n": 43,
+      "rain_sum_mm": 16.199999999999996
+    },
+    {
+      "year": 2018,
+      "station_id": "S29",
+      "n": 43,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2018,
+      "station_id": "S33",
+      "n": 12,
+      "rain_sum_mm": 8.999999999999998
+    },
+    {
+      "year": 2018,
+      "station_id": "S35",
+      "n": 1,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2018,
+      "station_id": "S36",
+      "n": 43,
+      "rain_sum_mm": 28.99999999999999
+    },
+    {
+      "year": 2018,
+      "station_id": "S40",
+      "n": 43,
+      "rain_sum_mm": 37.59999999999999
+    },
+    {
+      "year": 2018,
+      "station_id": "S43",
+      "n": 43,
+      "rain_sum_mm": 17.999999999999996
+    },
+    {
+      "year": 2018,
+      "station_id": "S44",
+      "n": 43,
+      "rain_sum_mm": 14.799999999999999
+    },
+    {
+      "year": 2018,
+      "station_id": "S46",
+      "n": 43,
+      "rain_sum_mm": 26.79999999999999
+    },
+    {
+      "year": 2018,
+      "station_id": "S50",
+      "n": 44,
+      "rain_sum_mm": 22.799999999999994
+    },
+    {
+      "year": 2018,
+      "station_id": "S55",
+      "n": 44,
+      "rain_sum_mm": 32.999999999999986
+    },
+    {
+      "year": 2018,
+      "station_id": "S61",
+      "n": 44,
+      "rain_sum_mm": 7.600000000000003
+    },
+    {
+      "year": 2018,
+      "station_id": "S64",
+      "n": 44,
+      "rain_sum_mm": 43.39999999999999
+    },
+    {
+      "year": 2018,
+      "station_id": "S66",
+      "n": 43,
+      "rain_sum_mm": 10.800000000000002
+    },
+    {
+      "year": 2018,
+      "station_id": "S69",
+      "n": 43,
+      "rain_sum_mm": 36.999999999999986
+    },
+    {
+      "year": 2018,
+      "station_id": "S71",
+      "n": 43,
+      "rain_sum_mm": 40.60000000000004
+    },
+    {
+      "year": 2018,
+      "station_id": "S77",
+      "n": 44,
+      "rain_sum_mm": 28.19999999999999
+    },
+    {
+      "year": 2018,
+      "station_id": "S78",
+      "n": 43,
+      "rain_sum_mm": 17.39999999999999
+    },
+    {
+      "year": 2018,
+      "station_id": "S79",
+      "n": 43,
+      "rain_sum_mm": 28.799999999999986
+    },
+    {
+      "year": 2018,
+      "station_id": "S81",
+      "n": 43,
+      "rain_sum_mm": 22.39999999999998
+    },
+    {
+      "year": 2018,
+      "station_id": "S82",
+      "n": 43,
+      "rain_sum_mm": 4.6000000000000005
+    },
+    {
+      "year": 2018,
+      "station_id": "S84",
+      "n": 43,
+      "rain_sum_mm": 5.000000000000002
+    },
+    {
+      "year": 2018,
+      "station_id": "S88",
+      "n": 43,
+      "rain_sum_mm": 31.799999999999983
+    },
+    {
+      "year": 2018,
+      "station_id": "S89",
+      "n": 43,
+      "rain_sum_mm": 19.19999999999999
+    },
+    {
+      "year": 2018,
+      "station_id": "S90",
+      "n": 44,
+      "rain_sum_mm": 30.599999999999987
+    },
+    {
+      "year": 2018,
+      "station_id": "S900",
+      "n": 43,
+      "rain_sum_mm": 23.999999999999986
+    },
+    {
+      "year": 2018,
+      "station_id": "S91",
+      "n": 43,
+      "rain_sum_mm": 23.599999999999987
+    },
+    {
+      "year": 2018,
+      "station_id": "S92",
+      "n": 43,
+      "rain_sum_mm": 26.599999999999987
+    },
+    {
+      "year": 2018,
+      "station_id": "S94",
+      "n": 43,
+      "rain_sum_mm": 9.400000000000002
+    },
+    {
+      "year": 2019,
+      "station_id": "S07",
+      "n": 45,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2019,
+      "station_id": "S08",
+      "n": 44,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2019,
+      "station_id": "S100",
+      "n": 44,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2019,
+      "station_id": "S105",
+      "n": 45,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2019,
+      "station_id": "S106",
+      "n": 44,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2019,
+      "station_id": "S107",
+      "n": 45,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2019,
+      "station_id": "S108",
+      "n": 45,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2019,
+      "station_id": "S11",
+      "n": 45,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2019,
+      "station_id": "S111",
+      "n": 44,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2019,
+      "station_id": "S112",
+      "n": 45,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2019,
+      "station_id": "S113",
+      "n": 44,
+      "rain_sum_mm": 0.2
+    },
+    {
+      "year": 2019,
+      "station_id": "S114",
+      "n": 45,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2019,
+      "station_id": "S115",
+      "n": 44,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2019,
+      "station_id": "S116",
+      "n": 38,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2019,
+      "station_id": "S118",
+      "n": 45,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2019,
+      "station_id": "S119",
+      "n": 44,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2019,
+      "station_id": "S120",
+      "n": 45,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2019,
+      "station_id": "S121",
+      "n": 44,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2019,
+      "station_id": "S122",
+      "n": 44,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2019,
+      "station_id": "S123",
+      "n": 44,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2019,
+      "station_id": "S215",
+      "n": 45,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2019,
+      "station_id": "S24",
+      "n": 44,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2019,
+      "station_id": "S29",
+      "n": 44,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2019,
+      "station_id": "S33",
+      "n": 45,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2019,
+      "station_id": "S35",
+      "n": 44,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2019,
+      "station_id": "S36",
+      "n": 29,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2019,
+      "station_id": "S40",
+      "n": 45,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2019,
+      "station_id": "S43",
+      "n": 45,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2019,
+      "station_id": "S44",
+      "n": 44,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2019,
+      "station_id": "S46",
+      "n": 44,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2019,
+      "station_id": "S50",
+      "n": 45,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2019,
+      "station_id": "S55",
+      "n": 45,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2019,
+      "station_id": "S61",
+      "n": 45,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2019,
+      "station_id": "S64",
+      "n": 45,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2019,
+      "station_id": "S69",
+      "n": 44,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2019,
+      "station_id": "S77",
+      "n": 45,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2019,
+      "station_id": "S78",
+      "n": 44,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2019,
+      "station_id": "S79",
+      "n": 44,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2019,
+      "station_id": "S81",
+      "n": 44,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2019,
+      "station_id": "S82",
+      "n": 23,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2019,
+      "station_id": "S88",
+      "n": 44,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2019,
+      "station_id": "S89",
+      "n": 44,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2019,
+      "station_id": "S90",
+      "n": 45,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2019,
+      "station_id": "S900",
+      "n": 44,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2019,
+      "station_id": "S92",
+      "n": 44,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2019,
+      "station_id": "S94",
+      "n": 43,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2020,
+      "station_id": "S07",
+      "n": 39,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2020,
+      "station_id": "S08",
+      "n": 39,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2020,
+      "station_id": "S100",
+      "n": 39,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2020,
+      "station_id": "S104",
+      "n": 39,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2020,
+      "station_id": "S105",
+      "n": 40,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2020,
+      "station_id": "S106",
+      "n": 39,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2020,
+      "station_id": "S107",
+      "n": 39,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2020,
+      "station_id": "S108",
+      "n": 39,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2020,
+      "station_id": "S109",
+      "n": 40,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2020,
+      "station_id": "S11",
+      "n": 40,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2020,
+      "station_id": "S111",
+      "n": 39,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2020,
+      "station_id": "S112",
+      "n": 39,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2020,
+      "station_id": "S113",
+      "n": 39,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2020,
+      "station_id": "S114",
+      "n": 40,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2020,
+      "station_id": "S115",
+      "n": 39,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2020,
+      "station_id": "S116",
+      "n": 39,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2020,
+      "station_id": "S117",
+      "n": 40,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2020,
+      "station_id": "S118",
+      "n": 40,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2020,
+      "station_id": "S119",
+      "n": 39,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2020,
+      "station_id": "S120",
+      "n": 39,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2020,
+      "station_id": "S121",
+      "n": 39,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2020,
+      "station_id": "S122",
+      "n": 39,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2020,
+      "station_id": "S215",
+      "n": 40,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2020,
+      "station_id": "S24",
+      "n": 39,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2020,
+      "station_id": "S29",
+      "n": 39,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2020,
+      "station_id": "S33",
+      "n": 39,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2020,
+      "station_id": "S35",
+      "n": 39,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2020,
+      "station_id": "S40",
+      "n": 39,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2020,
+      "station_id": "S43",
+      "n": 39,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2020,
+      "station_id": "S44",
+      "n": 39,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2020,
+      "station_id": "S46",
+      "n": 39,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2020,
+      "station_id": "S50",
+      "n": 40,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2020,
+      "station_id": "S60",
+      "n": 38,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2020,
+      "station_id": "S61",
+      "n": 40,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2020,
+      "station_id": "S64",
+      "n": 40,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2020,
+      "station_id": "S66",
+      "n": 39,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2020,
+      "station_id": "S69",
+      "n": 39,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2020,
+      "station_id": "S71",
+      "n": 39,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2020,
+      "station_id": "S77",
+      "n": 40,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2020,
+      "station_id": "S78",
+      "n": 39,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2020,
+      "station_id": "S79",
+      "n": 39,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2020,
+      "station_id": "S81",
+      "n": 39,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2020,
+      "station_id": "S82",
+      "n": 39,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2020,
+      "station_id": "S84",
+      "n": 39,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2020,
+      "station_id": "S88",
+      "n": 39,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2020,
+      "station_id": "S89",
+      "n": 39,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2020,
+      "station_id": "S90",
+      "n": 40,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2020,
+      "station_id": "S900",
+      "n": 39,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2020,
+      "station_id": "S91",
+      "n": 39,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2020,
+      "station_id": "S92",
+      "n": 39,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2020,
+      "station_id": "S94",
+      "n": 39,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S07",
+      "n": 28,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S08",
+      "n": 27,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S100",
+      "n": 27,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S104",
+      "n": 27,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S106",
+      "n": 28,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S107",
+      "n": 28,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S108",
+      "n": 28,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S109",
+      "n": 28,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S11",
+      "n": 28,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S111",
+      "n": 27,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S112",
+      "n": 28,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S113",
+      "n": 28,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S114",
+      "n": 28,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S115",
+      "n": 27,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S116",
+      "n": 27,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S118",
+      "n": 28,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S119",
+      "n": 17,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S120",
+      "n": 28,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S121",
+      "n": 28,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S123",
+      "n": 27,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S201",
+      "n": 28,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S202",
+      "n": 28,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S203",
+      "n": 28,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S204",
+      "n": 28,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S205",
+      "n": 28,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S207",
+      "n": 28,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S208",
+      "n": 28,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S209",
+      "n": 28,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S210",
+      "n": 28,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S211",
+      "n": 28,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S212",
+      "n": 28,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S213",
+      "n": 28,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S214",
+      "n": 28,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S215",
+      "n": 28,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S216",
+      "n": 27,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S217",
+      "n": 27,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S218",
+      "n": 27,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S219",
+      "n": 27,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S220",
+      "n": 27,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S221",
+      "n": 27,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S222",
+      "n": 27,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S223",
+      "n": 27,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S226",
+      "n": 27,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S227",
+      "n": 27,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S228",
+      "n": 27,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S229",
+      "n": 27,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S230",
+      "n": 27,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S24",
+      "n": 27,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S29",
+      "n": 28,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S33",
+      "n": 28,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S35",
+      "n": 28,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S40",
+      "n": 28,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S43",
+      "n": 28,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S44",
+      "n": 28,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S50",
+      "n": 28,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S60",
+      "n": 27,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S61",
+      "n": 28,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S66",
+      "n": 28,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S69",
+      "n": 27,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S71",
+      "n": 28,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S77",
+      "n": 26,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S78",
+      "n": 28,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S79",
+      "n": 27,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S81",
+      "n": 28,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S82",
+      "n": 27,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S84",
+      "n": 27,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S88",
+      "n": 27,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S89",
+      "n": 27,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S90",
+      "n": 28,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S900",
+      "n": 27,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S91",
+      "n": 27,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S92",
+      "n": 27,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2021,
+      "station_id": "S94",
+      "n": 28,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2022,
+      "station_id": "S08",
+      "n": 31,
+      "rain_sum_mm": 1.0
+    },
+    {
+      "year": 2022,
+      "station_id": "S100",
+      "n": 31,
+      "rain_sum_mm": 0.2
+    },
+    {
+      "year": 2022,
+      "station_id": "S104",
+      "n": 31,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2022,
+      "station_id": "S106",
+      "n": 2,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2022,
+      "station_id": "S107",
+      "n": 32,
+      "rain_sum_mm": 4.6000000000000005
+    },
+    {
+      "year": 2022,
+      "station_id": "S108",
+      "n": 32,
+      "rain_sum_mm": 1.6
+    },
+    {
+      "year": 2022,
+      "station_id": "S109",
+      "n": 32,
+      "rain_sum_mm": 0.6000000000000001
+    },
+    {
+      "year": 2022,
+      "station_id": "S112",
+      "n": 32,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2022,
+      "station_id": "S113",
+      "n": 32,
+      "rain_sum_mm": 1.6
+    },
+    {
+      "year": 2022,
+      "station_id": "S114",
+      "n": 32,
+      "rain_sum_mm": 0.4
+    },
+    {
+      "year": 2022,
+      "station_id": "S115",
+      "n": 31,
+      "rain_sum_mm": 0.4
+    },
+    {
+      "year": 2022,
+      "station_id": "S116",
+      "n": 31,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2022,
+      "station_id": "S118",
+      "n": 32,
+      "rain_sum_mm": 1.4
+    },
+    {
+      "year": 2022,
+      "station_id": "S119",
+      "n": 32,
+      "rain_sum_mm": 1.9999999999999998
+    },
+    {
+      "year": 2022,
+      "station_id": "S120",
+      "n": 32,
+      "rain_sum_mm": 2.4000000000000004
+    },
+    {
+      "year": 2022,
+      "station_id": "S121",
+      "n": 32,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2022,
+      "station_id": "S123",
+      "n": 31,
+      "rain_sum_mm": 0.8
+    },
+    {
+      "year": 2022,
+      "station_id": "S201",
+      "n": 32,
+      "rain_sum_mm": 0.2
+    },
+    {
+      "year": 2022,
+      "station_id": "S202",
+      "n": 32,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2022,
+      "station_id": "S203",
+      "n": 32,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2022,
+      "station_id": "S204",
+      "n": 32,
+      "rain_sum_mm": 0.201
+    },
+    {
+      "year": 2022,
+      "station_id": "S205",
+      "n": 32,
+      "rain_sum_mm": 0.612
+    },
+    {
+      "year": 2022,
+      "station_id": "S207",
+      "n": 32,
+      "rain_sum_mm": 3.2160000000000006
+    },
+    {
+      "year": 2022,
+      "station_id": "S208",
+      "n": 32,
+      "rain_sum_mm": 10.608000000000004
+    },
+    {
+      "year": 2022,
+      "station_id": "S209",
+      "n": 32,
+      "rain_sum_mm": 0.6060000000000001
+    },
+    {
+      "year": 2022,
+      "station_id": "S210",
+      "n": 32,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2022,
+      "station_id": "S211",
+      "n": 32,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2022,
+      "station_id": "S212",
+      "n": 32,
+      "rain_sum_mm": 1.4
+    },
+    {
+      "year": 2022,
+      "station_id": "S213",
+      "n": 32,
+      "rain_sum_mm": 1.8
+    },
+    {
+      "year": 2022,
+      "station_id": "S214",
+      "n": 32,
+      "rain_sum_mm": 1.7730000000000004
+    },
+    {
+      "year": 2022,
+      "station_id": "S215",
+      "n": 32,
+      "rain_sum_mm": 2.841999999999999
+    },
+    {
+      "year": 2022,
+      "station_id": "S216",
+      "n": 32,
+      "rain_sum_mm": 0.816
+    },
+    {
+      "year": 2022,
+      "station_id": "S217",
+      "n": 32,
+      "rain_sum_mm": 0.591
+    },
+    {
+      "year": 2022,
+      "station_id": "S218",
+      "n": 32,
+      "rain_sum_mm": 0.204
+    },
+    {
+      "year": 2022,
+      "station_id": "S219",
+      "n": 32,
+      "rain_sum_mm": 2.814
+    },
+    {
+      "year": 2022,
+      "station_id": "S220",
+      "n": 32,
+      "rain_sum_mm": 1.0150000000000001
+    },
+    {
+      "year": 2022,
+      "station_id": "S221",
+      "n": 32,
+      "rain_sum_mm": 4.356000000000001
+    },
+    {
+      "year": 2022,
+      "station_id": "S222",
+      "n": 32,
+      "rain_sum_mm": 0.804
+    },
+    {
+      "year": 2022,
+      "station_id": "S223",
+      "n": 32,
+      "rain_sum_mm": 0.203
+    },
+    {
+      "year": 2022,
+      "station_id": "S224",
+      "n": 32,
+      "rain_sum_mm": 7.838999999999998
+    },
+    {
+      "year": 2022,
+      "station_id": "S226",
+      "n": 32,
+      "rain_sum_mm": 0.4
+    },
+    {
+      "year": 2022,
+      "station_id": "S227",
+      "n": 31,
+      "rain_sum_mm": 0.202
+    },
+    {
+      "year": 2022,
+      "station_id": "S228",
+      "n": 31,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2022,
+      "station_id": "S229",
+      "n": 31,
+      "rain_sum_mm": 0.203
+    },
+    {
+      "year": 2022,
+      "station_id": "S230",
+      "n": 31,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2022,
+      "station_id": "S24",
+      "n": 31,
+      "rain_sum_mm": 10.199999999999998
+    },
+    {
+      "year": 2022,
+      "station_id": "S33",
+      "n": 32,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2022,
+      "station_id": "S40",
+      "n": 32,
+      "rain_sum_mm": 0.6000000000000001
+    },
+    {
+      "year": 2022,
+      "station_id": "S43",
+      "n": 32,
+      "rain_sum_mm": 3.400000000000001
+    },
+    {
+      "year": 2022,
+      "station_id": "S44",
+      "n": 32,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2022,
+      "station_id": "S50",
+      "n": 32,
+      "rain_sum_mm": 0.2
+    },
+    {
+      "year": 2022,
+      "station_id": "S66",
+      "n": 32,
+      "rain_sum_mm": 0.8
+    },
+    {
+      "year": 2022,
+      "station_id": "S71",
+      "n": 32,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2022,
+      "station_id": "S77",
+      "n": 32,
+      "rain_sum_mm": 0.6000000000000001
+    },
+    {
+      "year": 2022,
+      "station_id": "S78",
+      "n": 32,
+      "rain_sum_mm": 2.4
+    },
+    {
+      "year": 2022,
+      "station_id": "S79",
+      "n": 30,
+      "rain_sum_mm": 1.7999999999999998
+    },
+    {
+      "year": 2022,
+      "station_id": "S81",
+      "n": 32,
+      "rain_sum_mm": 0.6000000000000001
+    },
+    {
+      "year": 2022,
+      "station_id": "S82",
+      "n": 31,
+      "rain_sum_mm": 0.2
+    },
+    {
+      "year": 2022,
+      "station_id": "S84",
+      "n": 31,
+      "rain_sum_mm": 2.4000000000000004
+    },
+    {
+      "year": 2022,
+      "station_id": "S88",
+      "n": 31,
+      "rain_sum_mm": 1.0
+    },
+    {
+      "year": 2022,
+      "station_id": "S89",
+      "n": 31,
+      "rain_sum_mm": 0.2
+    },
+    {
+      "year": 2022,
+      "station_id": "S90",
+      "n": 32,
+      "rain_sum_mm": 8.399999999999999
+    },
+    {
+      "year": 2022,
+      "station_id": "S900",
+      "n": 31,
+      "rain_sum_mm": 0.2
+    },
+    {
+      "year": 2022,
+      "station_id": "S94",
+      "n": 32,
+      "rain_sum_mm": 4.800000000000001
+    },
+    {
+      "year": 2023,
+      "station_id": "S08",
+      "n": 28,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S100",
+      "n": 28,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S102",
+      "n": 29,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S104",
+      "n": 28,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S106",
+      "n": 29,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S107",
+      "n": 29,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S108",
+      "n": 12,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S109",
+      "n": 29,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S111",
+      "n": 29,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S112",
+      "n": 29,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S113",
+      "n": 29,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S114",
+      "n": 29,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S115",
+      "n": 28,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S116",
+      "n": 28,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S118",
+      "n": 29,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S119",
+      "n": 29,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S120",
+      "n": 29,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S121",
+      "n": 29,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S123",
+      "n": 28,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S201",
+      "n": 29,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S202",
+      "n": 29,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S203",
+      "n": 29,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S204",
+      "n": 29,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S205",
+      "n": 29,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S207",
+      "n": 29,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S208",
+      "n": 29,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S209",
+      "n": 29,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S210",
+      "n": 29,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S211",
+      "n": 29,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S212",
+      "n": 29,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S213",
+      "n": 29,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S214",
+      "n": 29,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S215",
+      "n": 29,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S216",
+      "n": 29,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S217",
+      "n": 29,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S218",
+      "n": 29,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S219",
+      "n": 29,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S220",
+      "n": 29,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S221",
+      "n": 29,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S222",
+      "n": 29,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S223",
+      "n": 29,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S224",
+      "n": 29,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S226",
+      "n": 29,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S227",
+      "n": 29,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S228",
+      "n": 29,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S229",
+      "n": 29,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S230",
+      "n": 29,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S24",
+      "n": 28,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S33",
+      "n": 29,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S35",
+      "n": 29,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S40",
+      "n": 29,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S43",
+      "n": 29,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S44",
+      "n": 29,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S50",
+      "n": 29,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S60",
+      "n": 28,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S61",
+      "n": 29,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S64",
+      "n": 29,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S66",
+      "n": 29,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S69",
+      "n": 28,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S71",
+      "n": 29,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S77",
+      "n": 29,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S78",
+      "n": 29,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S79",
+      "n": 28,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S81",
+      "n": 29,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S84",
+      "n": 28,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S88",
+      "n": 28,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S89",
+      "n": 28,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S90",
+      "n": 29,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S900",
+      "n": 29,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2023,
+      "station_id": "S94",
+      "n": 29,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S07",
+      "n": 32,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S08",
+      "n": 31,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S104",
+      "n": 31,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S107",
+      "n": 32,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S109",
+      "n": 32,
+      "rain_sum_mm": 0.2
+    },
+    {
+      "year": 2024,
+      "station_id": "S111",
+      "n": 31,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S112",
+      "n": 32,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S113",
+      "n": 32,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S114",
+      "n": 32,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S115",
+      "n": 31,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S116",
+      "n": 31,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S117",
+      "n": 32,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S118",
+      "n": 32,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S119",
+      "n": 32,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S120",
+      "n": 32,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S121",
+      "n": 32,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S123",
+      "n": 31,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S201",
+      "n": 32,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S203",
+      "n": 31,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S207",
+      "n": 31,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S208",
+      "n": 31,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S209",
+      "n": 31,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S210",
+      "n": 31,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S211",
+      "n": 31,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S212",
+      "n": 31,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S213",
+      "n": 31,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S214",
+      "n": 31,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S215",
+      "n": 32,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S216",
+      "n": 31,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S217",
+      "n": 31,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S218",
+      "n": 31,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S219",
+      "n": 31,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S220",
+      "n": 31,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S221",
+      "n": 31,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S222",
+      "n": 31,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S223",
+      "n": 31,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S224",
+      "n": 31,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S226",
+      "n": 31,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S227",
+      "n": 31,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S228",
+      "n": 31,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S229",
+      "n": 31,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S230",
+      "n": 31,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S24",
+      "n": 31,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S33",
+      "n": 32,
+      "rain_sum_mm": 0.2
+    },
+    {
+      "year": 2024,
+      "station_id": "S35",
+      "n": 32,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S40",
+      "n": 32,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S43",
+      "n": 32,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S44",
+      "n": 32,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S50",
+      "n": 32,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S60",
+      "n": 31,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S64",
+      "n": 32,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S66",
+      "n": 32,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S69",
+      "n": 31,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S71",
+      "n": 32,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S77",
+      "n": 32,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S78",
+      "n": 32,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S79",
+      "n": 31,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S81",
+      "n": 32,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S84",
+      "n": 20,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S88",
+      "n": 31,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S89",
+      "n": 31,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S90",
+      "n": 32,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S900",
+      "n": 31,
+      "rain_sum_mm": 0.0
+    },
+    {
+      "year": 2024,
+      "station_id": "S94",
+      "n": 32,
+      "rain_sum_mm": 0.0
+    }
+  ],
+  "payload_files": [
+    {
+      "path": "environment.lock.json",
+      "bytes": 911,
+      "sha256": "3247ca39547d197a73d99d5feedd5062d6a7199d9f25a433bab728f13bd9daf5"
+    },
+    {
+      "path": "parquet/._SUCCESS.crc",
+      "bytes": 8,
+      "sha256": "1d44f510ec2ed7595badbec80583316defc14e8dd89130d719724149adfaa07d"
+    },
+    {
+      "path": "parquet/_SUCCESS",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "parquet/year=2017/month=1/.part-00000-e044868f-efd9-4cef-91da-597ed94d9ff8.c000.snappy.parquet.crc",
+      "bytes": 88,
+      "sha256": "a9a78e31f07c5e2a25dc887a0e8782cc8e4de5ab95311b411b980cb243556fd0"
+    },
+    {
+      "path": "parquet/year=2017/month=1/part-00000-e044868f-efd9-4cef-91da-597ed94d9ff8.c000.snappy.parquet",
+      "bytes": 10079,
+      "sha256": "91a69399369f66088a0391c393d5f6532da6e5abf803a53d480d6d250b11f85e"
+    },
+    {
+      "path": "parquet/year=2018/month=1/.part-00000-e044868f-efd9-4cef-91da-597ed94d9ff8.c000.snappy.parquet.crc",
+      "bytes": 112,
+      "sha256": "6611f0abad232fb79a7b8959468e2025c6f0d0a89b97158b1fc63ba91816f750"
+    },
+    {
+      "path": "parquet/year=2018/month=1/part-00000-e044868f-efd9-4cef-91da-597ed94d9ff8.c000.snappy.parquet",
+      "bytes": 12996,
+      "sha256": "48bb6f0f14ec2f5ccaf2804361d9e2b50afafccb76dda740004753cbc25814d5"
+    },
+    {
+      "path": "parquet/year=2019/month=1/.part-00000-e044868f-efd9-4cef-91da-597ed94d9ff8.c000.snappy.parquet.crc",
+      "bytes": 92,
+      "sha256": "5d4713b093dc199da64456a8dc8af6716ce7a759f8d0c0873397f499a268be42"
+    },
+    {
+      "path": "parquet/year=2019/month=1/part-00000-e044868f-efd9-4cef-91da-597ed94d9ff8.c000.snappy.parquet",
+      "bytes": 10350,
+      "sha256": "e335d254d5944656b61f365710043b347a572f9183b83dcccfd9f2886a5fbc33"
+    },
+    {
+      "path": "parquet/year=2020/month=1/.part-00000-e044868f-efd9-4cef-91da-597ed94d9ff8.c000.snappy.parquet.crc",
+      "bytes": 88,
+      "sha256": "7eb1f44e86986194230ba6d7e54e535d59e56d6c417713e6cff39d416b23bff1"
+    },
+    {
+      "path": "parquet/year=2020/month=1/part-00000-e044868f-efd9-4cef-91da-597ed94d9ff8.c000.snappy.parquet",
+      "bytes": 9883,
+      "sha256": "a4233f6eb3953b73ce8b69b64c063306486a9158720b38279515d40d60c900fc"
+    },
+    {
+      "path": "parquet/year=2021/month=1/.part-00000-e044868f-efd9-4cef-91da-597ed94d9ff8.c000.snappy.parquet.crc",
+      "bytes": 104,
+      "sha256": "da5ed5ddb6e17b16f83df0de715219a76a555e3734dc7219366a2639f44e0af6"
+    },
+    {
+      "path": "parquet/year=2021/month=1/part-00000-e044868f-efd9-4cef-91da-597ed94d9ff8.c000.snappy.parquet",
+      "bytes": 12134,
+      "sha256": "b948669de2d3ca38e73b42d8ed13e90064099b5ce64b0e454c62d667758b7206"
+    },
+    {
+      "path": "parquet/year=2022/month=1/.part-00000-e044868f-efd9-4cef-91da-597ed94d9ff8.c000.snappy.parquet.crc",
+      "bytes": 104,
+      "sha256": "b156bb6a1cade9cd38d3fb530f126bc05a08fd250e0f0f0fdac018aa56188014"
+    },
+    {
+      "path": "parquet/year=2022/month=1/part-00000-e044868f-efd9-4cef-91da-597ed94d9ff8.c000.snappy.parquet",
+      "bytes": 11790,
+      "sha256": "ff8841dc195a2ef819d9f056eab8a2268b9f7b2df50e91139c6e6c5bcdffebe3"
+    },
+    {
+      "path": "parquet/year=2023/month=1/.part-00000-e044868f-efd9-4cef-91da-597ed94d9ff8.c000.snappy.parquet.crc",
+      "bytes": 104,
+      "sha256": "7678b329bc6ca7f387843f0fab38f7d1d72f6703600010f12a807d3e8a4b47f4"
+    },
+    {
+      "path": "parquet/year=2023/month=1/part-00000-e044868f-efd9-4cef-91da-597ed94d9ff8.c000.snappy.parquet",
+      "bytes": 11926,
+      "sha256": "73fae98d6506b7df24bfa67cc649e387f269029f377902f516d2466088177e6c"
+    },
+    {
+      "path": "parquet/year=2024/month=1/.part-00000-e044868f-efd9-4cef-91da-597ed94d9ff8.c000.snappy.parquet.crc",
+      "bytes": 92,
+      "sha256": "0501df8db3f0434ef05d5ae0d19e0dead936a18853ad9913ed7f71ca337e1891"
+    },
+    {
+      "path": "parquet/year=2024/month=1/part-00000-e044868f-efd9-4cef-91da-597ed94d9ff8.c000.snappy.parquet",
+      "bytes": 10244,
+      "sha256": "0978a6cbea81a802bf08c12b12d73199a2e4f0bf69c7698da51d0abd8d3e5d9e"
+    },
+    {
+      "path": "raw_manifest.json",
+      "bytes": 7643,
+      "sha256": "27b32fc5e2fdd8d3681cc05455547668e6af8657758558984df6043bed693c56"
+    },
+    {
+      "path": "read_shared_sample.py",
+      "bytes": 6691,
+      "sha256": "16adb486cfb9a10930c718155c5f3c27845d831d97550ef5bf0280952ab39468"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2468,
+      "sha256": "114bd3ec01ea98d365087d640526e30890a4ff4efd8fb91b196f3a8d694dac3b"
+    },
+    {
+      "path": "requirements-spark.txt",
+      "bytes": 30,
+      "sha256": "b7ff49b7a09bfddd823aa176f72372cd620942dc4b33ad655c374c7e28e5e2f6"
+    },
+    {
+      "path": "sample.csv",
+      "bytes": 2673345,
+      "sha256": "002e488469e1339de7b9f7f5f6f0000b7a2e8b83114a3792929e97e906f9f0d2"
+    }
+  ]
+}

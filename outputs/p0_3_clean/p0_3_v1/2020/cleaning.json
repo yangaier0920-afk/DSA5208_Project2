@@ -1,0 +1,69 @@
+{
+  "status": "PASS",
+  "year": 2020,
+  "source": {
+    "year": 2020,
+    "path": "Raw_Dataset/HistoricalRainfallacrossSingapore2020.csv",
+    "bytes": 1048946924,
+    "sha256": "2b8df4c6adebb3ea41183ca22fc261fdb34ef78a492bb205f660c431b924ec48",
+    "physical_data_lines": 6334473,
+    "columns": [
+      "date",
+      "timestamp",
+      "update_timestamp",
+      "station_id",
+      "station_name",
+      "station_device_id",
+      "location_longitude",
+      "location_latitude",
+      "reading_update_timestamp",
+      "reading_value",
+      "reading_type",
+      "reading_unit"
+    ],
+    "dataset_id": "d_9e7de44094f876f6804b8b5bcee45c81",
+    "source_page": "https://data.gov.sg/datasets/d_9e7de44094f876f6804b8b5bcee45c81/view",
+    "source_title": "Historical Rainfall across Singapore (2020)",
+    "downloaded_at": null,
+    "original_download_url": null,
+    "mtime_ns": 1791183467983837900
+  },
+  "profile": {
+    "raw_rows": 6334473,
+    "decimal_errors": 0,
+    "max_source_decimal_scale": 5,
+    "shifted_source_rows": 0,
+    "alignment_date_changed_rows": 0
+  },
+  "metrics": {
+    "observations": 6334473,
+    "unique_keys": 6334473,
+    "off_grid": 0,
+    "invalid_retained": 0,
+    "invalid_decimal": 0,
+    "bad_alignment": 0,
+    "bad_interval": 0,
+    "bad_year": 0,
+    "bad_month": 0,
+    "zero_rainfall_rows": 6141770,
+    "aligned_retained_rows": 0,
+    "metadata_conflict_observations": 0,
+    "rain_sum_mm": "165793.461930000000000000",
+    "quarantine_rows": 0,
+    "merged_duplicate_rows": 0,
+    "ledger_dispositions": {}
+  },
+  "checks": {
+    "count_balance": true,
+    "primary_key_unique": true,
+    "time_grid_valid": true,
+    "no_invalid_measurements": true,
+    "decimal_valid": true,
+    "alignment_valid": true,
+    "interval_valid": true,
+    "partitions_valid": true,
+    "rainfall_amount_balance": true
+  },
+  "duplicate_groups": 0,
+  "elapsed_seconds": 238.16
+}

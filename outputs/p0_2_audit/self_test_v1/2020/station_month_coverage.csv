@@ -1,0 +1,13 @@
+﻿year,station_id,month,unique_timestamps,occupied_nominal_slots,expected_calendar_slots,calendar_coverage_ratio,calendar_unobserved_slots,observed_span_slots,observed_span_unobserved_slots,observed_span_coverage_ratio,time_phase_variants,off_grid_unique_timestamps,slot_collision_excess,candidate_unique_timestamps,candidate_calendar_coverage_ratio,first_epoch_s,last_epoch_s
+2020,TEST_A,1,8,7,8928,0.00078405,8921,13,6,0.53846154,2,1,1,2,0.00011201,1577808000,1577811600
+2020,TEST_A,2,0,0,8352,0.0,8352,0,0,,0,0,0,0,0.0,,
+2020,TEST_A,3,0,0,8928,0.0,8928,0,0,,0,0,0,0,0.0,,
+2020,TEST_A,4,0,0,8640,0.0,8640,0,0,,0,0,0,0,0.0,,
+2020,TEST_A,5,0,0,8928,0.0,8928,0,0,,0,0,0,0,0.0,,
+2020,TEST_A,6,0,0,8640,0.0,8640,0,0,,0,0,0,0,0.0,,
+2020,TEST_A,7,0,0,8928,0.0,8928,0,0,,0,0,0,0,0.0,,
+2020,TEST_A,8,0,0,8928,0.0,8928,0,0,,0,0,0,0,0.0,,
+2020,TEST_A,9,0,0,8640,0.0,8640,0,0,,0,0,0,0,0.0,,
+2020,TEST_A,10,0,0,8928,0.0,8928,0,0,,0,0,0,0,0.0,,
+2020,TEST_A,11,0,0,8640,0.0,8640,0,0,,0,0,0,0,0.0,,
+2020,TEST_A,12,0,0,8928,0.0,8928,0,0,,0,0,0,0,0.0,,

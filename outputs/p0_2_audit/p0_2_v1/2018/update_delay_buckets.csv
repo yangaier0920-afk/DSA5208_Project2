@@ -1,0 +1,7 @@
+﻿year,update_delay_bucket,reading_update_delay_bucket,count
+2018,0_to_5min,0_to_5min,422
+2018,1day_to_7days,1day_to_7days,83896
+2018,1hour_to_1day,1hour_to_1day,82234
+2018,1hour_to_1day,5min_to_1hour,56
+2018,5min_to_1hour,5min_to_1hour,4426699
+2018,over_7days,over_7days,939

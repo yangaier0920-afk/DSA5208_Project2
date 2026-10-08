@@ -1,0 +1,55 @@
+{
+  "status": "PASS",
+  "verifier_sha256": "b9587dbab8cf1697908309d49c91e49682244512e30a73becee708364f43da02",
+  "cleaning_signature": {
+    "version": "p0_3_v1",
+    "code_sha256": "cbaf8c9e6123eac68129cb3e0332f935642d6ab9871e86a75197e2d7cc36beeb",
+    "config_sha256": "e5258b99925606c8ba88207cb44a6756514fa84cd60f37adea3f9db64103248b",
+    "manifest_sha256": "27b32fc5e2fdd8d3681cc05455547668e6af8657758558984df6043bed693c56",
+    "session_helper_sha256": "a3a8b9cd1a9db30aa70bacc6d51d1552822ceb81ff15ee7cd2e4867710970790",
+    "runtime_helper_sha256": "f59a20f7f5bfbc26011ce6b2a5e8981e67b3ea402b1eae690a5d913022932376",
+    "output": "D:/桌面文件/NUS_sem1/DSA5208/project2/data/processed/p0_3_v1",
+    "self_test": false
+  },
+  "checks": {
+    "all_year_counts_match": true,
+    "total_count_matches": true,
+    "all_91_stations_retained": true,
+    "root_partitions_consistent": true,
+    "original_station_ids_preserved": true,
+    "original_timestamps_preserved": true,
+    "standard_time_grid": true,
+    "decimal_schema": true,
+    "empty_quarantine_readable": true,
+    "two_sided_collision_ledger": true,
+    "metadata_history_includes_premerge_rows": true
+  },
+  "metrics": {
+    "rows": 48538627,
+    "stations": 91,
+    "bad_partition": 0,
+    "changed_station_id": 0,
+    "changed_original_time": 0,
+    "bad_grid": 0
+  },
+  "by_year": {
+    "2020": 6334473,
+    "2022": 7133230,
+    "2021": 7044646,
+    "2023": 6742890,
+    "2024": 6406260,
+    "2018": 4594246,
+    "2017": 5256020,
+    "2019": 5026862
+  },
+  "quarantine_rows": 0,
+  "ledger_dispositions": {
+    "RETAINED": 86,
+    "MERGED_DUPLICATE": 86
+  },
+  "metadata_raw_rows": 48538713,
+  "shutdown": {
+    "passed": true,
+    "gateway_exit_code": 0
+  }
+}

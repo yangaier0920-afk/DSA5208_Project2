@@ -1,0 +1,135 @@
+{
+  "status": "RULES_CONFIRMED",
+  "applied": false,
+  "decision_record": "configs/project_decisions.pending.json",
+  "selected": {
+    "T": "T2",
+    "C": "C1",
+    "L": "L1",
+    "D": "D1",
+    "M": "M1",
+    "H": "H1",
+    "R": "R1",
+    "S": "S1",
+    "B": "B1",
+    "K": "K1",
+    "A": "A1",
+    "E": "E2",
+    "P": "P1",
+    "V": "V1",
+    "I": "I1"
+  },
+  "data_version": "v1",
+  "timezone": "Asia/Singapore",
+  "observations": {
+    "preserve_raw": true,
+    "storage": "sparse_parquet",
+    "partition_by": [
+      "year",
+      "month"
+    ],
+    "event_ts": "original parsed observation timestamp",
+    "slot_end_ts": "event_ts + 1s only when epoch_s mod 300 == 299; otherwise unchanged",
+    "primary_key": [
+      "station_id",
+      "slot_end_ts"
+    ],
+    "rainfall_interval": "ending at slot_end_ts",
+    "rain_period_start_ts": "slot_end_ts - 300s",
+    "task1_period_grouping": "rain_period_start_ts in SGT",
+    "aligned_collision_rule": "equal numeric rainfall: keep the original exact-grid row, preserve both lineages and metadata history",
+    "unequal_rainfall_collision_rule": "quarantine whole group",
+    "missing_rainfall": "unknown; never zero-fill",
+    "retain_zero": true,
+    "retain_finite_nonnegative_extremes": true,
+    "label_decimal_scale": "lossless scale established from source precision; fail rather than silently round",
+    "station_id_policy": "preserve original ID including S113; preserve row metadata/history",
+    "expected_rows_only_if_no_additional_exclusions": 48538627
+  },
+  "windows": {
+    "future_offsets_seconds": [
+      300,
+      600,
+      900,
+      1200,
+      1500,
+      1800
+    ],
+    "require_all_future_slots": true,
+    "historical_offsets_seconds": [
+      -3300,
+      -3000,
+      -2700,
+      -2400,
+      -2100,
+      -1800,
+      -1500,
+      -1200,
+      -900,
+      -600,
+      -300,
+      0
+    ],
+    "require_all_12_historical_slots": true,
+    "label_rule": "future_30m_mm > threshold_mm",
+    "information_availability": "historical retrospective event-time assumption"
+  },
+  "task1": {
+    "common_station_candidates": 38,
+    "calendar_month_min_coverage": 0.9,
+    "sensitivity_min_coverage": 0.95,
+    "comparison": "same-month station intersection among years compared",
+    "recompute_panels_after_cleaning": true,
+    "filter_global_observations": false,
+    "filter_task2_by_month_coverage": false
+  },
+  "training": {
+    "time_protocol": "E2",
+    "proposal": "confirmed: docs/E2滚动验证实验方案.md",
+    "pipeline_sample_fraction": 0.01,
+    "formal_anchor_sample_fraction": 0.1,
+    "threshold_candidate_values_mm": [
+      0,
+      0.5,
+      1,
+      2,
+      5
+    ],
+    "threshold_as_numeric_feature": true,
+    "inference_policy": "strict supported station/time/history/threshold scope",
+    "rolling_folds": [
+      {
+        "train_years": [
+          2017,
+          2020
+        ],
+        "validation_year": 2021
+      },
+      {
+        "train_years": [
+          2017,
+          2021
+        ],
+        "validation_year": 2022
+      },
+      {
+        "train_years": [
+          2017,
+          2022
+        ],
+        "validation_year": 2023
+      }
+    ],
+    "selection_metric": "Brier: equal-weight mean across frozen thresholds, then across three validation years",
+    "threshold_support_training_years": [
+      2017,
+      2020
+    ],
+    "final_refit_years": [
+      2017,
+      2023
+    ],
+    "final_test_year": 2024,
+    "no_labels_cross_partition_boundary": true
+  }
+}
