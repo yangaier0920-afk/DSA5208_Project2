@@ -45,7 +45,7 @@ def main():
         os.environ['PYSPARK_DRIVER_PYTHON'] = sys.executable
         os.environ['SPARK_LOCAL_IP'] = '127.0.0.1'
         full = args.scope == 'full'
-                spark, hooks = start_spark(
+        spark, hooks = start_spark(
             'P1-5 release reader',
             threads=2,
             memory='4g' if full else '2g',
