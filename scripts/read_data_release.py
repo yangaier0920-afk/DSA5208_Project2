@@ -45,8 +45,17 @@ def main():
         os.environ['PYSPARK_DRIVER_PYTHON'] = sys.executable
         os.environ['SPARK_LOCAL_IP'] = '127.0.0.1'
         full = args.scope == 'full'
-        spark, hooks = start_spark('P1-5 release reader', threads=4 if full else 2,
-                                  memory='4g' if full else '2g', partitions=48 if full else 8)
+                spark, hooks = start_spark(
+            'P1-5 release reader',
+            threads=2,
+            memory='4g' if full else '2g',
+            partitions=256 if full else 8
+        )
+        if full:
+            spark.conf.set(
+                'spark.sql.adaptive.coalescePartitions.enabled', 'false'
+            )
+            spark.conf.set('spark.sql.files.maxPartitionBytes', '33554432')
         java = spark.sparkContext._jvm.java.lang.System.getProperty('java.version')
         if java.split('.')[0] != str(lock['required_java_major']):
             raise RuntimeError('Java major mismatch')
