@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+runtime/
+archive/
+.ipynb_checkpoints/
+results/features*/parquet/
+results/*_rerun*/
+.DS_Store

@@ -1,0 +1,29 @@
+{
+  "seed": 20261011,
+  "random_stations": [
+    "S40",
+    "S218",
+    "S43",
+    "S217",
+    "S209",
+    "S104",
+    "S102",
+    "S219",
+    "S36",
+    "S101",
+    "S94",
+    "S07",
+    "S900",
+    "S123",
+    "S90",
+    "S78",
+    "S55",
+    "S112",
+    "S35",
+    "S100"
+  ],
+  "random_anchor_count": 400,
+  "boundary_keys_requested": 120,
+  "actual_checked": 513,
+  "selection": "fixed seeded stations; stable hash sample and per-station hash order"
+}

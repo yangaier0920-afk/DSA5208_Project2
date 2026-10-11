@@ -1,0 +1,20 @@
+{
+  "notebooks": [
+    {
+      "file": "B_Task1_Analysis.ipynb",
+      "sha256": "0a2083cecf4df66cb07736f47e40ea3c015351e956b23b9c06b995e7db9fa633",
+      "cells": 60,
+      "default_execution": "PASS in project browser; numerical recompute flags False",
+      "feature_set_version": "B_v2",
+      "documentation_revision": "2026-10-11"
+    },
+    {
+      "file": "B_Historical_Features.ipynb",
+      "sha256": "6833c2ccbbb667ab531f4551984fe010fd19d9d348a615230ba802e626cfc6e5",
+      "cells": 42,
+      "default_execution": "PASS in project browser; numerical recompute flags False",
+      "feature_set_version": "B_v2",
+      "documentation_revision": "2026-10-11"
+    }
+  ]
+}

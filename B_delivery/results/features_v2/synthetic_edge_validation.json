@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "cases": [
+    "all_wet",
+    "all_dry",
+    "last_three",
+    "stopped",
+    "alternating",
+    "missing_lag10"
+  ],
+  "cross_year_context": true,
+  "missing_slot_not_replaced_by_preceding_row": true,
+  "right_and_left_censor_semantics": true
+}

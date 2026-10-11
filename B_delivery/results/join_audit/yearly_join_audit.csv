@@ -1,0 +1,9 @@
+scope,left_unique_keys,left_rows,left_duplicate_key_groups,left_duplicate_excess_rows,left_null_key_rows,right_unique_keys,right_rows,right_duplicate_key_groups,right_duplicate_excess_rows,right_null_key_rows,left_unmatched_rows,right_unmatched_rows,matched_left_rows,inner_join_rows,left_join_rows,left_match_rate,right_match_rate,row_inflation,status,year
+published_targets_vs_B_features_2017,5256020,5256020,0,0,0,5256020,5256020,0,0,0,0,0,5256020,5256020,5256020,1.0,1.0,0,PASS,2017
+published_targets_vs_B_features_2018,4594246,4594246,0,0,0,4594246,4594246,0,0,0,0,0,4594246,4594246,4594246,1.0,1.0,0,PASS,2018
+published_targets_vs_B_features_2019,5026862,5026862,0,0,0,5026862,5026862,0,0,0,0,0,5026862,5026862,5026862,1.0,1.0,0,PASS,2019
+published_targets_vs_B_features_2020,6334473,6334473,0,0,0,6334473,6334473,0,0,0,0,0,6334473,6334473,6334473,1.0,1.0,0,PASS,2020
+published_targets_vs_B_features_2021,7044646,7044646,0,0,0,7044646,7044646,0,0,0,0,0,7044646,7044646,7044646,1.0,1.0,0,PASS,2021
+published_targets_vs_B_features_2022,7133230,7133230,0,0,0,7133230,7133230,0,0,0,0,0,7133230,7133230,7133230,1.0,1.0,0,PASS,2022
+published_targets_vs_B_features_2023,6742890,6742890,0,0,0,6742890,6742890,0,0,0,0,0,6742890,6742890,6742890,1.0,1.0,0,PASS,2023
+published_targets_vs_B_features_2024,6406260,6406260,0,0,0,6406260,6406260,0,0,0,0,0,6406260,6406260,6406260,1.0,1.0,0,PASS,2024

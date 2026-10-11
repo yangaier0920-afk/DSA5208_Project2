@@ -1,0 +1,110 @@
+{
+  "member": "B",
+  "input_scope": "full",
+  "years": [
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024
+  ],
+  "timezone": "Asia/Singapore",
+  "spark": {
+    "threads": 2,
+    "driver_memory": "4g",
+    "shuffle_partitions": 128,
+    "input_partition_mb": 32,
+    "adaptive_coalesce": false
+  },
+  "task1": {
+    "calendar": "rain_period_start_ts",
+    "coverage_cutoffs": [
+      0.9,
+      0.95
+    ],
+    "station_weighting": "equal",
+    "strict_panel": "A-provided same-month station intersection across 2017-2024",
+    "descriptive_panel": "within-year qualified station-months; composition varies",
+    "wet_slot": "rain_mm > 0",
+    "missing": "unknown; never zero filled",
+    "percentiles": "approximate nonzero five-minute rainfall; accuracy 1000",
+    "hourly_panel": "each station-month must have >=90% coverage in every hour; same stations in all 24 hours; stations then supported year-months equally weighted",
+    "annual_summary": "within-year annual coverage >= cutoff; observed calendar-year sums; station composition varies; unsupported years NA",
+    "annual_fixed_panel": "intersection over all 8 years, reported separately; no fabricated full-year totals",
+    "spatial_month_selection": "largest strict 90% same-month panel; earliest month resolves ties",
+    "frequency_intensity": "station-month wet fraction and nonzero P50/P90/P99 averaged across qualified stations then available years; not pooled quantiles",
+    "persist_full_observations": false
+  },
+  "features": {
+    "history_end": "t inclusive",
+    "window_offsets_seconds": {
+      "15m": [
+        -600,
+        0
+      ],
+      "30m": [
+        -1500,
+        0
+      ],
+      "60m": [
+        -3300,
+        0
+      ],
+      "previous_15m": [
+        -1500,
+        -900
+      ]
+    },
+    "require_complete_window_for_rain_summary": true,
+    "time_features": [
+      "hour_sin",
+      "hour_cos",
+      "month_sin",
+      "month_cos"
+    ],
+    "future_information_used": false,
+    "anchor_sampling": "none; all observations retained",
+    "year_boundary_context_seconds": 3300,
+    "exact_lag_minutes": [
+      5,
+      10,
+      15,
+      30
+    ],
+    "wet_indicators": [
+      "current",
+      "lag_5m",
+      "lag_10m"
+    ],
+    "persistence_window": "12 exact endpoints t-3300,...,t; require all valid",
+    "consecutive_wet_slots_60m": "trailing wet run, capped at 12 with left-censor flag",
+    "recency": "raw age is null if no wet slot; model uses 60 censoring code with no_rain_observed_60m flag",
+    "rain_ratio_15m_30m": "complete 30m history required; both dry ->0",
+    "independent_probes": {
+      "seed": 20261011,
+      "random_stations": 20,
+      "random_anchors_per_station": 20,
+      "retain_year_boundaries": true
+    }
+  },
+  "feature_set_version": "B_v2",
+  "documentation_revision": "2026-10-11",
+  "time_contract": {
+    "rule": "aligned timestamp is interval end under project L1/D1 assumption",
+    "available_last_endpoint": "t under retrospective event-time assumption",
+    "future_endpoints_seconds": [
+      300,
+      600,
+      900,
+      1200,
+      1500,
+      1800
+    ],
+    "official_interval_independently_verified": false,
+    "real_time_release_latency_validated": false,
+    "C_implementation_signoff": "pending"
+  }
+}

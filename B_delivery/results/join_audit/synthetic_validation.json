@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "case": "unique",
+      "expected_status": "PASS",
+      "actual_status": "PASS",
+      "test_status": "PASS"
+    },
+    {
+      "case": "duplicate_left",
+      "expected_status": "FAIL",
+      "actual_status": "FAIL",
+      "test_status": "PASS"
+    },
+    {
+      "case": "duplicate_right",
+      "expected_status": "FAIL",
+      "actual_status": "FAIL",
+      "test_status": "PASS"
+    },
+    {
+      "case": "missing_match",
+      "expected_status": "FAIL",
+      "actual_status": "FAIL",
+      "test_status": "PASS"
+    },
+    {
+      "case": "null_key",
+      "expected_status": "FAIL",
+      "actual_status": "FAIL",
+      "test_status": "PASS"
+    }
+  ]
+}
