@@ -136,3 +136,102 @@ A的真实原始片段重跑入口（可选；B/C正常使用数据不必先跑�
 每次换一个新输出目录；macOS用`python`。该测试重跑1,297条真实片段、114个锚点，验证清洗和标签，与正式参照比较；不训练模型。环境、清洗报告中英文稿、局限和189个字段定义全部放在补充资料。
 
 A本地数据工作、复现和正式数据发布已完成；B/C实机验收、分析／特征／模型、最终模型重载、全组报告合并及课程最终提交仍待完成。`archive/`保存历史说明和收据，日常使用以上入口即可；其他阶段脚本是A的内部处理／归档工具，不是B/C必跑步骤。
+
+## 7. B：Task 1 分析与历史特征交付
+
+B 已使用 2017—2024 年正式全量数据完成 Task 1 分析、历史特征构建及验证。以下为截至 2026-10-11 的 B 交付状态；C 的模型训练、实际训练输入关联核验及全组最终提交仍需完成。B 的代码与结果放在独立目录 `B_delivery/`，沿用 A 的冻结数据发布规则。
+
+### 7.1 文件位置
+
+以下路径均相对于项目根目录。
+
+| 路径 | 内容 |
+|---|---|
+| `B_delivery/notebooks/B_Task1_Analysis.ipynb` | 可编辑的 Task 1 聚合、七组图表及分析说明 |
+| `B_delivery/notebooks/B_Historical_Features.ipynb` | 可编辑的历史特征、逐年验证及关联核验函数 |
+| `B_delivery/src/` | Spark 分析、特征生成、预测接口、验证和报告生成脚本 |
+| `B_delivery/configs/B_experiment.json` | B 实验配置；当前数值特征版本为 `B_v2` |
+| `B_delivery/results/task1_v2/` | 统计表、七组 PNG/PDF 图、覆盖门槛敏感性及来源记录 |
+| `B_delivery/results/features_v2/` | 特征 schema、逐年保留率和验证记录；`parquet/` 为完整特征数据 |
+| `B_delivery/results/join_audit/` | A 标签表与 B 特征表的逐年实际关联核验 |
+| `B_delivery/docs/TIME_CONTRACT.md` | 预测时刻、五分钟区间、未来六槽及待共同确认事项 |
+| `B_delivery/docs/FEATURE_DEFINITIONS.md` | 26 个数值特征的名称、含义、单位、范围和缺失处理；另有 CSV 版 |
+| `B_delivery/C_HANDOFF.md` | C 的读取、关联、特征复用与防泄漏说明 |
+| `B_delivery/report_zh/B_report_zh.md` | 唯一保留的中文 B 报告，可复制修改后合并进组报告 |
+
+`task1_v2` 和 `features_v2` 是当前使用目录，不是旧版备份。报告引用的图位于 `results/task1_v2/figures/`；报告来源及哈希记录位于 `results/report_metadata/`。
+
+### 7.2 环境与 Notebook 打开方法
+
+先按前文完成 Python 3.11、Java 17、正式数据下载及全量读取验收。下面为 macOS 命令，在项目根目录执行：
+
+```bash
+source .venv/bin/activate
+export JAVA_HOME=$(/usr/libexec/java_home -v 17)
+python -m pip install -r B_delivery/requirements-B.txt
+python -m pip install notebook
+python -m notebook
+```
+
+浏览器进入 `B_delivery/notebooks/`，打开所需 Notebook。默认重算开关为 `False`，Run All 用于查看已有结果，不启动全量 Spark。修改后需要重算时，打开对应开关并按从上到下的顺序运行；Notebook 使用带时间戳的新结果目录。不要同时运行两个全量 Spark Notebook。
+
+已验证的本机环境为 MacBook Air、Apple M5、24 GB 内存，Python 3.11.9、PySpark 3.5.7、Java 17。Spark 使用 `local[2]`、4g JVM heap、128 个 shuffle 分区和 32 MiB 读取分区上限，启用 AQE 但禁用分区合并，不缓存全量观测。硬件清单为运行后补查；峰值内存未测量，详细计时范围见中文报告。
+
+### 7.3 脚本复跑方法
+
+以下命令仍在项目根目录执行。`task1_rerun1`、`features_rerun1` 必须是新的输出目录；再次运行时更换后缀，不能直接覆盖已有正式结果。
+
+```bash
+# Task 1：重新聚合并生成七组图
+python B_delivery/src/B_task1_analysis.py --root "$PWD" \
+  --output B_delivery/results/task1_rerun1
+python B_delivery/src/B_plot_results.py \
+  --input B_delivery/results/task1_rerun1
+
+# 全量历史特征：生成并验证预测接口
+python B_delivery/src/B_build_features.py --root "$PWD" \
+  --output B_delivery/results/features_rerun1
+python B_delivery/src/B_validate_feature_api.py --root "$PWD" \
+  --features B_delivery/results/features_rerun1
+
+# 重新核对标签与新特征的一对一关联
+python B_delivery/src/B_join_audit.py --root "$PWD" \
+  --features B_delivery/results/features_rerun1 \
+  --output B_delivery/results/join_audit_rerun1
+```
+
+只需刷新当前正式中文报告和输出清单时：
+
+```bash
+python B_delivery/src/B_make_report.py
+python B_delivery/src/B_finalize.py --root "$PWD"
+```
+
+以上报告命令读取当前正式的 `task1_v2`、`features_v2` 和 `join_audit` 结果，仅生成 Markdown。新一轮实验应另行指定其报告输入；关联证据也必须对应同一轮特征，不能直接沿用当前正式核验结论。
+
+小数据边界检查可单独运行：
+
+```bash
+python B_delivery/src/B_test_features.py --root "$PWD"
+python B_delivery/src/B_test_join_audit.py --root "$PWD"
+```
+
+### 7.4 分析与特征口径
+
+- **Task 1**：按新加坡时区的 `rain_period_start_ts` 归属年月、日期和小时。严格跨年比较使用八年同月固定站点交集，以 90% 月覆盖为主、95% 为敏感性分析；当前仅 5、9、10、12 月受支持。年度摘要保留缺测和站点组成变化的限制，不解释为全国年度趋势。
+- **时间口径**：按项目 L1/D1 约定，对齐后的 `slot_end_ts` 是五分钟区间终点。预测时刻 t 的当前槽对应 `(t−5min,t]`；未来30分钟标签使用末端 t+5 至 t+30 分钟的六槽，不包含当前槽。区间含义及 t 时刻当前观测已可用属于项目假设，尚未独立验证官方语义或真实发布延迟，A/B/C 仍需共同核对最终实现。
+- **历史特征**：使用 t 及以前的精确时间位置，保留跨年上下文。默认数值输入为 26 列，清单以 `B_feature_api.NUMERIC_FEATURES` 为准；另由 C 加入阈值输入和仅在训练集拟合的站点编码。
+- **缺失与截断**：缺槽保持 null，不补零。连续湿槽最多观察12槽，全湿时带左截断标记；未观察到近期雨时，原始距上次降雨时间未知，模型使用60截断编码及配套标记，不能解释为真实间隔。完整30分钟全干时雨量比为0，缺槽时为null。
+- **历史筛选**：B 保留全部观测锚点，完整历史模型按规则排除历史不完整锚点。总体历史完整率约97.55%，2018年约87.68%；逐年数量见 `history_retention_by_year.csv`。未来完整性、role、边界等还会进一步影响监督样本，不能把历史保留率当最终训练保留率。
+
+### 7.5 已完成验证与 C 的交接要求
+
+正式特征共 **48,538,627 行**，其中 **47,347,833 行**具有完整60分钟历史。逐年数量与 A 核对通过；513 个真实锚点独立时间戳核验、六个合成边界案例及预测接口与离线26列一致性检查通过。
+
+A 正式标签表与 B 特征表的主键均为 `station_id + prediction_epoch_s`。全量实际核验显示两侧主键唯一、匹配率100%、未匹配数0，关联前后没有增加样本。
+
+**该基础表核验不能替代 C 实际训练输入的核验。** C 应在其筛选/采样完成后、阈值展开之前调用 `B_join_audit.audit_anchor_join`，保存本轮结果并检查两侧唯一性、匹配率、未匹配数及关联前后行数。阈值展开后改查 `station_id + prediction_epoch_s + threshold_mm` 三列键及每锚点阈值数量。
+
+C 还需遵循 E2 滚动验证，仅在训练集拟合编码与预处理，并在锁定配置后重训、对2024进行最终评价。预测时可复用 `B_feature_api.features_at`；当前接口要求完整历史，不以未来标签是否存在作为事前预测条件。新增特征是否改善概率预测仍需 C 验证，B 未提供或宣称模型评价分数。
+
+
