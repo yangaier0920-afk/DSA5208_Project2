@@ -1,0 +1,23 @@
+{
+  "class": "DecisionTreeClassificationModel",
+  "parameters": {
+    "cacheNodeIds": false,
+    "checkpointInterval": 10,
+    "featuresCol": "features",
+    "impurity": "gini",
+    "labelCol": "label",
+    "leafCol": "",
+    "maxBins": 32,
+    "maxDepth": 5,
+    "maxMemoryInMB": 256,
+    "minInfoGain": 0.0,
+    "minInstancesPerNode": 100,
+    "minWeightFractionPerNode": 0.0,
+    "predictionCol": "prediction",
+    "probabilityCol": "probability",
+    "rawPredictionCol": "rawPrediction",
+    "seed": 20261012
+  },
+  "num_nodes": 29,
+  "depth": 5
+}

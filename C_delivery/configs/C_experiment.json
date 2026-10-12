@@ -1,0 +1,29 @@
+{
+  "experiment_version": "C_v1_20261012",
+  "seed": 20261012,
+  "pilot_anchor_fraction": 0.01,
+  "formal_anchor_fraction": 0.1,
+  "sampling": "pmod(xxhash64(station_id,prediction_epoch_s,seed),10000) < fraction*10000; before threshold expansion; no label-dependent sampling",
+  "threshold_candidates_mm": [0, 0.5, 1, 2, 5],
+  "threshold_support": {"train_years": [2017, 2020], "min_positive_anchors": 100, "min_negative_anchors": 100},
+  "station_support_min_training_anchors": 1,
+  "selection": "equal threshold mean Brier within year, then equal mean of 2021/2022/2023",
+  "tie_absolute_tolerance": 0.00001,
+  "simplicity_order": ["frequency_baseline", "logistic_regression", "decision_tree"],
+  "candidates": {
+    "frequency_baseline": {"description": "training sample exceedance prevalence separately for each frozen threshold"},
+    "logistic_regression": {"regParam": 0.01, "elasticNetParam": 0.0, "maxIter": 40, "tol": 0.000001, "standardization": true},
+    "decision_tree": {"maxDepth": 5, "maxBins": 32, "minInstancesPerNode": 100, "minInfoGain": 0.0}
+  },
+  "numeric_feature_set": "B_feature_api.NUMERIC_FEATURES (B_v2, 26 columns)",
+  "threshold_as_numeric_input": true,
+  "station_encoding": "StringIndexer + OneHotEncoder fitted only on each sampled training fold; unknown stations rejected",
+  "class_weights": "none; retain sampled natural prevalence for probability estimation",
+  "probability_postprocessing": "none; threshold monotonicity diagnosed but not tuned using test",
+  "auc_num_bins": 1000,
+  "log_loss_clip": 1e-15,
+  "calibration_bin_edges": [0, 0.001, 0.005, 0.01, 0.02, 0.05, 0.1, 0.2, 0.4, 0.6, 0.8, 1.0000001],
+  "spark": {"threads": 2, "driver_memory": "6g", "shuffle_partitions": 128, "read_partition_bytes": 33554432, "adaptive_coalesce": false},
+  "validation": "full supported eligible anchors; future/role fields never model inputs",
+  "final": {"train_years": [2017, 2023], "test_year": 2024, "test_only_after_selection_file_saved": true}
+}

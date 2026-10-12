@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "/Users/kendallshao/Downloads/DSA5208_Project2/scripts/read_data_release.py", line 113, in <module>
+    main()
+  File "/Users/kendallshao/Downloads/DSA5208_Project2/scripts/read_data_release.py", line 30, in main
+    receipt.update(verify_release(root, args.scope))
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kendallshao/Downloads/DSA5208_Project2/scripts/data_release.py", line 54, in verify_release
+    raise RuntimeError(f'Release file missing or changed: {item["path"]}')
+RuntimeError: Release file missing or changed: scripts/read_data_release.py

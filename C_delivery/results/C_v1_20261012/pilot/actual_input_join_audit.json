@@ -1,0 +1,22 @@
+{
+  "scope": "C_pilot_actual_post_filter_post_sample_pre_threshold",
+  "left_unique_keys": 269365,
+  "left_rows": 269365,
+  "left_duplicate_key_groups": 0,
+  "left_duplicate_excess_rows": 0,
+  "left_null_key_rows": 0,
+  "right_unique_keys": 28256247,
+  "right_rows": 28256247,
+  "right_duplicate_key_groups": 0,
+  "right_duplicate_excess_rows": 0,
+  "right_null_key_rows": 0,
+  "left_unmatched_rows": 0,
+  "right_unmatched_rows": 27986882,
+  "matched_left_rows": 269365,
+  "inner_join_rows": 269365,
+  "left_join_rows": 269365,
+  "left_match_rate": 1.0,
+  "right_match_rate": 0.009532936203452639,
+  "row_inflation": 0,
+  "status": "PASS"
+}

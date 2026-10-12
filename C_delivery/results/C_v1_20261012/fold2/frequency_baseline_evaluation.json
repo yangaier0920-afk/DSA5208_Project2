@@ -1,0 +1,73 @@
+{
+  "status": "PASS",
+  "metrics": [
+    {
+      "model": "frequency_baseline",
+      "year": 2022,
+      "threshold_mm": 0.0,
+      "n": 7072758,
+      "positive": 458344,
+      "mean_probability": 0.05850593613406798,
+      "brier": 0.06064423085849631,
+      "log_loss": 0.24033515880273154,
+      "positive_rate": 0.06480414005399308,
+      "roc_auc": 0.5,
+      "pr_auc": 0.06480414005399308
+    },
+    {
+      "model": "frequency_baseline",
+      "year": 2022,
+      "threshold_mm": 0.5,
+      "n": 7072758,
+      "positive": 253837,
+      "mean_probability": 0.032683737658392664,
+      "brier": 0.03461162182522275,
+      "log_loss": 0.1548104114051321,
+      "positive_rate": 0.035889394208030306,
+      "roc_auc": 0.5,
+      "pr_auc": 0.035889394208030306
+    },
+    {
+      "model": "frequency_baseline",
+      "year": 2022,
+      "threshold_mm": 1.0,
+      "n": 7072758,
+      "positive": 178437,
+      "mean_probability": 0.02263257220677279,
+      "brier": 0.024599021452395252,
+      "log_loss": 0.11789086883636142,
+      "positive_rate": 0.02522877214235239,
+      "roc_auc": 0.5,
+      "pr_auc": 0.02522877214235239
+    },
+    {
+      "model": "frequency_baseline",
+      "year": 2022,
+      "threshold_mm": 2.0,
+      "n": 7072758,
+      "positive": 120015,
+      "mean_probability": 0.015040734471587476,
+      "brier": 0.016684410514464988,
+      "log_loss": 0.08611504943694703,
+      "positive_rate": 0.01696862807973919,
+      "roc_auc": 0.5,
+      "pr_auc": 0.01696862807973919
+    },
+    {
+      "model": "frequency_baseline",
+      "year": 2022,
+      "threshold_mm": 5.0,
+      "n": 7072758,
+      "positive": 64426,
+      "mean_probability": 0.007752228673113525,
+      "brier": 0.009027901381192664,
+      "log_loss": 0.05197940254013779,
+      "positive_rate": 0.009109034976171954,
+      "roc_auc": 0.5,
+      "pr_auc": 0.009109034976171954
+    }
+  ],
+  "threshold_probability_increasing_pairs": 0,
+  "auc": "Spark MLlib approximate curves with numBins=1000",
+  "expanded_score_rows": 35363790
+}

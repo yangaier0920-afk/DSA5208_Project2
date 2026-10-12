@@ -113,29 +113,29 @@ def main():
     # source has some observations in all 96 months, so each partition is expected.
     assert all(checks.values()),{k:v for k,v in checks.items() if not v}
     report=ROOT/'docs/p0_3_quality_report.md'
-    lines=['# P0-3 清洗与标准化验收报告','',
-        '状态：PASS。P0-2先通过32项交付复核，P0-3完成八年Spark清洗、逐年Parquet重读及B/C使用的根目录合并读取验证。E2已确认；本阶段没有生成标签或训练模型。','',
-        '## 数量账目','',
-        '| 原始记录 | observations | quarantine | 合并移除重复 |','|---:|---:|---:|---:|',
+    lines=['# P0-3 cleaning and standardization acceptance report','',
+        'Status: PASS. P0-2 passed 32 delivery checks; P0-3 completed eight-year Spark cleaning, annual Parquet readback and merged-root checks for B/C. E2 was confirmed; this stage did not create labels or train models.','',
+        '## Count reconciliation','',
+        '| Raw records | observations | quarantine | Merged duplicate removals |','|---:|---:|---:|---:|',
         f'| {summary["raw_rows"]:,} | {summary["totals"]["observations"]:,} | {summary["totals"]["quarantine_rows"]:,} | {summary["totals"]["merged_duplicate_rows"]:,} |','',
-        '原始 = observations + quarantine + 合并移除重复。空quarantine保留可读schema；collision_lineage的172行包含86行保留侧和86行移除侧，不重复计入数量账目。','',
-        '| 年份 | 原始 | observations | 隔离 | 移除重复 |','|---|---:|---:|---:|---:|']
+        'Raw = observations + quarantine + merged removals. Empty quarantine retains a readable schema. The 172 collision_lineage rows include 86 retained and 86 removed sides, not additional losses.','',
+        '| Year | Raw | observations | Quarantine | Duplicate removals |','|---|---:|---:|---:|---:|']
     lines += [f'| {r["year"]} | {r["raw_rows"]:,} | {r["observations"]:,} | {r["quarantine"]} | {r["merged_duplicates"]} |' for r in annual]
-    lines += ['', '## 已实施规则与验证','',
-        '- T2：2017年1,775,327条原始偏移行派生时间加一秒；原始时间保留。加一秒使6,191条原始记录跨日。合并之后的偏移保留数见年度账目，不能混用处理前后口径。',
-        '- C1：86组一致雨量碰撞优先保留原标准刻度记录；不相加雨量。S113的2组元数据差异已标志，双方历史均保留。',
-        '- L1/D1：区间终点为slot_end_ts，起点为终点减300秒；天气分析按区间起点归属。此区间含义仍是项目假设，不能写成官方证明。',
-        '- M1/R1：稀疏存储、不补零，合法零值和非负有限极端值保留。',
-        f'- 精确雨量：存储为{summary["decimal_storage"]}，全量观测源有效小数位最高为{summary["max_source_effective_decimal_scale"]}；未静默舍入。逐年精确雨量账目闭合。',
-        f'- {len(test["checks"])}项合成异常与Parquet检查、每年{len(summary["annual_results"][0]["checks"])}项重读检查、{len(readback["checks"])}项合并目录检查、{len(checks)}项交付检查均通过，Java进程正常退出。',
-        '- 八个原始文件在处理前重新核对完整SHA-256，运行期间大小/修改时间未变。交付文件另列SHA-256；没有修改原始CSV。','',
-        '## 覆盖与后续使用','',
-        '分别导出观测终点日历覆盖及雨量区间日历覆盖，后者先汇总所有来源年份的贡献，正确处理跨月/年边界。完整日历为分母；缺口为未知。B1/K1面板已按清洗结果重算，候选共同站点仍为38个。','',
-        '| 月份 | 八年同月共同可比站点（90%） | 95%敏感性 |','|---|---:|---:|']
+    lines += ['', '## Implemented rules and verification','',
+        '- T2: 1,775,327 raw offset rows in 2017 shifted forward one second, retaining original time; 6,191 raw records changed date. See annual ledgers for post-merge counts; do not mix pre/post processing scopes.',
+        '- C1: 86 equal-rain collisions prefer the original standard-grid row without summing rainfall. S113 metadata differences in two groups are flagged, preserving both histories.',
+        '- L1/D1: slot_end_ts is the interval endpoint; start is endpoint minus 300 seconds and supplies weather-analysis calendar. Interval meaning remains a project assumption, not official proof.',
+        '- M1/R1: sparse storage without zero filling; actual zeros and valid finite nonnegative extremes remain.',
+        f'- Exact rainfall: stored as {summary["decimal_storage"]}; maximum effective source decimal precision is {summary["max_source_effective_decimal_scale"]}; no silent rounding. Annual exact rainfall ledgers reconcile.',
+        f'- {len(test["checks"])} synthetic anomaly/Parquet checks, annually {len(summary["annual_results"][0]["checks"])} readback checks, {len(readback["checks"])} merged-root checks, {len(checks)} delivery checks passed with normal Java exit.',
+        '- All eight raw file hashes were rechecked before processing; size/mtime remained unchanged. Output hashes are separate. Raw CSV was not modified.','',
+        '## Coverage and downstream use','',
+        'Export endpoint- and interval-calendar coverage separately; combine all source-year contributions for interval coverage to handle month/year boundaries. Denominator is the full calendar; gaps are unknown. B1/K1 panels were recomputed with 38 common candidates.','',
+        '| Month | Eight-year same-month stations (90%) | 95% sensitivity |','|---|---:|---:|']
     p={(r['coverage_cutoff'],r['month']):r['comparable_station_count'] for r in panel}
     lines += [f'| {m} | {p[(0.9,m)]} | {p[(0.95,m)]} |' for m in range(1,13)]
-    lines += ['', '无合格站点的月份不能强行作八年同口径比较；也不能把有资格月份的总量称为全年雨量。2024年底没有2025相邻观测，资料边界缺口仍保留。覆盖表不筛掉全局observations或Task2。','',
-        '接口、字段、隔离原因、复现命令见 [p0_3_data_contract.md](p0_3_data_contract.md)。数量及覆盖交付位于 `outputs/p0_3_clean/p0_3_v1/`；正式数据位于 `data/processed/p0_3_v1/`。下一阶段P0-4才构造完整历史/未来窗口并按E2划分。','']
+    lines += ['', 'Months without eligible stations cannot support matched eight-year comparisons. Supported-month sums are not annual rainfall. Missing 2025 context remains a data-edge limitation. Coverage panels do not filter global observations or Task 2.','',
+        'See [p0_3_data_contract.md](p0_3_data_contract.md) for interfaces, fields, quarantine reasons and reproduction. Counts/coverage are in outputs/p0_3_clean/p0_3_v1; formal data in data/processed/p0_3_v1. P0-4 subsequently constructs exact past/future windows and E2 roles.','']
     report.write_text('\n'.join(lines),encoding='utf-8')
     validation={'status':'PASS','checks':checks,'validator_sha256':digest(Path(__file__)),'report_sha256':digest(report),
         'data_contract_sha256':digest(ROOT/'docs/p0_3_data_contract.md'),'note':'Full raw SHA256 verified before cleaning; final check uses unchanged sizes/mtimes.'}

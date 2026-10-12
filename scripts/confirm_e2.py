@@ -14,10 +14,10 @@ pending['items']['E'].update(selected='E2', decision_source='Explicit user confi
                            user_preference='Confirmed E2, including proposal selection and final-refit rules')
 pending.update(status='CONFIRMED', confirmed_items=list(pending['items']), pending_items=[],
                e2_confirmed_at_sgt=datetime.now(timezone(timedelta(hours=8))).isoformat(),
-               latest_user_statement='确认目前方案，采用E2，且确认A成员的02完成后开始03')
+               latest_user_statement='Confirm the current protocol and E2; begin A stage 03 after stage 02 is complete.')
 project['selected']['E'] = 'E2'
 project['status'] = 'RULES_CONFIRMED'
-project['training'].update(time_protocol='E2', proposal='confirmed: docs/E2滚动验证实验方案.md',
+project['training'].update(time_protocol='E2', proposal='confirmed: docs/E2_ROLLING_VALIDATION.md',
     rolling_folds=[{'train_years':[2017,2020], 'validation_year':2021},
                    {'train_years':[2017,2021], 'validation_year':2022},
                    {'train_years':[2017,2022], 'validation_year':2023}],

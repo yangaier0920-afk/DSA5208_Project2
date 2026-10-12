@@ -1,0 +1,73 @@
+{
+  "status": "PASS",
+  "metrics": [
+    {
+      "model": "frequency_baseline",
+      "year": 2024,
+      "threshold_mm": 0.0,
+      "n": 6338426,
+      "positive": 403195,
+      "mean_probability": 0.06107603276406021,
+      "brier": 0.05957125837800826,
+      "log_loss": 0.23684574296503788,
+      "positive_rate": 0.0636112183056172,
+      "roc_auc": 0.5,
+      "pr_auc": 0.0636112183056172
+    },
+    {
+      "model": "frequency_baseline",
+      "year": 2024,
+      "threshold_mm": 0.5,
+      "n": 6338426,
+      "positive": 229898,
+      "mean_probability": 0.03403829231057634,
+      "brier": 0.034959951190452115,
+      "log_loss": 0.15597911403001952,
+      "positive_rate": 0.036270518895385066,
+      "roc_auc": 0.5,
+      "pr_auc": 0.036270518895385066
+    },
+    {
+      "model": "frequency_baseline",
+      "year": 2024,
+      "threshold_mm": 1.0,
+      "n": 6338426,
+      "positive": 162937,
+      "mean_probability": 0.023643808856415743,
+      "brier": 0.025049667819588384,
+      "log_loss": 0.11957363044479842,
+      "positive_rate": 0.025706224226645542,
+      "roc_auc": 0.5,
+      "pr_auc": 0.025706224226645542
+    },
+    {
+      "model": "frequency_baseline",
+      "year": 2024,
+      "threshold_mm": 2.0,
+      "n": 6338426,
+      "positive": 106720,
+      "mean_probability": 0.015723243408773242,
+      "brier": 0.016554743880040867,
+      "log_loss": 0.08549885989973245,
+      "positive_rate": 0.016836987605440216,
+      "roc_auc": 0.5,
+      "pr_auc": 0.016836987605440216
+    },
+    {
+      "model": "frequency_baseline",
+      "year": 2024,
+      "threshold_mm": 5.0,
+      "n": 6338426,
+      "positive": 52918,
+      "mean_probability": 0.008143078076713559,
+      "brier": 0.008279100906956991,
+      "log_loss": 0.04827058960339371,
+      "positive_rate": 0.00834876040203041,
+      "roc_auc": 0.5,
+      "pr_auc": 0.00834876040203041
+    }
+  ],
+  "threshold_probability_increasing_pairs": 0,
+  "auc": "Spark MLlib approximate curves with numBins=1000",
+  "expanded_score_rows": 31692130
+}

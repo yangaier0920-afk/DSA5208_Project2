@@ -1,9 +1,9 @@
 {
   "manifest_format_version": 1,
   "status": "FROZEN_LOCAL",
-  "release_id": "rainfall_v1_r3",
+  "release_id": "rainfall_v1_r4_en",
   "data_version": "v1",
-  "config_hash": "e5258b99925606c8ba88207cb44a6756514fa84cd60f37adea3f9db64103248b",
+  "config_hash": "ac9f670d8983142216603e3d3ea3be371cca50af48a938e6c34a43e06e97e0d2",
   "config_hash_algorithm": "sha256 of exact configs/project.json bytes",
   "created_at": "2026-10-08T10:41:24.705812+00:00",
   "timezone": "Asia/Singapore",
@@ -1275,9 +1275,9 @@
       "kind": "metadata"
     },
     {
-      "path": "archive/history_v1/A成员工作细化与数据底座方案.md",
-      "bytes": 33269,
-      "sha256": "413985afba6ea379581081a507d6021f7ce9bf315bd5b0031deb51a69ad4f5b8",
+      "path": "archive/history_v1/A_DATA_FOUNDATION_PLAN.md",
+      "bytes": 4860,
+      "sha256": "0619f0745cc2d7f5eb54c819a9089e77961c6b6f5c3b66745eb3de39f370abc1",
       "kind": "metadata"
     },
     {
@@ -1288,20 +1288,20 @@
     },
     {
       "path": "configs/project.json",
-      "bytes": 3634,
-      "sha256": "e5258b99925606c8ba88207cb44a6756514fa84cd60f37adea3f9db64103248b",
+      "bytes": 3495,
+      "sha256": "ac9f670d8983142216603e3d3ea3be371cca50af48a938e6c34a43e06e97e0d2",
       "kind": "metadata"
     },
     {
       "path": "configs/project_decisions.pending.json",
-      "bytes": 6234,
-      "sha256": "469abda2016164000eedd57ca1504aab45cdada03a4296f7d075b75f3cc0de7b",
+      "bytes": 6194,
+      "sha256": "4177187191a6826de845b8ce0bd20d294303dc2ed624090852d43ecb7074515e",
       "kind": "metadata"
     },
     {
       "path": "configs/source_confirmation.json",
-      "bytes": 671,
-      "sha256": "010a36ae27d6fc49926be6593280d71828007a3b1c50a68d50e4f32dc00f6fe3",
+      "bytes": 675,
+      "sha256": "a87cbe726c4fefa192032873fe2fb1d0ce1bf0a52e9a21033565ab0436ffcfe3",
       "kind": "metadata"
     },
     {
@@ -2668,8 +2668,8 @@
     },
     {
       "path": "archive/history_v1/data/samples/p0_1_v1/README.md",
-      "bytes": 2468,
-      "sha256": "114bd3ec01ea98d365087d640526e30890a4ff4efd8fb91b196f3a8d694dac3b",
+      "bytes": 1003,
+      "sha256": "a2d7c6c8cf598ba777f4e47d0cbfbf2d64b2f33309271e36a72bc5d7fe00ea77",
       "kind": "sample_data"
     },
     {
@@ -2710,80 +2710,80 @@
     },
     {
       "path": "archive/history_v1/docs/data_contract.md",
-      "bytes": 11029,
-      "sha256": "4293f51c5b14324b6a2b66b5a5564a651d6e77d7508f3b8dec208f03888d3326",
+      "bytes": 2658,
+      "sha256": "f964b8827060aa4420dec6a2bd7c1fb2110f440f1bfb92bd4e92c04de0415d86",
       "kind": "metadata"
     },
     {
-      "path": "archive/history_v1/docs/E2滚动验证实验方案.md",
-      "bytes": 7067,
-      "sha256": "95ccb11c6529643ec99b1a407b42f8cf9385c2b612fc3b39ebcad3e08a83d759",
+      "path": "archive/history_v1/docs/E2_ROLLING_VALIDATION.md",
+      "bytes": 2568,
+      "sha256": "95b2cb4e52ca035d1ceb98c14bb3c76abce1a530aa59c1b271e9b29494bc2d11",
       "kind": "metadata"
     },
     {
       "path": "archive/history_v1/docs/environment.md",
-      "bytes": 5200,
-      "sha256": "a24f485d066cf2f20af27b8dbbb3aa24cf8de4f5a12d9104c8eb08ad4b28c5db",
+      "bytes": 1580,
+      "sha256": "e437afe3a1d11aa9dfc69cb0f321883ca0dd562c755fd077b48e24d8a821cac2",
       "kind": "metadata"
     },
     {
       "path": "archive/history_v1/docs/field_dictionary.md",
-      "bytes": 18103,
-      "sha256": "04991aded37a756c0730e10e5be124bda71bf0ec87022f2accbb073dfea95121",
+      "bytes": 21243,
+      "sha256": "ca797761818821bacc6aefb1f9989e13f18eaeb71892f2a119be5d740112585b",
       "kind": "metadata"
     },
     {
-      "path": "archive/history_v1/docs/P0-3及后续决策选项.md",
-      "bytes": 18909,
-      "sha256": "cac11e4f2f12ff3b2a1454e97b05912fbefcc0b871d5a275769663d54b7fe6e9",
+      "path": "archive/history_v1/docs/P0_3_DECISION_OPTIONS.md",
+      "bytes": 4145,
+      "sha256": "f1d4a0e64263af762d990e72b3588a61dcc6cddf13562d16d66f43fa537d45a0",
       "kind": "metadata"
     },
     {
       "path": "archive/history_v1/docs/p0_1_status.md",
-      "bytes": 2563,
-      "sha256": "3915beddfb6047b6999fffe86ee75b37e4b98647be0ceb80491aa2a1b0d903b0",
+      "bytes": 910,
+      "sha256": "7e64c1fff3c5313b319b7552a6a84ebb26fefb35be902b37afe815b08315816e",
       "kind": "metadata"
     },
     {
       "path": "archive/history_v1/docs/p0_2_methodology.md",
-      "bytes": 8065,
-      "sha256": "599524e19a0466af86410b9d9f2aa4a7dc8935cd6e18b6a6912cc702bd055c3d",
+      "bytes": 2729,
+      "sha256": "bb189601d7e58073fb160ffb4a47e4f5b3b9daf75f52aedf653b6984fb85be43",
       "kind": "metadata"
     },
     {
       "path": "archive/history_v1/docs/p0_2_quality_report.md",
-      "bytes": 11315,
-      "sha256": "3740f56cf4762a52eab0f4ee641e3e53bb59c9b8be64328a652121b970e5681e",
+      "bytes": 10876,
+      "sha256": "e98999c674f504632fd0f6a4f4f14e132d0fcd76757fb65a3f98e58d1a1386ff",
       "kind": "metadata"
     },
     {
       "path": "archive/history_v1/docs/p0_3_data_contract.md",
-      "bytes": 6902,
-      "sha256": "eac274e493b5fca5ed6d176e3012c251f867cebacfe4275ce4283ea3f0b35d5b",
+      "bytes": 3133,
+      "sha256": "72c69275c3228ff2c51664b6b632c711e7f9e2c7d106b411556f309dce0370f5",
       "kind": "metadata"
     },
     {
       "path": "archive/history_v1/docs/p0_3_quality_report.md",
-      "bytes": 3168,
-      "sha256": "c8844d3902f90e2e24880521a6dfec619785ddfc505b1d821382ad68cf39b4ce",
+      "bytes": 1853,
+      "sha256": "5487059d41dd24857865af30e75240228086dc31fab3981b9e8c0cdb55015192",
       "kind": "metadata"
     },
     {
       "path": "archive/history_v1/docs/p0_4_data_contract.md",
-      "bytes": 7166,
-      "sha256": "1115eb64e982bbeffbaa67ce7cc8995fe9737aadc9323b350de6f053f9804e56",
+      "bytes": 2627,
+      "sha256": "da5c4181daf63bd651973638bc5fb90dd59140c21012f6872b5b0328ba2a75d3",
       "kind": "metadata"
     },
     {
       "path": "archive/history_v1/docs/p0_4_quality_report.md",
-      "bytes": 3560,
-      "sha256": "1334f23bd1d79967abfc01ed1650ed2c0bc2f4ba6c24624e0bff3a9495881418",
+      "bytes": 1741,
+      "sha256": "b54f781739a6d518af5a5f7106b736d7da07e3abdd5f983b104271e89bb74795",
       "kind": "metadata"
     },
     {
       "path": "archive/history_v1/docs/shared_sample_readme.md",
-      "bytes": 2468,
-      "sha256": "114bd3ec01ea98d365087d640526e30890a4ff4efd8fb91b196f3a8d694dac3b",
+      "bytes": 1003,
+      "sha256": "a2d7c6c8cf598ba777f4e47d0cbfbf2d64b2f33309271e36a72bc5d7fe00ea77",
       "kind": "metadata"
     },
     {
@@ -3838,14 +3838,14 @@
     },
     {
       "path": "outputs/p0_3_clean/p0_3_v1/parquet_readback.json",
-      "bytes": 1787,
-      "sha256": "287054ca3c1175bb5f5c3c554d71f41b57ba71c87056e386be0814c99680d573",
+      "bytes": 1734,
+      "sha256": "13a435233ff99072347e1cb4bfdb3eb5e6faa4521ad408efdd840b27f6791d05",
       "kind": "metadata"
     },
     {
       "path": "outputs/p0_3_clean/p0_3_v1/run_status.json",
-      "bytes": 8482,
-      "sha256": "7276991d0c83c546e0655c708bde0dd793b8b9d66bfa4cd08fb8bb59766b91cb",
+      "bytes": 8237,
+      "sha256": "8370b1f70b73ca40be1b462f75f77d312b953866a17c4c3bde693722ef4f5a5c",
       "kind": "metadata"
     },
     {
@@ -3886,8 +3886,8 @@
     },
     {
       "path": "outputs/p0_3_clean/p0_3_v1/summary.json",
-      "bytes": 26961,
-      "sha256": "3488420eaf44ed1775e61d2276e25e2c2ea41b82192c19805a2b54e98949600c",
+      "bytes": 26155,
+      "sha256": "da8311b9c208e04b5cdf410451746f50147f54fdfb6fcbbce09485b4a6c41e3f",
       "kind": "metadata"
     },
     {
@@ -4270,14 +4270,14 @@
     },
     {
       "path": "outputs/p0_4_targets/p0_4_v1/parquet_readback.json",
-      "bytes": 2813,
-      "sha256": "52d4603cb290d1a3c3bcf1f9576215ad8244fb5daab72cd30125e99adfe68f76",
+      "bytes": 2736,
+      "sha256": "1c4f4d812d1d29a1ee42dd180cd1ff0781c9c1fb40843846b852bb509a077112",
       "kind": "metadata"
     },
     {
       "path": "outputs/p0_4_targets/p0_4_v1/run_status.json",
-      "bytes": 30492,
-      "sha256": "35fcc3051a1923a76ed04c87ef327ddaee16d3b7772b6cc67d640ad637ed23a9",
+      "bytes": 29886,
+      "sha256": "b7523a554ce08bc826374ddb8b0665a45104fe46b5e4c949247df6850977d043",
       "kind": "metadata"
     },
     {
@@ -4300,8 +4300,8 @@
     },
     {
       "path": "outputs/p0_4_targets/p0_4_v1/summary.json",
-      "bytes": 14034,
-      "sha256": "3d774dd59c5028999abb2f7d314a625acba97d64ac9fb52bce11c1a363d12334",
+      "bytes": 13626,
+      "sha256": "302226fd922af0acdef3e1a6d935c1304c7cd92c7097cb24baa79f2f92f679ab",
       "kind": "metadata"
     },
     {
@@ -4318,8 +4318,8 @@
     },
     {
       "path": "archive/history_v1/README.md",
-      "bytes": 8292,
-      "sha256": "36cb346a7bbb8d45204a865361d5f28d60e49797ceee4218f36bddb8e5ae280e",
+      "bytes": 764,
+      "sha256": "645ec67aac01228b16e042ca0b4d1b2abbe4e9b5ed9a8476e2a888bee41f31f2",
       "kind": "metadata"
     },
     {
@@ -4330,8 +4330,8 @@
     },
     {
       "path": "scripts/confirm_e2.py",
-      "bytes": 2067,
-      "sha256": "1f2943700b4645dcadcc0784156f18f95fbe4d1fe4e2342eae8414cee2cd2a78",
+      "bytes": 2073,
+      "sha256": "011e39c37c134d7bc46ac29d6cd55c2b0b9c104ff243f12067131c3b823ad4bc",
       "kind": "metadata"
     },
     {
@@ -4342,8 +4342,8 @@
     },
     {
       "path": "scripts/prepare_data_release.py",
-      "bytes": 14646,
-      "sha256": "13c652fbd9640619c765f9794be4ef69d9f3ea657c86bfe2449510118d2ce71a",
+      "bytes": 15795,
+      "sha256": "28cc1b24a1b63935ee5f42159e6c2afff2c6c9f3a75920bf49c32a99196f1133",
       "kind": "metadata"
     },
     {
@@ -4354,8 +4354,8 @@
     },
     {
       "path": "scripts/prepare_p0_3_decisions.py",
-      "bytes": 8050,
-      "sha256": "cdee30f4a4dad446ffb0b2c29ca2edd320341aa852eedfb20e53685fecff38d6",
+      "bytes": 8205,
+      "sha256": "4522ce1c2de94b99e0e59a14cbdf969ba8aa181da15a8c24904f40f0315f0e1a",
       "kind": "metadata"
     },
     {
@@ -4372,8 +4372,8 @@
     },
     {
       "path": "scripts/read_data_release.py",
-      "bytes": 6346,
-      "sha256": "7a93dd6554855df3819e461e4361a8ee81f008f3fef5958e9817b01757bf5873",
+      "bytes": 6564,
+      "sha256": "84349dc1d007b592ac75dabec8ef2c1b50d9149752765cb491c2f776a64a199a",
       "kind": "metadata"
     },
     {
@@ -4384,8 +4384,8 @@
     },
     {
       "path": "scripts/record_project_decisions.py",
-      "bytes": 4625,
-      "sha256": "80833b9528491ce31c7577ae6998e2588e3cbf32d741caaf0971622c1dc24e7f",
+      "bytes": 4618,
+      "sha256": "3ce3433f27b86b75da29254468054c51a36edc5fa662845827da38ae15a14966",
       "kind": "metadata"
     },
     {
@@ -4426,8 +4426,8 @@
     },
     {
       "path": "scripts/summarize_p0_2.py",
-      "bytes": 19852,
-      "sha256": "832a2d09986e66cd09958e62755d3f052efa0cec8126a9884aeade074af320e1",
+      "bytes": 19506,
+      "sha256": "311403074ba632dc5a721c3d539b5ef7539418f5d8d414352bb75fad5e78a6cc",
       "kind": "metadata"
     },
     {
@@ -4438,14 +4438,14 @@
     },
     {
       "path": "scripts/validate_p0_3_outputs.py",
-      "bytes": 13210,
-      "sha256": "164bdecb7d028805f19a7ea469b2a76744a6636a6aee38b914a8a4f28e3cfe52",
+      "bytes": 13358,
+      "sha256": "0dd69792e6e3cc446ad3e165ab0472a8c9dbefc299a9169f530cc05b103103c3",
       "kind": "metadata"
     },
     {
       "path": "scripts/validate_p0_4_outputs.py",
-      "bytes": 11797,
-      "sha256": "1149cfaafa1acf0e64d08611a5556d02a36fc52317dd81e9ee1ddf5f1828e70d",
+      "bytes": 11683,
+      "sha256": "1bf16467173ae3be8d56a1923e0ce6f153f3efe75be1b4be2b657a5e612e6f5c",
       "kind": "metadata"
     },
     {
@@ -4503,45 +4503,45 @@
       "kind": "metadata"
     },
     {
-      "path": "archive/history_v1/项目分工.md",
-      "bytes": 10273,
-      "sha256": "2e883adc596d70d052c75e74dadb31689769a2bceb154a0cf06fe950e801f5d4",
+      "path": "archive/history_v1/TEAM_WORK_PLAN.md",
+      "bytes": 1875,
+      "sha256": "f75656a11396dedfd7046360a29e8ac6ab9f222fe44cab3155c1cb2067d3b19c",
       "kind": "metadata"
     },
     {
       "path": "README.md",
-      "bytes": 8500,
-      "sha256": "a7a2d1dd2dd7eb7caf9cb8d13ca574101e62be2e2ab79a6b6645ecc08ddb4a74",
+      "bytes": 9167,
+      "sha256": "ad5e696d1ff3dbc381ea27fe47d12da3a8f0c9624b5f809311d7d0435b879d57",
       "kind": "metadata"
     },
     {
       "path": "docs/reference.md",
-      "bytes": 42039,
-      "sha256": "2edc547072bb98b67fe6c12478ce46bc1694f1fd105c53f0030e04cceb1c9596",
+      "bytes": 39175,
+      "sha256": "aacbb089a636c70e5f13f12a628f82313efcacf7375449eb519fe34d8c3a4273",
       "kind": "metadata"
     },
     {
       "path": "scripts/consolidate_handoff.py",
-      "bytes": 16800,
-      "sha256": "93f0ce16e0fddc9e4ef35c5539e8f405ede66f61ea6624ec97db9d0616236ca5",
+      "bytes": 15097,
+      "sha256": "81477db9fef951c9f7815f40343e451476ed70646cabd7e40b4986e5a74ce151",
       "kind": "metadata"
     },
     {
       "path": "archive/history_v1/releases/rainfall_v1_r2/README.md",
-      "bytes": 5426,
-      "sha256": "1ff3dc479d9f98a599d862be122e77072f7e76f360154bda9a4301c1ec7ed43c",
+      "bytes": 1469,
+      "sha256": "a0ba3511bf919ee31703c4cdc5b8100acfea05894f01e58b0cc35c78f63925c3",
       "kind": "metadata"
     },
     {
       "path": "archive/history_v1/releases/rainfall_v1_r2/docs/reference.md",
-      "bytes": 41811,
-      "sha256": "6f6572741a493a46d62ba7140c39799466ad36e7c22d25ee41f07d4a827e8d66",
+      "bytes": 39175,
+      "sha256": "aacbb089a636c70e5f13f12a628f82313efcacf7375449eb519fe34d8c3a4273",
       "kind": "metadata"
     },
     {
       "path": "archive/history_v1/releases/rainfall_v1_r2/manifests/release_manifest.json",
-      "bytes": 168547,
-      "sha256": "f1c41ab0db2386ccb4da3dfaef5379d958cefe142db9f15988b6ad1c2b6bf841",
+      "bytes": 163989,
+      "sha256": "281cb8d6de02ab49d912c9bf5120561af94df531d04d67477d1e953c3c02fff7",
       "kind": "metadata"
     },
     {
@@ -4558,13 +4558,13 @@
     },
     {
       "path": "scripts/update_download_readme.py",
-      "bytes": 9234,
-      "sha256": "8edb3745e000917846034f342429d6247b7cd4825c2f32306c8a44a1f5f33413",
+      "bytes": 8631,
+      "sha256": "c15f36fcba3ba796d4d1c72b51022aeccb523c98562543c0e77e63adf1f7890d",
       "kind": "metadata"
     }
   ],
   "previous_release_manifest": "archive/history_v1/releases/rainfall_v1_r2/manifests/release_manifest.json",
-  "revision_scope": "README published downloads and documentation metadata only; data/configuration/table paths unchanged",
+  "revision_scope": "English documentation/comments/prompts and report generator revision; data values, rules and model metrics unchanged; original checksum provenance in submission/reproduction/frozen_release_metadata.zip",
   "reference_document": "docs/reference.md",
   "documentation_updated_at": "2026-10-08T15:38:55.708413+00:00",
   "published_data_release": {

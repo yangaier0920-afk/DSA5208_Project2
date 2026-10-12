@@ -12,7 +12,7 @@
   "elapsed_seconds": null,
   "environment": {
     "python": "3.11.9",
-    "format": "Chinese Markdown only; original charts referenced"
+    "format": "English Markdown; original measured figures referenced"
   },
   "outputs": [
     {
@@ -78,5 +78,9 @@
     "data_version": "v1",
     "config_hash": "e5258b99925606c8ba88207cb44a6756514fa84cd60f37adea3f9db64103248b",
     "release_manifest_sha256": "8ebfb9ff0a91cb7e171fadee1d4c25069a74cc779588671ace1b4cf247134b3e"
-  }
+  },
+  "language": "en",
+  "documentation_revision": "2026-10-12 English translation; numerical execution unchanged",
+  "translated_report_file": "B_delivery/report_zh/B_report_zh.md",
+  "translated_report_sha256": "d2e9d9da6e1f165f961022fd2afa68d169edb8921f49f5921e5b880b841b600b"
 }

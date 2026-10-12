@@ -1275,7 +1275,7 @@
       "kind": "metadata"
     },
     {
-      "path": "A成员工作细化与数据底座方案.md",
+      "path": "A_DATA_FOUNDATION_PLAN.md",
       "bytes": 33269,
       "sha256": "413985afba6ea379581081a507d6021f7ce9bf315bd5b0031deb51a69ad4f5b8",
       "kind": "metadata"
@@ -2715,7 +2715,7 @@
       "kind": "metadata"
     },
     {
-      "path": "docs/E2滚动验证实验方案.md",
+      "path": "docs/E2_ROLLING_VALIDATION.md",
       "bytes": 7067,
       "sha256": "95ccb11c6529643ec99b1a407b42f8cf9385c2b612fc3b39ebcad3e08a83d759",
       "kind": "metadata"
@@ -2733,7 +2733,7 @@
       "kind": "metadata"
     },
     {
-      "path": "docs/P0-3及后续决策选项.md",
+      "path": "docs/P0_3_DECISION_OPTIONS.md",
       "bytes": 18909,
       "sha256": "cac11e4f2f12ff3b2a1454e97b05912fbefcc0b871d5a275769663d54b7fe6e9",
       "kind": "metadata"
@@ -4503,7 +4503,7 @@
       "kind": "metadata"
     },
     {
-      "path": "项目分工.md",
+      "path": "TEAM_WORK_PLAN.md",
       "bytes": 10273,
       "sha256": "2e883adc596d70d052c75e74dadb31689769a2bceb154a0cf06fe950e801f5d4",
       "kind": "metadata"

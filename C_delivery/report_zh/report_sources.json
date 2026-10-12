@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "language": "en",
+  "run": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_v1_20261012",
+  "selection_sha256": "14801e1b8f7bce70f7097dd43bb7a041ab491e0a7eb2140810678f255000f2eb",
+  "final_test_sha256": "f5983028069eac3b4684aa489df0c48836405d33d6cf654546b6253163f041a0",
+  "reload_validation_sha256": "cdb84af68637e022ae3842973228748578b598c67a9f6480094c6a6890b5c6a2",
+  "config_sha256": "785588dd5a9ffe591f967207ac0f6faf347da3b5f97c451fd5c2d686498ee2f9",
+  "markdown": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/report_zh/C_report_zh.md",
+  "pdf": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/output/pdf/C_report_zh.pdf"
+}

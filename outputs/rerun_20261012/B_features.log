@@ -1,0 +1,32 @@
+16:39:06 Verifying full release before feature generation
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+26/10/12 16:39:09 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+26/10/12 16:39:09 WARN SparkConf: Note that spark.local.dir will be overridden by the value set by the cluster manager (via SPARK_LOCAL_DIRS in mesos/standalone/kubernetes and LOCAL_DIRS in YARN).
+16:39:11 Reading reference yearly row counts and history-completeness counts
+16:39:12 2017: computing time windows with previous-year context
+16:39:28 2017: checking saved feature counts and null semantics
+16:39:29 2017: PASS, 5,256,020 anchors
+16:39:29 2018: computing time windows with previous-year context
+16:39:42 2018: checking saved feature counts and null semantics
+16:39:43 2018: PASS, 4,594,246 anchors
+16:39:43 2019: computing time windows with previous-year context
+16:39:57 2019: checking saved feature counts and null semantics
+16:39:57 2019: PASS, 5,026,862 anchors
+16:39:57 2020: computing time windows with previous-year context
+16:40:14 2020: checking saved feature counts and null semantics
+16:40:15 2020: PASS, 6,334,473 anchors
+16:40:15 2021: computing time windows with previous-year context
+16:40:34 2021: checking saved feature counts and null semantics
+16:40:35 2021: PASS, 7,044,646 anchors
+16:40:35 2022: computing time windows with previous-year context
+16:40:54 2022: checking saved feature counts and null semantics
+16:40:55 2022: PASS, 7,133,230 anchors
+16:40:55 2023: computing time windows with previous-year context
+16:41:13 2023: checking saved feature counts and null semantics
+16:41:13 2023: PASS, 6,742,890 anchors
+16:41:13 2024: computing time windows with previous-year context
+16:41:31 2024: checking saved feature counts and null semantics
+16:41:31 2024: PASS, 6,406,260 anchors
+16:41:31 Validating independent timestamp probes, including year boundaries
+16:41:39 All historical features PASS

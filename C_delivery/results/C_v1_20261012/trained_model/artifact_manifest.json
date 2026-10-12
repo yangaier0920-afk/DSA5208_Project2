@@ -1,0 +1,179 @@
+{
+  "status": "PASS",
+  "release_id": "rainfall_v1_r3",
+  "data_version": "v1",
+  "config_hash": "e5258b99925606c8ba88207cb44a6756514fa84cd60f37adea3f9db64103248b",
+  "release_manifest_sha256": "8ebfb9ff0a91cb7e171fadee1d4c25069a74cc779588671ace1b4cf247134b3e",
+  "files": [
+    {
+      "path": "experiment_config.json",
+      "bytes": 2241,
+      "sha256": "d7754e4dbc8bc64a3130ed0aa27fc896231c4eb099122a801046dfbb1cdb051b"
+    },
+    {
+      "path": "prediction_contract.json",
+      "bytes": 3215,
+      "sha256": "832f657f7bd227b4529a81d0777cbc0e2f35998027c6d3a0aeeb1c24f016bf7d"
+    },
+    {
+      "path": "spark_model/metadata/._SUCCESS.crc",
+      "bytes": 8,
+      "sha256": "1d44f510ec2ed7595badbec80583316defc14e8dd89130d719724149adfaa07d"
+    },
+    {
+      "path": "spark_model/metadata/.part-00000.crc",
+      "bytes": 12,
+      "sha256": "4aa4541ab600fc2290aaf06dcfe06b1dec4cc87ae42a5326e6702001eaba44cc"
+    },
+    {
+      "path": "spark_model/metadata/_SUCCESS",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "spark_model/metadata/part-00000",
+      "bytes": 305,
+      "sha256": "fd5d244e9f4d1afd6a1fbf9c2cc2c7b307ddcf892e64568ba28a13def11ad382"
+    },
+    {
+      "path": "spark_model/stages/0_StringIndexer_53cee6fee295/data/._SUCCESS.crc",
+      "bytes": 8,
+      "sha256": "1d44f510ec2ed7595badbec80583316defc14e8dd89130d719724149adfaa07d"
+    },
+    {
+      "path": "spark_model/stages/0_StringIndexer_53cee6fee295/data/.part-00000-12f55f57-efac-4514-bad3-fdd22e87ba01-c000.snappy.parquet.crc",
+      "bytes": 20,
+      "sha256": "d41c801f7d8e66aaec4fe6a4708aa122b57ab40760e5c51670f44ad6816a9a57"
+    },
+    {
+      "path": "spark_model/stages/0_StringIndexer_53cee6fee295/data/_SUCCESS",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "spark_model/stages/0_StringIndexer_53cee6fee295/data/part-00000-12f55f57-efac-4514-bad3-fdd22e87ba01-c000.snappy.parquet",
+      "bytes": 1039,
+      "sha256": "92da46e102fc3d1d87810e606a164ff46ec6fbe71b2c417ff3c5102ca72e3fb0"
+    },
+    {
+      "path": "spark_model/stages/0_StringIndexer_53cee6fee295/metadata/._SUCCESS.crc",
+      "bytes": 8,
+      "sha256": "1d44f510ec2ed7595badbec80583316defc14e8dd89130d719724149adfaa07d"
+    },
+    {
+      "path": "spark_model/stages/0_StringIndexer_53cee6fee295/metadata/.part-00000.crc",
+      "bytes": 12,
+      "sha256": "29c6a0f3bcc227b7b2391a3a1f9021773b0c8a53c0d3d6f2a8ad0e81d1a07d60"
+    },
+    {
+      "path": "spark_model/stages/0_StringIndexer_53cee6fee295/metadata/_SUCCESS",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "spark_model/stages/0_StringIndexer_53cee6fee295/metadata/part-00000",
+      "bytes": 359,
+      "sha256": "0b0683734776a0638f030bcde2029b31654d3db547dd7e00e461027450c68e14"
+    },
+    {
+      "path": "spark_model/stages/1_OneHotEncoder_5b7486a3808c/data/._SUCCESS.crc",
+      "bytes": 8,
+      "sha256": "1d44f510ec2ed7595badbec80583316defc14e8dd89130d719724149adfaa07d"
+    },
+    {
+      "path": "spark_model/stages/1_OneHotEncoder_5b7486a3808c/data/.part-00000-98f0ff0d-76d1-4f76-93bd-cc4a5df0e7ff-c000.snappy.parquet.crc",
+      "bytes": 16,
+      "sha256": "346c8a9f5a866d89866619f2c32efddae498a42fb8fafe8ea9bb88ea083dc076"
+    },
+    {
+      "path": "spark_model/stages/1_OneHotEncoder_5b7486a3808c/data/_SUCCESS",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "spark_model/stages/1_OneHotEncoder_5b7486a3808c/data/part-00000-98f0ff0d-76d1-4f76-93bd-cc4a5df0e7ff-c000.snappy.parquet",
+      "bytes": 589,
+      "sha256": "04fe83470ba439dd3dd0ffc52358ae1f7defaf3e3a1565e61b732d63a85b3c21"
+    },
+    {
+      "path": "spark_model/stages/1_OneHotEncoder_5b7486a3808c/metadata/._SUCCESS.crc",
+      "bytes": 8,
+      "sha256": "1d44f510ec2ed7595badbec80583316defc14e8dd89130d719724149adfaa07d"
+    },
+    {
+      "path": "spark_model/stages/1_OneHotEncoder_5b7486a3808c/metadata/.part-00000.crc",
+      "bytes": 12,
+      "sha256": "ec37e9df58575b1c48d4c3976d0064c82bdb0540e127face568b254509029462"
+    },
+    {
+      "path": "spark_model/stages/1_OneHotEncoder_5b7486a3808c/metadata/_SUCCESS",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "spark_model/stages/1_OneHotEncoder_5b7486a3808c/metadata/part-00000",
+      "bytes": 348,
+      "sha256": "e50ed00501d6ac3aab77f1767919a402a159387ee8db78f366cb18f931c87a1f"
+    },
+    {
+      "path": "spark_model/stages/2_VectorAssembler_bc1bc10f39b2/metadata/._SUCCESS.crc",
+      "bytes": 8,
+      "sha256": "1d44f510ec2ed7595badbec80583316defc14e8dd89130d719724149adfaa07d"
+    },
+    {
+      "path": "spark_model/stages/2_VectorAssembler_bc1bc10f39b2/metadata/.part-00000.crc",
+      "bytes": 16,
+      "sha256": "2021a3606236de813191814c7d4ecfbbe6e7ba9c107c27951684bc233914200a"
+    },
+    {
+      "path": "spark_model/stages/2_VectorAssembler_bc1bc10f39b2/metadata/_SUCCESS",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "spark_model/stages/2_VectorAssembler_bc1bc10f39b2/metadata/part-00000",
+      "bytes": 805,
+      "sha256": "96fe6a365bfb9255122c90b10ff0816e6f1e3ab77ef13372d64a723e8aa6fa6f"
+    },
+    {
+      "path": "spark_model/stages/3_DecisionTreeClassifier_d7490cfa1a5d/data/._SUCCESS.crc",
+      "bytes": 8,
+      "sha256": "1d44f510ec2ed7595badbec80583316defc14e8dd89130d719724149adfaa07d"
+    },
+    {
+      "path": "spark_model/stages/3_DecisionTreeClassifier_d7490cfa1a5d/data/.part-00000-daa31647-0461-4f4f-bab3-73d6411862c3-c000.snappy.parquet.crc",
+      "bytes": 48,
+      "sha256": "1281c9724d41cfccb9ad0314a52b2a9dee1f9c719c4e31a01da3febad930ac61"
+    },
+    {
+      "path": "spark_model/stages/3_DecisionTreeClassifier_d7490cfa1a5d/data/_SUCCESS",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "spark_model/stages/3_DecisionTreeClassifier_d7490cfa1a5d/data/part-00000-daa31647-0461-4f4f-bab3-73d6411862c3-c000.snappy.parquet",
+      "bytes": 4835,
+      "sha256": "9117cb20b055ee094b9393c01dacdf97e519234ce52c825d171059e99e1ee4d3"
+    },
+    {
+      "path": "spark_model/stages/3_DecisionTreeClassifier_d7490cfa1a5d/metadata/._SUCCESS.crc",
+      "bytes": 8,
+      "sha256": "1d44f510ec2ed7595badbec80583316defc14e8dd89130d719724149adfaa07d"
+    },
+    {
+      "path": "spark_model/stages/3_DecisionTreeClassifier_d7490cfa1a5d/metadata/.part-00000.crc",
+      "bytes": 16,
+      "sha256": "5731e626ac8de13608bddfd416cac177148b33c568ce55653941bccbd122b65a"
+    },
+    {
+      "path": "spark_model/stages/3_DecisionTreeClassifier_d7490cfa1a5d/metadata/_SUCCESS",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "spark_model/stages/3_DecisionTreeClassifier_d7490cfa1a5d/metadata/part-00000",
+      "bytes": 686,
+      "sha256": "9dece4175243dd376241c6fdbcd28cce52c9bb6f0407abc7c9bb767414cf17d0"
+    }
+  ]
+}

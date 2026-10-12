@@ -1,0 +1,9 @@
+year,rows,history_complete,invalid_15m,invalid_30m,invalid_60m,invalid_previous_15m,invalid_model_nulls_complete,invalid_recency_semantics,status
+2017,5256020,4941980,0,0,0,0,0,0,PASS
+2018,4594246,4028323,0,0,0,0,0,0,PASS
+2019,5026862,4965109,0,0,0,0,0,0,PASS
+2020,6334473,6264593,0,0,0,0,0,0,PASS
+2021,7044646,6995148,0,0,0,0,0,0,PASS
+2022,7133230,7091648,0,0,0,0,0,0,PASS
+2023,6742890,6704161,0,0,0,0,0,0,PASS
+2024,6406260,6356871,0,0,0,0,0,0,PASS

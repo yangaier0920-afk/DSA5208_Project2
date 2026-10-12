@@ -1,0 +1,22 @@
+{
+  "scope": "C_final_actual_post_filter_post_sample_pre_threshold",
+  "left_unique_keys": 10410105,
+  "left_rows": 10410105,
+  "left_duplicate_key_groups": 0,
+  "left_duplicate_excess_rows": 0,
+  "left_null_key_rows": 0,
+  "right_unique_keys": 48538627,
+  "right_rows": 48538627,
+  "right_duplicate_key_groups": 0,
+  "right_duplicate_excess_rows": 0,
+  "right_null_key_rows": 0,
+  "left_unmatched_rows": 0,
+  "right_unmatched_rows": 38128522,
+  "matched_left_rows": 10410105,
+  "inner_join_rows": 10410105,
+  "left_join_rows": 10410105,
+  "left_match_rate": 1.0,
+  "right_match_rate": 0.21447052880173145,
+  "row_inflation": 0,
+  "status": "PASS"
+}

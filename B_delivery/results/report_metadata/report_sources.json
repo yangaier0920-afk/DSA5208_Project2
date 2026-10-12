@@ -1,10 +1,9 @@
 {
-  "language": "zh-CN",
-  "format": "Markdown only",
+  "language": "en",
+  "format": "Markdown",
   "feature_set_version": "B_v2",
-  "source_task1": "/Users/zhu/Downloads/5208/task2/DSA5208_Project2/B_delivery/results/task1_v2",
-  "source_features": "/Users/zhu/Downloads/5208/task2/DSA5208_Project2/B_delivery/results/features_v2",
-  "source_join_audit": "/Users/zhu/Downloads/5208/task2/DSA5208_Project2/B_delivery/results/join_audit/validation.json",
-  "C_actual_input_audit": "PENDING_NOT_AVAILABLE_LOCALLY",
+  "source_task1": "B_delivery/results/task1_rerun_20261012",
+  "source_features": "B_delivery/results/features_rerun_20261012",
+  "source_join_audit": "/Users/kendallshao/Downloads/DSA5208_Project2/B_delivery/results/join_audit/validation.json",
   "numeric_features_recomputed": false
 }

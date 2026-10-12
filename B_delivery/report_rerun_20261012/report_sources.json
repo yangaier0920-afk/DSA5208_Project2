@@ -1,0 +1,13 @@
+{
+  "language": "en",
+  "format": "Markdown only",
+  "feature_set_version": "B_v2",
+  "source_task1": "B_delivery/results/task1_rerun_20261012",
+  "source_features": "B_delivery/results/features_rerun_20261012",
+  "source_join_audit": "/Users/kendallshao/Downloads/DSA5208_Project2/B_delivery/results/join_audit_rerun_20261012/validation.json",
+  "C_actual_input_audit": "PENDING_NOT_AVAILABLE_LOCALLY",
+  "numeric_features_recomputed": true,
+  "documentation_revision": "2026-10-12 English translation; numerical execution unchanged",
+  "translated_report_file": "B_delivery/report_rerun_20261012/B_report_zh.md",
+  "translated_report_sha256": "8eecc51bd2ec7d00beadeaa50cb36ad6be58209d79d63d2d71f8466c3a60e540"
+}

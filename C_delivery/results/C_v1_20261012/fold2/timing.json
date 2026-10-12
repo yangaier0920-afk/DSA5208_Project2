@@ -1,0 +1,17 @@
+{
+  "elapsed_seconds": 383.9419437921606,
+  "candidates": {
+    "frequency_baseline": {
+      "fit_seconds": 5.879090167582035e-05,
+      "fit_score_evaluate_seconds": 32.89670220785774
+    },
+    "logistic_regression": {
+      "fit_seconds": 19.775333083001897,
+      "fit_score_evaluate_seconds": 122.24081387510523
+    },
+    "decision_tree": {
+      "fit_seconds": 31.132862500147894,
+      "fit_score_evaluate_seconds": 81.70748845813796
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "status": "PASS",
+  "checks": {
+    "A_sample": "PASS",
+    "A_reproduction": "PASS",
+    "A_full": "PASS",
+    "B_task1": "PASS",
+    "B_features": "PASS",
+    "B_feature_api": "PASS",
+    "B_join": "PASS"
+  },
+  "rows": 48538627,
+  "complete_history_rows": 47347833,
+  "independent_probes": 513,
+  "synthetic_feature_cases": 6,
+  "join_edge_cases": 5,
+  "report": "/Users/kendallshao/Downloads/DSA5208_Project2/B_delivery/report_rerun_20261012/B_report_zh.md",
+  "scope": "README A sample replay and release read verification; B full analysis/features/join/report. A eight-year raw re-cleaning and C training excluded per README.",
+  "frozen_root": "/Users/kendallshao/Downloads/DSA5208_Project2/.runtime/frozen_root",
+  "integrity_note": "Current README and reader differ from frozen manifest. Historical files matching SHA256 restored in isolated hardlink tree. Full reader executed current repository version (2 threads/256 partitions), checking data against unchanged frozen manifest. Original 4-thread/48-partition reader failed aggregation memory; failure receipt retained.",
+  "runtime": {
+    "python": "3.11.17",
+    "pyspark": "3.5.7",
+    "java": "17.0.20.1",
+    "chip": "Apple M3 Max",
+    "memory": "36 GB"
+  },
+  "report_adaptations": "Isolated copies reference this run join audit, machine, measured timings, and separate report metadata. Production source and original outputs preserved.",
+  "evidence": {
+    "A_sample": {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/outputs/rerun_20261012/B_sample_retry.json",
+      "sha256": "530a8ae800edbfe73c33d0a7e2a4521fe4d7e57bf2689398d83564520986d4c2"
+    },
+    "A_reproduction": {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/outputs/rerun_20261012/A_reproduction/verification.json",
+      "sha256": "6cc53e5e1a5baa9cf5fed18f7b1c6e3e00fbb6102eef93dc6f4f4bf0b606c29e"
+    },
+    "A_full": {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/outputs/rerun_20261012/B_full_retry.json",
+      "sha256": "ca85d48e99609b87cd05545a3958190e82a88bec607a72b090310d97c7091a33"
+    },
+    "B_task1": {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/B_delivery/results/task1_rerun_20261012/validation.json",
+      "sha256": "c86bf0b1b686c1ca4039fad7a73beabc629d0603e0c0e3e7fd3f5f92b8a9410f"
+    },
+    "B_features": {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/B_delivery/results/features_rerun_20261012/validation.json",
+      "sha256": "31efe769b25543be5124df99150431958b54d015fccc2d389507feb8f5fb1ebe"
+    },
+    "B_feature_api": {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/B_delivery/results/features_rerun_20261012/inference_adapter_validation.json",
+      "sha256": "129bcb965ef9c2c3575f1fdc0b9161a95ead2193f94800e576d1f60f343ea03c"
+    },
+    "B_join": {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/B_delivery/results/join_audit_rerun_20261012/validation.json",
+      "sha256": "1f6f8a7563ee450c94b34cd429510e86474fcaceadd0929d264d3f59150edab3"
+    }
+  }
+}

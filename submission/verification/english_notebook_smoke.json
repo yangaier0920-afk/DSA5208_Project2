@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "results": [
+    {
+      "notebook": "B_delivery/notebooks/B_Task1_Analysis.ipynb",
+      "default_code_cells_executed": 24,
+      "full_recompute_enabled": false,
+      "status": "PASS"
+    },
+    {
+      "notebook": "B_delivery/notebooks/B_Historical_Features.ipynb",
+      "default_code_cells_executed": 18,
+      "full_recompute_enabled": false,
+      "status": "PASS"
+    }
+  ]
+}

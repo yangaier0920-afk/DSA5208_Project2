@@ -7,7 +7,7 @@
   "scope": "A_local_real_raw_fragment_replay_no_training",
   "started_at": "2026-10-08T11:22:40.107730+00:00",
   "fixture_sha256": "50b1e4d2a23764b4438edd9676755c10f4ae1a6ca9d56e4ca8c32fde7420cb31",
-  "output": "D:\\桌面文件\\NUS_sem1\\DSA5208\\project2\\outputs\\p1_6_support\\local_replay_v1",
+  "output": "D:\\Desktop_files\\NUS_sem1\\DSA5208\\project2\\outputs\\p1_6_support\\local_replay_v1",
   "checks": {
     "fixture_and_production_hashes_match": true,
     "real_raw_record_count_matches": true,

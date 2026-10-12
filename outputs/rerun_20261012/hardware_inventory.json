@@ -1,0 +1,6 @@
+{
+  "machine_name": "Mac15,11",
+  "chip_type": "Apple M3 Max",
+  "physical_memory": "36 GB",
+  "source": "sysctl; collected for this rerun; peak memory not measured"
+}

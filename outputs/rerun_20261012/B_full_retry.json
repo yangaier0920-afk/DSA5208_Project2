@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "member": "B",
+  "scope": "full",
+  "started_at": "2026-10-12T08:32:24.574985+00:00",
+  "os": "macOS-14.1-arm64-arm-64bit",
+  "architecture": "arm64",
+  "python": "3.11.17",
+  "checked_files": 549,
+  "release_id": "rainfall_v1_r3",
+  "data_version": "v1",
+  "config_hash": "e5258b99925606c8ba88207cb44a6756514fa84cd60f37adea3f9db64103248b",
+  "release_manifest_sha256": "8ebfb9ff0a91cb7e171fadee1d4c25069a74cc779588671ace1b4cf247134b3e",
+  "rows_per_table": 48538627,
+  "java": "17.0.20.1",
+  "pyspark": "3.5.7",
+  "py4j": "0.10.9.7",
+  "timezone": "Asia/Singapore",
+  "checks": {
+    "file_hashes": true,
+    "schemas": true,
+    "counts": true,
+    "unique_paired_keys": true,
+    "null_semantics": true,
+    "table_versions": true,
+    "python_worker": true,
+    "parquet_roundtrip": true
+  },
+  "shutdown": {
+    "passed": true,
+    "gateway_exit_code": 0
+  },
+  "finished_at": "2026-10-12T08:38:12.980998+00:00"
+}

@@ -7,7 +7,7 @@
   "scope": "A_local_real_raw_fragment_replay_no_training",
   "started_at": "2026-10-08T12:49:36.153952+00:00",
   "fixture_sha256": "d14b2e6718c633cfae1fc51c56e807982cb2addff22c91b74a8c8303b8223a62",
-  "output": "D:\\桌面文件\\NUS_sem1\\DSA5208\\project2\\.runtime\\consolidated_handoff\\check_y8vhs_5t\\team handoff\\outputs\\reproduction\\run_001",
+  "output": "D:\\Desktop_files\\NUS_sem1\\DSA5208\\project2\\.runtime\\consolidated_handoff\\check_y8vhs_5t\\team handoff\\outputs\\reproduction\\run_001",
   "checks": {
     "fixture_and_production_hashes_match": true,
     "real_raw_record_count_matches": true,

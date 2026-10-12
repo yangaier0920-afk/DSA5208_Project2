@@ -1,0 +1,73 @@
+{
+  "status": "PASS",
+  "metrics": [
+    {
+      "model": "frequency_baseline",
+      "year": 2021,
+      "threshold_mm": 0.0,
+      "n": 69525,
+      "positive": 4247,
+      "mean_probability": 0.05785128102481261,
+      "brier": 0.05736491122646865,
+      "log_loss": 0.23003947924692544,
+      "positive_rate": 0.06108594030924128,
+      "roc_auc": 0.5,
+      "pr_auc": 0.06108594030924128
+    },
+    {
+      "model": "frequency_baseline",
+      "year": 2021,
+      "threshold_mm": 0.5,
+      "n": 69525,
+      "positive": 2535,
+      "mean_probability": 0.032000600480386734,
+      "brier": 0.03515214998183774,
+      "log_loss": 0.15683914732979948,
+      "positive_rate": 0.03646170442286947,
+      "roc_auc": 0.5,
+      "pr_auc": 0.03646170442286947
+    },
+    {
+      "model": "frequency_baseline",
+      "year": 2021,
+      "threshold_mm": 1.0,
+      "n": 69525,
+      "positive": 1821,
+      "mean_probability": 0.021777421937550605,
+      "brier": 0.025525484143695338,
+      "log_loss": 0.12167510003100886,
+      "positive_rate": 0.026192017259978426,
+      "roc_auc": 0.5,
+      "pr_auc": 0.026192017259978426
+    },
+    {
+      "model": "frequency_baseline",
+      "year": 2021,
+      "threshold_mm": 2.0,
+      "n": 69525,
+      "positive": 1195,
+      "mean_probability": 0.014421537229782939,
+      "brier": 0.016900286036619302,
+      "log_loss": 0.08713760892486228,
+      "positive_rate": 0.017188061848256022,
+      "roc_auc": 0.5,
+      "pr_auc": 0.017188061848256022
+    },
+    {
+      "model": "frequency_baseline",
+      "year": 2021,
+      "threshold_mm": 5.0,
+      "n": 69525,
+      "positive": 622,
+      "mean_probability": 0.0074759807846277075,
+      "brier": 0.008868545878824186,
+      "log_loss": 0.05123915072302022,
+      "positive_rate": 0.008946422150305645,
+      "roc_auc": 0.5,
+      "pr_auc": 0.008946422150305645
+    }
+  ],
+  "threshold_probability_increasing_pairs": 0,
+  "auc": "Spark MLlib approximate curves with numBins=1000",
+  "expanded_score_rows": 347625
+}

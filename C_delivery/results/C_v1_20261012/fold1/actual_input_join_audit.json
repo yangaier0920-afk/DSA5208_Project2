@@ -1,0 +1,22 @@
+{
+  "scope": "C_fold1_actual_post_filter_post_sample_pre_threshold",
+  "left_unique_keys": 8971847,
+  "left_rows": 8971847,
+  "left_duplicate_key_groups": 0,
+  "left_duplicate_excess_rows": 0,
+  "left_null_key_rows": 0,
+  "right_unique_keys": 28256247,
+  "right_rows": 28256247,
+  "right_duplicate_key_groups": 0,
+  "right_duplicate_excess_rows": 0,
+  "right_null_key_rows": 0,
+  "left_unmatched_rows": 0,
+  "right_unmatched_rows": 19284400,
+  "matched_left_rows": 8971847,
+  "inner_join_rows": 8971847,
+  "left_join_rows": 8971847,
+  "left_match_rate": 1.0,
+  "right_match_rate": 0.31751729095516473,
+  "row_inflation": 0,
+  "status": "PASS"
+}

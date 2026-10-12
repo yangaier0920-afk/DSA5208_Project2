@@ -1,0 +1,11 @@
+{
+  "status": "FAIL",
+  "member": "B",
+  "scope": "sample",
+  "started_at": "2026-10-12T08:20:54.867615+00:00",
+  "os": "macOS-14.1-arm64-arm-64bit",
+  "architecture": "arm64",
+  "python": "3.11.17",
+  "error": "RuntimeError: Release file missing or changed: scripts/read_data_release.py",
+  "finished_at": "2026-10-12T08:20:54.912274+00:00"
+}

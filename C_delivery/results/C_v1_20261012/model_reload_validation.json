@@ -1,0 +1,56 @@
+{
+  "status": "PASS",
+  "fresh_process": true,
+  "probe_anchor_count": 100,
+  "compared_threshold_probabilities": 500,
+  "max_abs_probability_error": 0.0,
+  "prediction_api_uses_past_only": true,
+  "example_predictions": [
+    {
+      "station_id": "S06",
+      "prediction_epoch_s": 1730969100,
+      "threshold_mm": 0.0,
+      "probability": 0.7822647649380323,
+      "event": "future_30m_mm > threshold_mm",
+      "information_availability": "retrospective event-time assumption; no live availability guarantee"
+    },
+    {
+      "station_id": "S06",
+      "prediction_epoch_s": 1730969100,
+      "threshold_mm": 0.5,
+      "probability": 0.6090089450518245,
+      "event": "future_30m_mm > threshold_mm",
+      "information_availability": "retrospective event-time assumption; no live availability guarantee"
+    },
+    {
+      "station_id": "S06",
+      "prediction_epoch_s": 1730969100,
+      "threshold_mm": 1.0,
+      "probability": 0.2509000900090009,
+      "event": "future_30m_mm > threshold_mm",
+      "information_availability": "retrospective event-time assumption; no live availability guarantee"
+    },
+    {
+      "station_id": "S06",
+      "prediction_epoch_s": 1730969100,
+      "threshold_mm": 2.0,
+      "probability": 0.11447668329945174,
+      "event": "future_30m_mm > threshold_mm",
+      "information_availability": "retrospective event-time assumption; no live availability guarantee"
+    },
+    {
+      "station_id": "S06",
+      "prediction_epoch_s": 1730969100,
+      "threshold_mm": 5.0,
+      "probability": 0.11447668329945174,
+      "event": "future_30m_mm > threshold_mm",
+      "information_availability": "retrospective event-time assumption; no live availability guarantee"
+    }
+  ],
+  "invalid_input_rejections": {
+    "unknown_station": true,
+    "unsupported_threshold": true,
+    "off_grid_time": true,
+    "missing_history": true
+  }
+}

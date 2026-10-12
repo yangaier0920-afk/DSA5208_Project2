@@ -1,0 +1,80 @@
+{
+  "release_id": "rainfall_v1_r3",
+  "data_version": "v1",
+  "config_hash": "e5258b99925606c8ba88207cb44a6756514fa84cd60f37adea3f9db64103248b",
+  "release_manifest_sha256": "8ebfb9ff0a91cb7e171fadee1d4c25069a74cc779588671ace1b4cf247134b3e",
+  "member": "B",
+  "input_scope": "full",
+  "created_at": "2026-10-12T08:44:14.857074+00:00",
+  "experiment_config_hash": "ac5250af179779621511e73180c00f8efaf8746d200c63955f06751693ec2eb1",
+  "experiment_config_file": "configs/B_experiment.json",
+  "command": "python src/B_make_report.py; python src/B_finalize.py",
+  "elapsed_seconds": null,
+  "environment": {
+    "python": "3.11.17",
+    "format": "English Markdown; original measured figures referenced"
+  },
+  "outputs": [],
+  "source_code_hashes": [
+    {
+      "path": "src/B_build_features.py",
+      "sha256": "633ea64f34cc3d79e66041f1931044b0743b4171ac6b5419bbeb9cd1037eee4b"
+    },
+    {
+      "path": "src/B_feature_api.py",
+      "sha256": "986ef950907c657143d730f2307e5b5fe5b93aca96bac754a9779d6236cfd491"
+    },
+    {
+      "path": "src/B_finalize.py",
+      "sha256": "e85f132d2d12b99e5fb97aa9ac87b15ce82df91b74c4f6f82c31f61a94b0d8a2"
+    },
+    {
+      "path": "src/B_join_audit.py",
+      "sha256": "1662741b09a5df124480c029b13be821f6103d8148e4c59e4c709815c7d7d9a6"
+    },
+    {
+      "path": "src/B_make_report.py",
+      "sha256": "4f490f05a5f7b0e7b7b17c02b0fda141283864e39bb90571fd885e35c6ef62b4"
+    },
+    {
+      "path": "src/B_plot_results.py",
+      "sha256": "4b3abfae4522d73cae24d68f0ae7a57c5461653d5e6e8291b93ead69f3624c24"
+    },
+    {
+      "path": "src/B_task1_analysis.py",
+      "sha256": "9509fba81cae430fa280b5e3653226fd0aa64148f2960977872eac66d48f5b86"
+    },
+    {
+      "path": "src/B_test_features.py",
+      "sha256": "f8fd557cc36e1ec8ad12547e7e71dbaa68fe4843850d6d6fed26b43d755a45ac"
+    },
+    {
+      "path": "src/B_test_join_audit.py",
+      "sha256": "2cb670f230711e05536aa5c76637136a131b078dd4f72ea16819ad6594ec2599"
+    },
+    {
+      "path": "src/B_validate_feature_api.py",
+      "sha256": "b2b1d9f88abd194e7a43efdf98359bf253e22ca81282fd946230933b86aafe3f"
+    },
+    {
+      "path": "src/b_common.py",
+      "sha256": "1283ad7e4b3cdc2df4c52843ed2140562dd57ac90fe1ef6f6530ba5a1e4abfbb"
+    }
+  ],
+  "report_scope": "B contribution only",
+  "report_file": "/Users/kendallshao/Downloads/DSA5208_Project2/B_delivery/report_rerun_20261012/B_report_zh.md",
+  "report_sha256": "4aeb4ac625f545bc90fb4778bef384ca236df6ca9cb8aac8488979b0358afc36",
+  "input_integrity": {
+    "status": "PASS",
+    "scope": "full",
+    "checked_files": 549,
+    "release_id": "rainfall_v1_r3",
+    "data_version": "v1",
+    "config_hash": "e5258b99925606c8ba88207cb44a6756514fa84cd60f37adea3f9db64103248b",
+    "release_manifest_sha256": "8ebfb9ff0a91cb7e171fadee1d4c25069a74cc779588671ace1b4cf247134b3e"
+  },
+  "language": "en",
+  "documentation_revision": "2026-10-12 English translation; numerical execution unchanged",
+  "translated_report_file": "B_delivery/report_rerun_20261012/B_report_zh.md",
+  "translated_report_sha256": "8eecc51bd2ec7d00beadeaa50cb36ad6be58209d79d63d2d71f8466c3a60e540"
+}

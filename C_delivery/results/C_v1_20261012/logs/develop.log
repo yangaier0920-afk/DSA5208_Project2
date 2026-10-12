@@ -1,0 +1,38 @@
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+26/10/12 17:00:16 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+26/10/12 17:00:16 WARN SparkConf: Note that spark.local.dir will be overridden by the value set by the cluster manager (via SPARK_LOCAL_DIRS in mesos/standalone/kubernetes and LOCAL_DIRS in YARN).
+2026-10-12T17:00:22 fold1: auditing actual sampled train + evaluation anchors against B features
+2026-10-12T17:02:20 fold1: fitting training-only station encoder and feature assembler
+2026-10-12T17:02:27 fold1: fit frequency_baseline
+2026-10-12T17:02:27 fold1: scoring frequency_baseline on all supported evaluation anchors
+2026-10-12T17:03:01 fold1: frequency_baseline completed
+2026-10-12T17:03:01 fold1: fit logistic_regression
+2026-10-12T17:03:17 fold1: scoring logistic_regression on all supported evaluation anchors
+2026-10-12T17:04:57 fold1: logistic_regression completed
+2026-10-12T17:04:57 fold1: fit decision_tree
+2026-10-12T17:05:16 fold1: scoring decision_tree on all supported evaluation anchors
+2026-10-12T17:06:05 fold1: decision_tree completed
+2026-10-12T17:06:08 fold2: auditing actual sampled train + evaluation anchors against B features
+2026-10-12T17:08:23 fold2: fitting training-only station encoder and feature assembler
+2026-10-12T17:08:32 fold2: fit frequency_baseline
+2026-10-12T17:08:32 fold2: scoring frequency_baseline on all supported evaluation anchors
+2026-10-12T17:09:05 fold2: frequency_baseline completed
+2026-10-12T17:09:05 fold2: fit logistic_regression
+2026-10-12T17:09:24 fold2: scoring logistic_regression on all supported evaluation anchors
+2026-10-12T17:11:07 fold2: logistic_regression completed
+2026-10-12T17:11:07 fold2: fit decision_tree
+2026-10-12T17:11:38 fold2: scoring decision_tree on all supported evaluation anchors
+2026-10-12T17:12:29 fold2: decision_tree completed
+2026-10-12T17:12:32 fold3: auditing actual sampled train + evaluation anchors against B features
+2026-10-12T17:15:03 fold3: fitting training-only station encoder and feature assembler
+2026-10-12T17:15:13 fold3: fit frequency_baseline
+2026-10-12T17:15:13 fold3: scoring frequency_baseline on all supported evaluation anchors
+2026-10-12T17:15:45 fold3: frequency_baseline completed
+2026-10-12T17:15:45 fold3: fit logistic_regression
+2026-10-12T17:16:10 fold3: scoring logistic_regression on all supported evaluation anchors
+2026-10-12T17:17:49 fold3: logistic_regression completed
+2026-10-12T17:17:49 fold3: fit decision_tree
+2026-10-12T17:18:32 fold3: scoring decision_tree on all supported evaluation anchors
+2026-10-12T17:19:21 fold3: decision_tree completed
+2026-10-12T17:19:21 LOCKED selection: decision_tree; mean Brier 0.017585444136496018

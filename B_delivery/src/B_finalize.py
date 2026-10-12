@@ -20,7 +20,7 @@ def main():
              'hardware_inventory':'results/hardware_inventory.json (post-run inventory; peak not measured)',
              'elapsed_definition':('from integrity check before Spark startup through aggregate CSV writes; excludes validation JSON, hashing, charts/report and Spark shutdown' if path==a.task1 else 'from integrity check through first feature validation/schema writes; includes read/write; excludes hashing, Spark shutdown and later 513-probe/adapter/join reruns')})
     metadata(a.root,PACKAGE/'results/report_metadata','python src/B_make_report.py; python src/B_finalize.py',None,
-        {'source_code_hashes':code,'environment':{'python':platform.python_version(),'format':'Chinese Markdown only; original charts referenced'},
+        {'source_code_hashes':code,'environment':{'python':platform.python_version(),'format':'English Markdown; original charts referenced'},
              'report_scope':'B contribution only',
              'report_file':str((a.report/'B_report_zh.md').resolve()),
              'report_sha256':d.sha256(a.report/'B_report_zh.md'),

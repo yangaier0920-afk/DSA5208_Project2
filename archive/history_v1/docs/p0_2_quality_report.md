@@ -1,16 +1,16 @@
-# P0-2 全量质量审计结果
+# P0-2 full quality audit results
 
-生成时间：2026-10-08T15:02:54.947318+08:00。
+Generated at: 2026-10-08T15:02:54.947318+08:00。
 
-**2017—2024 全部年度文件已经实际执行 Spark 审计，八年对账检查及 Java 正常退出检查通过。原始 CSV 未修改。**
+**All 2017–2024 annual exports were actually audited using Spark; eight-year reconciliation and normal Java shutdown passed. Raw CSV files were not modified.**
 
-Spark 尝试解析 **48,538,713** 条记录，结构合格 **48,538,713** 条，年度文件内唯一站点时间键合计 **48,538,713** 个。全期站点 **91** 个。候选有效记录 **48,538,713** 条；该口径尚不等于正式清洗交付数。
+Spark attempted to parse **48,538,713** records; structurally valid **48,538,713**; annual unique station/time keys total **48,538,713**. Full-period stations **91**. Candidate valid records **48,538,713**; this is not yet the formal cleaned delivery count.
 
-候选有效的五分钟观测中，雨量大于零共有 **1,416,983** 条，占 **2.92%**。这是单条五分钟观测的正雨量比例，不是未来 30 分钟超阈值标签的正例率；C 应在拿到完整窗口标签后重新计算类别分布。
+Candidate valid five-minute observations with positive rain total **1,416,983** rows, proportion **2.92%**. This is single-slot wet frequency, not future-30-minute exceedance prevalence; C must recompute class support using complete truth.
 
-## 1. 年度正式规模与主要问题
+## 1. Full annual counts and main issues
 
-| 年度 | Spark 记录数 | 站点数 | 唯一时间键 | 重复键多余行 | 雨量冲突键 | 偏离标准网格行 | >300秒相邻间隔 |
+| Year | Spark rows | Stations | Unique time keys | Duplicate excess rows | Conflicting-rain keys | Off-grid rows | Adjacent gaps >300s ||
 |---|---:|---:|---:|---:|---:|---:|---:|
 | 2017 | 5,256,106 | 62 | 5,256,106 | 0 | 0 | 1,775,327 | 44,825 |
 | 2018 | 4,594,246 | 56 | 4,594,246 | 0 | 0 | 0 | 113,440 |
@@ -21,7 +21,7 @@ Spark 尝试解析 **48,538,713** 条记录，结构合格 **48,538,713** 条，
 | 2023 | 6,742,890 | 74 | 6,742,890 | 0 | 0 | 0 | 4,584 |
 | 2024 | 6,406,260 | 70 | 6,406,260 | 0 | 0 | 0 | 6,479 |
 
-| 检查条件 | 八年涉及行数 |
+| Check | Eight-year affected rows ||
 |---|---:|
 | `csv_corrupt` | 0 |
 | `csv_field_count_mismatch` | 0 |
@@ -39,51 +39,51 @@ Spark 尝试解析 **48,538,713** 条记录，结构合格 **48,538,713** 条，
 | `date_mismatch_or_missing` | 0 |
 | `invalid_coordinates` | 0 |
 
-检查条件可重叠，不能将异常行数直接相加作为清洗删除量。每年详细时间字段、设备/站点名缺失及数值极值见 `annual_quality.csv`。正式规模是 Spark 全量统计，并与此前物理行清单逐年一致；来源及文件身份以 `manifests/raw_manifest.json` 为准。
+Checks overlap; affected rows cannot be added as cleaning losses. Annual timestamp, missing device/name and extreme-value details are in annual_quality.csv. Full Spark counts agree annually with the physical-line inventory; manifests/raw_manifest.json identifies input source/bytes.
 
-## 2. 时间偏移和间隔
+## 2. Timestamp phases and cadence
 
-- 2017：offset=0 秒：3,480,779 行；offset=299 秒：1,775,327 行；小于 300 秒的相邻间隔 129 次，非 300 整数倍的间隔 139 次。
-- 2018：offset=0 秒：4,594,246 行；小于 300 秒的相邻间隔 0 次，非 300 整数倍的间隔 0 次。
-- 2019：offset=0 秒：5,026,862 行；小于 300 秒的相邻间隔 0 次，非 300 整数倍的间隔 0 次。
-- 2020：offset=0 秒：6,334,473 行；小于 300 秒的相邻间隔 0 次，非 300 整数倍的间隔 0 次。
-- 2021：offset=0 秒：7,044,646 行；小于 300 秒的相邻间隔 0 次，非 300 整数倍的间隔 0 次。
-- 2022：offset=0 秒：7,133,230 行；小于 300 秒的相邻间隔 0 次，非 300 整数倍的间隔 0 次。
-- 2023：offset=0 秒：6,742,890 行；小于 300 秒的相邻间隔 0 次，非 300 整数倍的间隔 0 次。
-- 2024：offset=0 秒：6,406,260 行；小于 300 秒的相邻间隔 0 次，非 300 整数倍的间隔 0 次。
+- 2017：offset=0 seconds: 3,480,779 rows；offset=299 seconds: 1,775,327 rows; adjacent gaps below 300 seconds 129; nonmultiples of 300 seconds 139 occurrences.
+- 2018：offset=0 seconds: 4,594,246 rows; adjacent gaps below 300 seconds 0; nonmultiples of 300 seconds 0 occurrences.
+- 2019：offset=0 seconds: 5,026,862 rows; adjacent gaps below 300 seconds 0; nonmultiples of 300 seconds 0 occurrences.
+- 2020：offset=0 seconds: 6,334,473 rows; adjacent gaps below 300 seconds 0; nonmultiples of 300 seconds 0 occurrences.
+- 2021：offset=0 seconds: 7,044,646 rows; adjacent gaps below 300 seconds 0; nonmultiples of 300 seconds 0 occurrences.
+- 2022：offset=0 seconds: 7,133,230 rows; adjacent gaps below 300 seconds 0; nonmultiples of 300 seconds 0 occurrences.
+- 2023：offset=0 seconds: 6,742,890 rows; adjacent gaps below 300 seconds 0; nonmultiples of 300 seconds 0 occurrences.
+- 2024：offset=0 seconds: 6,406,260 rows; adjacent gaps below 300 seconds 0; nonmultiples of 300 seconds 0 occurrences.
 
-2017 的偏移在全量数据中出现于 2017-01-01 至 2017-04-25。每日分布保存在 `daily_timestamp_offsets.csv`；这描述出现范围，不能据此假设所有站点同一时刻切换。
+2017 offsets appear in the full data from 2017-01-01 to 2017-04-25. Daily distribution is in daily_timestamp_offsets.csv. Appearance range does not establish simultaneous station transitions.
 
-全年站点月表共记录 **43** 个“唯一秒级时间数超出占用诊断槽位数”的差额。槽位 floor 操作仅用于审计：保留原始时间，先定位站点与切换边界，再决定下一阶段的对齐规则。没有直接给 2017 全部时间加一秒。
+Station-month tables contain **43** excess unique-second times over occupied diagnostic slots. Flooring is diagnostic only; retain original times, identify stations/transitions before choosing alignment. The audit did not shift every 2017 timestamp.
 
-30 分钟标签必须按时间跨度判断观测完整性，不能直接取后六行；原始时间、候选对齐时间和缺口应可追溯。跨年间隔另见 `year_boundary_gaps.csv`。
+30-minute truth requires exact time-span completeness, never simply the next six rows. Preserve original/candidate-aligned times and gaps. Cross-year cadence is in year_boundary_gaps.csv.
 
-### 2017 对齐规则的补充审计（未执行清洗）
+### Supplemental 2017 alignment audit (no cleaning performed)
 
-逐站点排序确认 **139** 次偏移相位切换和 **129** 个不足 300 秒的相邻观测对，保存了全部这些小表记录。
-若仅将 offset=299 的时间加 1 秒，会产生 **86** 组重复目标键、**86** 条重复多余行；其中 **0** 组雨量数值不一致，**2** 组元数据不一致。另有 **6,191** 条记录的本地日历日期会改变。
+Station-wise ordering confirmed **139** phase transitions and **129** adjacent observation pairs below 300 seconds; all small-table records are retained.
+Adding one second only for offset=299 would produce **86** duplicate target keys, **86** excess duplicate rows; including **0** rain conflicts and **2** metadata conflicts. Another **6,191** records would change local calendar date.
 
-这说明时间修正与去重/冲突规则必须一起设计。所有碰撞组、原始记录和相位切换事件保存在 `time_alignment_diagnostic/`；本次没有采用这条候选规则，也没有从碰撞组中挑选某条保留。
+Alignment and collision rules must be designed jointly. All collision groups/raw rows/phase transitions are in time_alignment_diagnostic/. This audit did not adopt the candidate rule or choose retained collision rows.
 
-## 3. 站点覆盖与元数据
+## 3. Station coverage and metadata
 
-station-month 表共 **6,528** 行，包括当年出现过的站点的零观测月份。完整月覆盖率为 0 的 station-month 有 **533** 个；低于 95% 的有 **2,010** 个。这些数量包含站点启停范围，不能全部叫作设备漏测。
+Station-month table has **6,528** rows including zero-observation months for stations present that year. Zero-coverage station-months **533**; below 95% **2,010**. Counts include station start/stop scope, not only equipment missed readings.
 
-八年都出现过的站点共 **38** 个：S08, S104, S106, S107, S108, S109, S111, S112, S113, S114, S115, S116, S118, S119, S120, S121, S123, S24, S33, S35, S40, S43, S44, S50, S60, S66, S69, S71, S77, S78, S79, S81, S84, S88, S89, S90, S900, S94。这还不是正式固定比较面板。
+Stations appearing in all eight years total **38**: S08, S104, S106, S107, S108, S109, S111, S112, S113, S114, S115, S116, S118, S119, S120, S121, S123, S24, S33, S35, S40, S43, S44, S50, S60, S66, S69, S71, S77, S78, S79, S81, S84, S88, S89, S90, S900, S94. This is not yet a confirmed fixed comparison panel.
 
-为 B 的跨年比较提供三个候选敏感性口径：要求站点八年都出现、96 个月中每个月的完整月槽位覆盖率都达标。
+Three candidate sensitivity panels for B require station presence in all eight years and qualifying complete-calendar coverage in each of 96 months.
 
-| 每月最低覆盖率 | 候选站点数 | 候选站点 |
+| Minimum monthly coverage | Candidate count | Candidate stations ||
 |---|---:|---|
-| 90% | 0 | 无 |
-| 95% | 0 | 无 |
-| 99% | 0 | 无 |
+| 90% | 0 | None |
+| 95% | 0 | None |
+| 99% | 0 | None |
 
-**重要：三个严格全月面板均为空，因此不能直接采用原先设想的‘八年固定站点且每月覆盖至少90%’主口径。**
+**All three strict all-month panels are empty, so an eight-year fixed station set with every month >=90% is unsupported.**
 
-38 个共同站点中覆盖最低的月份如下，分母固定为 38 个站点×完整月槽位：
+Lowest-coverage months among 38 common stations follow; denominator is 38 stations times complete-calendar monthly slots:
 
-| 年月 | 共同站点槽位覆盖率 |
+| Year-month | Common-station slot coverage ||
 |---|---:|
 | 2018-08 | 7.47% |
 | 2018-02 | 60.31% |
@@ -94,26 +94,26 @@ station-month 表共 **6,528** 行，包括当年出现过的站点的零观测�
 | 2019-11 | 78.52% |
 | 2024-08 | 80.21% |
 
-本地原始 2018 CSV 在 8 月有 **3 天**存在任何站点记录：2018-08-01, 2018-08-02, 2018-08-03。8 月 4—31 日没有记录；这不是这些日期没有下雨。全期共有 **63 个日历日**在对应年度 CSV 中没有任何站点记录，详见 `daily_network_record_counts.csv`。
+The local raw 2018 CSV has **3 days** with any August station records: 2018-08-01, 2018-08-02, 2018-08-03。4–31 August has no records; this does not mean no rainfall.Full-period total **63 calendar days** with no station record in the corresponding annual CSV; see daily_network_record_counts.csv.
 
-**来源完整性已由用户确认**：当前文件为官方导出且完整获取；确认记录见 `configs/source_confirmation.json`。因此把无记录日期按当前官方导出资料中的缺测处理，保留原文件与 manifest。该确认来自用户，不表示重新与官方远程文件做了哈希比对；缺测的物理原因仍未知。
+**Source completeness was confirmed by the user** in configs/source_confirmation.json. Treat absent dates as gaps in the supplied official export, preserving original files/manifest. This is human confirmation, not a remote official-file hash comparison; the physical cause remains unknown.
 
-针对资料缺测，B 应明确分析的是实际观测时段，按有效观测统计频率/强度并展示覆盖，必要时按可比的月/时段做分期分析；不能把缺测当零、直接解释全年/月累计为真实总雨量，或仅靠全月总量除覆盖率修补。C 的标签和滞后特征应按连续片段生成，整段缺口附近的窗口须标为不完整。
+B must analyze observed periods, compute frequency/intensity from valid readings, display coverage and use comparable months/periods. Do not zero-fill gaps, call incomplete sums true totals or repair them by dividing by coverage. C truth and lag features require continuous exact-time segments; windows near gaps are incomplete.
 
-这是可比较性候选与敏感性检查，不是已经采用的筛选阈值。即使覆盖达标，也要核对坐标变化、异常雨量和季节性缺口；若面板过小，可改为明确的站点内对比、覆盖标准化和分期面板。不要直接把所有站点雨量相加比较年度。
+These are candidate comparability/sensitivity checks, not confirmed filters. Review coordinates, unusual rain and seasonal gaps even with adequate coverage. Small panels may require explicit within-station or period comparisons. Do not compare annual sums across all changing stations.
 
-| 全期元数据检查 | 站点数 |
+| Full-period metadata check | Stations ||
 |---|---:|
-| 名称有多个原文 | 26 |
-| device ID 有多个原文 | 0 |
-| 数字经纬度有多个组合 | 1 |
+| Multiple original station names | 26 |
+| Multiple original device IDs | 0 |
+| Multiple numeric coordinate combinations | 1 |
 
-坐标变体站点：S113。
-原始组合的首次/末次出现范围及计数见 `station_metadata_history.csv`；不能把坐标版本变化自动当成实地搬迁。事实表应以 station_id 关联元数据历史，名称不作主键，不能用最新名称/坐标覆盖所有历史。
+Stations with coordinate variants: S113。
+Combination first/last appearances and counts are in station_metadata_history.csv; coordinate variation does not establish physical relocation. Join historical metadata by station_id, not name, and never overwrite all history with latest names/coordinates.
 
-## 4. 更新延迟和雨量极值
+## 4. Update differences and rainfall extremes
 
-| 年度 | 整体更新>1天行数 | 雨量更新>1天行数 | 整体更新负延迟 | 雨量更新负延迟 | 最大有限雨量(mm) |
+| Year | Update >1 day rows | Reading update >1 day | Negative update delay | Negative reading delay | Maximum finite rain/mm ||
 |---|---:|---:|---:|---:|---:|
 | 2017 | 17,899 | 17,899 | 0 | 0 | 18.0 |
 | 2018 | 84,835 | 84,835 | 0 | 0 | 15.6 |
@@ -124,30 +124,30 @@ station-month 表共 **6,528** 行，包括当年出现过的站点的零观测�
 | 2023 | 179,651 | 179,651 | 0 | 0 | 17.622 |
 | 2024 | 63,929 | 63,929 | 0 | 0 | 15.912 |
 
-更新字段减观测时间是记录字段差值，并不证明实时首次可用延迟。保留两个更新时间供追踪，不以晚更新为理由删除历史有效雨量；C 的回测需要在报告中说明历史观测可用性假设，不能用未来更新状态做特征。
+Update minus event time is a field difference, not proof of first real-time availability. Retain both updates and valid delayed rain. C must disclose retrospective availability assumptions and exclude future update status from features.
 
-原始最大雨量示例见 `largest_rainfall_examples.csv`。非 0.2 倍数、多位小数和极端值不能仅凭形式删除；如要设异常阈值，需要先确认观测仪器/累积口径、相邻时间和邻站证据，规则及影响应另行记录。
+See largest_rainfall_examples.csv. Values not divisible by 0.2, long decimals and extremes cannot be removed on appearance alone. An anomaly cutoff requires instrument/accumulation semantics, adjacent-time/station evidence and a documented rule/impact.
 
-## 5. 下一步 A/B/C 的接口
+## 5. Next A/B/C interfaces
 
-- **A / P0-3**：先裁决秒偏移与槽位碰撞、重复与冲突、元数据映射、有效观测范围。实现标准化观测 Parquet，逐条保留来源年/原始时间/质量标志，输出原始→异常→去重→保留的账目。缺测保持缺测；下一阶段再生成完整未来窗口标签。
-- **B**：现在可先使用 station-month 与元数据表确定覆盖图和比较口径；年际对比采用明确的面板或覆盖控制。清洗事实表确定后再正式计算季节性、小时变化与年际结论。
-- **C**：继续实现基线、时间切分和 Spark MLlib 概率接口。拿到 A 的有效窗口后检查标签比例和站点/月差异；存在时间缺口的未来窗口不能变成零雨量负例。训练、验证、测试接口需共同确定，不在本审计中自动锁定。
+- **A/P0-3**: confirm phase/collision, duplicate/conflict, metadata and validity rules. Write standardized Parquet with source year/original time/quality and raw-to-quarantine/dedup/retained ledgers. Preserve gaps; construct future truth in the next stage.
+- **B**: use station-month/metadata tables for coverage plots and comparison policy. Adopt explicit interannual panels/coverage control; compute formal seasonal/hourly/interannual results after cleaned facts are frozen.
+- **C**: implement baseline, time partitions and Spark MLlib probability interface. Review training label/station/month support after A windows arrive. Gapped future windows are not dry negatives. Agree train/validation/test interfaces separately; this audit does not lock them automatically.
 
-B/C 的跨机器小样本验收按用户要求暂缓，不影响本次 A 的全量审计验收。本阶段未生成清洗数据、标签或模型。
+B/C machine checks were deferred by the user without blocking A full audit. This stage created no cleaned data, targets or models.
 
-## 6. 交付与复现证据
+## 6. Delivery and reproduction evidence
 
-结果根目录：`outputs/p0_2_audit/p0_2_v1/`。
+Result root: `outputs/p0_2_audit/p0_2_v1/`。
 
-- `annual_quality.csv` / `summary.json`：正式规模和年度完整质量指标。
-- `station_month_coverage.csv`：站点×月份覆盖；`station_summary.csv` / `station_full_period_summary.csv`：年度/全期站点汇总。
-- `common_station_month_network_coverage.csv` / `daily_network_record_counts.csv`：共同站点月度网络覆盖、全日历日期原始记录数（含零记录日）。
-- `station_metadata_history.csv`：元数据组合的出现历史。
-- `timestamp_offsets.csv` / `daily_timestamp_offsets.csv` / `cadence_gap_counts.csv` / `year_boundary_gaps.csv`：时间刻度与连续性。
-- `units_types.csv` / `update_delay_buckets.csv`：单位、类型及更新字段差值分布。
-- `anomaly_examples.csv` / `duplicate_key_examples.csv` / `cadence_gap_examples.csv` / `largest_rainfall_examples.csv`：定位样例。
-- 每个年度目录 `audit.json`：年度指标、小表及 10 项对账检查；`run_status.json`：资源、代码/输入签名及进程退出结果。
-- `outputs/p0_2_audit/self_test_v1/self_test.json`：合成异常测试结果。
+- annual_quality.csv / summary.json: full counts and annual quality.
+- station_month_coverage.csv: station/month coverage; station_summary.csv / station_full_period_summary.csv: annual/full-period station summaries.
+- common_station_month_network_coverage.csv / daily_network_record_counts.csv: common-network monthly coverage and full-calendar daily raw counts, including zero-record dates.
+- station_metadata_history.csv: observed metadata combination history.
+- timestamp_offsets.csv / daily_timestamp_offsets.csv / cadence_gap_counts.csv / year_boundary_gaps.csv: phases and continuity.
+- units_types.csv / update_delay_buckets.csv: units, types and update-field differences.
+- anomaly_examples.csv / duplicate_key_examples.csv / cadence_gap_examples.csv / largest_rainfall_examples.csv: diagnostic examples.
+- Annual audit.json: metrics, small tables and ten reconciliation checks; run_status.json: resources, code/input signatures and process exit.
+- outputs/p0_2_audit/self_test_v1/self_test.json: synthetic anomaly checks.
 
-程序：`src/01_audit_raw.py`，启动/资源生命周期：`scripts/run_spark.py`、`scripts/spark_session.py`。口径及重跑命令见 [p0_2_methodology.md](p0_2_methodology.md)。
+Program: src/01_audit_raw.py; lifecycle: scripts/run_spark.py and spark_session.py. See [p0_2_methodology.md](p0_2_methodology.md) for policy/reproduction.
