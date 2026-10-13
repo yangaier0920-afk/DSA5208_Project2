@@ -5,7 +5,7 @@
   "release_manifest_sha256": "8ebfb9ff0a91cb7e171fadee1d4c25069a74cc779588671ace1b4cf247134b3e",
   "member": "B",
   "input_scope": "full",
-  "created_at": "2026-10-11T03:55:08.399349+00:00",
+  "created_at": "2026-10-13T13:17:34.647609+00:00",
   "experiment_config_hash": "ac5250af179779621511e73180c00f8efaf8746d200c63955f06751693ec2eb1",
   "experiment_config_file": "configs/B_experiment.json",
   "command": "python src/B_task1_analysis.py --root PROJECT_ROOT",
@@ -28,6 +28,16 @@
     "peak_rss": "not measured"
   },
   "outputs": [
+    {
+      "path": "adjacent_year_same_month_summary.csv",
+      "bytes": 23010,
+      "sha256": "a7732f594354ba9a5d27670f3077a29742eecfc723436cfdc346959de8a9596c"
+    },
+    {
+      "path": "adjacent_year_validation.json",
+      "bytes": 845,
+      "sha256": "5bf2060e0a86a36ee61b3b985971137b6fdb06c0f6bc6ed3e4e1f7ae2211bf94"
+    },
     {
       "path": "annual_descriptive_summary.csv",
       "bytes": 2403,
@@ -134,6 +144,26 @@
       "sha256": "048b12dc31dd9d03944a0d9d6961637a79bb8d51b6f568edff1b4ad38c19b422"
     },
     {
+      "path": "figures/08_station_map.pdf",
+      "bytes": 28970,
+      "sha256": "5f4193321ad511cd558f71801eb0d0afcaa3a2adba4b5c7b4f0a509cc7f1dddc"
+    },
+    {
+      "path": "figures/08_station_map.png",
+      "bytes": 110716,
+      "sha256": "fab8ce8f8cde095583f43e885d2bd04f054330a3e18a7bde63036c706cf0466f"
+    },
+    {
+      "path": "figures/09_adjacent_year_comparison.pdf",
+      "bytes": 49001,
+      "sha256": "eff3ee9f7938f994242eaf980f0e4d7762cc08a0cfccbe0eab2465aa63dab47f"
+    },
+    {
+      "path": "figures/09_adjacent_year_comparison.png",
+      "bytes": 239579,
+      "sha256": "dc0a414eacfcfb6bfb11515fc3d3a839dab7443b8afbe29c6f6c7c7d533156f0"
+    },
+    {
       "path": "findings.json",
       "bytes": 2401,
       "sha256": "e8ab0fbc702a3f999f0e579c5053fcf13077a48d6b32a416b307f7b531993215"
@@ -179,6 +209,26 @@
       "sha256": "27421a60a374319a4a0c12be745b6bf10dd61c57a9dd3e0b3d2c2ece8afde519"
     },
     {
+      "path": "spatial_panel_metadata_history.csv",
+      "bytes": 13255,
+      "sha256": "80491b127aadfd1c1f01343f3e38308c45699404683eeeffe20fa4b2a0c0cd30"
+    },
+    {
+      "path": "station_coordinate_audit.csv",
+      "bytes": 17743,
+      "sha256": "dad153d68976e9f9757d792a7ed3a77d2796d83f2cb2a78287362f8a73c7d52f"
+    },
+    {
+      "path": "station_map_figure_source.csv",
+      "bytes": 1723,
+      "sha256": "b4b3d9567cc3cc545d6a285810f1ccee908399204dc0841d1b96d908dd609eef"
+    },
+    {
+      "path": "station_map_validation.json",
+      "bytes": 1457,
+      "sha256": "aca10b3294cbbb63f2f5ee829cc81231ef8003b0ca431b5dccb553cdef6f249a"
+    },
+    {
       "path": "station_month_hour_metrics.csv",
       "bytes": 5709961,
       "sha256": "f3a2628cffaad62651b95c37100836ca9ea3cb0c543a074805f33849ef3d9cf7"
@@ -220,6 +270,10 @@
   },
   "source_code_hashes": [
     {
+      "path": "src/B_adjacent_years.py",
+      "sha256": "47e76934da0be775822eef79cda3d85bf3ac992f4bb88604fbe2a313000a2dce"
+    },
+    {
       "path": "src/B_build_features.py",
       "sha256": "633ea64f34cc3d79e66041f1931044b0743b4171ac6b5419bbeb9cd1037eee4b"
     },
@@ -229,7 +283,7 @@
     },
     {
       "path": "src/B_finalize.py",
-      "sha256": "e85f132d2d12b99e5fb97aa9ac87b15ce82df91b74c4f6f82c31f61a94b0d8a2"
+      "sha256": "c9ff8c7fa4e346d487ef4b3285642eb8055ee87d604032e2409cdc57e682c94c"
     },
     {
       "path": "src/B_join_audit.py",
@@ -237,11 +291,15 @@
     },
     {
       "path": "src/B_make_report.py",
-      "sha256": "4f490f05a5f7b0e7b7b17c02b0fda141283864e39bb90571fd885e35c6ef62b4"
+      "sha256": "94c9596dfb1aed6caeb1f5c9a66504faa0bf57a5e35a9b3218a6663087662e80"
     },
     {
       "path": "src/B_plot_results.py",
-      "sha256": "4b3abfae4522d73cae24d68f0ae7a57c5461653d5e6e8291b93ead69f3624c24"
+      "sha256": "990de705d0542e6762c8a050dcba1df9d7dc3bb14ddd6d6e562b913c6f50bb2a"
+    },
+    {
+      "path": "src/B_station_map.py",
+      "sha256": "a052cfd9b61f554ec1309fdf528e2f6104b2f9885b41640300fe873ea7c7b97b"
     },
     {
       "path": "src/B_task1_analysis.py",
@@ -267,7 +325,7 @@
   "finalized": true,
   "feature_set_version": "B_v2",
   "aggregate_provenance": "Task1 v1 verified Spark aggregates reused; v2 derived analyses regenerated",
-  "documentation_revision": "2026-10-11",
+  "documentation_revision": "2026-10-13",
   "hardware_inventory": "results/hardware_inventory.json (post-run inventory; peak not measured)",
   "elapsed_definition": "from integrity check before Spark startup through aggregate CSV writes; excludes validation JSON, hashing, charts/report and Spark shutdown"
 }

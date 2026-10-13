@@ -14,6 +14,7 @@ def avg(values):
 
 def main():
     p=argparse.ArgumentParser();p.add_argument('--input',type=Path,default=PACKAGE/'results/task1_v2')
+    p.add_argument('--root',type=Path,help='A project root for coordinate audit and station map')
     a=p.parse_args();out=a.input;fig=out/'figures';fig.mkdir(exist_ok=True)
     plt.rcParams.update({'font.family':'DejaVu Sans','font.size':10,'axes.spines.top':False,'axes.spines.right':False,
         'axes.titleweight':'bold','figure.dpi':130,'savefig.dpi':180,'axes.labelcolor':'#243746','text.color':'#243746'})
@@ -260,6 +261,11 @@ def main():
         'annual_fixed_panel_stations':annual_fixed[0]['n_stations'],
         'limits':['No fixed all-month eight-year rainfall panel.','Observed rainfall totals are not coverage-corrected.','Descriptive panels vary in station composition.','No causal or long-term climate attribution.']}
     dump(out/'findings.json',summaries)
-    print('Seven figures and source tables saved:',fig)
+    if a.root is not None:
+        from B_station_map import build_station_map
+        build_station_map(a.root,out)
+    from B_adjacent_years import build_adjacent_years
+    build_adjacent_years(out)
+    print('Plots and source tables saved:',fig)
 
 if __name__=='__main__':main()

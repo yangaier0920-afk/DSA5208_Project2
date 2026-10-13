@@ -5,7 +5,7 @@
   "release_manifest_sha256": "8ebfb9ff0a91cb7e171fadee1d4c25069a74cc779588671ace1b4cf247134b3e",
   "member": "B",
   "input_scope": "full",
-  "created_at": "2026-10-11T03:55:08.652698+00:00",
+  "created_at": "2026-10-13T13:17:35.125289+00:00",
   "experiment_config_hash": "ac5250af179779621511e73180c00f8efaf8746d200c63955f06751693ec2eb1",
   "experiment_config_file": "configs/B_experiment.json",
   "command": "python src/B_make_report.py; python src/B_finalize.py",
@@ -17,11 +17,15 @@
   "outputs": [
     {
       "path": "report_sources.json",
-      "bytes": 510,
-      "sha256": "79e6c89ae43a5aaf2a848f1c8457353a41b998ee90a3fda34240936c9e8a20b8"
+      "bytes": 1003,
+      "sha256": "2ac841def2b8fc40c5a941cff384c7a4c88d89d15377807da146084a065abb05"
     }
   ],
   "source_code_hashes": [
+    {
+      "path": "src/B_adjacent_years.py",
+      "sha256": "47e76934da0be775822eef79cda3d85bf3ac992f4bb88604fbe2a313000a2dce"
+    },
     {
       "path": "src/B_build_features.py",
       "sha256": "633ea64f34cc3d79e66041f1931044b0743b4171ac6b5419bbeb9cd1037eee4b"
@@ -32,7 +36,7 @@
     },
     {
       "path": "src/B_finalize.py",
-      "sha256": "e85f132d2d12b99e5fb97aa9ac87b15ce82df91b74c4f6f82c31f61a94b0d8a2"
+      "sha256": "c9ff8c7fa4e346d487ef4b3285642eb8055ee87d604032e2409cdc57e682c94c"
     },
     {
       "path": "src/B_join_audit.py",
@@ -40,11 +44,15 @@
     },
     {
       "path": "src/B_make_report.py",
-      "sha256": "4f490f05a5f7b0e7b7b17c02b0fda141283864e39bb90571fd885e35c6ef62b4"
+      "sha256": "94c9596dfb1aed6caeb1f5c9a66504faa0bf57a5e35a9b3218a6663087662e80"
     },
     {
       "path": "src/B_plot_results.py",
-      "sha256": "4b3abfae4522d73cae24d68f0ae7a57c5461653d5e6e8291b93ead69f3624c24"
+      "sha256": "990de705d0542e6762c8a050dcba1df9d7dc3bb14ddd6d6e562b913c6f50bb2a"
+    },
+    {
+      "path": "src/B_station_map.py",
+      "sha256": "a052cfd9b61f554ec1309fdf528e2f6104b2f9885b41640300fe873ea7c7b97b"
     },
     {
       "path": "src/B_task1_analysis.py",
@@ -68,8 +76,8 @@
     }
   ],
   "report_scope": "B contribution only",
-  "report_file": "/Users/zhu/Downloads/5208/task2/DSA5208_Project2/B_delivery/report_zh/B_report_zh.md",
-  "report_sha256": "8dd5f4d0b1fd12f3a908e5e279ecf56412e43ebce3897ca32eca4eb9f067be4a",
+  "report_file": "/Users/zhu/Documents/GitHub/DSA5208_Project2/B_delivery/report_zh/B_report_zh.md",
+  "report_sha256": "b5bc495766f842f5de69e2b319428aec30e266326b2ed6caf1d3ddb0dbef2786",
   "input_integrity": {
     "status": "PASS",
     "scope": "full",

@@ -2,11 +2,11 @@
   "notebooks": [
     {
       "file": "B_Task1_Analysis.ipynb",
-      "sha256": "0a2083cecf4df66cb07736f47e40ea3c015351e956b23b9c06b995e7db9fa633",
-      "cells": 60,
-      "default_execution": "PASS in project browser; numerical recompute flags False",
+      "sha256": "1718a7004baafa3b83a1808307cddc535f907ae5e5aed4dd6555a063d5c5785d",
+      "cells": 69,
+      "default_execution": "PASS: 27 code cells executed in Chrome Jupyter; recompute flags False; zero errors",
       "feature_set_version": "B_v2",
-      "documentation_revision": "2026-10-11"
+      "documentation_revision": "2026-10-13 narrative and palette revision"
     },
     {
       "file": "B_Historical_Features.ipynb",

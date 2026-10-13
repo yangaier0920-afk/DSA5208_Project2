@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "comparisons_total": 84,
+  "supported_comparisons": 63,
+  "unsupported_comparisons": 21,
+  "source_aggregate_sha256": "be953a0bd0150f00381617c446ad81cdadc823d5f3423bef248ddc387863e3d5",
+  "rule": "2017-2018 through 2023-2024; same month; station coverage >=90% in both years; all common IDs equally weighted",
+  "paired_change_checked": true,
+  "scope": "local paired year-month comparisons; panels vary between cells",
+  "limits": [
+    "Observed totals, not missingness-corrected totals.",
+    "No common stations is NA, not zero rainfall/change.",
+    "Station IDs do not establish stable measurement conditions.",
+    "Leap-year February has unequal calendar duration; monthly totals are not rates.",
+    "No significance test, causal attribution, chaining of local changes, or full-year total reconstruction."
+  ]
+}

@@ -2,9 +2,22 @@
   "language": "zh-CN",
   "format": "Markdown only",
   "feature_set_version": "B_v2",
-  "source_task1": "/Users/zhu/Downloads/5208/task2/DSA5208_Project2/B_delivery/results/task1_v2",
-  "source_features": "/Users/zhu/Downloads/5208/task2/DSA5208_Project2/B_delivery/results/features_v2",
-  "source_join_audit": "/Users/zhu/Downloads/5208/task2/DSA5208_Project2/B_delivery/results/join_audit/validation.json",
+  "source_task1": "/Users/zhu/Documents/GitHub/DSA5208_Project2/B_delivery/results/task1_v2",
+  "source_features": "/Users/zhu/Documents/GitHub/DSA5208_Project2/B_delivery/results/features_v2",
+  "source_join_audit": "/Users/zhu/Documents/GitHub/DSA5208_Project2/B_delivery/results/join_audit/validation.json",
   "C_actual_input_audit": "PENDING_NOT_AVAILABLE_LOCALLY",
-  "numeric_features_recomputed": false
+  "numeric_features_recomputed": false,
+  "documentation_revision": "2026-10-13",
+  "source_adjacent_years": "/Users/zhu/Documents/GitHub/DSA5208_Project2/B_delivery/results/task1_v2/adjacent_year_validation.json",
+  "figure_reading_order": [
+    "01_coverage_and_panel",
+    "02_descriptive_monthly_rainfall",
+    "07_frequency_and_intensity",
+    "04_hourly_rain_occurrence",
+    "06_annual_descriptive_summary",
+    "03_strict_interannual_comparison",
+    "09_adjacent_year_comparison",
+    "08_station_map",
+    "05_station_comparison"
+  ]
 }

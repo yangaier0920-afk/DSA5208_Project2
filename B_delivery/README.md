@@ -1,4 +1,4 @@
-# 当前使用版本（2026-10-11）
+# 当前使用版本（2026-10-13）
 
 **优先阅读**：report_zh/B_report_zh.md（唯一保留的可编辑中文报告）。两个notebooks仍在notebooks/；原数值特征版本仍是B_v2，本次补充定义、时间口径、保留率、关联核验和中文报告，不改变26列数值。
 
@@ -45,7 +45,7 @@ python -m pip install -r B_delivery/requirements-B.txt
 
 python B_delivery/src/B_task1_analysis.py --root "$PWD" \
   --output B_delivery/results/task1_rerun1
-python B_delivery/src/B_plot_results.py --input B_delivery/results/task1_rerun1
+python B_delivery/src/B_plot_results.py --input B_delivery/results/task1_rerun1 --root "$PWD"
 
 python B_delivery/src/B_build_features.py --root "$PWD" \
   --output B_delivery/results/features_rerun1
@@ -119,3 +119,22 @@ report_zh/只保留B_report_zh.md。图文件保留在results/task1_v2/figures/�
 旧版本、归档备份和Notebook旧检查点已经删除。当前代码在src/，Notebook在notebooks/，当前结果使用task1_v2、features_v2及join_audit。目录名中的v2是当前特征版本，不是旧版副本。
 
 可复跑关联核验的边界案例：`python B_delivery/src/B_test_join_audit.py --root "$PWD"`。
+
+## Task 1完善（2026-10-13）
+
+- 覆盖敏感性差值定义为同一年两门槛面板均值之差的最大绝对值，报告含公式。
+- 新增`src/B_station_map.py`，核对A元数据历史，图8严格复用图5的同一站点面板。
+- 站点位置图使用最新记录坐标；多坐标并不证明搬迁，固定编号不保证测量条件均一。
+- 中文报告和Task1 Notebook补充MSS官方天气背景引用，不作因果归因。
+- 单独复跑地图：`python B_delivery/src/B_station_map.py --root "$PWD"`；完整绘图命令增加`--root "$PWD"`以同时生成地图。
+- 本次不重算Spark聚合、历史特征或C模型，不沿用旧耗时描述新增地图耗时。
+
+### 简单局部跨年补充
+
+新增`src/B_adjacent_years.py`，比较七对相邻年份、12个月，共84个格子。每格只使用两年同月覆盖率均≥90%的共同站点；后一年减前一年，等权，缺共同站点为NA。面板随格子变化，不能串成全国长期趋势或全年累计。
+
+单独运行：`python B_delivery/src/B_adjacent_years.py`。完整绘图脚本也会生成图9。来源表为`results/task1_v2/adjacent_year_same_month_summary.csv`，包含每格完整站点清单；核验为`adjacent_year_validation.json`。图、中文报告及Task1 Notebook同步，默认查看不重算。
+
+### 当前图表阅读顺序与样式
+
+报告和Notebook统一为：图1覆盖 → 图2月度概览 → 图3频率/强度 → 图4小时 → 图5年度概览 → 图6严格八年同月 → 图7相邻年份局部比较 → 图8站点地图 → 图9同面板站点柱状图。已有图片文件名保留以保持来源可追溯，文件名前缀不等于当前阅读图号。地图改为单面板青绿渐变，坐标变化仅在图注说明；相邻年份图采用橙色（减少）—青绿（增加）配色。

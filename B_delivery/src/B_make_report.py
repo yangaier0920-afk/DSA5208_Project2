@@ -42,7 +42,7 @@ def main():
         add(f'![{caption}]({path})\n\n{caption}')
     add('''# 新加坡降雨规律分析与历史特征构建：B部分中文报告
 
-版本：2026-10-11 文档与关联核验更新；数值特征版本仍为 B_v2。本文可直接复制、修改并合并进组报告。
+版本：2026-10-13 Task 1逻辑重排与图表样式统一；数值特征版本仍为 B_v2。本文可直接复制、修改并合并进组报告。
 
 **报告范围**：B负责Task 1及供C使用的历史特征，不包含尚未完成的C模型训练、预测评价或全组最终提交。组报告仍需补全A清洗、C模型章节及所有成员姓名和学号。''')
     add(f'''## 1. 数据处理与分析口径
@@ -51,37 +51,79 @@ def main():
 
 Task 1采用Asia/Singapore时区的区间起点归属年月和小时。基本有雨指标为五分钟雨量>0；月累计为实际观测累计，不按覆盖率补齐。站点在同一格内等权，跨年描述图再对可用年份等权。''')
     add((PACKAGE/'docs/TIME_CONTRACT.md').read_text().replace('# 预测时间与雨量区间：A/B/C 交接口径','## 2. 预测时间、观测可用性与标签区间').replace('\n## ','\n### ' ).replace('### 2. 预测时间','## 2. 预测时间'))
-    add('''## 3. Task 1：覆盖情况与年度摘要
+    add('''## 3. Task 1：数据覆盖与比较范围
 
 覆盖门槛决定哪些比较成立。主分析采用月覆盖率≥90%，另以≥95%做敏感性分析。严格八年同月共同站点仅支持5、9、10、12月；其他月份空交集不表示没有降雨。''')
     figure('01_coverage_and_panel.png','图1：各年各月合格站点数，以及八年同月共同站点数量。')
-    annual=[r for r in rows(a.task1/'annual_descriptive_summary.csv') if float(r['coverage_cutoff'])==.9]
-    add('年度覆盖率分母是完整日历年五分钟槽数，正确处理闰年；先汇总单站年度实际雨量，再对该年合格站点等权。另列每个月都≥90%的更严格要求，以暴露全年覆盖率可能掩盖的集中缺测。')
-    add(table(['年份','全年覆盖≥90%站点数','平均观测年雨量/mm','每月均≥90%站点数','强门槛平均观测年雨量/mm'],[[r['year'],r['n_stations'],f"{float(r['mean_observed_annual_mm']):.1f}" if r['mean_observed_annual_mm'] else 'NA',r['stations_passing_every_month'],f"{float(r['mean_observed_annual_mm_each_month']):.1f}" if r['mean_observed_annual_mm_each_month'] else 'NA'] for r in annual]))
-    figure('06_annual_descriptive_summary.png','图2：全年90%/95%覆盖门槛与每月均90%门槛下的年度描述及站点数。')
-    add('2018没有站点达到全年90%覆盖，保留NA；八年固定年度面板为空。各年站点构成不同，年度观测累计并非补齐缺测后的完整年估计，也不能据此得出全国年度趋势。更严格逐月门槛还会使更多年份不受支持。')
-    add('## 4. Task 1：年内月度规律及频率/强度')
-    figure('02_descriptive_monthly_rainfall.png','图3：各年各月合格站点的平均观测累计雨量，NA为无合格站点。')
+    add('下面先讨论年内的月份、降雨频率与小时规律，再讨论跨年变化，最后比较同一面板内的站点差异。')
+    add('## 4. Task 1：年内降雨规律')
+    add('### 4.1 月度观测雨量概览')
+    figure('02_descriptive_monthly_rainfall.png','图2：各年各月合格站点的平均观测累计雨量，NA为无合格站点。')
     add('描述性格子中，2022年10月最高，为419.1 mm（66站）；2021年2月最低，为32.0 mm（68站）。这同时受天气、观测覆盖及站点组成影响，不是固定站网跨年排名；各月天数也不同。')
-    figure('07_frequency_and_intensity.png','图4：有雨槽比例与条件于有雨的五分钟雨量P50/P90/P99。')
+    add('### 4.2 降雨频率与条件强度')
+    figure('07_frequency_and_intensity.png','图3：有雨槽比例与条件于有雨的五分钟雨量P50/P90/P99。')
     add(f'''90%门槛下，描述性有雨槽比例最高为{int(peaks[.9][0]['month'])}月（{100*float(peaks[.9][0]['wet_fraction']):.2f}%）；平均非零P90最高为{int(peaks[.9][1]['month'])}月（{float(peaks[.9][1]['mean_station_wet_p90_5m_mm']):.2f} mm/五分钟）。发生频率和条件强度是不同指标，月累计还受月份时长影响。
 
 分位数使用Spark percentile_approx（accuracy=1000），先计算站点—月份的非零分位数，再对合格站点及可用年份等权平均；**不是全国汇集观测的分位数**。全干站点—月份频率为0，但条件强度分位数未知，不补成0。来源表保留强度指标各自的支持数量。''')
-    add('## 5. Task 1：严格跨年比较与覆盖门槛敏感性')
-    figure('03_strict_interannual_comparison.png','图5：严格同月固定站点面板的2017—2024年比较，90%与95%覆盖门槛。')
-    add(table(['月份','90%站点数','95%站点数','最低年90%/95%','最高年90%/95%','极值年一致','最大年均差/mm'],[[r['month'],r['stations_90'],r['stations_95'],f"{r['lowest_year_90']}/{r['lowest_year_95']}",f"{r['highest_year_90']}/{r['highest_year_95']}",'是' if r['extrema_consistent'] else '否',f"{r['max_abs_mean_difference_mm']:.2f}"] for r in sensitivity]))
+    add('### 4.3 一天中的降雨发生规律')
+    figure('04_hourly_rain_occurrence.png','图4：新加坡时间下月×小时有雨比例，以及全天剖面。')
+    add('小时比较要求一个站点—月份全部24小时各自均≥90%覆盖，以相同站点构成比较一天各小时。先对站点等权，再对82个受支持年—月等权。峰值在16时，为5.78%；最低在23时，为1.11%。这些是已记录五分钟槽的有雨比例，不是未来30分钟超阈值概率，也不能证明物理因果机制。')
+    add('### 4.4 天气背景与结果解释\n\n本项目的描述结果中，11月有雨槽比例较高，小时剖面在16时达到峰值。MSS官方气候介绍指出，新加坡通常11—1月雨量较多，下午降雨也较频繁；东北季风涌动及午后对流是相关天气背景。因此，这些观察与已知气候背景相容，有助于理解年内和日内差异，但本项目没有将个别降雨过程分类，也未控制风场、海风或其他气象变量，不能据此证明产生这些结果的物理机制。[MSS：Climate of Singapore](https://www.weather.gov.sg/climate-climate-of-singapore/)（查阅：2026-10-13）\n\n官方长期气候资料与本项目的时间段、站点、覆盖筛选和指标定义不同；本项目的五分钟有雨槽比例也不等同于官方“雨日数”。不能将不同来源的数值直接作同口径比较，也不能把某一月份的短期异常解释成长期气候趋势。')
+    add('## 5. Task 1：跨年降雨变化')
+    add('### 5.1 年度概览与可比性限制')
+    annual=[r for r in rows(a.task1/'annual_descriptive_summary.csv') if float(r['coverage_cutoff'])==.9]
+    add('年度覆盖率分母是完整日历年五分钟槽数，正确处理闰年；先汇总单站年度实际雨量，再对该年合格站点等权。另列每个月都≥90%的更严格要求，以暴露全年覆盖率可能掩盖的集中缺测。')
+    add(table(['年份','全年覆盖≥90%站点数','平均观测年雨量/mm','每月均≥90%站点数','强门槛平均观测年雨量/mm'],[[r['year'],r['n_stations'],f"{float(r['mean_observed_annual_mm']):.1f}" if r['mean_observed_annual_mm'] else 'NA',r['stations_passing_every_month'],f"{float(r['mean_observed_annual_mm_each_month']):.1f}" if r['mean_observed_annual_mm_each_month'] else 'NA'] for r in annual]))
+    figure('06_annual_descriptive_summary.png','图5：全年90%/95%覆盖门槛与每月均90%门槛下的年度描述及站点数。')
+    add('2018没有站点达到全年90%覆盖，保留NA；八年固定年度面板为空。各年站点构成不同，年度观测累计并非补齐缺测后的完整年估计，也不能据此得出全国年度趋势。更严格逐月门槛还会使更多年份不受支持。')
+    add('由于年度合格站点组成变化、八年固定年度面板为空，下面转向固定同月份站点的比较，以提高跨年可比性。')
+    add('### 5.2 严格八年同月比较与覆盖门槛敏感性')
+    figure('03_strict_interannual_comparison.png','图6：严格同月固定站点面板的2017—2024年比较，90%与95%覆盖门槛。')
+    add(table(['月份','90%站点数','95%站点数','最低年90%/95%','最高年90%/95%','极值年一致','各年两门槛均值差的最大绝对值/mm'],[[r['month'],r['stations_90'],r['stations_95'],f"{r['lowest_year_90']}/{r['lowest_year_95']}",f"{r['highest_year_90']}/{r['highest_year_95']}",'是' if r['extrema_consistent'] else '否',f"{r['max_abs_mean_difference_mm']:.2f}"] for r in sensitivity]))
+    add(r"""表中差值定义为：
+
+$$
+D_m=\max_{y\in\{2017,\ldots,2024\}}\left|\bar R_{y,m}^{(90\%)}-\bar R_{y,m}^{(95\%)}\right|.
+$$
+
+其中，$\bar R_{y,m}^{(c)}$ 是覆盖门槛 $c$ 对应八年共同站点面板在年份 $y$、月份 $m$ 的平均观测累计雨量（mm）。先对**同一年、同一月份的两种门槛**求差，再取八年中最大绝对值；不是最高年份与最低年份的雨量差。十月该敏感性差值约5.32 mm，而90%面板最高年与最低年的差约286.81 mm，两者不能混用。对应CSV字段保留为`max_abs_mean_difference_mm`，以兼容已有读取代码。
+
+英文表头建议使用：`Maximum absolute difference between 90% and 95% panel means across years (mm)`。""")
     add(f'''90%与95%门槛支持的月份相同，收紧门槛减少站点数。上表直接核对最高/最低年份，而非笼统声称结果完全相同。平均雨量的变化同时反映被排除站点的组成差异，不是同一批站点上的独立实验。
 
 十月90%固定21站的2022年观测均值399.8 mm，2023年113.0 mm。不同月份的最高年份不一致，不能概括某一年处处最湿，也不能把仅支持的四个月相加当全年。
 
 频率图90%/95%门槛下的最高月份分别为{int(peaks[.9][0]['month'])}/{int(peaks[.95][0]['month'])}月，非零P90最高月份分别为{int(peaks[.9][1]['month'])}/{int(peaks[.95][1]['month'])}月；12个月有雨比例均值的最大绝对差为{freqdiff:.4f}个百分点。此敏感性反映描述口径稳定程度，不等于统计显著性检验。''')
-    add('## 6. Task 1：小时规律、站点差异及缺测限制')
-    figure('04_hourly_rain_occurrence.png','图6：新加坡时间下月×小时有雨比例，以及全天剖面。')
-    add('小时比较要求一个站点—月份全部24小时各自均≥90%覆盖，以相同站点构成比较一天各小时。先对站点等权，再对82个受支持年—月等权。峰值在16时，为5.78%；最低在23时，为1.11%。这些是已记录五分钟槽的有雨比例，不是未来30分钟超阈值概率，也不能证明物理因果机制。')
-    figure('05_station_comparison.png','图7：自动选择共同面板最大的月份后，比较固定站点的平均同月雨量。')
-    add('''十月拥有最大的严格90%八年同月面板，共21站，因此自动选中十月；同数时选较早月份。S89最高约270.3 mm，S107最低约125.2 mm。这是十月的站点差异，不能当全年站点排名，也未控制地理因素。
+    add('### 5.3 补充：相邻年份同月份共同站点比较')
+    adjacent=rows(a.task1/'adjacent_year_same_month_summary.csv')
+    valid=[r for r in adjacent if int(r['n_common_stations'])>0]
+    add('保留前面的严格八年面板作为主分析，另预先固定七对相邻年份（2017—2018至2023—2024），逐月选取两年该月覆盖率均≥90%的共同站点编号。每个格子内，两年使用完全相同的站点并等权，计算后一年减前一年的平均观测累计雨量。全部84个格子均列出；没有共同站点时保留NA，不挑选有明显差异的月份。')
+    add(r"""令 $I_{y,m}$ 为年份 $y$ 与 $y+1$ 在月份 $m$ 均达到90%覆盖的共同站点集合，则：
 
-区间起点日历下有64个整网无观测日期；A原始event-date审计为63，额外日期2018-02-17源于日历定义不同，不能互相覆盖。缺测日不是干日。季节描述、短期八年差异不构成长周期气候趋势或因果归因。''')
+$$
+\Delta_{y,m}=\frac{1}{|I_{y,m}|}\sum_{s\in I_{y,m}}\left(R_{s,y+1,m}-R_{s,y,m}\right).
+$$
+
+$R$ 为站点该月实际观测累计雨量（mm），不是缺测补齐量。正值表示共同站点在后一年该月更湿，负值表示更干；$n=|I_{y,m}|$，不是置信度或独立天气事件数量。""")
+    figure('09_adjacent_year_comparison.png','图7：相邻年份同月份共同站点的平均观测雨量差（后一年−前一年，mm）；每格标注共同站点数n，雨量差显示为整数、精确值见CSV；灰色NA表示无共同站点。')
+    pair_summary=[]
+    for year in range(2017,2024):
+        rr=[r for r in valid if int(r['year_from'])==year];nn=[int(r['n_common_stations']) for r in rr]
+        pair_summary.append([f'{year}—{year+1}',len(rr),f'{min(nn)}—{max(nn)}' if nn else 'NA'])
+    add(table(['相邻年份','支持月份数/12','各支持月份共同站点数范围'],pair_summary))
+    upper=max(valid,key=lambda r:float(r['mean_paired_change_mm']))
+    lower=min(valid,key=lambda r:float(r['mean_paired_change_mm']))
+    extra=[r for r in valid if int(r['month']) not in [5,9,10,12]]
+    add(f"84个局部比较中，{len(valid)}个有共同站点支持，其中{len(extra)}个来自严格八年面板不支持的其他月份。作为全部格子的描述性极值，最大增加为{upper['year_from']}→{upper['year_to']}年{upper['month']}月，平均观测雨量从{float(upper['mean_from_observed_mm']):.2f}增至{float(upper['mean_to_observed_mm']):.2f} mm，差{float(upper['mean_paired_change_mm']):+.2f} mm（{upper['n_common_stations']}站）；最大减少为{lower['year_from']}→{lower['year_to']}年{lower['month']}月，从{float(lower['mean_from_observed_mm']):.2f}变为{float(lower['mean_to_observed_mm']):.2f} mm，差{float(lower['mean_paired_change_mm']):+.2f} mm（{lower['n_common_stations']}站）。这些是遍历全部格子后的描述性最大/最小值，未作显著性或多重比较检验。")
+    add('这补充了局部可比信息，但估计对象不同于固定八年面板：共同站点会随年份对和月份改变，不能把局部差值串联成全国长期趋势，也不能拼接成全年总雨量。月累计仍受残余缺测与站点坐标/测量条件影响；涉及闰年的二月还存在月份天数差异，未按天标准化。因此该图只描述局部共同站点的观测月总量变化，不用于物理归因。无需重跑原始Spark聚合；图7与表格仅读取此前已核验的站点—月份汇总。')
+    add('## 6. Task 1：同一面板内的空间差异')
+    add('先看站点位置，再比较雨量数值。十月拥有最大的严格90%八年同月共同站点面板，共21站，因此用于本节；同数时选较早月份。两张图使用完全相同的站点编号及雨量均值。')
+    figure('08_station_map.png','图8：十月共同面板的21个站点位置，颜色表示2017—2024年平均十月观测累计雨量。')
+    add('图注：位置采用A元数据中最后观测时刻最晚的坐标；S113星号表示两组记录坐标约相距39米，变化原因无法确认。固定编号不保证测量条件始终一致。详细核验保留在station_coordinate_audit.csv和spatial_panel_metadata_history.csv；地图不做空间插值。')
+    figure('05_station_comparison.png','图9：与图8相同21站的平均十月观测累计雨量，按数值排序。')
+    add('S89最高约270.3 mm，S107最低约125.2 mm。地图提供位置背景，柱状图便于比较大小；这些是十月共同面板的描述性差异，不能当作全年站点排名或全国空间雨量估计，也未控制地理或仪器条件的影响。')
+    add('### 本节分析的共同限制')
+    add('区间起点日历下有64个整网无观测日期；A原始event-date审计为63，额外日期2018-02-17源于日历定义不同。缺测日不是干日。月累计没有按覆盖率补齐，固定站点编号面板也不是经过气候均一化的站网。官方资料提示可能缺测且未经过气候资料质量控制，因此以上季节、跨年与空间差异均保持描述性定位。[data.gov.sg：Historical Rainfall across Singapore](https://data.gov.sg/collections/2279/view)（查阅：2026-10-13）')
     add('## 7. Task 2：B提供的26个历史特征')
     definitions=(PACKAGE/'docs/FEATURE_DEFINITIONS.md').read_text();add(definitions[definitions.index('令 R(t)'):])
     add('单锚点预测入口features_at仅接收该站点t及以前60分钟观测，要求当前锚点和12个精确历史槽完整；已与离线26列逐一核对，不提供未来行仍能复现，并拒绝缺槽或不在五分钟网格的时刻。station编码、标准化或插补必须由C在各轮训练集拟合；阈值也是C的模型输入。')
@@ -124,7 +166,9 @@ OpenAI Codex协助B进行分析设计、Spark特征与关联核验代码、图�
     path=a.output/'B_report_zh.md';path.write_text('\n\n'.join(parts),encoding='utf-8')
     dump(PACKAGE/'results/report_metadata/report_sources.json',{'language':'zh-CN','format':'Markdown only','feature_set_version':'B_v2',
         'source_task1':str(a.task1),'source_features':str(a.features),'source_join_audit':str(join_file),
-        'C_actual_input_audit':'PENDING_NOT_AVAILABLE_LOCALLY','numeric_features_recomputed':False})
+        'C_actual_input_audit':'PENDING_NOT_AVAILABLE_LOCALLY','numeric_features_recomputed':False,'documentation_revision':'2026-10-13',
+        'source_adjacent_years':str(a.task1/'adjacent_year_validation.json'),
+        'figure_reading_order':['01_coverage_and_panel','02_descriptive_monthly_rainfall','07_frequency_and_intensity','04_hourly_rain_occurrence','06_annual_descriptive_summary','03_strict_interannual_comparison','09_adjacent_year_comparison','08_station_map','05_station_comparison']})
     print('Chinese report saved:',path)
 
 if __name__=='__main__':main()

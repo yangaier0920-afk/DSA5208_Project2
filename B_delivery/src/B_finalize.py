@@ -16,7 +16,7 @@ def main():
             {'input_integrity':verification,'source_code_hashes':code,'finalized':True,'feature_set_version':'B_v2',
              'aggregate_provenance': 'Task1 v1 verified Spark aggregates reused; v2 derived analyses regenerated' if path==a.task1 else 'v2 full feature recomputation',
              'environment':old['environment'],
-             'documentation_revision':'2026-10-11',
+             'documentation_revision':'2026-10-13',
              'hardware_inventory':'results/hardware_inventory.json (post-run inventory; peak not measured)',
              'elapsed_definition':('from integrity check before Spark startup through aggregate CSV writes; excludes validation JSON, hashing, charts/report and Spark shutdown' if path==a.task1 else 'from integrity check through first feature validation/schema writes; includes read/write; excludes hashing, Spark shutdown and later 513-probe/adapter/join reruns')})
     metadata(a.root,PACKAGE/'results/report_metadata','python src/B_make_report.py; python src/B_finalize.py',None,

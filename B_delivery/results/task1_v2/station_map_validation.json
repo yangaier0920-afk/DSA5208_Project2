@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "station_count": 21,
+  "month": 10,
+  "panel": "same strict 90% eight-year same-month panel as station comparison",
+  "coordinate_changed_panel_stations": [
+    {
+      "station_id": "S113",
+      "in_spatial_panel": true,
+      "coordinate_pair_count": 2,
+      "station_name_count": 1,
+      "device_id_count": 1,
+      "max_coordinate_separation_m": 38.59,
+      "longitude_display": 103.9104,
+      "latitude_display": 1.30648,
+      "display_coordinate_rule": "metadata group with latest observed epoch; not reconstructed station trajectory",
+      "interpretation": "coordinate variation; relocation vs metadata correction undetermined"
+    }
+  ],
+  "metadata_source": "/Users/zhu/Downloads/5208/task2/DSA5208_Project2/outputs/p0_2_audit/p0_2_v1/station_metadata_history.csv",
+  "metadata_source_sha256": "21184499b890100e675b4e5295192d21e8ed83fe432217240881f6c5525ff532",
+  "coordinate_system": "longitude/latitude as supplied by A; approximate geodesic distance assumes spherical Earth",
+  "limits": [
+    "No meteorological homogenization or independent device/location verification.",
+    "First/last epochs are metadata-group observation ranges and may overlap; no exact move date inferred.",
+    "Latest recorded coordinate is a display convention; eight-year mean is not attributed to a proven stable site.",
+    "Station location diagram without basemap; no interpolation or whole-island spatial trend inferred."
+  ]
+}
