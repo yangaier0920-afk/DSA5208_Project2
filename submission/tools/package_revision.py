@@ -28,7 +28,7 @@ def main():
     for name in ['intro.txt','requirements-spark.txt','.gitignore','.gitattributes']:files[name]=ROOT/name
     files['README.md']=out/'README.md'
     for p in out.rglob('*'):
-        if p.is_file() and 'archive' not in p.relative_to(out).parts and 'revision_20261013' not in p.relative_to(out).parts and 'C_completion' not in p.relative_to(out).parts and p.suffix!='.zip' and p.name not in ['submission_manifest.json','submission_status.json']:files[p.relative_to(ROOT).as_posix()]=p
+        if p.is_file() and not any(x in p.relative_to(out).parts for x in ['archive','revision_20261013','C_completion','tmp','__pycache__']) and p.suffix not in ['.zip','.pyc'] and p.name not in ['submission_manifest.json','submission_status.json','.DS_Store']:files[p.relative_to(ROOT).as_posix()]=p
     entries=[{'path':n,'bytes':p.stat().st_size,'sha256':sha(p)} for n,p in sorted(files.items())]
     with zipfile.ZipFile(out/'Source_Code.zip','w',zipfile.ZIP_DEFLATED) as z:
         for n,p in sorted(files.items()):z.write(p,'DSA5208_Project2/'+n)
