@@ -1,0 +1,98 @@
+{
+  "strict_supported_months": [
+    5,
+    9,
+    10,
+    12
+  ],
+  "strict_month_findings": [
+    {
+      "month": 5,
+      "n_stations": 11,
+      "lowest_year": 2023,
+      "lowest_mm": 123.74545272727273,
+      "highest_year": 2024,
+      "highest_mm": 275.7090881818182
+    },
+    {
+      "month": 9,
+      "n_stations": 20,
+      "lowest_year": 2019,
+      "lowest_mm": 87.87,
+      "highest_year": 2020,
+      "highest_mm": 289.14
+    },
+    {
+      "month": 10,
+      "n_stations": 21,
+      "lowest_year": 2023,
+      "lowest_mm": 113.02857095238093,
+      "highest_year": 2022,
+      "highest_mm": 399.8380947619047
+    },
+    {
+      "month": 12,
+      "n_stations": 18,
+      "lowest_year": 2021,
+      "lowest_mm": 183.71111166666662,
+      "highest_year": 2023,
+      "highest_mm": 352.58889055555557
+    }
+  ],
+  "hourly_peak": {
+    "hour": 16,
+    "n_year_months": 82,
+    "wet_fraction": 0.057800515870365846
+  },
+  "hourly_minimum": {
+    "hour": 23,
+    "n_year_months": 82,
+    "wet_fraction": 0.011096997864831811
+  },
+  "missing_interval_calendar_network_dates": 64,
+  "descriptive_max_cell": {
+    "coverage_cutoff": 0.9,
+    "year": 2022,
+    "month": 10,
+    "n_stations": 66,
+    "mean_station_month_observed_mm": 419.07062121212124,
+    "mean_station_wet_fraction": 0.05169936117663814
+  },
+  "descriptive_min_cell": {
+    "coverage_cutoff": 0.9,
+    "year": 2021,
+    "month": 2,
+    "n_stations": 68,
+    "mean_station_month_observed_mm": 31.966397058823524,
+    "mean_station_wet_fraction": 0.0038999676550193975
+  },
+  "october_station_low": {
+    "station_id": "S107",
+    "month": 10,
+    "years": 8,
+    "mean_observed_month_mm": 125.15000124999999,
+    "minimum_mm": 39.8,
+    "maximum_mm": 257.8
+  },
+  "october_station_high": {
+    "station_id": "S89",
+    "month": 10,
+    "years": 8,
+    "mean_observed_month_mm": 270.2749975,
+    "minimum_mm": 182.2,
+    "maximum_mm": 539.59998
+  },
+  "spatial_month": 10,
+  "spatial_panel_station_count": 21,
+  "spatial_selection": "largest strict 90% same-month eight-year panel, earliest month breaks ties",
+  "annual_unsupported_years": [
+    2018
+  ],
+  "annual_fixed_panel_stations": 0,
+  "limits": [
+    "No fixed all-month eight-year rainfall panel.",
+    "Observed rainfall totals are not coverage-corrected.",
+    "Descriptive panels vary in station composition.",
+    "No causal or long-term climate attribution."
+  ]
+}

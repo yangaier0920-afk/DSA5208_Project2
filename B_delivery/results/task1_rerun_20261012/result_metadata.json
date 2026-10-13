@@ -1,0 +1,268 @@
+{
+  "release_id": "rainfall_v1_r3",
+  "data_version": "v1",
+  "config_hash": "e5258b99925606c8ba88207cb44a6756514fa84cd60f37adea3f9db64103248b",
+  "release_manifest_sha256": "8ebfb9ff0a91cb7e171fadee1d4c25069a74cc779588671ace1b4cf247134b3e",
+  "member": "B",
+  "input_scope": "full",
+  "created_at": "2026-10-12T08:44:14.573728+00:00",
+  "experiment_config_hash": "ac5250af179779621511e73180c00f8efaf8746d200c63955f06751693ec2eb1",
+  "experiment_config_file": "configs/B_experiment.json",
+  "command": "python src/B_task1_analysis.py --root PROJECT_ROOT",
+  "elapsed_seconds": 38.25347275007516,
+  "environment": {
+    "os": "macOS-14.1-arm64-arm-64bit",
+    "architecture": "arm64",
+    "python": "3.11.17",
+    "logical_cpu_count": 14,
+    "spark": "3.5.7",
+    "java": "17",
+    "spark_settings": {
+      "threads": 2,
+      "driver_memory": "4g",
+      "shuffle_partitions": 128,
+      "input_partition_mb": 32,
+      "adaptive_coalesce": false
+    },
+    "physical_memory": "not measured",
+    "peak_rss": "not measured"
+  },
+  "outputs": [
+    {
+      "path": "annual_descriptive_summary.csv",
+      "bytes": 2402,
+      "sha256": "5d3a30bc3e95ab9bfc54051b401e78671fc6cf52b3d4e7da4ea7cb44d89634dc"
+    },
+    {
+      "path": "annual_fixed_panel_summary.csv",
+      "bytes": 1191,
+      "sha256": "4140cdf9cc2e21d90924ead6290741b620437356b0f01ab6e25051da2c23b60b"
+    },
+    {
+      "path": "annual_station_coverage.csv",
+      "bytes": 41267,
+      "sha256": "1f6e1b23f170449bcbe414f02e113c82b9babdd0be8932dd299629670f272117"
+    },
+    {
+      "path": "coverage_calendar.csv",
+      "bytes": 405327,
+      "sha256": "714da1d1265a81f29d8392159dd237eb92307d4a4b00dc46077dea852ad68803"
+    },
+    {
+      "path": "coverage_figure_source.csv",
+      "bytes": 2101,
+      "sha256": "f1a1eb65943ee289b9f76e18cc906759ddd89aa34c9938da81c30dbddd47f1fa"
+    },
+    {
+      "path": "coverage_sensitivity_summary.csv",
+      "bytes": 348,
+      "sha256": "00be227d54bbd01bceebed975a08ce457cd8c89ce76cea5ab546b0ea136a3a37"
+    },
+    {
+      "path": "descriptive_year_month_summary.csv",
+      "bytes": 9716,
+      "sha256": "0a96fcd9fb846922b0bda614adaa3b7c5d50297b630d1550a24957c05ef06c21"
+    },
+    {
+      "path": "figures/01_coverage_and_panel.pdf",
+      "bytes": 44400,
+      "sha256": "a7022fecbe0580ba0e0edd11dcd8dada299fb55d034d2e01efa4db464704a54e"
+    },
+    {
+      "path": "figures/01_coverage_and_panel.png",
+      "bytes": 159320,
+      "sha256": "436220af8e978310630be9c7d66e6c49cef87c99c5493509acb4c2da2377c77b"
+    },
+    {
+      "path": "figures/02_descriptive_monthly_rainfall.pdf",
+      "bytes": 39425,
+      "sha256": "be0615558a92d8ed2f3eb974ef5c033e65f7df7aff88ddd702e3e0f30fdb0cad"
+    },
+    {
+      "path": "figures/02_descriptive_monthly_rainfall.png",
+      "bytes": 151762,
+      "sha256": "4867d0e416438213064d7fcbe4ad0ac28f74d2332ad6148ff1be21e0d4d6bc30"
+    },
+    {
+      "path": "figures/03_strict_interannual_comparison.pdf",
+      "bytes": 30875,
+      "sha256": "384fc186f21c6f5d08ce870a207770c3ce9bd5bb8e02a16193db3731aa3abc08"
+    },
+    {
+      "path": "figures/03_strict_interannual_comparison.png",
+      "bytes": 299255,
+      "sha256": "2b33bf6ed5c3135f5ac08953fb448d3418f580eec23031450793030d9666b562"
+    },
+    {
+      "path": "figures/04_hourly_rain_occurrence.pdf",
+      "bytes": 42103,
+      "sha256": "95991de60d23db713a587bde71349ba3b0c8aa0d98d77ed432316f891487a7fa"
+    },
+    {
+      "path": "figures/04_hourly_rain_occurrence.png",
+      "bytes": 102595,
+      "sha256": "179a8108d328c490b6ec3c8fd73ced95fc6f1eab8ca246a290926749def91d54"
+    },
+    {
+      "path": "figures/05_station_comparison.pdf",
+      "bytes": 25359,
+      "sha256": "056d3844ca24a8d37d46c34f8b14e346711a54df658bd7077710a85fc3a78dd8"
+    },
+    {
+      "path": "figures/05_station_comparison.png",
+      "bytes": 65129,
+      "sha256": "dbfe4898a7f8a85a56498bdefacea9e11153d229685219f58545df828e0c5e06"
+    },
+    {
+      "path": "figures/06_annual_descriptive_summary.pdf",
+      "bytes": 29990,
+      "sha256": "7de7dec4043bd99c21c655d148c4a06da2605a6a585ab2c5c0fe690aac555da1"
+    },
+    {
+      "path": "figures/06_annual_descriptive_summary.png",
+      "bytes": 179454,
+      "sha256": "72a234d35fe2abbe8b468c753d7b8057a176260a473034e11f42220ca8fbb6ac"
+    },
+    {
+      "path": "figures/07_frequency_and_intensity.pdf",
+      "bytes": 32558,
+      "sha256": "ff43b410f265fc76d3c59b15472b80fe108ed253495ef327d81fa1fd7c1b9851"
+    },
+    {
+      "path": "figures/07_frequency_and_intensity.png",
+      "bytes": 180600,
+      "sha256": "048b12dc31dd9d03944a0d9d6961637a79bb8d51b6f568edff1b4ad38c19b422"
+    },
+    {
+      "path": "findings.json",
+      "bytes": 2407,
+      "sha256": "bc4e0bf078c610293e598dc056da51f91cfa7fa7da75439f36191c9429692987"
+    },
+    {
+      "path": "frequency_intensity_year_month.csv",
+      "bytes": 17691,
+      "sha256": "e02c9f23dbabf65cfada216c95ead21cd06449249b20d1feccb0d669e6c49c6c"
+    },
+    {
+      "path": "hourly_profile_figure_source.csv",
+      "bytes": 680,
+      "sha256": "571aedc1a0971fe2c58f38311a21f923e26fa2a3509cfa22ee9c1aa06a9fc216"
+    },
+    {
+      "path": "hourly_qualified_year_month.csv",
+      "bytes": 108682,
+      "sha256": "909860b7f6cca8021bc265962ea48a64d2f71b6c83962cc0bc12e9e79acf15fa"
+    },
+    {
+      "path": "month_hour_figure_source.csv",
+      "bytes": 8202,
+      "sha256": "a8af1e1710c72c515c3bbef08804a0e9d403c1a9fe414e33561f91eb0edec7af"
+    },
+    {
+      "path": "monthly_frequency_intensity_summary.csv",
+      "bytes": 2419,
+      "sha256": "799d8973cd7273736fa727674aabd769816d8dcafe4291b7b4a26cb87c34f6aa"
+    },
+    {
+      "path": "network_daily_coverage.csv",
+      "bytes": 60016,
+      "sha256": "a4e07811a3b36d101f48caf6ceb23b8f2caee2fefeabf945d1f7c0273e4def28"
+    },
+    {
+      "path": "network_dates_without_observations.csv",
+      "bytes": 4122,
+      "sha256": "7f1f0ec75b83f0a7c108457684202dc6d93e3950cd6e08178c0b4e7970354d4e"
+    },
+    {
+      "path": "station_month_hour_metrics.csv",
+      "bytes": 5709961,
+      "sha256": "4fd0b8cac21ff5eb3660b5f39f3d6bcd9a9f94e12d13cf80b96d019d57c7a46e"
+    },
+    {
+      "path": "station_month_metrics.csv",
+      "bytes": 746897,
+      "sha256": "be953a0bd0150f00381617c446ad81cdadc823d5f3423bef248ddc387863e3d5"
+    },
+    {
+      "path": "station_selected_month_figure_source.csv",
+      "bytes": 863,
+      "sha256": "496cb10ac0c726b1ee77a241b8a2e0182c82f6a1717faed5fd538c75c54ec35d"
+    },
+    {
+      "path": "strict_panel_membership.csv",
+      "bytes": 2851,
+      "sha256": "2141eebbf324444eddec584936607fec73f4d0068af8a8a7c744fa84253bc3aa"
+    },
+    {
+      "path": "strict_same_month_summary.csv",
+      "bytes": 5638,
+      "sha256": "def2f1c29d807940f5765964f5cbff4af7fcd373868b0895811dc7f12cfacfb3"
+    },
+    {
+      "path": "validation.json",
+      "bytes": 589,
+      "sha256": "c86bf0b1b686c1ca4039fad7a73beabc629d0603e0c0e3e7fd3f5f92b8a9410f"
+    }
+  ],
+  "input_integrity": {
+    "status": "PASS",
+    "scope": "full",
+    "checked_files": 549,
+    "release_id": "rainfall_v1_r3",
+    "data_version": "v1",
+    "config_hash": "e5258b99925606c8ba88207cb44a6756514fa84cd60f37adea3f9db64103248b",
+    "release_manifest_sha256": "8ebfb9ff0a91cb7e171fadee1d4c25069a74cc779588671ace1b4cf247134b3e"
+  },
+  "source_code_hashes": [
+    {
+      "path": "src/B_build_features.py",
+      "sha256": "633ea64f34cc3d79e66041f1931044b0743b4171ac6b5419bbeb9cd1037eee4b"
+    },
+    {
+      "path": "src/B_feature_api.py",
+      "sha256": "986ef950907c657143d730f2307e5b5fe5b93aca96bac754a9779d6236cfd491"
+    },
+    {
+      "path": "src/B_finalize.py",
+      "sha256": "e85f132d2d12b99e5fb97aa9ac87b15ce82df91b74c4f6f82c31f61a94b0d8a2"
+    },
+    {
+      "path": "src/B_join_audit.py",
+      "sha256": "1662741b09a5df124480c029b13be821f6103d8148e4c59e4c709815c7d7d9a6"
+    },
+    {
+      "path": "src/B_make_report.py",
+      "sha256": "4f490f05a5f7b0e7b7b17c02b0fda141283864e39bb90571fd885e35c6ef62b4"
+    },
+    {
+      "path": "src/B_plot_results.py",
+      "sha256": "4b3abfae4522d73cae24d68f0ae7a57c5461653d5e6e8291b93ead69f3624c24"
+    },
+    {
+      "path": "src/B_task1_analysis.py",
+      "sha256": "9509fba81cae430fa280b5e3653226fd0aa64148f2960977872eac66d48f5b86"
+    },
+    {
+      "path": "src/B_test_features.py",
+      "sha256": "f8fd557cc36e1ec8ad12547e7e71dbaa68fe4843850d6d6fed26b43d755a45ac"
+    },
+    {
+      "path": "src/B_test_join_audit.py",
+      "sha256": "2cb670f230711e05536aa5c76637136a131b078dd4f72ea16819ad6594ec2599"
+    },
+    {
+      "path": "src/B_validate_feature_api.py",
+      "sha256": "b2b1d9f88abd194e7a43efdf98359bf253e22ca81282fd946230933b86aafe3f"
+    },
+    {
+      "path": "src/b_common.py",
+      "sha256": "1283ad7e4b3cdc2df4c52843ed2140562dd57ac90fe1ef6f6530ba5a1e4abfbb"
+    }
+  ],
+  "finalized": true,
+  "feature_set_version": "B_v2",
+  "aggregate_provenance": "Task1 full Spark aggregates and plots recomputed on 2026-10-12",
+  "documentation_revision": "2026-10-12",
+  "hardware_inventory": "/Users/kendallshao/Downloads/DSA5208_Project2/outputs/rerun_20261012/hardware_inventory.json",
+  "elapsed_definition": "from integrity check before Spark startup through aggregate CSV writes; excludes validation JSON, hashing, charts/report and Spark shutdown"
+}

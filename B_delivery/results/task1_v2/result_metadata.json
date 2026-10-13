@@ -5,7 +5,7 @@
   "release_manifest_sha256": "8ebfb9ff0a91cb7e171fadee1d4c25069a74cc779588671ace1b4cf247134b3e",
   "member": "B",
   "input_scope": "full",
-  "created_at": "2026-10-13T13:17:34.647609+00:00",
+  "created_at": "2026-10-13T13:37:53.697123+00:00",
   "experiment_config_hash": "ac5250af179779621511e73180c00f8efaf8746d200c63955f06751693ec2eb1",
   "experiment_config_file": "configs/B_experiment.json",
   "command": "python src/B_task1_analysis.py --root PROJECT_ROOT",
@@ -291,7 +291,11 @@
     },
     {
       "path": "src/B_make_report.py",
-      "sha256": "94c9596dfb1aed6caeb1f5c9a66504faa0bf57a5e35a9b3218a6663087662e80"
+      "sha256": "095e0618c31442a80d19eadc19c76e307c94630aba1d1e3358fb9589bf2faff5"
+    },
+    {
+      "path": "src/B_make_report_en.py",
+      "sha256": "aa6782535181d9a9f9f58c4091792361f4f1ff7e7b7b0f9e21801619bbd8e53f"
     },
     {
       "path": "src/B_plot_results.py",

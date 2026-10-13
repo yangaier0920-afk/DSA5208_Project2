@@ -6,7 +6,7 @@
 - docs/FEATURE_DEFINITIONS.md 和 feature_definitions.csv：26列完整定义。
 - results/features_v2/history_retention_by_year.csv：逐年历史筛选保留率。
 - results/task1_v2/coverage_sensitivity_summary.csv：90%/95%站点数与极值年份比较。
-- results/join_audit/：A正式标签/B特征的真实关联结果，C最终实际输入仍待其运行。
+- results/join_audit/：A正式标签/B特征的真实关联结果，C已保存实际输入PASS证据，见C_delivery/results/C_v1_20261012。
 - src/B_join_audit.py：可被C复用的关联核验；运行 `python B_delivery/src/B_join_audit.py --root "$PWD"`。
 - results/hardware_inventory.json：后补硬件清单，不含设备标识；未测峰值内存。
 
@@ -21,7 +21,7 @@
 ## 内容
 
 - `src/B_task1_analysis.py`：Spark 月度、小时、网络日覆盖聚合。
-- `src/B_plot_results.py`：仅读取 Spark 汇总表，生成七组 PNG/PDF 图及每图来源表。
+- `src/B_plot_results.py`：仅读取 Spark 汇总表，生成九组 PNG/PDF 图及每图来源表。
 - `src/B_build_features.py`：按年生成全量历史特征，包含跨年上下文和独立校验。
 - `src/B_feature_api.py`：交给 C 的输入特征清单和单锚点预测时历史特征入口。
 - `src/B_make_report.py`：依据实际结果生成完整中文 B 报告（仅Markdown）。
@@ -82,7 +82,7 @@ python B_delivery/src/B_finalize.py --root "$PWD" \
 
 给 C 的主要产物是 `results/features_v2/parquet/`、`C_HANDOFF.md`、`feature_schema.json`、实验配置和特征代码。完整特征占用较大，不要直接提交到 Git；用本地共享或组内数据存储交接。提交代码时保留配置、README、报告材料及小型汇总证据。C实际关联核验必须在其筛选/采样后、阈值展开前执行；现有A/B基础表核验不能替代。
 
-B 不负责替 C 完成模型训练、阈值冻结或 2024 最终测试。全组最终还要合并 A 的清洗章节、C 的模型与评价章节，补全所有组员姓名学号，核验训练模型重载和预测入口，并按课程要求在 2026-10-18 前提交完整源代码、训练模型和最终 PDF。
+B不替C重跑模型；合并后的仓库已有C模型、评价及重载材料。全组英文材料位于submission。该目录保留队友声明的2026-10-12证据，本次没有重新生成最终PDF/ZIP；若要把新增B图表纳入最终提交，需要另行更新整合生成器及包清单。
 
 ## AI 使用
 
@@ -138,3 +138,11 @@ report_zh/只保留B_report_zh.md。图文件保留在results/task1_v2/figures/�
 ### 当前图表阅读顺序与样式
 
 报告和Notebook统一为：图1覆盖 → 图2月度概览 → 图3频率/强度 → 图4小时 → 图5年度概览 → 图6严格八年同月 → 图7相邻年份局部比较 → 图8站点地图 → 图9同面板站点柱状图。已有图片文件名保留以保持来源可追溯，文件名前缀不等于当前阅读图号。地图改为单面板青绿渐变，坐标变化仅在图注说明；相邻年份图采用橙色（减少）—青绿（增加）配色。
+
+## 合并后的材料入口
+
+- 当前九图中文B稿：report_zh/B_report_zh.md；可编辑Notebook保持原路径。
+- 队友英文B参考稿：report_en/B_report_en.md，保留2026-10-12证据范围。对应生成器为src/B_make_report_en.py，独立输出，不覆盖中文稿。
+- 英文时间/特征定义保留原文件名，中文生成器使用docs/TIME_CONTRACT_zh.md和FEATURE_DEFINITIONS_zh.md。
+- C保存的实际输入关联和模型核验见C_delivery；submission为队友固定实验版本，不自动包含本次新增B图。
+- results/*_rerun_20261012和report_rerun_20261012属于模型/提交材料引用的实验来源，本次合并保留，避免破坏证据链。

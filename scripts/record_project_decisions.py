@@ -18,11 +18,11 @@ if e["selected"] is not None:
     raise RuntimeError("E already selected; this script must not erase that decision")
 e["recommended"] = "E2"
 e["user_preference"] = "Interested in E2; uncertain about results; not yet confirmed"
-e["proposal_document"] = "docs/E2滚动验证实验方案.md"
+e["proposal_document"] = "docs/E2_ROLLING_VALIDATION.md"
 data.update({"status": "PARTIALLY_CONFIRMED", "applied": False,
              "confirmed_at_sgt": datetime.now(timezone(timedelta(hours=8))).isoformat(),
              "confirmed_items": [key for key in data["items"] if key != "E"], "pending_items": ["E"],
-             "user_statement": "采用推荐组合，但 E 我有点纠结，觉得E2的方式作为实验更加有趣和有意义，但不知道最终结果如何。"})
+             "user_statement": "Use the recommended combination; E2 seems more interesting and meaningful as an experiment, although its final outcome is uncertain."})
 pending_path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
 selected = {key: item["selected"] for key, item in data["items"].items()}
 configuration = {"status": "CLEANING_RULES_CONFIRMED_E_PENDING", "applied": False,

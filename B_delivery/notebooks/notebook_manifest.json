@@ -2,15 +2,15 @@
   "notebooks": [
     {
       "file": "B_Task1_Analysis.ipynb",
-      "sha256": "1718a7004baafa3b83a1808307cddc535f907ae5e5aed4dd6555a063d5c5785d",
+      "sha256": "efe89bcb603e51eca3d9664d7fcc1e8f03c107ea8a4e1c5fb4e894fbe501b132",
       "cells": 69,
-      "default_execution": "PASS: 27 code cells executed in Chrome Jupyter; recompute flags False; zero errors",
+      "default_execution": "PASS: 27 default code cells executed after team merge; expensive recomputation disabled; zero errors",
       "feature_set_version": "B_v2",
-      "documentation_revision": "2026-10-13 narrative and palette revision"
+      "documentation_revision": "2026-10-13 team merge"
     },
     {
       "file": "B_Historical_Features.ipynb",
-      "sha256": "6833c2ccbbb667ab531f4551984fe010fd19d9d348a615230ba802e626cfc6e5",
+      "sha256": "29f2fc40bdbbfe431a3728dcee37415ab44cec9e68171f2c4c6c09481597508d",
       "cells": 42,
       "default_execution": "PASS in project browser; numerical recompute flags False",
       "feature_set_version": "B_v2",

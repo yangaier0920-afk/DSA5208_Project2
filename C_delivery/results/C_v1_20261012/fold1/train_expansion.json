@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "anchor_rows": 1995803,
+  "thresholds": [
+    0.0,
+    0.5,
+    1.0,
+    2.0,
+    5.0
+  ],
+  "expanded_rows": 9979015,
+  "unique_three_column_keys": 9979015,
+  "bad_threshold_multiplicity": 0,
+  "null_labels": 0
+}

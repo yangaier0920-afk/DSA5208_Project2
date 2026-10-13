@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "checks": [
+    "original-byte runtime restored from final snapshot with all replay fixtures",
+    "paired 1309-row sample read",
+    "1297-record/114-anchor production A replay",
+    "deployed model loaded with five past-only predictions",
+    "42 default notebook code cells",
+    "C strict Decimal/hash-sampling contracts",
+    "all Python syntax and active text Han scan",
+    "original deployed model hashes and numeric config unchanged",
+    "English PDF text/member cover and rendered layout review"
+  ],
+  "training_or_2024_tuning_repeated": false
+}

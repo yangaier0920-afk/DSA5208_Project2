@@ -1,0 +1,5 @@
+{
+  "chip_type": "Apple M3 Max",
+  "physical_memory": "36 GB",
+  "source": "post-run sysctl public CPU/memory inventory; peak not measured"
+}

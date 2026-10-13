@@ -1,0 +1,15 @@
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+26/10/12 16:57:50 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+26/10/12 16:57:50 WARN SparkConf: Note that spark.local.dir will be overridden by the value set by the cluster manager (via SPARK_LOCAL_DIRS in mesos/standalone/kubernetes and LOCAL_DIRS in YARN).
+2026-10-12T16:57:55 pilot: auditing actual sampled train + evaluation anchors against B features
+2026-10-12T16:59:06 pilot: fitting training-only station encoder and feature assembler
+2026-10-12T16:59:09 pilot: fit frequency_baseline
+2026-10-12T16:59:09 pilot: scoring frequency_baseline on all supported evaluation anchors
+2026-10-12T16:59:12 pilot: frequency_baseline completed
+2026-10-12T16:59:12 pilot: fit logistic_regression
+2026-10-12T16:59:16 pilot: scoring logistic_regression on all supported evaluation anchors
+2026-10-12T16:59:23 pilot: logistic_regression completed
+2026-10-12T16:59:23 pilot: fit decision_tree
+2026-10-12T16:59:25 pilot: scoring decision_tree on all supported evaluation anchors
+2026-10-12T16:59:28 pilot: decision_tree completed

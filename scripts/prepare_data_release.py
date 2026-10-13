@@ -4,75 +4,75 @@ from pathlib import Path
 from data_release import ROOT, read_json, resolve_path, sha256, write_json
 
 DESCRIPTIONS = {
-    'raw_line': '原始CSV整行，原样追溯；不作为模型输入',
-    'field_count': '原始CSV字段数量，应为12', 'odd_quotes': '原始整行引号数是否为奇数，解析审计标记',
-    '_corrupt_record': 'Spark捕获的解析失败原文；有效观测应为空',
-    'source_year': '原始年度文件年份', 'source_file': '原始文件名／路径标识',
-    'source_sha256': '原始文件全文SHA-256', 'raw_record_sha256': '原始整行SHA-256，追溯键；不替代观测主键',
-    'station_id': '保留原始站点ID（含S113）；用于主键及按站点分组',
-    'station_name': '记录对应的站点名称，允许历史变化', 'station_device_id': '记录对应的设备ID',
-    'event_ts': '解析的原始观测时间，尚未进行2017对齐',
-    'update_ts': '解析的原始update_timestamp；审计用，不作为天气特征',
-    'reading_update_ts': '解析的原始reading_update_timestamp；审计用，不作为天气特征',
-    'rain_mm': '该五分钟区间雨量，double，单位mm；特征计算可用，精确阈值比较用Decimal',
-    'rain_decimal_mm': '该五分钟区间精确雨量，Decimal(38,18)，mm；标签累计使用',
-    'longitude': '原行经度，度；不回填未来最新位置', 'latitude': '原行纬度，度；不回填未来最新位置',
-    'event_epoch_s': '原始观测时间的Unix秒', 'original_offset_s': '原始epoch对300取余，秒',
-    'alignment_offset_s': '实际对齐增加秒数（0或1）', 'alignment_rule': '实际采用的对齐规则标识',
-    'slot_end_epoch_s': '对齐后的五分钟雨量区间末端Unix秒，观测主键时间',
-    'slot_end_ts': '对齐后的区间末端／预测锚点t，五分钟网格',
-    'rain_period_start_ts': '区间起点slot_end_ts-300秒，Task 1日历归属依据',
-    'observation_date': '末端时间所属新加坡日历日期', 'rain_period_date': '区间起点所属新加坡日历日期',
-    'rain_period_hour': '区间起点所属新加坡小时，0至23',
-    'update_delay_s': '更新时间减原始观测时间，秒；仅审计',
-    'reading_update_delay_s': '读数更新时间减原始观测时间，秒；仅审计',
-    'quarantine_reasons': '隔离原因数组；有效observations为空数组',
-    'metadata_warning': '名称／设备缺失、坐标解析／范围异常或更新时间解析缺失的警示；保留有效雨量',
-    'source_effective_decimal_scale': '原始数值有效小数位数，精确表示审计',
-    'decimal_representation_error': '无法按既定Decimal精确表示的标记；有效观测为false',
-    'rules_version': '清洗规则版本标识', 'aligned_source_count': '映射到相同标准键的源行数量',
-    'metadata_conflict': '对齐碰撞中元数据存在差异；雨量相等仍可保留',
-    'rain_variants': '碰撞组中不同精确雨量的数量', 'metadata_variants': '碰撞组中不同元数据组合数量',
-    'collision_rank': '确定性碰撞排序序号，1为优先行',
-    'retained_record_sha256': '碰撞组最终保留原行的SHA-256', 'disposition': '碰撞原行处置，如RETAINED／MERGED_DUPLICATE',
-    'raw_rows': '该站点／元数据组合在此原始年份内的源行数量（含合并前行）',
-    'first_event_ts': '该站点／元数据组合首次出现的原始时间；不是连续有效期起点',
-    'last_event_ts': '该组合最后出现的原始时间；不是连续有效期终点',
-    'prediction_epoch_s': '预测锚点t的Unix秒，与slot_end_epoch_s相同',
-    'prediction_ts': '预测锚点t，显示使用Asia/Singapore',
-    'label_end_epoch_s': 't+1800秒；监督标签窗口右端', 'label_end_ts': '未来30分钟标签窗口右端时间',
-    'future_missing_offsets_s': '未来六个预期槽中缺失槽的相对t偏移秒数；仅标签审计',
-    'historical_missing_offsets_s': '历史12个预期槽中缺失槽的相对t偏移秒数',
-    'future_n_valid': '未来六槽实际有效观测数，0至6；仅标签审计',
-    'historical_n_valid': '截至t的12个历史槽实际有效数，0至12',
-    'target_valid': '未来六槽是否齐全；监督标签筛选，禁止用作预测输入',
-    'historical_valid': 'H1历史12槽是否齐全，可检查事前输入条件',
-    'future_30m_mm': '未来六槽精确累计mm；仅有效时有值，否则null；禁止进入特征',
-    'model_anchor_eligible': 'target_valid且historical_valid；仅训练／评价基础资格，不是事前预测门槛',
-    'year_boundary_safe': '标签末端与t是否同日历年，仅诊断；禁止据此全局删跨年锚点',
-    'invalid_reason': '未来标签失效原因数组，可能多原因；未知不等于无雨',
-    'historical_invalid_reason': '历史输入完整性失效原因数组',
-    'fold1_role': 'E2第一轮TRAIN17—20、VALIDATION21、UNUSED／EXCLUDED_BOUNDARY',
-    'fold2_role': 'E2第二轮TRAIN17—21、VALIDATION22、UNUSED／EXCLUDED_BOUNDARY',
-    'fold3_role': 'E2第三轮TRAIN17—22、VALIDATION23、UNUSED／EXCLUDED_BOUNDARY',
-    'final_role': '配置锁定后TRAIN17—23、TEST24或EXCLUDED_BOUNDARY',
-    'targets_version': '标签表版本p0_4_v1', 'observations_version': '来源观测版本p0_3_v1',
-    'month': '对齐末端／预测锚点所属新加坡月份，分区键1至12',
+    'raw_line': 'Original CSV record, preserved verbatim for lineage; not a model input',
+    'field_count': 'Number of fields in the original CSV record; expected to be 12', 'odd_quotes': 'Whether the original record has an odd quote count; parsing audit flag',
+    '_corrupt_record': 'Original text captured by Spark for a parsing failure; null for valid observations',
+    'source_year': 'Year of the original annual source file', 'source_file': 'Original filename or source-path identifier',
+    'source_sha256': 'SHA-256 of the complete original source file', 'raw_record_sha256': 'SHA-256 of the original record; lineage identifier, not a replacement observation key',
+    'station_id': 'Preserved original station ID, including S113; used in the primary key and station grouping',
+    'station_name': 'Station name associated with this record; historical changes are retained', 'station_device_id': 'Device ID associated with this record',
+    'event_ts': 'Parsed original observation timestamp, before the 2017 alignment',
+    'update_ts': 'Parsed original update_timestamp; audit only, not a weather predictor',
+    'reading_update_ts': 'Parsed original reading_update_timestamp; audit only, not a weather predictor',
+    'rain_mm': 'Five-minute interval rainfall as double, in mm; usable for features, while exact threshold comparisons use Decimal',
+    'rain_decimal_mm': 'Exact five-minute rainfall as Decimal(38,18), in mm; used for label accumulation',
+    'longitude': 'Longitude in the original row, in degrees; never backfilled with a future location', 'latitude': 'Latitude in the original row, in degrees; never backfilled with a future location',
+    'event_epoch_s': 'Unix seconds of the original observation timestamp', 'original_offset_s': 'Original epoch modulo 300, in seconds',
+    'alignment_offset_s': 'Seconds actually added during alignment (0 or 1)', 'alignment_rule': 'Identifier of the applied alignment rule',
+    'slot_end_epoch_s': 'Aligned five-minute interval endpoint in Unix seconds; timestamp component of the observation key',
+    'slot_end_ts': 'Aligned interval endpoint or prediction anchor t on the five-minute grid',
+    'rain_period_start_ts': 'Interval start, slot_end_ts minus 300 seconds; calendar attribution for Task 1',
+    'observation_date': 'Singapore calendar date of the interval endpoint', 'rain_period_date': 'Singapore calendar date of the interval start',
+    'rain_period_hour': 'Singapore hour of the interval start, from 0 to 23',
+    'update_delay_s': 'Update timestamp minus original observation time, in seconds; audit only',
+    'reading_update_delay_s': 'Reading-update timestamp minus original observation time, in seconds; audit only',
+    'quarantine_reasons': 'Quarantine-reason array; empty for valid observations',
+    'metadata_warning': 'Warning for missing name/device, invalid coordinates or unparsed update timestamps; valid rainfall remains retained',
+    'source_effective_decimal_scale': 'Effective decimal places in the source number; lossless-representation audit',
+    'decimal_representation_error': 'Flag for failure to represent a value exactly with the selected Decimal; false for valid observations',
+    'rules_version': 'Cleaning-rule version identifier', 'aligned_source_count': 'Number of source rows mapped to the same aligned key',
+    'metadata_conflict': 'Metadata differs within an aligned-key collision; equal rainfall may still be retained',
+    'rain_variants': 'Number of distinct exact rainfall values in a collision group', 'metadata_variants': 'Number of distinct metadata combinations in a collision group',
+    'collision_rank': 'Deterministic collision rank; 1 identifies the preferred row',
+    'retained_record_sha256': 'SHA-256 of the original record retained from the collision group', 'disposition': 'Disposition of a collision record, such as RETAINED or MERGED_DUPLICATE',
+    'raw_rows': 'Source-row count for this station/metadata combination in the source year, before duplicate merging',
+    'first_event_ts': 'First original appearance of this station/metadata combination; not the start of a continuous validity period',
+    'last_event_ts': 'Last original appearance of this combination; not the end of a continuous validity period',
+    'prediction_epoch_s': 'Prediction anchor t in Unix seconds; equal to slot_end_epoch_s',
+    'prediction_ts': 'Prediction anchor t, displayed in Asia/Singapore',
+    'label_end_epoch_s': 't+1800 seconds; right endpoint of the supervised label window', 'label_end_ts': 'Right endpoint of the future 30-minute label window',
+    'future_missing_offsets_s': 'Missing expected future-slot offsets from t, in seconds; label audit only',
+    'historical_missing_offsets_s': 'Missing expected historical-slot offsets from t, in seconds',
+    'future_n_valid': 'Valid observations among the six future slots, from 0 to 6; label audit only',
+    'historical_n_valid': 'Valid observations among the 12 historical slots through t, from 0 to 12',
+    'target_valid': 'Whether all six future slots are present; supervision filter, prohibited as a predictor',
+    'historical_valid': 'Whether all 12 H1 historical slots are present; may check an inference prerequisite',
+    'future_30m_mm': 'Exact total over six future slots in mm; null if invalid; prohibited as a feature',
+    'model_anchor_eligible': 'target_valid AND historical_valid; base supervision eligibility, not an inference prerequisite',
+    'year_boundary_safe': 'Whether label end and t lie in the same calendar year; diagnostic only, never a global cross-year filter',
+    'invalid_reason': 'Future-label invalidity reasons, potentially multiple; unknown is not dry',
+    'historical_invalid_reason': 'Historical-input completeness failure reasons',
+    'fold1_role': 'E2 fold 1: TRAIN 2017-2020, VALIDATION 2021, or UNUSED/EXCLUDED_BOUNDARY',
+    'fold2_role': 'E2 fold 2: TRAIN 2017-2021, VALIDATION 2022, or UNUSED/EXCLUDED_BOUNDARY',
+    'fold3_role': 'E2 fold 3: TRAIN 2017-2022, VALIDATION 2023, or UNUSED/EXCLUDED_BOUNDARY',
+    'final_role': 'After configuration lock: TRAIN 2017-2023, TEST 2024, or EXCLUDED_BOUNDARY',
+    'targets_version': 'Target-table version p0_4_v1', 'observations_version': 'Source-observation version p0_3_v1',
+    'month': 'Singapore month of the aligned endpoint/prediction anchor; partition key from 1 to 12',
 }
 RAW_NAMES = {
-    'date': '原始日期', 'timestamp': '原始观测时间文本', 'update_timestamp': '原始更新时间文本',
-    'station_id': '原始站点ID', 'station_name': '原始站名', 'station_device_id': '原始设备ID',
-    'location_longitude': '原始经度文本', 'location_latitude': '原始纬度文本',
-    'reading_update_timestamp': '原始读数更新时间文本', 'reading_value': '原始雨量文本，源单位mm',
-    'reading_type': '原始读数类型文本', 'reading_unit': '原始单位文本，期望mm',
+    'date': 'Original date', 'timestamp': 'Original observation timestamp text', 'update_timestamp': 'Original update timestamp text',
+    'station_id': 'Original station ID', 'station_name': 'Original station name', 'station_device_id': 'Original device ID',
+    'location_longitude': 'Original longitude text', 'location_latitude': 'Original latitude text',
+    'reading_update_timestamp': 'Original reading-update timestamp text', 'reading_value': 'Original rainfall text, in source unit mm',
+    'reading_type': 'Original reading-type text', 'reading_unit': 'Original unit text; expected mm',
 }
 
 
 def description(table, name):
     if name == 'year':
-        return '来源原始文件年份，分区键' if table in {'station_metadata_history', 'quarantine', 'collision_lineage'} else '对齐末端／预测锚点所属新加坡年份，分区键'
+        return 'Original source-file year; partition key' if table in {'station_metadata_history', 'quarantine', 'collision_lineage'} else 'Singapore year of the aligned endpoint/prediction anchor; partition key'
     if name.startswith('raw_') and name[4:] in RAW_NAMES:
-        return RAW_NAMES[name[4:]] + '，未经替换，供追溯'
+        return RAW_NAMES[name[4:]] + ', unchanged for provenance'
     return DESCRIPTIONS[name]  # Fail if any interface field lacks a description.
 
 
@@ -85,10 +85,10 @@ def type_text(value):
 
 
 def write_dictionary(schemas):
-    lines = ['# 正式数据逐字段字典（rainfall_v1）', '',
-             '所有timestamp按Asia/Singapore显示，epoch为Unix秒。Parquet的nullable是存储schema属性，并不表示每个字段实际允许缺失；观测有效性及标签空值约束见data_contract。原始与审计字段保留用于追溯，不能整表直接传入模型。', '']
+    lines = ['# Published data field dictionary (rainfall_v1)', '',
+             'Timestamps display in Asia/Singapore and epochs are Unix seconds. Parquet nullable is a storage-schema property, not permission for every field to be missing. See data_contract for observation validity and target nullability. Raw and audit fields are retained for provenance; do not pass whole tables to a model.', '']
     for table, schema in schemas.items():
-        lines += [f'## {table}', '', '| 字段 | Spark类型 | schema nullable | 定义与用途 |', '|---|---|---|---|']
+        lines += [f'## {table}', '', '| Field | Spark type | Schema nullable | Definition and purpose |', '|---|---|---|---|']
         for field in schema['fields']:
             lines.append(f'| {field["name"]} | {type_text(field["type"])} | {str(field["nullable"]).lower()} | {description(table, field["name"])} |')
         lines += ['']
@@ -137,7 +137,7 @@ def main():
     paths = set()
     for pattern in ['scripts/*.py', 'scripts/*.ps1', 'src/*.py', 'configs/*.json', 'docs/*.md', 'manifests/raw_manifest.json', 'data/samples/**/*', 'outputs/p0_2_audit/p0_2_v1/**/*', 'outputs/p0_3_clean/p0_3_v1/**/*', 'outputs/p0_4_targets/p0_4_v1/**/*']:
         paths.update(p for p in ROOT.glob(pattern) if p.is_file())
-    paths.update(ROOT / p for p in ['README.md', 'project_requirement.md', '项目分工.md', 'A成员工作细化与数据底座方案.md', 'requirements-spark.txt', '.gitignore'])
+    paths.update(ROOT / p for p in ['README.md', 'project_requirement.md', 'TEAM_WORK_PLAN.md', 'A_DATA_FOUNDATION_PLAN.md', 'requirements-spark.txt', '.gitignore'])
     paths -= {ROOT / 'configs/processing_status.json', ROOT / 'docs/p1_5_status.md'}
     for prefix in ['data/processed/p0_3_v1', 'data/processed/p0_4_v1']:
         paths.update((ROOT / prefix).rglob('*.parquet'))

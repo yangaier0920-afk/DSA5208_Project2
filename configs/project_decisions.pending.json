@@ -2,10 +2,10 @@
   "status": "CONFIRMED",
   "applied": false,
   "source_confirmation": "configs/source_confirmation.json",
-  "decision_document": "docs/P0-3及后续决策选项.md",
+  "decision_document": "docs/P0_3_DECISION_OPTIONS.md",
   "items": {
     "T": {
-      "topic": "2017时间",
+      "topic": "2017 timestamp alignment",
       "recommended": "T2",
       "options": [
         "T1",
@@ -16,7 +16,7 @@
       "decision_source": "Direct user acceptance of recommended bundle, except unresolved E"
     },
     "C": {
-      "topic": "对齐碰撞",
+      "topic": "Aligned-key collisions",
       "recommended": "C1",
       "options": [
         "C1",
@@ -27,7 +27,7 @@
       "decision_source": "Direct user acceptance of recommended bundle, except unresolved E"
     },
     "L": {
-      "topic": "五分钟测量区间",
+      "topic": "Five-minute measurement interval",
       "recommended": "L1",
       "options": [
         "L1",
@@ -37,7 +37,7 @@
       "decision_source": "Direct user acceptance of recommended bundle, except unresolved E"
     },
     "D": {
-      "topic": "日月小时归属",
+      "topic": "Calendar date/month/hour attribution",
       "recommended": "D1",
       "options": [
         "D1",
@@ -47,7 +47,7 @@
       "decision_source": "Direct user acceptance of recommended bundle, except unresolved E"
     },
     "M": {
-      "topic": "缺测存储",
+      "topic": "Missing-observation storage",
       "recommended": "M1",
       "options": [
         "M1",
@@ -57,7 +57,7 @@
       "decision_source": "Direct user acceptance of recommended bundle, except unresolved E"
     },
     "H": {
-      "topic": "模型历史完整性",
+      "topic": "Model historical-window completeness",
       "recommended": "H1",
       "options": [
         "H1",
@@ -68,7 +68,7 @@
       "decision_source": "Direct user acceptance of recommended bundle, except unresolved E"
     },
     "R": {
-      "topic": "合法雨量与极值",
+      "topic": "Valid rainfall and extremes",
       "recommended": "R1",
       "options": [
         "R1",
@@ -78,7 +78,7 @@
       "decision_source": "Direct user acceptance of recommended bundle, except unresolved E"
     },
     "S": {
-      "topic": "站点元数据",
+      "topic": "Station metadata",
       "recommended": "S1",
       "options": [
         "S1",
@@ -88,7 +88,7 @@
       "decision_source": "Direct user acceptance of recommended bundle, except unresolved E"
     },
     "B": {
-      "topic": "Task 1比较口径",
+      "topic": "Task 1 comparison scope",
       "recommended": "B1",
       "options": [
         "B1",
@@ -99,7 +99,7 @@
       "decision_source": "Direct user acceptance of recommended bundle, except unresolved E"
     },
     "K": {
-      "topic": "Task 1月覆盖门槛",
+      "topic": "Task 1 monthly coverage threshold",
       "recommended": "K1",
       "options": [
         "K1",
@@ -110,7 +110,7 @@
       "decision_source": "Direct user acceptance of recommended bundle, except unresolved E"
     },
     "A": {
-      "topic": "预测数据可用性",
+      "topic": "Prediction-time information availability",
       "recommended": "A1",
       "options": [
         "A1",
@@ -121,7 +121,7 @@
       "decision_source": "Direct user acceptance of recommended bundle, except unresolved E"
     },
     "E": {
-      "topic": "时间划分",
+      "topic": "Temporal partitioning",
       "recommended": "E2",
       "options": [
         "E1",
@@ -129,11 +129,11 @@
       ],
       "selected": "E2",
       "user_preference": "Confirmed E2, including proposal selection and final-refit rules",
-      "proposal_document": "docs/E2滚动验证实验方案.md",
+      "proposal_document": "docs/E2_ROLLING_VALIDATION.md",
       "decision_source": "Explicit user confirmation of E2 proposal"
     },
     "P": {
-      "topic": "训练规模",
+      "topic": "Training sample size",
       "recommended": "P1",
       "options": [
         "P1",
@@ -144,7 +144,7 @@
       "decision_source": "Direct user acceptance of recommended bundle, except unresolved E"
     },
     "V": {
-      "topic": "阈值输入方案",
+      "topic": "Threshold-input design",
       "recommended": "V1",
       "options": [
         "V1",
@@ -154,7 +154,7 @@
       "decision_source": "Direct user acceptance of recommended bundle, except unresolved E"
     },
     "I": {
-      "topic": "预测接口边界",
+      "topic": "Prediction-interface support",
       "recommended": "I1",
       "options": [
         "I1",
@@ -210,7 +210,7 @@
     "I"
   ],
   "pending_items": [],
-  "user_statement": "采用推荐组合，但 E 我有点纠结，觉得E2的方式作为实验更加有趣和有意义，但不知道最终结果如何。",
+  "user_statement": "Use the recommended bundle. I am uncertain about E: E2 seems more interesting and meaningful experimentally, although its final outcome is unknown.",
   "e2_confirmed_at_sgt": "2026-10-08T16:08:42.231133+08:00",
-  "latest_user_statement": "确认目前方案，采用E2，且确认A成员的02完成后开始03"
+  "latest_user_statement": "Confirm the current plan and adopt E2; begin A's stage 03 after completing stage 02."
 }

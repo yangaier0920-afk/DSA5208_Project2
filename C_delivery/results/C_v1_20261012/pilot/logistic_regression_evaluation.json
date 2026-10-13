@@ -1,0 +1,73 @@
+{
+  "status": "PASS",
+  "metrics": [
+    {
+      "model": "logistic_regression",
+      "year": 2021,
+      "threshold_mm": 0.0,
+      "n": 69525,
+      "positive": 4247,
+      "mean_probability": 0.03964317405720442,
+      "brier": 0.03445229674778385,
+      "log_loss": 0.1383946452798231,
+      "positive_rate": 0.06108594030924128,
+      "roc_auc": 0.8761070355933208,
+      "pr_auc": 0.6715911299818751
+    },
+    {
+      "model": "logistic_regression",
+      "year": 2021,
+      "threshold_mm": 0.5,
+      "n": 69525,
+      "positive": 2535,
+      "mean_probability": 0.035866285892451916,
+      "brier": 0.019576884093913983,
+      "log_loss": 0.08410305906818893,
+      "positive_rate": 0.03646170442286947,
+      "roc_auc": 0.8997110169523963,
+      "pr_auc": 0.644405309171411
+    },
+    {
+      "model": "logistic_regression",
+      "year": 2021,
+      "threshold_mm": 1.0,
+      "n": 69525,
+      "positive": 1821,
+      "mean_probability": 0.03243918833107846,
+      "brier": 0.015403684972876721,
+      "log_loss": 0.06857675182300071,
+      "positive_rate": 0.026192017259978426,
+      "roc_auc": 0.8937324278704415,
+      "pr_auc": 0.5873998632169712
+    },
+    {
+      "model": "logistic_regression",
+      "year": 2021,
+      "threshold_mm": 2.0,
+      "n": 69525,
+      "positive": 1195,
+      "mean_probability": 0.026501610947556785,
+      "brier": 0.01201508576004428,
+      "log_loss": 0.054525773370248526,
+      "positive_rate": 0.017188061848256022,
+      "roc_auc": 0.886997061393545,
+      "pr_auc": 0.512774353974111
+    },
+    {
+      "model": "logistic_regression",
+      "year": 2021,
+      "threshold_mm": 5.0,
+      "n": 69525,
+      "positive": 622,
+      "mean_probability": 0.014270729512407437,
+      "brier": 0.006867249510585869,
+      "log_loss": 0.03326190566206444,
+      "positive_rate": 0.008946422150305645,
+      "roc_auc": 0.8881674051032084,
+      "pr_auc": 0.43756342991564373
+    }
+  ],
+  "threshold_probability_increasing_pairs": 0,
+  "auc": "Spark MLlib approximate curves with numBins=1000",
+  "expanded_score_rows": 347625
+}

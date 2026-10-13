@@ -33,66 +33,28 @@ def main():
     rows = []
     for year in range(2017, 2025):
         item = assets[f'rainfall_v1_{year}.zip']
-        rows.append(f'| {year} | [下载ZIP]({item["url"]}) | {item["bytes"] / 1e6:.0f} MB |')
-    download = '''## 1. 下载正式数据（B/C先从这里开始）
-
-**[打开正式数据下载页：2017—2024八年 Parquet](https://github.com/yangaier0920-afk/DSA5208_Project2/releases/tag/rainfall_v1_r2)**
-
-1. 先[下载最新版项目代码ZIP](https://github.com/yangaier0920-afk/DSA5208_Project2/archive/refs/heads/main.zip)并解压，也可以clone仓库。
-2. 下载下表**全部8个年度包**。合计约2.70GB，解压后的正式数据约4.68GB；保留下载包和解压数据时，数据部分需约7.4GB空间。
-3. 在代码中`README.md`所在目录打开终端，把8个包解压到该目录，保留`data/processed/`下的路径。每包包含对应年份的观测、标签、异常隔离、重复追溯和站点元数据。
-
-| 年份 | 下载链接 | 压缩包大小（约） |
-|---|---|---|
-''' + '\n'.join(rows) + '''
-
-**Windows解压**（假设8个ZIP保存在默认Downloads目录）：
-
-```powershell
-2017..2024 | ForEach-Object { Expand-Archive -LiteralPath (Join-Path $HOME "Downloads\\rainfall_v1_$_.zip") -DestinationPath . -Force }
-```
-
-**macOS解压**（同样假设ZIP保存在Downloads目录）：
-
-```bash
-for year in {2017..2024}; do unzip -o "$HOME/Downloads/rainfall_v1_${year}.zip" -d .; done
-```
-
-若ZIP存在其他目录，替换命令中的Downloads路径。解压后应看到`data/processed/p0_3_v1/`和`data/processed/p0_4_v1/`，然后按第3节安装环境并检查读取。仓库代码与交接小样本包用于代码／接口准备，正式分析和训练使用这8个年度包。
-
-'''
-    text = text.replace('## 2. 交付给B/C的是什么', download + '## 2. 交付给B/C的是什么')
-    old_version = '数据版本为`v1`，观测表版本`p0_3_v1`，标签表版本`p0_4_v1`；当前交接发布标识`rainfall_v1_r2`仅更新说明组织。样本包没有约4.68GB的正式大表，正式分析／训练须另外取得大表并保持上表路径。GitHub及下载链接等待最终确认，目前尚未发布。'
-    new_version = '数据版本为`v1`，观测表版本`p0_3_v1`，标签表版本`p0_4_v1`；当前交接说明修订为`rainfall_v1_r3`。正式数据包使用已发布的`rainfall_v1_r2`下载，Parquet内容、字段、表路径与规则完全一致。'
+        rows.append(' | [Download ZIP](')
+    download = '## 1. Download formal data\n\n[2017–2024 Parquet release](https://github.com/yangaier0920-afk/DSA5208_Project2/releases/tag/rainfall_v1_r2)\n\nDownload/extract the project code or clone it. Obtain all eight annual ZIPs (about 2.70 GB compressed, 4.68 GB extracted, 7.4 GB if retaining both). Extract from the project root preserving data/processed paths. Each year includes observations, targets, quarantine, lineage and metadata.\n\n| Year | Download | Approximate size |\n|---|---|---|\n' + '\n'.join(rows) + '\n\nWindows extraction (ZIPs in Downloads):\n\n```powershell\n2017..2024 | ForEach-Object { Expand-Archive -LiteralPath (Join-Path $HOME "Downloads\\rainfall_v1_$_.zip") -DestinationPath . -Force }\n```\n\nmacOS extraction:\n\n```bash\nfor year in {2017..2024}; do unzip -o "$HOME/Downloads/rainfall_v1_${year}.zip" -d .; done\n```\n\nAdjust Downloads if needed. Confirm data/processed/p0_3_v1 and p0_4_v1 exist, then install/check the environment. Code and small fixtures support interfaces; these annual archives support formal analysis/training.\n\n'
+    text = text.replace('## 2. B/C delivery paths', download + '## 2. B/C delivery paths')
+    old_version = 'Data v1: observations p0_3_v1, targets p0_4_v1; rainfall_v1_r2 revises documentation only. The small package omits about 4.68 GB of formal tables; obtain them separately at the documented paths. GitHub/download publication was pending at this historical stage.'
+    new_version = 'Data v1: observations p0_3_v1, targets p0_4_v1; documentation revision rainfall_v1_r3. Download formal data from rainfall_v1_r2; Parquet content, fields, paths and rules are identical.'
     if old_version not in text:
         raise RuntimeError('Expected README version paragraph not found')
     text = text.replace(old_version, new_version)
-    text = text.replace('## 3. 先确认本机能读取', '## 3. 安装环境与读取检查')
-    previous_check = '取得全部正式Parquet后可加`--scope full`校验全表，耗时及资源需求更高。'
-    full_check = '''下载并解压8个年度包后，再执行**全量读取检查**，耗时及资源需求更高：
-
-```powershell
-# Windows，B执行；C把成员和收据文件名中的B改成C
-.\\.venv\\Scripts\\python.exe scripts\\read_data_release.py --member B --scope full --receipt outputs/p1_5_receipts/B_full_r3.json
-```
-
-```bash
-# macOS，先激活上面的虚拟环境
-python scripts/read_data_release.py --member B --scope full --receipt outputs/p1_5_receipts/B_full_r3.json
-```
-
-看到`PASS: full`且退出码0即通过。每次复跑选择新的收据文件名。'''
+    text = text.replace('## 3. Confirm local reads', '## 3. Environment setup and read checks')
+    previous_check = 'With all formal Parquet, use --scope full for full checks, requiring more time/resources.'
+    full_check = 'After extracting all eight annual ZIPs, perform a full read check (more time/resources):\n\n```powershell\n# Windows: B; C changes member and receipt name.\n.\\.venv\\Scripts\\python.exe scripts\\read_data_release.py --member B --scope full --receipt outputs/p1_5_receipts/B_full_r3.json\n```\n\n```bash\n# macOS: activate the virtual environment first.\npython scripts/read_data_release.py --member B --scope full --receipt outputs/p1_5_receipts/B_full_r3.json\n```\n\nRequire PASS: full with zero exit status. Choose a new receipt on every rerun.'
     if previous_check not in text:
         raise RuntimeError('Expected full-read paragraph not found')
     text = text.replace(previous_check, full_check)
-    text = text.replace('当前A本地数据工作和复现通过；B/C实机验收、分析／特征／模型、最终模型重载、全组报告合并及最终发布仍待完成。',
-                        'A本地数据工作、复现和正式数据发布已完成；B/C实机验收、分析／特征／模型、最终模型重载、全组报告合并及课程最终提交仍待完成。')
+    text = text.replace('Historical status: A local data/replay passed; B/C machine checks, analysis/features/models, model reload, group report integration and final publication were pending.',
+                        'Historical status: A local data/replay and formal release completed; B/C machine checks, analysis/features/models, reload, group report integration and course submission remained pending.')
     (ROOT / 'README.md').write_text(text, encoding='utf-8')
     reference_path = ROOT / 'docs/reference.md'
     reference = reference_path.read_text(encoding='utf-8')
-    reference = reference.replace('rainfall_v1_r2是说明整理后的交接修订。', 'rainfall_v1_r3是下载说明更新后的交接修订；正式数据包沿用rainfall_v1_r2。')
-    reference = reference.replace('GitHub未发布，最终下载渠道和课程提交包还需确认。',
-        '正式Parquet已发布到[GitHub Releases](https://github.com/yangaier0920-afk/DSA5208_Project2/releases/tag/rainfall_v1_r2)，下载和解压步骤集中在README；课程提交包仍需全组合并确认。')
+    reference = reference.replace('rainfall_v1_r2 is the documentation consolidation revision.', 'rainfall_v1_r3 updates download documentation; formal data archives remain rainfall_v1_r2.')
+    reference = reference.replace('GitHub was unpublished; final downloads and the course package required confirmation.',
+        'Formal Parquet was published in [GitHub Releases](https://github.com/yangaier0920-afk/DSA5208_Project2/releases/tag/rainfall_v1_r2). README provides download/extraction; the course package required group integration.')
     reference_path.write_text(reference, encoding='utf-8')
     current = copy.deepcopy(old)
     current.update({'release_id': 'rainfall_v1_r3',

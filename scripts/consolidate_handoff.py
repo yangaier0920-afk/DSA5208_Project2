@@ -4,100 +4,7 @@ from pathlib import Path
 from data_release import ROOT, read_json, resolve_path, sha256, verify_release, write_json
 
 
-README = '''# 降雨项目：组员从这里开始
-
-A已完成八年审计、清洗、未来累计量及本地复现。**B/C直接使用下面的正式Parquet，不用重新清洗原始CSV。** 日常只需本README；需要字段、规则或报告文字时查[补充资料](docs/reference.md)。
-
-## 1. 交付给B/C的是什么
-
-| 文件／目录 | 用途 |
-|---|---|
-| `data/processed/p0_3_v1/observations/` | 正式观测，48,538,627行；B做降雨分析、历史特征 |
-| `data/processed/p0_4_v1/targets/` | 每条观测对应一个锚点；C取未来30分钟实际累计量、完整性和E2用途 |
-| `outputs/p0_3_clean/p0_3_v1/` | B所需覆盖表及跨年可比较站点面板；另有清洗质量证据 |
-| `configs/project.json` + `manifests/release_manifest.json` | 固定规则、数据版本、schema、文件哈希；请勿各自修改 |
-| `data/samples/p1_5_v1/` | 环境／接口检查样本，每张表1,309行；不用于正式训练或结论 |
-
-数据版本为`v1`，观测表版本`p0_3_v1`，标签表版本`p0_4_v1`；当前交接发布标识`rainfall_v1_r2`仅更新说明组织。样本包没有约4.68GB的正式大表，正式分析／训练须另外取得大表并保持上表路径。GitHub及下载链接等待最终确认，目前尚未发布。
-
-## 2. 先确认本机能读取
-
-在本README所在目录打开终端。A现有环境可直接使用；新电脑只需首次安装。
-
-**Windows首次安装**（已安装Python 3.11）：
-
-```powershell
-py -3.11 -m venv .venv
-.\\.venv\\Scripts\\python.exe -m pip install -r requirements-spark.txt
-.\\.venv\\Scripts\\python.exe scripts\\setup_java17.py
-.\\.venv\\Scripts\\python.exe scripts\\setup_hadoop_windows.py
-```
-
-**Windows读取检查**（B执行，C将B改成C）：
-
-```powershell
-.\\.venv\\Scripts\\python.exe scripts\\read_data_release.py --member B
-```
-
-**macOS首次安装与检查**（先安装Python 3.11和Java 17）：
-
-```bash
-python3.11 -m venv .venv
-source .venv/bin/activate
-python -m pip install -r requirements-spark.txt
-export JAVA_HOME=$(/usr/libexec/java_home -v 17)
-python scripts/read_data_release.py --member B
-```
-
-看到`PASS: sample`且退出码0即通过；本机收据在`outputs/p1_5_receipts/B_sample.json`。复跑时加`--receipt outputs/p1_5_receipts/B_run2.json`选择新收据，避免覆盖。取得全部正式Parquet后可加`--scope full`校验全表，耗时及资源需求更高。
-
-## 3. B/C各自下一步
-
-| 成员 | 操作 |
-|---|---|
-| B | 用observations和覆盖表做Task 1；按截至t的历史观测生成特征，保存唯一的`station_id + prediction_epoch_s`键 |
-| C | 用targets按当前轮role和`model_anchor_eligible`筛监督样本，再一对一关联B的特征；展开阈值并做E2训练／评价 |
-
-在自己的Spark脚本中读取（示例脚本放在根目录下一级，如`src/`）：
-
-```python
-import sys
-from pathlib import Path
-root = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(root / 'scripts'))
-from data_release import read_tables, provenance
-
-tables = read_tables(spark, root, scope='full')
-observations, targets = tables['observations'], tables['targets']
-data_identity = provenance(root)
-```
-
-`spark`是你自己的SparkSession；读取函数会设置新加坡时区并校验发布文件。观测用`slot_end_epoch_s`，标签用`prediction_epoch_s`，二者与station_id一起关联，不能仅按站点或日期关联。
-
-必须记住：雨量单位mm；缺测不是0；标签严格比较`future_30m_mm > threshold_mm`，累计量为null不能变成负例。未来累计量、未来缺测及含未来信息的资格字段不可进入模型特征或事前预测门槛。Task 1按`rain_period_start_ts`归属日历，跨年比较使用覆盖合格的同月站点交集。完整规则和E2分区见补充资料。
-
-## 4. 结果如何注明版本
-
-每份特征、图表来源表、模型或评价结果保存`result_metadata.json`，记录`data_version`、`config_hash`、发布标识和实验参数哈希。已有实际结果和实验配置后，可用下面的入口；示例路径需替换成自己的真实文件：
-
-```powershell
-.\\.venv\\Scripts\\python.exe scripts\\record_result_metadata.py --member B --run-id features_001 --input-scope full --result-dir outputs/B/features_001 --experiment-config configs/B_features.json --command "python src/B_features.py"
-```
-
-C改成员与运行名；macOS把Python入口改成`python`。请把自己的实验配置随结果保留，不修改A的project.json。接口样本产生的测试结果应注明`--input-scope sample`。
-
-## 5. A的复现与当前待办
-
-A的真实原始片段重跑入口（可选；B/C正常使用数据不必先跑）：
-
-```powershell
-.\\.venv\\Scripts\\python.exe scripts\\reproduce_a_sample.py --output outputs/reproduction/run_001
-```
-
-每次换一个新输出目录；macOS用`python`。该测试重跑1,297条真实片段、114个锚点，验证清洗和标签，与正式参照比较；不训练模型。环境、清洗报告中英文稿、局限和189个字段定义全部放在补充资料。
-
-当前A本地数据工作和复现通过；B/C实机验收、分析／特征／模型、最终模型重载、全组报告合并及最终发布仍待完成。`archive/`保存历史说明和收据，日常使用以上入口即可；其他阶段脚本是A的内部处理／归档工具，不是B/C必跑步骤。
-'''
+README = '# A support and reproduction entry points\n\nThis historical package documents completed A data auditing, cleaning, future-truth preparation and representative replay. It does not itself contain B/C model results. Current integrated delivery is in submission/README.md.\n\nUse Python 3.11, Java 17 and requirements-spark.txt; consult docs/environment.md for original Windows native setup. From project root, prepare the frozen runtime using submission/tools/prepare_frozen_runtime.py, then run:\n\n```bash\npython scripts/read_data_release.py --root .runtime/frozen_root --member A --receipt outputs/A_sample_new.json\npython scripts/reproduce_a_sample.py --root .runtime/frozen_root --output outputs/A_replay_new\n```\n\nEvery rerun needs new output names. Paired fixtures have 1,309 rows each; real raw replay uses 1,297 records and 114 anchors including all 86 aligned collisions. Full production reconstruction additionally needs the eight exact annual CSV exports listed in manifests/raw_manifest.json. Historical release/support hashes refer to original bytes; translation is documented separately. Report support includes original environment/runtime, annual ledger, limitations and AI statement; see docs/a_report_section_en.md and outputs/p1_6_support.\n\n\nData v1: observations p0_3_v1, targets p0_4_v1; rainfall_v1_r2 revises documentation only. The small package omits about 4.68 GB of formal tables; obtain them separately at the documented paths. GitHub/download publication was pending at this historical stage.\n'
 
 
 def main():
@@ -110,7 +17,7 @@ def main():
     docs = {p.name: p.read_text(encoding='utf-8') for p in (ROOT / 'docs').glob('*.md')}
     brief = (ROOT / 'project_requirement.md').read_text(encoding='utf-8')
     moves = [(p, archive / 'docs' / p.name) for p in (ROOT / 'docs').glob('*.md')]
-    moves += [(ROOT / n, archive / n) for n in ['README.md', 'README_A_P1_6.md', 'project_requirement.md', '项目分工.md', 'A成员工作细化与数据底座方案.md']]
+    moves += [(ROOT / n, archive / n) for n in ['README.md', 'README_A_P1_6.md', 'project_requirement.md', 'TEAM_WORK_PLAN.md', 'A_DATA_FOUNDATION_PLAN.md']]
     moves += [(ROOT / 'data/samples/p0_1_v1', archive / 'data/samples/p0_1_v1')]
     moves += [(ROOT / f'manifests/{n}', archive / f'manifests/{n}') for n in ['release_manifest.json', 'a_support_manifest.json']]
     for source, destination in moves:
@@ -131,91 +38,17 @@ def main():
     backup.parent.mkdir(parents=True, exist_ok=True)
     backup.write_bytes(fixture.read_bytes())
     (ROOT / 'README.md').write_text(README, encoding='utf-8')
-    ref = '''# 项目补充资料（查阅用）
-
-日常操作只看[README](../README.md)。本文件集中保存字段、规则、报告与复现细节。数据版本v1与配置保持不变；rainfall_v1_r2是说明整理后的交接修订。archive/history_v1保存原始阶段说明、原课程要求与上一版清单，供追溯。
-
-目录：
-
-1. [课程与分工](#课程与分工)
-2. [数据和标签规则](#数据和标签规则)
-3. [E2实验边界](#e2实验边界)
-4. [完整字段字典](#完整字段字典)
-5. [A中文报告材料](#a中文报告材料)
-6. [A英文报告章节](#a英文报告章节)
-7. [复现与证据](#复现与证据)
-8. [课程原文](#课程原文)
-
-## 课程与分工
-
-2017—2024八年数据，用Apache Spark完成年内／跨年降雨分析，以及未来30分钟累计雨量严格超过输入阈值的概率预测，模型评价使用Spark MLlib。提交完整代码、运行README、训练好的模型及含全组姓名学号的PDF报告，并说明环境、方法、结果、局限和AI使用。课程截止日为2026-10-18。
-
-A负责数据工程及复现／报告支持；B负责Task 1和历史特征；C负责阈值展开、模型、评价与预测入口。最终全组交叉复现、报告合并和提交共同完成。H1、E2、覆盖90%和采样比例是本组选择，不是课程新增强制规定。
-
-## 数据和标签规则
-
-| 规则 | 确定口径 |
-|---|---|
-| 时间与单位 | Asia/Singapore；epoch为秒，雨量为mm；slot_end_ts为5分钟区间末端 |
-| 2017对齐 | 仅源年份2017且epoch mod 300=299时+1秒；原始event_ts和文本保留 |
-| 碰撞 | 同键雨量相等保留原标准网格行，两侧留lineage；不等则整组隔离。保留原站点ID，包括S113 |
-| 数值与缺测 | 保留有限非负值、真实零和极端值；不补缺测，不作0.2mm舍入；精确累计Decimal(38,18) |
-| Task 1日历 | 用区间起点rain_period_start_ts；00:00末端属于前一天。裁剪年月前纳入边界上下文 |
-| Task 1面板 | 38共同候选站，同月跨年比较使用覆盖≥90%的合格站点交集，95%敏感性，站点等权；不施加到全部观测／Task 2 |
-| 未来标签 | t+300、600、900、1200、1500、1800六槽均有效才累计；未知为null，已知无雨为0；严格>阈值 |
-| 历史完整性 | H1为t-3300至t每300秒共12槽；B另算历史特征 |
-| 时效与元数据 | 回溯事件时间可用性假设；更新延迟只审计，不作为特征；不回填未来最新坐标，元数据first/last不代表连续生效区间 |
-
-主键：observations为station_id + slot_end_epoch_s，targets为station_id + prediction_epoch_s，一对一关联。正式两表均48,538,627行。辅助表quarantine为空但有schema；collision_lineage含172行；station_metadata_history汇总合并前有效候选组合。未来有效47,636,833，未来未知901,794；历史与未来均完整47,048,872，再按轮次边界和已知站点范围筛选。
-
-## E2实验边界
-
-| 字段 | TRAIN | 验证／测试 |
-|---|---|---|
-| fold1_role | 2017—2020 | 2021 VALIDATION |
-| fold2_role | 2017—2021 | 2022 VALIDATION |
-| fold3_role | 2017—2022 | 2023 VALIDATION |
-| final_role | 配置锁定后2017—2023重训 | 2024 TEST，仅最终评估 |
-
-监督样本按对应role及model_anchor_eligible筛选；EXCLUDED_BOUNDARY排除，UNUSED不参与该轮。标签末端等于段右边界也排除；训练段内部跨日历年仍可用，不能按year_boundary_safe统一删除。实际预测只检查已有历史、站点、时间网格及阈值支持范围，不要求未来资料已经存在。
-
-阈值候选0、0.5、1、2、5mm由C仅用最早训练段2017—2020确定支持范围并冻结。按阈值等权，再按三年验证年等权平均Brier选择配置。历史特征的编码／标准化按各轮训练数据拟合。1%流程验证与10%正式训练锚点采样先于阈值展开，验证／测试尽量全量；这些由B/C实施，A未训练模型。
-
-future_30m_mm、future_n_valid、future_missing_offsets_s、target_valid、invalid_reason、model_anchor_eligible及含未来信息的边界字段不可作为模型特征或事前预测门槛。未知累计不能展开成负例。
-
-## 完整字段字典
-
-<details>
-<summary>展开五张表的189个字段</summary>
-
-'''
+    ref = "# Project reference material\n\nDaily instructions: README.md. Historical data v1/contract and original byte identity are preserved.\n\n# Project responsibilities and delivery plan\n\nUse the 2017–2024 Singapore five-minute rainfall datasets with Apache Spark. Task 1 explores changes within and across years with visual evidence. Task 2 predicts P(next-30-minute accumulated rainfall > input threshold) for a station and prediction time, using Spark MLlib.\n\n| Member role | Responsibility | Deliverable |\n|---|---|---|\n| A | Audit raw annual CSV, clean and standardize observations, preserve provenance, construct exact future-window truth and time splits | Versioned Parquet, coverage tables, data contract, environment and replay evidence |\n| B | Coverage-aware seasonal, hourly, station and interannual analysis; past-only features | Spark analysis source, figures, summaries, feature contract and Parquet |\n| C | Threshold expansion, temporal validation, frequency/LR/tree candidates, probability evaluation and inference | Saved model, evaluation tables, input contract and reload checks |\n\nThe members jointly review assumptions, reproduce interfaces, integrate the report and submit complete code with README, the trained model and a PDF listing all names and student IDs. The deadline in the course instructions is 18 October 2026; the planned development period is 8–18 October. At most three members are allowed.\n\nStart B/C interface work with small fixtures while A performs full processing. Freeze common time, missingness, key and partition rules before final experiments. Compare coverage-qualified stations, never nationwide sums over changing station sets. Compare a training-frequency baseline, logistic regression and a shallow tree; choose using development data and reserve 2024 for the final test. Record AI use, limitations and measured computing resources. Check data identity, unique joins, no future leakage, model persistence, past-only inference and complete submission materials.\n\n# Released data contract\n\nData version v1; observations p0_3_v1; targets p0_4_v1. Original releases rainfall_v1/r2/r3 changed delivery documentation without changing Parquet rules. The immutable original-byte snapshot and checksums are retained separately after English translation.\n\nFormal observations and targets each have 48,538,627 rows. Keys are station_id+slot_end_epoch_s and station_id+prediction_epoch_s respectively. Read using scripts/data_release.py and match both station and epoch; do not join only station/date. Use Asia/Singapore, Unix seconds and rainfall mm. Exact rainfall is Decimal(38,18).\n\nOnly 2017 epoch remainder 299 is shifted +1 second. Equal-rain collisions prefer the original standard-grid record, retaining two-sided lineage; unequal-rain groups are quarantined. Valid finite nonnegative rainfall, zeros and extremes are retained. Missingness remains unknown. No future metadata backfill. Metadata first/last appearance is not a continuous validity interval.\n\nThe project assumes an interval endpoint t with R(t) available at t. Task 1 calendar uses t−300 seconds. Future truth is the six exact endpoints t+300,...,t+1800; full history is 12 endpoints t−3300,...,t. Load boundary context before filtering years. Unknown future truth stays null; strict exceedance uses >, not >=. Coverage comparison uses the same qualified stations for each supported month, full calendar denominators, main 90% and sensitivity 95%; it does not globally filter Task 2.\n\nE2 development: 2017–2020/2021, 2017–2021/2022, 2017–2022/2023. Lock selection then refit 2017–2023/test 2024. Filter actual role boundaries and joint window eligibility for supervision; do not remove every cross-year anchor. Fit learned encoding/scaling only on training, sample anchors before threshold expansion. Future values, eligibility and role are not features or inference gates.\n\nRecord data_version, release_id, config_hash (SHA-256 of exact original project.json bytes) and experiment_config_hash in result metadata. Do not silently replace historical identities. New data/rules require a new data version; new delivery documentation requires a documented revision. Original frozen bytes must pass their original checksums. New translated documents have their own translation inventory. Paired 1,309-row fixtures and 1,297-record/114-anchor replay are interface tests, not representative training data.\n\nSee p0_3_data_contract.md, p0_4_data_contract.md, field_dictionary.md and E2_ROLLING_VALIDATION.md for details. Full source, trained model and integrated report are now in submission; historical A-stage status files retain their original scope.\n\n# E2 expanding-window validation protocol\n\nHistorical protocol, confirmed before formal modelling. A prepares truth and role fields; B computes past-only features; C implements sampling, threshold expansion and Spark MLlib evaluation. The protocol itself does not claim that training had already been executed at this historical stage.\n\n| Fold | Training years | Validation years |\n|---|---|---|\n| fold1 | 2017–2020 | 2021 |\n| fold2 | 2017–2021 | 2022 |\n| fold3 | 2017–2022 | 2023 |\n| Final, after selection | 2017–2023 | 2024 TEST |\n\nUse explicit temporal filters, not ordinary random-fold CrossValidator. Require full past 60 minutes (12 exact slots) and full future 30 minutes (six exact slots). Exclude anchors crossing the actual partition boundary, including a label endpoint equal to the next block start. Internal calendar-year boundaries inside a training block remain valid when context is complete. Keep EXCLUDED_BOUNDARY and UNUSED out of that fold.\n\nPilot on 1% deterministic hash-sampled anchors; formal training on 10%. Score validation and test at full eligible scope. Sample anchors before expanding all thresholds, keep all threshold versions of an anchor together, and do not sample by outcome. Candidate thresholds are 0,0.5,1,2,5 mm, supported and frozen using only the earliest 2017–2020 training block. Both classes must have adequate training support. Numeric threshold is an input to the shared model; inference is restricted to supported thresholds and training-known stations.\n\nCandidates are a threshold-specific training-frequency baseline, logistic regression and a shallow decision tree. Fit encoding, scaling and any learned feature transformations only on each fold's training data. No future truth, completeness, eligibility or role fields may enter the vector. Compare Brier with equal threshold weight within year, then equal weight across the three validation years. Report log loss, PR-AUC, ROC-AUC and reliability as additional diagnostics. Predefine candidate configurations and a simplicity preference for effectively tied scores.\n\nLock selection before the final 2017–2023 refit. Use 2024 only for the final evaluation; never choose the model, thresholds, features or calibration based on its scores. An optional E1 comparison (train 2017–2022, validate 2023) is diagnostic and must not use 2024 to choose a protocol. Save per-threshold/year metrics, support counts, computational settings, model and reload/inference evidence. The completed implementation is documented in C_delivery and the integrated report.\n\n\n## Complete field dictionary\n\n<details><summary>189 fields</summary>\n\n"
     dictionary = docs['field_dictionary.md'].split('\n', 2)[2]
-    dictionary = dictionary.replace('见data_contract', '见本文件的数据和标签规则')
-    ref += dictionary + '\n</details>\n\n## A中文报告材料\n\n'
-    report = docs['a_cleaning_report_zh.md'].split('## 数据来源与正式规模', 1)[1]
-    report = ('### 数据来源与正式规模' + report).replace('\n## ', '\n### ')
-    report = report.replace('docs/environment.md', 'archive/history_v1/docs/environment.md').replace('英文可用稿见a_report_section_en.md', '英文稿见本文件下一节')
-    ref += report + '\n\n## A英文报告章节\n\n'
+    dictionary = dictionary.replace('See data_contract', 'See this document data/target rules')
+    ref += dictionary + '\n</details>\n\n## A cleaning report material\n\n'
+    report = docs['a_cleaning_report_zh.md'].split('## Data source and full counts', 1)[1]
+    report = ('### Data source and full counts' + report).replace('\n## ', '\n### ')
+    report = report.replace('docs/environment.md', 'archive/history_v1/docs/environment.md').replace('English draft: a_report_section_en.md', 'English draft in the next section')
+    ref += report + '\n\n## A English report chapter\n\n'
     english = docs['a_report_section_en.md'].split('## Data and cleaning', 1)[1]
     ref += ('### Data and cleaning' + english).replace('\n## ', '\n### ')
-    ref += '''
-
-## 复现与证据
-
-日常有三个入口：read_data_release检查读写接口，reproduce_a_sample重跑真实原始片段，record_result_metadata记录实际下游结果来源。首次两项A本机验证通过，不代表B/C／macOS已经完成实机验收。P1-5接口样本不是训练代表样本；P1-6片段包含114个选定锚点所需的实际上下文，缺槽保留。
-
-原始全量质量证据在outputs/p0_2_audit/p0_2_v1、outputs/p0_3_clean/p0_3_v1、outputs/p0_4_targets/p0_4_v1；A资源与数量表在outputs/p1_6_support。原收据保留原发布标识，本次交接修订的验证在outputs/team_handoff。processing_status是当前进度，release_manifest是当前交付身份；不要运行旧阶段发布脚本覆盖当前说明和进度。
-
-旧的全量入口和校验脚本有固定v1路径及签名依赖。完整重建须在独立工作副本逐阶段生成新证据及清单；仅改--source/--output不是通用全量runner。当前正式CSV／Parquet不在小包中，获取完整数据后保持README路径。GitHub未发布，最终下载渠道和课程提交包还需确认。
-
-data_version只在数据内容／口径变化时提升；本次只修订文档发布标识。config_hash是project.json原始字节SHA-256，实验配置另存experiment_config_hash。新报告、特征、模型记录当前发布标识，旧结果保留其原记录，不静默替换。
-
-## 课程原文
-
-<details>
-<summary>展开原课程要求</summary>
-
-'''
+    ref += '\n\n## Reproduction and evidence\n\nRead_data_release checks interfaces; reproduce_a_sample replays 1,297 real records and 114 anchors; record_result_metadata records downstream provenance. Full raw stages require exact annual CSV and fresh isolated evidence paths. Historical A-only checks do not establish B/C or another OS. Data/config changes require new identities; never overwrite original results. Current full group results are in submission.\n\n## Original course instructions\n\n<details><summary>Course text</summary>\n\n'
     ref += brief + '\n</details>\n'
     (ROOT / 'docs/reference.md').write_text(ref, encoding='utf-8')
     current = copy.deepcopy(old)

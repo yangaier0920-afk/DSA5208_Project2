@@ -1,0 +1,42 @@
+{
+  "status": "FROZEN",
+  "thresholds": [
+    0.0,
+    0.5,
+    1.0,
+    2.0,
+    5.0
+  ],
+  "training_years": [
+    2017,
+    2020
+  ],
+  "source": "full eligible first-fold TRAIN only; no validation/test labels",
+  "counts": [
+    {
+      "threshold_mm": 0.0,
+      "n": 19973411,
+      "positive": 1159901.0
+    },
+    {
+      "threshold_mm": 0.5,
+      "n": 19973411,
+      "positive": 640558.0
+    },
+    {
+      "threshold_mm": 1.0,
+      "n": 19973411,
+      "positive": 434580.0
+    },
+    {
+      "threshold_mm": 2.0,
+      "n": 19973411,
+      "positive": 287863.0
+    },
+    {
+      "threshold_mm": 5.0,
+      "n": 19973411,
+      "positive": 149425.0
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "status": "LOCKED",
+  "selected_model": "decision_tree",
+  "scores": [
+    {
+      "model": "frequency_baseline",
+      "mean_brier": 0.02919448129785975,
+      "best_year_brier": 0.028542233903771808,
+      "worst_year_brier": 0.029927772783453044,
+      "year_range": 0.0013855388796812362,
+      "year_scores": {
+        "2021": 0.028542233903771808,
+        "2022": 0.02911343720635439,
+        "2023": 0.029927772783453044
+      }
+    },
+    {
+      "model": "logistic_regression",
+      "mean_brier": 0.018500654902599,
+      "best_year_brier": 0.017682938667683848,
+      "worst_year_brier": 0.01904149944847808,
+      "year_range": 0.001358560780794233,
+      "year_scores": {
+        "2021": 0.017682938667683848,
+        "2022": 0.01877752659163507,
+        "2023": 0.01904149944847808
+      }
+    },
+    {
+      "model": "decision_tree",
+      "mean_brier": 0.017585444136496018,
+      "best_year_brier": 0.016874744334885804,
+      "worst_year_brier": 0.018108187685065384,
+      "year_range": 0.0012334433501795805,
+      "year_scores": {
+        "2021": 0.016874744334885804,
+        "2022": 0.01777340038953687,
+        "2023": 0.018108187685065384
+      }
+    }
+  ],
+  "thresholds": [
+    0.0,
+    0.5,
+    1.0,
+    2.0,
+    5.0
+  ],
+  "experiment_config_hash": "785588dd5a9ffe591f967207ac0f6faf347da3b5f97c451fd5c2d686498ee2f9",
+  "selected_at_utc": "2026-10-12T09:19:21.462264+00:00",
+  "test_labels_or_metrics_used": false,
+  "selection_rule": "equal threshold mean Brier within year, then equal mean of 2021/2022/2023",
+  "tie_absolute_tolerance": 1e-05
+}

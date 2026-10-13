@@ -1,0 +1,9 @@
+{
+  "language": "en",
+  "scope": "preserved teammate reference from 2026-10-12; not regenerated from current nine-figure B analysis",
+  "source_commit": "06d12486696fe4568e0a880735afdea028c227dc",
+  "report_file": "report_en/B_report_en.md",
+  "report_sha256": "7c4fbb4e51bd359ccd72e8a2a430022c2683ac04c9713a9677a64cb91f49d4f6",
+  "generator_file": "src/B_make_report_en.py",
+  "generator_sha256": "aa6782535181d9a9f9f58c4091792361f4f1ff7e7b7b0f9e21801619bbd8e53f"
+}

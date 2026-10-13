@@ -1,0 +1,73 @@
+{
+  "status": "PASS",
+  "metrics": [
+    {
+      "model": "frequency_baseline",
+      "year": 2021,
+      "threshold_mm": 0.0,
+      "n": 6976044,
+      "positive": 425060,
+      "mean_probability": 0.057849396959757625,
+      "brier": 0.05722824708999408,
+      "log_loss": 0.22960832290300762,
+      "positive_rate": 0.06093138174013811,
+      "roc_auc": 0.5,
+      "pr_auc": 0.06093138174013811
+    },
+    {
+      "model": "frequency_baseline",
+      "year": 2021,
+      "threshold_mm": 0.5,
+      "n": 6976044,
+      "positive": 249486,
+      "mean_probability": 0.03177467916357644,
+      "brier": 0.034500147897127464,
+      "log_loss": 0.1544861443096818,
+      "positive_rate": 0.03576324919968968,
+      "roc_auc": 0.5,
+      "pr_auc": 0.03576324919968968
+    },
+    {
+      "model": "frequency_baseline",
+      "year": 2021,
+      "threshold_mm": 1.0,
+      "n": 6976044,
+      "positive": 180573,
+      "mean_probability": 0.021633397685438236,
+      "brier": 0.025232782465790037,
+      "log_loss": 0.12053425294109144,
+      "positive_rate": 0.025884727791281134,
+      "roc_auc": 0.5,
+      "pr_auc": 0.025884727791281134
+    },
+    {
+      "model": "frequency_baseline",
+      "year": 2021,
+      "threshold_mm": 2.0,
+      "n": 6976044,
+      "positive": 120257,
+      "mean_probability": 0.014358631588319005,
+      "brier": 0.016949692572902714,
+      "log_loss": 0.08736360103819008,
+      "positive_rate": 0.017238566729223612,
+      "roc_auc": 0.5,
+      "pr_auc": 0.017238566729223612
+    },
+    {
+      "model": "frequency_baseline",
+      "year": 2021,
+      "threshold_mm": 5.0,
+      "n": 6976044,
+      "positive": 61926,
+      "mean_probability": 0.007411052092739441,
+      "brier": 0.00880029949304474,
+      "log_loss": 0.05091213448449431,
+      "positive_rate": 0.0088769508907914,
+      "roc_auc": 0.5,
+      "pr_auc": 0.0088769508907914
+    }
+  ],
+  "threshold_probability_increasing_pairs": 0,
+  "auc": "Spark MLlib approximate curves with numBins=1000",
+  "expanded_score_rows": 34880220
+}

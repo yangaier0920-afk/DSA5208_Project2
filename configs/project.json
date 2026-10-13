@@ -85,7 +85,7 @@
   },
   "training": {
     "time_protocol": "E2",
-    "proposal": "confirmed: docs/E2滚动验证实验方案.md",
+    "proposal": "confirmed: docs/E2_ROLLING_VALIDATION.md",
     "pipeline_sample_fraction": 0.01,
     "formal_anchor_sample_fraction": 0.1,
     "threshold_candidate_values_mm": [

@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "elapsed_seconds": 97.71258024987765,
+  "environment": {
+    "python": "3.11.17",
+    "os": "macOS-14.1-arm64-arm-64bit",
+    "architecture": "arm64",
+    "logical_cpu_count": 14,
+    "pyspark": "3.5.7",
+    "java": "17.0.20.1",
+    "spark_master": "local[2]",
+    "peak_memory": "not measured"
+  }
+}

@@ -1,0 +1,23 @@
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+26/10/12 16:55:09 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+26/10/12 16:55:09 WARN SparkConf: Note that spark.local.dir will be overridden by the value set by the cluster manager (via SPARK_LOCAL_DIRS in mesos/standalone/kubernetes and LOCAL_DIRS in YARN).
+2026-10-12T16:55:20 pilot: auditing actual sampled train + evaluation anchors against B features
+2026-10-12T16:56:30 pilot: fitting training-only station encoder and feature assembler
+2026-10-12T16:56:33 pilot: fit frequency_baseline
+2026-10-12T16:56:33 pilot: scoring frequency_baseline on all supported evaluation anchors
+Traceback (most recent call last):
+  File "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/src/C_train.py", line 215, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/src/C_train.py", line 175, in main
+    metrics=run_fold(spark,targets,features,config,thresholds,'fold1_role','VALIDATION',2021,
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/src/C_train.py", line 132, in run_fold
+    score(name,model,val,thresholds,probabilities).write.partitionBy('threshold_mm').parquet(str(scores))
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/src/C_train.py", line 24, in score
+    from pyspark.ml.functions import vector_to_array
+  File "/Users/kendallshao/Downloads/DSA5208_Project2/.venv/lib/python3.11/site-packages/pyspark/ml/functions.py", line 21, in <module>
+    import pandas as pd
+ModuleNotFoundError: No module named 'pandas'

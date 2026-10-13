@@ -83,31 +83,31 @@ def main():
     write_csv(evidence/'manual_recomputed_examples.csv',examples)
     write_csv(evidence/'manual_example_slots.csv',example_slots)
     totals=summary['totals'];final_eligible=sum(int(r['base_model_eligible']) for r in roles if r['protocol']=='final_role' and r['role'] in ['TRAIN','TEST'])
-    lines=['# P0-4 时间连续性与未来累计量验收报告','',
-        '状态：PASS。A按确认的原计划生成完整targets，未进行模型训练、阈值展开或B的特征计算。P0-3输入数据及配置保持不变。','',
-        '## 全量数量与有效性','',
-        '| 指标 | 锚点数 |','|---|---:|',
-        f'| observations对应的全部锚点 | {totals["anchors"]:,} |',
-        f'| 未来六槽完整，真实累计量可用 | {totals["future_valid"]:,} |',
-        f'| 未来缺槽，累计量为null | {totals["future_invalid"]:,} |',
-        f'| 过去60分钟十二槽完整 | {totals["history_valid"]:,} |',
-        f'| 同时满足未来和历史完整性 | {totals["base_model_eligible"]:,} |',
-        f'| 最终阶段TRAIN/TEST内同时满足窗口资格 | {final_eligible:,} |','',
-        '这些数值是不同窗口资格的统计，不能把未来失效与历史失效简单相加作为互斥损失。每条观测均保留一条targets；失效锚点未删掉，也没有把未知累计量写成0。基础模型资格还需与所选E2角色及I1站点支持范围相交，不能直接当作最终训练样本数。','',
-        '| 年份 | 全部锚点 | 未来有效 | 未来无效 | 历史／未来均完整 |','|---|---:|---:|---:|---:|']
+    lines=['# P0-4 continuity and future-total acceptance report','',
+        'Status: PASS. A generated complete targets under the confirmed protocol, without model training, threshold expansion or B feature computation. P0-3 input data/configuration remain unchanged.','',
+        '## Full counts and validity','',
+        '| Measure | Anchors |','|---|---:|',
+        f'| All observation anchors | {totals["anchors"]:,} |',
+        f'| Complete six-slot future, truth available | {totals["future_valid"]:,} |',
+        f'| Missing future slots, total null | {totals["future_invalid"]:,} |',
+        f'| Complete 12-slot past hour | {totals["history_valid"]:,} |',
+        f'| Both past/future complete | {totals["base_model_eligible"]:,} |',
+        f'| Final TRAIN/TEST joint window eligibility | {final_eligible:,} |','',
+        'These window eligibility counts overlap; do not add history/future invalidity as disjoint losses. Every observation retains a target anchor, including invalid ones, with unknown totals null rather than zero. Base eligibility must intersect the selected E2 role and I1 station support; it is not final training sample size.','',
+        '| Year | All anchors | Future valid | Future invalid | Both windows complete |','|---|---:|---:|---:|---:|']
     lines += [f'| {r["year"]} | {r["anchors"]:,} | {r["future_valid"]:,} | {r["future_invalid"]:,} | {r["base_model_eligible"]:,} |' for r in annual]
-    lines += ['', '## 窗口、边界与证据','',
-        '- 未来逐一检查t+300至t+1800秒六槽；历史逐一检查t-3300至t十二槽。采用实际时间窗口，不按后六行累计，不补零。',
-        '- 累计量使用Decimal(38,18)。严格超过阈值时才为正例，相等时为负例；缺测时标签应保持未知。当前未展开具体阈值。',
-        '- 每年读取相邻年份上下文后构造窗口；跨日、月、年均可计算。只在真实E2分区右边界排除，而非删除所有跨日历年窗口。',
-        '- fold1/2/3与final_role分别记录用途，2024在全部开发折均为UNUSED。role为EXCLUDED_BOUNDARY的累计量仍保留供复核，但不能用于对应段训练／评价。',
-        f'- {len(test["checks"])}项合成窗口／Decimal／E2／Parquet检查、每年{len(summary["annual_results"][0]["checks"])}项验收、{len(readback["checks"])}项根目录检查及{len(checks)}项交付检查通过，Java正常退出。',
-        f'- {len(examples)}个真实案例已独立逐槽复算，并导出{len(example_slots)}行预期槽细节；覆盖零／非零累计、缺未来槽、缺历史槽、跨日／月／年和2017相位切换。真实人工案例仅用2017—2020资料。',
-        '- 合并根目录对全部targets与observations做精确主键匹配，双方无遗漏或新增键。输入96个观测Parquet在开始前重新核对完整SHA-256，运行后大小／修改时间未变。',
-        '- 2024只做窗口完整性、边界及结构验收，没有按阈值报告测试标签分布，也没有依据测试分数选择模型。','',
-        '## B/C使用','',
-        '数据：`data/processed/p0_4_v1/targets/`；数量、失效原因、station-month质量、E2用途和人工槽细节：`outputs/p0_4_targets/p0_4_v1/`。读取方法和字段说明见 [p0_4_data_contract.md](p0_4_data_contract.md)。','',
-        'B仍需从observations构造历史特征；C训练／评价时按目标轮次role和model_anchor_eligible过滤，再按训练期支持情况冻结阈值、采样及拟合。future_30m_mm、target_valid及未来缺槽位置是标签／筛选信息，不得进入预测特征。真正调用预测接口时只检查已有历史与支持范围，不能以未来六槽是否存在作为事前预测门槛。','']
+    lines += ['', '## Windows, boundaries and evidence','',
+        '- Check six future endpoints t+300 through t+1800 and 12 history endpoints t−3300 through t. Use exact time windows, never next-six-row sums or zero filling.',
+        '- Sum Decimal(38,18); strict exceedance is positive, equality negative, missing truth unknown. Specific thresholds were not expanded at this stage.',
+        '- Load adjacent-year context before windows; date/month/year crossings are supported. Purge actual E2 right boundaries, not every calendar-year crossing.',
+        '- fold1/2/3 and final_role identify use; 2024 is UNUSED in all development folds. EXCLUDED_BOUNDARY retains truth for audit but is excluded from that block training/evaluation.',
+        f'- {len(test["checks"])} synthetic window/Decimal/E2/Parquet checks, annually {len(summary["annual_results"][0]["checks"])} acceptance checks, {len(readback["checks"])} root checks and {len(checks)} delivery checks passed with normal Java exit.',
+        f'- {len(examples)} real cases independently reconstructed slot by slot, exporting {len(example_slots)} expected-slot rows covering dry/wet truth, missing past/future, date/month/year crossings and the 2017 phase transition. Real manual cases use 2017–2020 only.',
+        '- Exact merged-root target/observation keys match without missing or extra keys. All 96 input observation Parquet SHA-256 values were rechecked; size/mtime were unchanged afterwards.',
+        '- At this stage 2024 checks covered completeness, boundary and structure only, without threshold test distributions or score-driven model selection.','',
+        '## B/C use','',
+        'Data: data/processed/p0_4_v1/targets/. Counts, invalid reasons, station-month quality, E2 use and manual slots: outputs/p0_4_targets/p0_4_v1/. See [p0_4_data_contract.md](p0_4_data_contract.md) for reads/fields.','',
+        'B constructs historical features from observations. C filters selected roles and joint eligibility, then freezes support/sampling and fits using training only. Future totals/validity/missing slots are label/audit information, never features. Inference requires existing history/support, not future six-slot availability.','']
     report=ROOT/'docs/p0_4_quality_report.md';report.write_text('\n'.join(lines),encoding='utf-8')
     validation={'status':'PASS','checks':checks,'validator_sha256':digest(Path(__file__)),'report_sha256':digest(report),
         'data_contract_sha256':digest(ROOT/'docs/p0_4_data_contract.md'),'manual_examples':len(examples),'manual_slots':len(example_slots)}

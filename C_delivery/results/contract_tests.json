@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "strict_decimal_comparisons": 35,
+  "exact_equal_thresholds_negative": true,
+  "beyond_threshold_at_18_decimal_places_positive": true,
+  "hash_sampling_nested_and_order_independent": true,
+  "future_information_excluded_from_feature_allowlist": true
+}

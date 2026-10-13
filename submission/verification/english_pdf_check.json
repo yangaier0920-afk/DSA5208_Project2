@@ -1,0 +1,101 @@
+{
+  "status": "PASS",
+  "member_cover_pass": true,
+  "pdfs": [
+    {
+      "path": "submission/Final_Report.pdf",
+      "pages": 18,
+      "English_text_check": "PASS"
+    },
+    {
+      "path": "C_delivery/output/pdf/C_report_zh.pdf",
+      "pages": 7,
+      "English_text_check": "PASS"
+    },
+    {
+      "path": "C_delivery/report_zh/figures/01_rolling_brier.pdf",
+      "pages": 1,
+      "English_text_check": "PASS"
+    },
+    {
+      "path": "C_delivery/report_zh/figures/03_final_reliability.pdf",
+      "pages": 1,
+      "English_text_check": "PASS"
+    },
+    {
+      "path": "C_delivery/report_zh/figures/02_final_brier.pdf",
+      "pages": 1,
+      "English_text_check": "PASS"
+    },
+    {
+      "path": "B_delivery/results/task1_v2/figures/05_station_comparison.pdf",
+      "pages": 1,
+      "English_text_check": "PASS"
+    },
+    {
+      "path": "B_delivery/results/task1_v2/figures/04_hourly_rain_occurrence.pdf",
+      "pages": 1,
+      "English_text_check": "PASS"
+    },
+    {
+      "path": "B_delivery/results/task1_v2/figures/02_descriptive_monthly_rainfall.pdf",
+      "pages": 1,
+      "English_text_check": "PASS"
+    },
+    {
+      "path": "B_delivery/results/task1_v2/figures/01_coverage_and_panel.pdf",
+      "pages": 1,
+      "English_text_check": "PASS"
+    },
+    {
+      "path": "B_delivery/results/task1_v2/figures/03_strict_interannual_comparison.pdf",
+      "pages": 1,
+      "English_text_check": "PASS"
+    },
+    {
+      "path": "B_delivery/results/task1_v2/figures/07_frequency_and_intensity.pdf",
+      "pages": 1,
+      "English_text_check": "PASS"
+    },
+    {
+      "path": "B_delivery/results/task1_v2/figures/06_annual_descriptive_summary.pdf",
+      "pages": 1,
+      "English_text_check": "PASS"
+    },
+    {
+      "path": "B_delivery/results/task1_rerun_20261012/figures/05_station_comparison.pdf",
+      "pages": 1,
+      "English_text_check": "PASS"
+    },
+    {
+      "path": "B_delivery/results/task1_rerun_20261012/figures/04_hourly_rain_occurrence.pdf",
+      "pages": 1,
+      "English_text_check": "PASS"
+    },
+    {
+      "path": "B_delivery/results/task1_rerun_20261012/figures/02_descriptive_monthly_rainfall.pdf",
+      "pages": 1,
+      "English_text_check": "PASS"
+    },
+    {
+      "path": "B_delivery/results/task1_rerun_20261012/figures/01_coverage_and_panel.pdf",
+      "pages": 1,
+      "English_text_check": "PASS"
+    },
+    {
+      "path": "B_delivery/results/task1_rerun_20261012/figures/03_strict_interannual_comparison.pdf",
+      "pages": 1,
+      "English_text_check": "PASS"
+    },
+    {
+      "path": "B_delivery/results/task1_rerun_20261012/figures/07_frequency_and_intensity.pdf",
+      "pages": 1,
+      "English_text_check": "PASS"
+    },
+    {
+      "path": "B_delivery/results/task1_rerun_20261012/figures/06_annual_descriptive_summary.pdf",
+      "pages": 1,
+      "English_text_check": "PASS"
+    }
+  ]
+}

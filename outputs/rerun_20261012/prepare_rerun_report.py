@@ -1,0 +1,27 @@
+from pathlib import Path
+import json,subprocess,platform
+root=Path.cwd();out=root/'outputs/rerun_20261012';package=root/'B_delivery';src=package/'src'
+hw={'machine_name':subprocess.check_output(['sysctl','-n','hw.model'],text=True).strip(),'chip_type':subprocess.check_output(['sysctl','-n','machdep.cpu.brand_string'],text=True).strip(),'physical_memory':str(int(subprocess.check_output(['sysctl','-n','hw.memsize'],text=True))//(1024**3))+' GB','source':'sysctl; collected for this rerun; peak memory not measured'}
+(out/'hardware_inventory.json').write_text(json.dumps(hw,indent=2))
+s=(src/'B_make_report.py').read_text()
+s=s.replace("PACKAGE/'results/hardware_inventory.json'",repr(str(out/'hardware_inventory.json')))
+s=s.replace("json.loads(("+repr(str(out/'hardware_inventory.json'))+").read_text())", "json.loads(Path("+repr(str(out/'hardware_inventory.json'))+").read_text())")
+s=s.replace("PACKAGE/'results/join_audit/validation.json'","PACKAGE/'results/join_audit_rerun_20261012/validation.json'")
+s=s.replace("PACKAGE/'results/report_metadata/report_sources.json'","a.output/'report_sources.json'")
+s=s.replace('3.11.9 / 3.5.7 / 17',platform.python_version()+' / 3.5.7 / 17')
+s=s.replace('Version: 2026-10-11 documentation and join verification update','Version: 2026-10-12 full local rerun')
+s=s.replace('Hardware was inventoried after the run on 2026-10-11 using system_profiler. Only public CPU and memory specifications were retained; device identifiers were excluded. This is a same-host inventory, not a measurement of peak runtime resources.','Hardware was read using sysctl; serial numbers were not retained. Peak memory was not measured.')
+s=s.replace('Original Task 1 aggregate runtime','Current full Task 1 aggregate runtime')
+s=s.replace('v2 reused the verified aggregates; the complete Task 1 workflow was not timed again.','This run recomputed full aggregates and figures.')
+s=s.replace('Separate full join-audit timing is in results/join_audit/validation.json and is excluded from the earlier timings.','Current full join-audit timing is in results/join_audit_rerun_20261012/validation.json, separately from aggregate and feature timings.')
+s=s.replace("'numeric_features_recomputed':False","'numeric_features_recomputed':True")
+(root/'.runtime/B_make_report_rerun.py').write_text(s)
+s=(src/'B_finalize.py').read_text().replace("PACKAGE/'results/report_metadata'","a.report/'metadata'").replace("PACKAGE/'delivery_manifest.json'","a.report/'delivery_manifest.json'")
+s=s.replace('Task1 v1 verified Spark aggregates reused; v2 derived analyses regenerated','Task1 full Spark aggregates and plots recomputed on 2026-10-12')
+s=s.replace("'results/features_v2/result_metadata.json'","str(a.features/'result_metadata.json')")
+s=s.replace("'results/hardware_inventory.json (post-run inventory; peak not measured)'",repr(str(out/'hardware_inventory.json')))
+s=s.replace("'documentation_revision':'2026-10-11'","'documentation_revision':'2026-10-12'")
+(root/'.runtime/B_finalize_rerun.py').write_text(s)
+compile((root/'.runtime/B_make_report_rerun.py').read_text(),'report','exec')
+compile(s,'finalize','exec')
+print('Prepared isolated rerun report and finalizer; existing report artifacts preserved')

@@ -1,0 +1,9 @@
+runtime/
+tmp/
+__pycache__/
+results/**/anchors/
+results/**/predictions/
+results/**/models/
+results/**/preprocessor/
+results/**/trained_model/spark_model/
+results/**/*failed*/

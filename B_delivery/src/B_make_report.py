@@ -44,13 +44,13 @@ def main():
 
 版本：2026-10-13 Task 1逻辑重排与图表样式统一；数值特征版本仍为 B_v2。本文可直接复制、修改并合并进组报告。
 
-**报告范围**：B负责Task 1及供C使用的历史特征，不包含尚未完成的C模型训练、预测评价或全组最终提交。组报告仍需补全A清洗、C模型章节及所有成员姓名和学号。''')
+**报告范围**：B负责Task 1及供C使用的历史特征，本文不重复C模型训练及预测评价。合并后的仓库已包含C成果及全组英文提交材料，见C_delivery与submission；本稿是更新后的B中文章节。''')
     add(f'''## 1. 数据处理与分析口径
 
 使用2017—2024年正式发布的 {total:,} 条清洗观测。Spark完成原始规模的统计与特征处理，Matplotlib只读取小型汇总表作图。B读取A冻结发布并校验文件哈希和schema；月度观测数量与Decimal雨量累计已对照A的区间日历覆盖表，核对6,528个站点—月份条目。缺测始终表示未知，真实零雨量保留为零，不任意填补或截断有效极端值。完整清洗方法由A在最终报告说明。
 
 Task 1采用Asia/Singapore时区的区间起点归属年月和小时。基本有雨指标为五分钟雨量>0；月累计为实际观测累计，不按覆盖率补齐。站点在同一格内等权，跨年描述图再对可用年份等权。''')
-    add((PACKAGE/'docs/TIME_CONTRACT.md').read_text().replace('# 预测时间与雨量区间：A/B/C 交接口径','## 2. 预测时间、观测可用性与标签区间').replace('\n## ','\n### ' ).replace('### 2. 预测时间','## 2. 预测时间'))
+    add((PACKAGE/'docs/TIME_CONTRACT_zh.md').read_text().replace('# 预测时间与雨量区间：A/B/C 交接口径','## 2. 预测时间、观测可用性与标签区间').replace('\n## ','\n### ' ).replace('### 2. 预测时间','## 2. 预测时间'))
     add('''## 3. Task 1：数据覆盖与比较范围
 
 覆盖门槛决定哪些比较成立。主分析采用月覆盖率≥90%，另以≥95%做敏感性分析。严格八年同月共同站点仅支持5、9、10、12月；其他月份空交集不表示没有降雨。''')
@@ -125,7 +125,7 @@ $R$ 为站点该月实际观测累计雨量（mm），不是缺测补齐量。�
     add('### 本节分析的共同限制')
     add('区间起点日历下有64个整网无观测日期；A原始event-date审计为63，额外日期2018-02-17源于日历定义不同。缺测日不是干日。月累计没有按覆盖率补齐，固定站点编号面板也不是经过气候均一化的站网。官方资料提示可能缺测且未经过气候资料质量控制，因此以上季节、跨年与空间差异均保持描述性定位。[data.gov.sg：Historical Rainfall across Singapore](https://data.gov.sg/collections/2279/view)（查阅：2026-10-13）')
     add('## 7. Task 2：B提供的26个历史特征')
-    definitions=(PACKAGE/'docs/FEATURE_DEFINITIONS.md').read_text();add(definitions[definitions.index('令 R(t)'):])
+    definitions=(PACKAGE/'docs/FEATURE_DEFINITIONS_zh.md').read_text();add(definitions[definitions.index('令 R(t)'):])
     add('单锚点预测入口features_at仅接收该站点t及以前60分钟观测，要求当前锚点和12个精确历史槽完整；已与离线26列逐一核对，不提供未来行仍能复现，并拒绝缺槽或不在五分钟网格的时刻。station编码、标准化或插补必须由C在各轮训练集拟合；阈值也是C的模型输入。')
     add('## 8. 完整历史筛选的逐年影响')
     add(table(['年份','观测锚点数','完整60分钟历史','不完整历史','历史保留率'],[[r['year'],f"{r['anchors']:,}",f"{r['history_complete']:,}",f"{r['history_incomplete']:,}",f"{100*r['retention_rate']:.3f}%"] for r in retention]+[['合计',f'{total:,}',f'{kept:,}',f'{total-kept:,}',f'{100*kept/total:.3f}%']]))
@@ -142,7 +142,7 @@ A的model_anchor_eligible=historical_valid且target_valid。C监督训练/评价
     else:add('基础表关联核验尚未运行，不能填入100%匹配结论。')
     add('''主键为station_id + prediction_epoch_s，标签按预测锚点关联，不能仅按站点或日期。全量基础表核验按年执行，并先核验主键epoch年份与分区年份一致，因此跨分区重复不会被漏掉。
 
-**当前证据边界：本机没有C最终训练代码，以上仅为A/B基础表的实际核验，不代表C采样、筛选、阈值展开之后的实际关联已经通过。** C必须在其最终监督锚点集、阈值展开之前调用B_join_audit.audit_anchor_join，保存scope及结果；失败时停止，不能先dropDuplicates掩盖问题。训练子集只要求每个左侧锚点匹配，B全量右侧额外未使用行可以存在。阈值展开后同一锚点重复是预期行为，检查应改用station_id+prediction_epoch_s+threshold_mm，并核对每锚点阈值数及展开前后行数。''')
+**合并后证据状态：上表是A/B基础表核验；C的实际输入关联另有保存记录。** C_delivery/results/C_v1_20261012的fold1/2/3与final目录均包含actual_input_join_audit.json，状态为PASS。final记录有10,410,105个左侧唯一锚点，未匹配左侧行及关联膨胀均为0，左侧匹配率100%。这是对已有JSON的核对，本次没有重新训练或重跑该全量关联。实际输入仍应在阈值展开前核验，失败时停止，不得先dropDuplicates掩盖问题。训练子集只要求每个左侧锚点匹配，B全量右侧额外未使用行可以存在。阈值展开后同一锚点重复是预期行为，检查应改用station_id+prediction_epoch_s+threshold_mm，并核对每锚点阈值数及展开前后行数。''')
     add('## 10. 计算环境与耗时定义')
     add(table(['项目','配置/实测'],[['运行环境',f"本地{hardware['machine_name']}，{hardware['chip_type']}"],['CPU',f"{fm['environment']['logical_cpu_count']}个逻辑CPU；Spark本次使用2个任务线程"],['物理内存',hardware['physical_memory']],['系统',fm['environment']['os']],['Python / Spark / Java','3.11.9 / 3.5.7 / 17'],['Spark执行','local[2]，单机两个任务线程'],['JVM heap / shuffle','4g / 128分区'],['读取分区上限','32 MiB'],['AQE','启用；禁用分区合并'],['完整输入规模',f'{total:,}条锚点（2017—2024）'],['特征Parquet大小',f"{sum(p.stat().st_size for p in (a.features/'parquet').rglob('*.parquet')):,}字节"],['全量内存缓存','未启用'],['峰值内存','没有测量，不给出数值']]))
     add(f'''硬件清单由system_profiler在2026-10-11补查，仅保留CPU/内存等公开配置，不保存设备序列号等标识；这是同一主机的后补配置记录，不是原运行时的峰值资源测量。
@@ -158,7 +158,7 @@ B_v2共{v['rows']:,}条特征，{v['history_complete']:,}条完整历史。逐�
 
 限制包括：项目区间与回溯可用性假设、发布延迟尚未验证、站点组成变化、缺测、近似条件分位数、仅完整历史模型的适用范围，以及没有气象因果控制或显著性检验。新增持续性特征是候选，不能在没有C验证指标时宣称提升了预测性能。
 
-C仍需执行2017—2020→2021、2017—2021→2022、2017—2022→2023滚动验证，仅用训练期确定阈值支持与拟合预处理；锁定配置后2017—2023重训，2024只最终测试。应使用Spark MLlib报告分阈值、分年份的概率评价及约定Brier汇总，保存模型并测试重载与预测入口。B的Task 1描述2024不表示允许用2024标签挑选特征或模型。本文没有虚构模型分数。
+C已提交上述三轮时间验证、锁定后重拟合、2024最终评价和模型重载材料，见C_delivery及submission；本次合并保留其保存结果，不重新评价或挑选模型。后续任何模型改进仍必须遵守训练期拟合与测试集使用边界。B的Task 1描述2024不表示允许用2024标签挑选特征或模型。本文没有虚构模型分数。
 
 ## 12. AI使用声明
 
@@ -166,7 +166,8 @@ OpenAI Codex协助B进行分析设计、Spark特征与关联核验代码、图�
     path=a.output/'B_report_zh.md';path.write_text('\n\n'.join(parts),encoding='utf-8')
     dump(PACKAGE/'results/report_metadata/report_sources.json',{'language':'zh-CN','format':'Markdown only','feature_set_version':'B_v2',
         'source_task1':str(a.task1),'source_features':str(a.features),'source_join_audit':str(join_file),
-        'C_actual_input_audit':'PENDING_NOT_AVAILABLE_LOCALLY','numeric_features_recomputed':False,'documentation_revision':'2026-10-13',
+        'C_actual_input_audit':'STORED_PASS_RECORDS_PRESENT_NOT_RERUN',
+        'source_C_actual_input_audit':'C_delivery/results/C_v1_20261012/{fold1,fold2,fold3,final}/actual_input_join_audit.json','numeric_features_recomputed':False,'documentation_revision':'2026-10-13',
         'source_adjacent_years':str(a.task1/'adjacent_year_validation.json'),
         'figure_reading_order':['01_coverage_and_panel','02_descriptive_monthly_rainfall','07_frequency_and_intensity','04_hourly_rain_occurrence','06_annual_descriptive_summary','03_strict_interannual_comparison','09_adjacent_year_comparison','08_station_map','05_station_comparison']})
     print('Chinese report saved:',path)

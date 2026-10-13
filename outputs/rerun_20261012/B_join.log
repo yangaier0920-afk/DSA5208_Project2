@@ -1,0 +1,13 @@
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+26/10/12 16:41:48 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+26/10/12 16:41:48 WARN SparkConf: Note that spark.local.dir will be overridden by the value set by the cluster manager (via SPARK_LOCAL_DIRS in mesos/standalone/kubernetes and LOCAL_DIRS in YARN).
+16:42:07 A targets / B features join audit: 2017
+16:42:20 A targets / B features join audit: 2018
+16:42:30 A targets / B features join audit: 2019
+16:42:40 A targets / B features join audit: 2020
+16:42:52 A targets / B features join audit: 2021
+16:43:06 A targets / B features join audit: 2022
+16:43:20 A targets / B features join audit: 2023
+16:43:33 A targets / B features join audit: 2024
+16:43:45 Full base-table join audit PASS; C must audit its actual assembled inputs separately

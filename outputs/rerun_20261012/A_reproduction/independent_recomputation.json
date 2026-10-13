@@ -1,0 +1,686 @@
+[
+  {
+    "station_id": "S06",
+    "prediction_epoch_s": 1483229100,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S06",
+    "prediction_epoch_s": 1483256100,
+    "future_30m_mm": "1.200000000000000000",
+    "passed": true
+  },
+  {
+    "station_id": "S06",
+    "prediction_epoch_s": 1483284600,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S06",
+    "prediction_epoch_s": 1483568400,
+    "future_30m_mm": null,
+    "passed": true
+  },
+  {
+    "station_id": "S06",
+    "prediction_epoch_s": 1485876600,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S07",
+    "prediction_epoch_s": 1493090400,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S07",
+    "prediction_epoch_s": 1493090700,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S07",
+    "prediction_epoch_s": 1514734200,
+    "future_30m_mm": "4.400000000000000000",
+    "passed": true
+  },
+  {
+    "station_id": "S07",
+    "prediction_epoch_s": 1514736000,
+    "future_30m_mm": "4.800000000000000000",
+    "passed": true
+  },
+  {
+    "station_id": "S07",
+    "prediction_epoch_s": 1514775600,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S07",
+    "prediction_epoch_s": 1514778000,
+    "future_30m_mm": null,
+    "passed": true
+  },
+  {
+    "station_id": "S07",
+    "prediction_epoch_s": 1514780400,
+    "future_30m_mm": null,
+    "passed": true
+  },
+  {
+    "station_id": "S07",
+    "prediction_epoch_s": 1514820600,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S07",
+    "prediction_epoch_s": 1517412600,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S07",
+    "prediction_epoch_s": 1546270200,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S07",
+    "prediction_epoch_s": 1546272000,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S07",
+    "prediction_epoch_s": 1546289100,
+    "future_30m_mm": "0.200000000000000000",
+    "passed": true
+  },
+  {
+    "station_id": "S07",
+    "prediction_epoch_s": 1546356600,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S07",
+    "prediction_epoch_s": 1546515300,
+    "future_30m_mm": null,
+    "passed": true
+  },
+  {
+    "station_id": "S07",
+    "prediction_epoch_s": 1546517400,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S07",
+    "prediction_epoch_s": 1548948600,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S07",
+    "prediction_epoch_s": 1577806200,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S07",
+    "prediction_epoch_s": 1577808000,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S07",
+    "prediction_epoch_s": 1577892600,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S07",
+    "prediction_epoch_s": 1578030900,
+    "future_30m_mm": "0.200000000000000000",
+    "passed": true
+  },
+  {
+    "station_id": "S07",
+    "prediction_epoch_s": 1578966300,
+    "future_30m_mm": null,
+    "passed": true
+  },
+  {
+    "station_id": "S07",
+    "prediction_epoch_s": 1578968400,
+    "future_30m_mm": null,
+    "passed": true
+  },
+  {
+    "station_id": "S07",
+    "prediction_epoch_s": 1580484600,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S07",
+    "prediction_epoch_s": 1609428600,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S08",
+    "prediction_epoch_s": 1493090400,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S08",
+    "prediction_epoch_s": 1493090700,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S100",
+    "prediction_epoch_s": 1493090400,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S100",
+    "prediction_epoch_s": 1493090700,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S101",
+    "prediction_epoch_s": 1493090400,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S101",
+    "prediction_epoch_s": 1493090700,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S102",
+    "prediction_epoch_s": 1493090400,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S102",
+    "prediction_epoch_s": 1493090700,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S104",
+    "prediction_epoch_s": 1493090400,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S104",
+    "prediction_epoch_s": 1493090700,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S106",
+    "prediction_epoch_s": 1493090400,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S106",
+    "prediction_epoch_s": 1493090700,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S108",
+    "prediction_epoch_s": 1493090400,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S108",
+    "prediction_epoch_s": 1493090700,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S109",
+    "prediction_epoch_s": 1493090400,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S109",
+    "prediction_epoch_s": 1493090700,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S11",
+    "prediction_epoch_s": 1493090400,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S11",
+    "prediction_epoch_s": 1493090700,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S112",
+    "prediction_epoch_s": 1493090400,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S112",
+    "prediction_epoch_s": 1493090700,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S113",
+    "prediction_epoch_s": 1493089200,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S113",
+    "prediction_epoch_s": 1493090400,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S113",
+    "prediction_epoch_s": 1493090700,
+    "future_30m_mm": "0.200000000000000000",
+    "passed": true
+  },
+  {
+    "station_id": "S114",
+    "prediction_epoch_s": 1493090400,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S114",
+    "prediction_epoch_s": 1493090700,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S115",
+    "prediction_epoch_s": 1493090400,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S115",
+    "prediction_epoch_s": 1493090700,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S116",
+    "prediction_epoch_s": 1493090400,
+    "future_30m_mm": "4.200000000000000000",
+    "passed": true
+  },
+  {
+    "station_id": "S116",
+    "prediction_epoch_s": 1493090700,
+    "future_30m_mm": "7.200000000000000000",
+    "passed": true
+  },
+  {
+    "station_id": "S117",
+    "prediction_epoch_s": 1493090400,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S117",
+    "prediction_epoch_s": 1493090700,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S119",
+    "prediction_epoch_s": 1493090400,
+    "future_30m_mm": "0.200000000000000000",
+    "passed": true
+  },
+  {
+    "station_id": "S119",
+    "prediction_epoch_s": 1493090700,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S120",
+    "prediction_epoch_s": 1493090400,
+    "future_30m_mm": "0.400000000000000000",
+    "passed": true
+  },
+  {
+    "station_id": "S120",
+    "prediction_epoch_s": 1493090700,
+    "future_30m_mm": "1.200000000000000000",
+    "passed": true
+  },
+  {
+    "station_id": "S122",
+    "prediction_epoch_s": 1493090400,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S122",
+    "prediction_epoch_s": 1493090700,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S123",
+    "prediction_epoch_s": 1493090400,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S123",
+    "prediction_epoch_s": 1493090700,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S24",
+    "prediction_epoch_s": 1493090400,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S24",
+    "prediction_epoch_s": 1493090700,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S29",
+    "prediction_epoch_s": 1493090400,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S29",
+    "prediction_epoch_s": 1493090700,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S33",
+    "prediction_epoch_s": 1493090400,
+    "future_30m_mm": "11.800000000000000000",
+    "passed": true
+  },
+  {
+    "station_id": "S33",
+    "prediction_epoch_s": 1493090700,
+    "future_30m_mm": "10.600000000000000000",
+    "passed": true
+  },
+  {
+    "station_id": "S35",
+    "prediction_epoch_s": 1493090400,
+    "future_30m_mm": "1.600000000000000000",
+    "passed": true
+  },
+  {
+    "station_id": "S35",
+    "prediction_epoch_s": 1493090700,
+    "future_30m_mm": "1.600000000000000000",
+    "passed": true
+  },
+  {
+    "station_id": "S43",
+    "prediction_epoch_s": 1493090400,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S43",
+    "prediction_epoch_s": 1493090700,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S46",
+    "prediction_epoch_s": 1493090400,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S46",
+    "prediction_epoch_s": 1493090700,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S50",
+    "prediction_epoch_s": 1493090400,
+    "future_30m_mm": "3.200000000000000000",
+    "passed": true
+  },
+  {
+    "station_id": "S50",
+    "prediction_epoch_s": 1493090700,
+    "future_30m_mm": "9.000000000000000000",
+    "passed": true
+  },
+  {
+    "station_id": "S55",
+    "prediction_epoch_s": 1493090400,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S55",
+    "prediction_epoch_s": 1493090700,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S61",
+    "prediction_epoch_s": 1493090400,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S61",
+    "prediction_epoch_s": 1493090700,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S63",
+    "prediction_epoch_s": 1493090400,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S63",
+    "prediction_epoch_s": 1493090700,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S64",
+    "prediction_epoch_s": 1493090400,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S64",
+    "prediction_epoch_s": 1493090700,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S66",
+    "prediction_epoch_s": 1493090400,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S66",
+    "prediction_epoch_s": 1493090700,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S71",
+    "prediction_epoch_s": 1493090400,
+    "future_30m_mm": "4.200000000000000000",
+    "passed": true
+  },
+  {
+    "station_id": "S71",
+    "prediction_epoch_s": 1493090700,
+    "future_30m_mm": "5.000000000000000000",
+    "passed": true
+  },
+  {
+    "station_id": "S77",
+    "prediction_epoch_s": 1493090400,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S77",
+    "prediction_epoch_s": 1493090700,
+    "future_30m_mm": "1.000000000000000000",
+    "passed": true
+  },
+  {
+    "station_id": "S78",
+    "prediction_epoch_s": 1493090400,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S78",
+    "prediction_epoch_s": 1493090700,
+    "future_30m_mm": "0.400000000000000000",
+    "passed": true
+  },
+  {
+    "station_id": "S79",
+    "prediction_epoch_s": 1493090400,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S79",
+    "prediction_epoch_s": 1493090700,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S81",
+    "prediction_epoch_s": 1493090400,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S81",
+    "prediction_epoch_s": 1493090700,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S84",
+    "prediction_epoch_s": 1493090400,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S84",
+    "prediction_epoch_s": 1493090700,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S88",
+    "prediction_epoch_s": 1493090400,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S88",
+    "prediction_epoch_s": 1493090700,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S89",
+    "prediction_epoch_s": 1493090400,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S89",
+    "prediction_epoch_s": 1493090700,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S900",
+    "prediction_epoch_s": 1493090400,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S900",
+    "prediction_epoch_s": 1493090700,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S92",
+    "prediction_epoch_s": 1493090400,
+    "future_30m_mm": "0.200000000000000000",
+    "passed": true
+  },
+  {
+    "station_id": "S92",
+    "prediction_epoch_s": 1493090700,
+    "future_30m_mm": "0.400000000000000000",
+    "passed": true
+  },
+  {
+    "station_id": "S94",
+    "prediction_epoch_s": 1493090400,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  },
+  {
+    "station_id": "S94",
+    "prediction_epoch_s": 1493090700,
+    "future_30m_mm": "0E-18",
+    "passed": true
+  }
+]
