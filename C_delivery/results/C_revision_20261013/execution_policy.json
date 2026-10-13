@@ -1,0 +1,8 @@
+{
+  "maximum_concurrent_spark_processes": 2,
+  "threads_per_process": 2,
+  "driver_heap_per_process": "6g",
+  "timing_interpretation": "Wall time observed while independent folds may overlap; not isolated throughput benchmarks",
+  "full_validation": true,
+  "2024_new_scoring": false
+}

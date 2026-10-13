@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "source_payload_files_checked": 1491,
+  "delivery_and_logical_model_hashes": "PASS",
+  "selected_model": "cdf_persistence_d8_leaf1000",
+  "new_candidate_fold_cells": 6,
+  "reference_fold_cells_reused": 30,
+  "threshold_metric_cells": 300,
+  "current_trained_model_matches_selected_run": true,
+  "C_source_hashes_match_finalizer_metadata": true,
+  "known_2024_not_rescored": true,
+  "others_handoff_in_submission_bundle": false,
+  "Chinese_handoff_provided_outside_project": true
+}

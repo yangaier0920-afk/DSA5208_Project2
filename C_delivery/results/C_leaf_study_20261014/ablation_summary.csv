@@ -1,0 +1,5 @@
+model,feature_group,mean_brier,delta_brier_from_previous,relative_brier_reduction_from_previous,comparison
+cdf_recent_d8,Recent amount features only (14),0.01684575913204153,,,"Identical folds/anchors and d8/minLeaf500/prior50; predictive association, not causal contribution"
+cdf_persistence_d8,Add wetness/persistence (22),0.016812235613512336,-3.3523518529192387e-05,0.001990027179329057,"Identical folds/anchors and d8/minLeaf500/prior50; predictive association, not causal contribution"
+cdf_calendar_d8,Add cyclic time (26),0.016842083115825367,2.984750231303096e-05,-0.0017753440410412935,"Identical folds/anchors and d8/minLeaf500/prior50; predictive association, not causal contribution"
+cdf_full_d8,Add training-only station coding (26 + station),0.01684209692224165,1.3806416281070266e-08,-8.197570446899505e-07,"Identical folds/anchors and d8/minLeaf500/prior50; predictive association, not causal contribution"

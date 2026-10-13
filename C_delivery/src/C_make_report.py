@@ -15,11 +15,11 @@ def table(headers, data):
 def fmt(x):return 'NA' if x is None else f'{x:.6f}'
 
 def main():
-    ap=argparse.ArgumentParser();ap.add_argument('--run',type=Path,required=True);a=ap.parse_args();run=a.run.resolve()
+    ap=argparse.ArgumentParser();ap.add_argument('--run',type=Path,required=True);ap.add_argument('--output',type=Path);a=ap.parse_args();run=a.run.resolve()
     selection=load(run/'selection.json');final=load(run/'final_test.json');reload=load(run/'model_reload_validation.json')
     assert selection['status']=='LOCKED' and final['status']==reload['status']=='PASS'
     config=load(run/'experiment_config.json');winner=selection['selected_model'];thresholds=selection['thresholds']
-    report=PACKAGE/'report_zh';figs=report/'figures';figs.mkdir(parents=True,exist_ok=True)
+    report=(a.output or run/'report').resolve();figs=report/'figures';figs.mkdir(parents=True,exist_ok=True)
     import matplotlib
     matplotlib.use('Agg')
     import matplotlib.pyplot as plt
@@ -75,7 +75,7 @@ def main():
     dump(run/'hardware_inventory.json',hardware)
     sections=[]
     def add(t):sections.append(t.strip())
-    add('# Next-30-minute rainfall exceedance probability: C report\n\nExperiment C_v1_20261012; B_v2 features; data v1/rainfall_v1_r3. This is a C chapter; the integrated report and member details are in submission.')
+    add('# Next-30-minute rainfall exceedance probability: C report\n\nExperiment '+config['experiment_version']+'; B_v2 features; data v1/rainfall_v1_r3. This is a C chapter; the integrated report and member details are in submission.')
     add(f"## Results\n\nPrespecified equal-threshold/equal-year Brier selected {NAMES[winner]}: development mean {best['mean_brier']:.6f}. After selection, refit on a fixed 10% 2017–2023 anchor sample and evaluate all supported 2024 anchors once: mean Brier {final['mean_brier']:.6f}, training-frequency baseline {final_basemean:.6f}, skill {100*finalskill:.2f}%. Positive skill means improvement, within the documented data/eligibility scope.")
     add('## Truth, time and supported inputs\n\nPredict P(next-30-minute total > threshold). A uses Decimal(38,18) for the six exact endpoints t+300,...,t+1800; equality is negative, unknown future is not negative. Supervision filters the correct role, full past/future windows and actual temporal boundary, including endpoint equality to the next block start. Internal training-year crossings remain usable. Past history requires 12 exact positions t−3300,...,t. Current interval (t−5min,t] is assumed available at t; official interval meaning and publication delay remain unverified.\n\nUse B 26 past-only numeric features, numeric threshold and training-only station one-hot coding. Future truth/completeness/eligibility/role are excluded. Inference checks only existing history, supported station, grid and threshold. Support is frozen from earliest full 2017–2020 training: at least 100 positives/negatives per candidate. Thresholds 0,0.5,1,2,5 mm all pass; arbitrary continuous-threshold generalization is not claimed.')
     add('## E2 and model selection\n\nExpanding folds train 2017–2020/validate 2021, 2017–2021/2022 and 2017–2022/2023; lock then refit 2017–2023/test 2024. A 1% pilot checks implementation; formal training samples 10%, evaluation is full eligible scope. pmod(xxhash64(station_id,prediction_epoch_s,seed),10000), seed=20261012, samples anchors before all threshold versions. Sampling is independent of outcomes with no class reweighting. Fit station StringIndexer/OneHotEncoder and LR standardization on each training fold only.\n\nCandidates: per-threshold training frequency; L2 LR regParam=0.01/maxIter=40/tol=1e-6; tree maxDepth=5/maxBins=32/minInstancesPerNode=100 expanded rows. Average Brier equally over thresholds, then years. Tie tolerance 1e-5 prioritizes baseline, LR, tree; choices were fixed before formal scores. This limited candidate set is not exhaustive tuning.\n\n'+table(['Model','2021','2022','2023','Mean','Year range'],scoredata)+'\n\n![Rolling Brier](figures/01_rolling_brier.png)\n\nselection.json was persisted before 2024 scoring; test metrics did not guide selection.')
@@ -94,8 +94,8 @@ def main():
         add(f'## Appendix: {year} complete development metrics\n\n'+table(['Model','Threshold','n','Positive rate','Brier','Log loss','PR-AUC','ROC-AUC'],[r[1:] for r in devdata if int(r[0])==year]))
     md=report/'C_report_zh.md';md.write_text('\n\n'.join(sections)+'\n',encoding='utf-8')
     from english_report_pdf import render
-    pdf=PACKAGE/'output/pdf/C_report_zh.pdf';render(md,pdf)
-    dump(report/'report_sources.json',{'status':'PASS','language':'en','run':str(run),'selection_sha256':sha256(run/'selection.json'),'final_test_sha256':sha256(run/'final_test.json'),'reload_validation_sha256':sha256(run/'model_reload_validation.json'),'config_sha256':sha256(CONFIG),'markdown':str(md),'pdf':str(pdf)})
+    pdf=report/'C_report.pdf';render(md,pdf)
+    dump(report/'report_sources.json',{'status':'PASS','language':'en','run':str(run),'selection_sha256':sha256(run/'selection.json'),'final_test_sha256':sha256(run/'final_test.json'),'reload_validation_sha256':sha256(run/'model_reload_validation.json'),'config_sha256':sha256(run/'experiment_config.json'),'markdown':str(md),'pdf':str(pdf)})
     print('Created English C report:',pdf)
 
 if __name__=='__main__':main()

@@ -1,0 +1,1505 @@
+[
+  {
+    "type": "pagebreak"
+  },
+  {
+    "type": "heading",
+    "text": "1. Introduction and main findings"
+  },
+  {
+    "type": "paragraph",
+    "text": "This project uses the eight annual Singapore rainfall datasets from 2017 to 2024 to address two tasks: describe within-year and interannual rainfall patterns, and estimate the probability that a station will accumulate more than an input threshold during the next 30 minutes. Apache Spark performs structured processing and feature computation; Spark MLlib trains and evaluates the probability models. All times use Asia/Singapore."
+  },
+  {
+    "type": "heading",
+    "text": "2. Data provenance and cleaning"
+  },
+  {
+    "type": "paragraph",
+    "text": "The source is NEA's Historical Rainfall across Singapore collection on data.gov.sg [1]. It provides station measurements and timestamps in Singapore Time; its notice states that records may be missing and do not have the quality-control status of official climate data. The project uses 2017-2024, not the collection's additional 2016 file. Raw exports occupy 8,047,044,701 bytes. Annual titles, dataset URLs and locally computed whole-file SHA-256 hashes are recorded in manifests/raw_manifest.json. Download completeness was confirmed in the original project; the local hashes are not server-issued checksums."
+  },
+  {
+    "type": "paragraph",
+    "text": "We retain the original 12 text columns, original record, source-file identity, hashes and event timestamp. Structural, rainfall-number, unit/type and original-key checks found no violations in this release. Only 2017 records with epoch remainder 299 modulo 300 are shifted forward by one second to an aligned five-minute endpoint. This affects 1,775,327 source rows. Original timestamps and alignment flags remain available for traceability."
+  },
+  {
+    "type": "paragraph",
+    "text": "Alignment creates 86 equal-rainfall key-collision pairs. We keep the original exact-grid row, neither summing nor averaging rainfall, and preserve both records in 172 lineage rows. Two retained observations have metadata-conflict flags. Unequal-rainfall collisions would be quarantined as entire groups; none occur. Finite nonnegative measurements, genuine zero values and extremes are retained without arbitrary clipping or rounding to 0.2 mm. Missing timestamps remain unknown; no zero rows are synthesized."
+  },
+  {
+    "type": "paragraph",
+    "text": "The count reconciliation is 48,538,713 = 48,538,627 observations + 86 merged removals + 0 quarantined. There are 47,121,647 genuine zero-rainfall observations. Zero quarantined rows establish the implemented ledger, not meteorological quality or temporal completeness. The raw event-date audit identifies 63 days with no network observations, including 4-31 August 2018. Their physical cause cannot be inferred from these files."
+  },
+  {
+    "type": "table",
+    "headers": [
+      "Year",
+      "Raw rows",
+      "Retained",
+      "Future complete",
+      "History complete",
+      "Both complete"
+    ],
+    "rows": [
+      [
+        "2017",
+        "5,256,106",
+        "5,256,020",
+        "5,057,559",
+        "4,941,980",
+        "4,822,618"
+      ],
+      [
+        "2018",
+        "4,594,246",
+        "4,594,246",
+        "4,079,741",
+        "4,028,323",
+        "3,981,287"
+      ],
+      [
+        "2019",
+        "5,026,862",
+        "5,026,862",
+        "4,991,346",
+        "4,965,109",
+        "4,935,783"
+      ],
+      [
+        "2020",
+        "6,334,473",
+        "6,334,473",
+        "6,292,286",
+        "6,264,593",
+        "6,234,155"
+      ],
+      [
+        "2021",
+        "7,044,646",
+        "7,044,646",
+        "7,013,455",
+        "6,995,148",
+        "6,976,422"
+      ],
+      [
+        "2022",
+        "7,133,230",
+        "7,133,230",
+        "7,108,318",
+        "7,091,648",
+        "7,073,178"
+      ],
+      [
+        "2023",
+        "6,742,890",
+        "6,742,890",
+        "6,719,652",
+        "6,704,161",
+        "6,687,003"
+      ],
+      [
+        "2024",
+        "6,406,260",
+        "6,406,260",
+        "6,374,476",
+        "6,356,871",
+        "6,338,426"
+      ]
+    ]
+  },
+  {
+    "type": "paragraph",
+    "text": "Table 1. Annual cleaning and window counts. Retained rows sum to 48,538,627. All anchors are preserved in the targets table, including invalid-window anchors; window exclusion is a downstream supervision rule, not cleaning deletion."
+  },
+  {
+    "type": "pagebreak"
+  },
+  {
+    "type": "heading",
+    "text": "3. Time contract, truth and missingness"
+  },
+  {
+    "type": "paragraph",
+    "text": "Let R(t) denote rainfall in the five-minute interval (t-5 min, t], with t the aligned endpoint. This interval meaning and the availability of R(t) at t are explicit project assumptions; they are not independently established official semantics or verified real-time publication behaviour. Calendar summaries use rain_period_start_ts = t-300 s, so a midnight-ending interval belongs to the preceding date."
+  },
+  {
+    "type": "paragraph",
+    "text": "The future truth is S(t) = R(t+300) + R(t+600) + ... + R(t+1800), covering (t,t+30 min] and excluding R(t). All six exact endpoints must exist. The most recent hour uses the 12 exact endpoints t-3300,...,t, covering (t-60 min,t]. Adjacent-year context is loaded before anchor selection. Row offsets cannot replace exact timestamps when records are missing."
+  },
+  {
+    "type": "table",
+    "headers": [
+      "Component",
+      "Exact endpoint offsets from t",
+      "Policy"
+    ],
+    "rows": [
+      [
+        "History",
+        "-3300,-3000,...,-300,0 seconds",
+        "All 12 positions required"
+      ],
+      [
+        "Future",
+        "300,600,900,1200,1500,1800 seconds",
+        "All 6 positions required"
+      ],
+      [
+        "Label",
+        "S(t) > input threshold (mm)",
+        "Equality is negative; unknown is not negative"
+      ]
+    ]
+  },
+  {
+    "type": "paragraph",
+    "text": "Future totals and threshold comparisons use Decimal(38,18). Source precision required at most five effective decimal places; storage scale does not imply measurement precision. There are 47,636,833 complete future windows and 901,794 unknown future totals; 47,347,833 complete histories and 1,190,794 incomplete histories. Both are complete at 47,048,872 anchors. These exclusions overlap and must not be added as disjoint losses."
+  },
+  {
+    "type": "paragraph",
+    "text": "Training/validation/test role fields purge the actual temporal boundary, including label endpoints equal to the next block's start. Internal year boundaries within the training block may be used when context is complete. Inference checks only station support and past-history completeness; future truth, model_anchor_eligible and role never determine whether a real-time request is accepted."
+  },
+  {
+    "type": "pagebreak"
+  },
+  {
+    "type": "heading",
+    "text": "4. Task 1: coverage determines valid comparisons"
+  },
+  {
+    "type": "paragraph",
+    "text": "Station-month observed rainfall sums and wet-slot fractions are computed by Spark and checked against A's interval-calendar coverage reference for 6,528 station-month entries. A month qualifies at >=90% observed calendar slots; >=95% is a prespecified sensitivity rule. Within-year descriptive summaries weight qualified stations equally, then available year-months equally where appropriate. Sums are not scaled to fill missing rainfall."
+  },
+  {
+    "type": "figure",
+    "path": "assets/task1_01_coverage_and_panel.png",
+    "caption": "Figure 1. Qualified station counts and fixed eight-year same-month panels.",
+    "height": 340
+  },
+  {
+    "type": "pagebreak"
+  },
+  {
+    "type": "heading",
+    "text": "4.1 Annual summaries and the limits of coverage"
+  },
+  {
+    "type": "table",
+    "headers": [
+      "Year",
+      "Annual >=90% stations",
+      "Observed mean (mm)",
+      "Every month >=90% stations"
+    ],
+    "rows": [
+      [
+        "2017",
+        "40",
+        "2364.9",
+        "9"
+      ],
+      [
+        "2018",
+        "0",
+        "NA",
+        "0"
+      ],
+      [
+        "2019",
+        "41",
+        "1667.9",
+        "0"
+      ],
+      [
+        "2020",
+        "42",
+        "2572.0",
+        "0"
+      ],
+      [
+        "2021",
+        "66",
+        "2818.1",
+        "0"
+      ],
+      [
+        "2022",
+        "66",
+        "2898.9",
+        "54"
+      ],
+      [
+        "2023",
+        "59",
+        "2745.9",
+        "0"
+      ],
+      [
+        "2024",
+        "56",
+        "2658.1",
+        "29"
+      ]
+    ]
+  },
+  {
+    "type": "figure",
+    "path": "assets/task1_06_annual_descriptive_summary.png",
+    "caption": "Figure 2. Annual descriptions at 90%/95% annual coverage and the stricter every-month rule.",
+    "height": 245
+  },
+  {
+    "type": "paragraph",
+    "text": "2018 has no station meeting 90% annual coverage and is kept as NA. The eight-year fixed annual station intersection is empty. Descriptive means range from approximately 1,667.9 mm in 2019 to 2,898.9 mm in 2022 among each year's qualifying stations, but these are observed totals from changing station sets. They are not comparable estimates of national annual totals, nor evidence of a long-term climate trend. Requiring every month to pass coverage eliminates the entire annual panel in several years, demonstrating why an annual average coverage rule can hide concentrated missingness."
+  },
+  {
+    "type": "pagebreak"
+  },
+  {
+    "type": "heading",
+    "text": "4.2 Within-year seasonality: frequency differs from intensity"
+  },
+  {
+    "type": "figure",
+    "path": "assets/task1_02_descriptive_monthly_rainfall.png",
+    "caption": "Figure 3. Descriptive station-mean monthly observed rainfall; NA means unsupported coverage.",
+    "height": 240
+  },
+  {
+    "type": "paragraph",
+    "text": "The largest descriptive year-month cell is October 2022: 419.1 mm across 66 qualifying stations. The smallest is February 2021: 32.0 mm across 68 stations. Month lengths, actual weather, coverage and station composition all contribute to these differences; they are not fixed-network cross-year rankings."
+  },
+  {
+    "type": "figure",
+    "path": "assets/task1_07_frequency_and_intensity.png",
+    "caption": "Figure 4. Observed wet-slot frequency and conditional nonzero rainfall intensity.",
+    "height": 240
+  },
+  {
+    "type": "paragraph",
+    "text": "At the 90% rule, November has the highest descriptive wet-slot fraction (4.30%), while March has the highest mean station-month nonzero five-minute P90 (2.84 mm). Thus rain occurrence and conditional intensity need not peak in the same month. Spark percentile_approx uses accuracy=1000; station-month nonzero quantiles are averaged across qualified stations and available years. They are not quantiles of all pooled national observations. All-dry groups have wet frequency zero but unknown conditional intensity, not a zero-filled intensity."
+  },
+  {
+    "type": "pagebreak"
+  },
+  {
+    "type": "heading",
+    "text": "4.3 Interannual comparisons on fixed same-month stations"
+  },
+  {
+    "type": "figure",
+    "path": "assets/task1_03_strict_interannual_comparison.png",
+    "caption": "Figure 5. Fixed eight-year same-month panels; 90% versus 95% coverage.",
+    "height": 245
+  },
+  {
+    "type": "table",
+    "headers": [
+      "Month",
+      "Stations 90%/95%",
+      "Lowest year",
+      "Highest year",
+      "Max |90%-95% mean| across years (mm)"
+    ],
+    "rows": [
+      [
+        "5",
+        "11/9",
+        "2023/2023",
+        "2024/2024",
+        "9.92"
+      ],
+      [
+        "9",
+        "20/17",
+        "2019/2019",
+        "2020/2020",
+        "4.90"
+      ],
+      [
+        "10",
+        "21/18",
+        "2023/2023",
+        "2022/2022",
+        "5.32"
+      ],
+      [
+        "12",
+        "18/15",
+        "2021/2021",
+        "2023/2023",
+        "8.00"
+      ]
+    ]
+  },
+  {
+    "type": "paragraph",
+    "text": "Sensitivity difference for month m is max over years y of |mean_90%(y,m) - mean_95%(y,m)|. It is not the difference between the wettest and driest years."
+  },
+  {
+    "type": "paragraph",
+    "text": "Only May, September, October and December have supported eight-year panels. The lowest/highest years agree at both coverage cutoffs for each supported month. For October's 21-station 90% panel, the 2022 mean is 399.8 mm and the 2023 mean is 113.0 mm. May peaks in 2024, September in 2020, October in 2022 and December in 2023; no single year is wettest everywhere. Adding these four months would not create an annual comparison. The 95% cutoff changes composition and means, so stable extrema are sensitivity evidence rather than a significance test."
+  },
+  {
+    "type": "paragraph",
+    "text": "Across 12 descriptive months, changing the rule to 95% leaves the peak occurrence month November and peak P90 month March unchanged; the maximum difference in mean wet-slot fraction is 0.0528 percentage points. This quantifies stability of the descriptive definition, not independence or causality."
+  },
+  {
+    "type": "pagebreak"
+  },
+  {
+    "type": "heading",
+    "text": "4.4 Diurnal patterns and station heterogeneity"
+  },
+  {
+    "type": "figure",
+    "path": "assets/task1_04_hourly_rain_occurrence.png",
+    "caption": "Figure 6. Singapore-time wet-slot occurrence by month/hour and daily profile.",
+    "height": 225
+  },
+  {
+    "type": "paragraph",
+    "text": "The hourly panel requires every hour of a station-month to meet 90% coverage, ensuring the same station composition throughout its daily curve. Station means are then averaged across 82 supported year-months. Wet-slot occurrence peaks at 16:00 (5.78%) and is lowest at 23:00 (1.11%). This is the frequency of observed five-minute rain slots, not a forecast probability of exceeding a future 30-minute threshold or evidence of a physical mechanism."
+  },
+  {
+    "type": "figure",
+    "path": "assets/task1_05_station_comparison.png",
+    "caption": "Figure 7. Station contrasts in October, the largest supported fixed same-month panel.",
+    "height": 210
+  },
+  {
+    "type": "paragraph",
+    "text": "October is selected by the largest 90% eight-year panel (21 stations), breaking ties toward the earliest month. S89 averages about 270.3 mm and S107 about 125.2 mm. This is an October contrast, not an annual station ranking or a location-adjusted causal result. The interval-start calendar has 64 entirely missing network dates versus 63 in the event-date audit; the additional 2018-02-17 reflects calendar definition. Missing dates are not dry dates."
+  },
+  {
+    "type": "pagebreak"
+  },
+  {
+    "type": "heading",
+    "text": "4.5 Adjacent-year comparisons and spatial context"
+  },
+  {
+    "type": "figure",
+    "path": "assets/task1_09_adjacent_year_comparison.png",
+    "caption": "Figure 8. Later minus earlier observed monthly rainfall on the same stations within each adjacent-year/month cell; labels show station counts.",
+    "height": 210
+  },
+  {
+    "type": "paragraph",
+    "text": "All seven adjacent-year pairs and 12 months were fixed in advance. Both years use the identical equal-weight station set meeting 90% monthly coverage. Of 84 cells, 63 are supported, including 35 outside the four-month eight-year panel. The largest increase is October 2021 to 2022: +255.27 mm across 63 stations; the largest decrease is October 2022 to 2023: -301.58 mm across 59 stations. These extrema are descriptive, without significance or multiple-comparison testing. Changing local panels cannot be chained into a national trend or annual total; February also differs in length across leap years."
+  },
+  {
+    "type": "figure",
+    "path": "assets/task1_08_station_map.png",
+    "caption": "Figure 9. Locations of the same 21-station October panel; colour shows mean observed October rainfall.",
+    "height": 210
+  },
+  {
+    "type": "paragraph",
+    "text": "Coordinates use the latest recorded metadata. S113 has two recorded positions approximately 39 metres apart; the cause is unknown. Fixed station IDs do not prove stable instruments or measurement conditions. The map provides context without spatial interpolation or location-adjusted causal interpretation."
+  },
+  {
+    "type": "paragraph",
+    "text": "The November occurrence peak and afternoon maximum are compatible with the seasonal and diurnal background described by Meteorological Service Singapore, Climate of Singapore (https://www.weather.gov.sg/climate-climate-of-singapore/; B source accessed 13 October 2026). This is contextual interpretation, not storm classification or physical attribution. Five-minute wet-slot frequency is not the official rain-day measure, and the differing periods, stations and coverage rules prevent direct numeric comparisons."
+  },
+  {
+    "type": "pagebreak"
+  },
+  {
+    "type": "heading",
+    "text": "5. Task 2: current model and past-only features"
+  },
+  {
+    "type": "paragraph",
+    "text": "B preserves 48,538,627 anchors and publishes 26 numeric features; 47,347,833 (97.547%) have complete 60-minute history. The current selected model uses 22 recent-amount and wetness/persistence features. The four cyclic calendar columns and training-only station coding were tested in controlled ablations but did not improve mean Brier. Station chooses its historical series and prediction time chooses the exact anchor; neither must be a split feature to be a required API input."
+  },
+  {
+    "type": "paragraph",
+    "text": "Recent features cover current rainfall, exact lags, 15/30/60-minute sums, preceding-window changes, maximum, population standard deviation and wet counts. Persistence adds wet indicators, trailing wet run with left-censor flag and capped recency with no-observed-rain flag. Complete dry windows use defined zeros; missing slots remain null. Feature definitions are in B_delivery/docs/FEATURE_DEFINITIONS.md. No future rainfall, target validity, role or eligibility enters inference features. Threshold is queried against the fitted distribution, not included in the current tree vector."
+  },
+  {
+    "type": "paragraph",
+    "text": "The selected conditional-distribution model is evaluated on development folds. The historical classifier and its known 2024 test are retained as separate evidence."
+  },
+  {
+    "type": "heading",
+    "text": "Findings"
+  },
+  {
+    "type": "paragraph",
+    "text": "Selected continuous candidate: cdf_persistence_d8, development equal-threshold/year Brier 0.016812. Strong persistence baseline: 0.017939; climate baseline: 0.028989; global frequency: 0.029194; historical tree: 0.017585. Relative Brier reduction is 6.28% versus persistence and 42.41% versus frequency. These are probability-error reductions relative to named baselines, not accuracy improvements or superiority on every metric."
+  },
+  {
+    "type": "pagebreak"
+  },
+  {
+    "type": "heading",
+    "text": "Data, selection and test policy"
+  },
+  {
+    "type": "paragraph",
+    "text": "Reuse exactly the original 10% fixed-hash training/full eligible validation anchors for each E2 fold. No new 2024 labels or scores are used. Original post-filter join and sample signatures are recorded; all candidates share keys. Selection uses five original cuts and equal year weights; only continuous-CDF candidates are deployment-eligible. Discrete tree/RF results are openly reported diagnostics. Held-out cuts 0.25/0.75/1.5/3 are not used to fit or select. A new 2017–2023 refit is saved after lock, but its evidence is development validation; there is no claim of a new untouched final test."
+  },
+  {
+    "type": "table",
+    "headers": [
+      "Candidate",
+      "2021",
+      "2022",
+      "2023",
+      "Mean Brier",
+      "Continuous eligible"
+    ],
+    "rows": [
+      [
+        "frequency_cdf",
+        "0.028542",
+        "0.029113",
+        "0.029928",
+        "0.029194",
+        "True"
+      ],
+      [
+        "climatology_cdf",
+        "0.028416",
+        "0.028968",
+        "0.029584",
+        "0.028989",
+        "True"
+      ],
+      [
+        "persistence_cdf",
+        "0.017216",
+        "0.018134",
+        "0.018467",
+        "0.017939",
+        "True"
+      ],
+      [
+        "cdf_recent_d8",
+        "0.016166",
+        "0.017101",
+        "0.017271",
+        "0.016846",
+        "True"
+      ],
+      [
+        "cdf_persistence_d8",
+        "0.016121",
+        "0.017084",
+        "0.017232",
+        "0.016812",
+        "True"
+      ],
+      [
+        "cdf_calendar_d8",
+        "0.016202",
+        "0.017073",
+        "0.017251",
+        "0.016842",
+        "True"
+      ],
+      [
+        "cdf_full_d5",
+        "0.016259",
+        "0.017175",
+        "0.017448",
+        "0.016961",
+        "True"
+      ],
+      [
+        "cdf_full_d8",
+        "0.016202",
+        "0.017073",
+        "0.017251",
+        "0.016842",
+        "True"
+      ],
+      [
+        "threshold_tree_d8",
+        "0.016579",
+        "0.017585",
+        "0.017895",
+        "0.017353",
+        "False"
+      ],
+      [
+        "random_forest_small",
+        "0.018098",
+        "0.019147",
+        "0.019618",
+        "0.018954",
+        "False"
+      ]
+    ]
+  },
+  {
+    "type": "figure",
+    "path": "assets/revision_01_revision_brier.png",
+    "caption": "Development comparison",
+    "height": 245
+  },
+  {
+    "type": "pagebreak"
+  },
+  {
+    "type": "heading",
+    "text": "Development ranking and probability-loss diagnostics"
+  },
+  {
+    "type": "table",
+    "headers": [
+      "Candidate",
+      "Mean Brier",
+      "Mean log loss",
+      "Mean PR-AUC",
+      "Mean ROC-AUC"
+    ],
+    "rows": [
+      [
+        "frequency_cdf",
+        "0.029194",
+        "0.130588",
+        "0.030478",
+        "0.500000"
+      ],
+      [
+        "climatology_cdf",
+        "0.028989",
+        "0.128169",
+        "0.049425",
+        "0.610753"
+      ],
+      [
+        "persistence_cdf",
+        "0.017939",
+        "0.079660",
+        "0.544264",
+        "0.816221"
+      ],
+      [
+        "cdf_recent_d8",
+        "0.016846",
+        "0.074189",
+        "0.574488",
+        "0.846418"
+      ],
+      [
+        "cdf_persistence_d8",
+        "0.016812",
+        "0.074096",
+        "0.575936",
+        "0.846505"
+      ],
+      [
+        "cdf_calendar_d8",
+        "0.016842",
+        "0.072624",
+        "0.562884",
+        "0.894917"
+      ],
+      [
+        "cdf_full_d5",
+        "0.016961",
+        "0.073453",
+        "0.558996",
+        "0.885623"
+      ],
+      [
+        "cdf_full_d8",
+        "0.016842",
+        "0.072624",
+        "0.562883",
+        "0.894933"
+      ],
+      [
+        "threshold_tree_d8",
+        "0.017353",
+        "0.080014",
+        "0.559288",
+        "0.828428"
+      ],
+      [
+        "random_forest_small",
+        "0.018954",
+        "0.082222",
+        "0.556613",
+        "0.839224"
+      ]
+    ]
+  },
+  {
+    "type": "paragraph",
+    "text": "Additional ranking/log-loss metrics are diagnostics, not replacement selection criteria. A lower Brier does not imply superiority for every cut/year/ranking measure. Complete per-cut/year metrics are retained."
+  },
+  {
+    "type": "pagebreak"
+  },
+  {
+    "type": "heading",
+    "text": "Arbitrary threshold design"
+  },
+  {
+    "type": "paragraph",
+    "text": "Training-only conditional empirical distributions provide P(S>h)=1-F(h) for finite nonnegative Decimal(38,18) thresholds. Right-sided CDF lookup makes equality negative. For tree candidates Spark DecisionTreeRegressor fits log1p future amount using past features, then exact training amounts form leaf CDFs. Fixed prior weights are 50 anchors for leaves and 200 for baseline groups. No validation outcomes are written back into predictions. This naturally gives threshold-specific probabilities and nonincreasing stepwise survival curves without post-hoc isotonic correction; arbitrary input is not a claim of a smooth curve. Nine checked cuts lie in 0..5 mm; arbitrary input acceptance and monotonicity do not prove every threshold or extreme-tail reliability. Beyond maximum training amount, empirical probability is zero with no proven tail guarantee."
+  },
+  {
+    "type": "table",
+    "headers": [
+      "Untrained/selection-excluded cut (mm)",
+      "Mean Brier",
+      "Mean PR-AUC",
+      "Mean log loss"
+    ],
+    "rows": [
+      [
+        "0.25",
+        "0.022548",
+        "0.679550",
+        "0.097408"
+      ],
+      [
+        "0.75",
+        "0.017303",
+        "0.627999",
+        "0.077030"
+      ],
+      [
+        "1.5",
+        "0.012823",
+        "0.555037",
+        "0.059076"
+      ],
+      [
+        "3",
+        "0.008773",
+        "0.474793",
+        "0.042362"
+      ]
+    ]
+  },
+  {
+    "type": "pagebreak"
+  },
+  {
+    "type": "heading",
+    "text": "Controlled feature contribution experiment"
+  },
+  {
+    "type": "paragraph",
+    "text": "All depth-8 CDF ablations hold rows, seed, min leaf size, bins, prior and shared feature ordering fixed. The threshold is a CDF query, not a tree input. Sequential differences test recent amount -> persistence -> periodic time -> station. Negative Brier delta means adding that group helps under this design; positive means it does not. These are model/data-conditional associations, not causal attribution. Impurity weights are separately saved but are not used as contribution evidence."
+  },
+  {
+    "type": "table",
+    "headers": [
+      "Feature group",
+      "Mean Brier",
+      "Delta from previous",
+      "Relative reduction"
+    ],
+    "rows": [
+      [
+        "Recent amount features only (14)",
+        "0.016846",
+        "NA",
+        "NA"
+      ],
+      [
+        "Add wetness/persistence (22)",
+        "0.016812",
+        "-0.000034",
+        "0.001990"
+      ],
+      [
+        "Add cyclic time (26)",
+        "0.016842",
+        "0.000030",
+        "-0.001775"
+      ],
+      [
+        "Add training-only station coding (26 + station)",
+        "0.016842",
+        "0.000000",
+        "-0.000001"
+      ]
+    ]
+  },
+  {
+    "type": "pagebreak"
+  },
+  {
+    "type": "heading",
+    "text": "Calibration and low-risk discrimination"
+  },
+  {
+    "type": "figure",
+    "path": "assets/revision_02_low_probability_reliability.png",
+    "caption": "Low-probability development reliability",
+    "height": 245
+  },
+  {
+    "type": "paragraph",
+    "text": "The 2023 plot zooms to 0..5% and point size shows support. Complete bin counts are in each fold calibration CSV; fixed-bin ECE and low-region rates are in selected_calibration_summary.csv. The appendix gives the exact n for every point shown in the 2023 low-probability plot. Low-region membership depends on each model prediction, so its support can differ; it is not a common held-fixed subgroup comparison. Dry/wet history group tables provide that common covariate-defined comparison. No held-out calibrator is fitted."
+  },
+  {
+    "type": "table",
+    "headers": [
+      "Cut/mm",
+      "Original ECE",
+      "Selected ECE",
+      "Selected low mean p",
+      "Selected low observed rate"
+    ],
+    "rows": [
+      [
+        "0",
+        "0.016184",
+        "0.003363",
+        "0.020037",
+        "0.020952"
+      ],
+      [
+        "0.5",
+        "0.004827",
+        "0.002311",
+        "0.010158",
+        "0.010823"
+      ],
+      [
+        "1",
+        "0.003437",
+        "0.002333",
+        "0.007631",
+        "0.008323"
+      ],
+      [
+        "2",
+        "0.005694",
+        "0.001619",
+        "0.005965",
+        "0.006479"
+      ],
+      [
+        "5",
+        "0.009469",
+        "0.000852",
+        "0.003248",
+        "0.003580"
+      ]
+    ]
+  },
+  {
+    "type": "pagebreak"
+  },
+  {
+    "type": "heading",
+    "text": "Group performance and coverage"
+  },
+  {
+    "type": "figure",
+    "path": "assets/revision_04_sample_flow.png",
+    "caption": "Observed-anchor sample flow",
+    "height": 245
+  },
+  {
+    "type": "figure",
+    "path": "assets/revision_03_group_brier.png",
+    "caption": "Group Brier",
+    "height": 245
+  },
+  {
+    "type": "paragraph",
+    "text": "Groups are 12 months, five stations chosen from first-fold training counts, and complete-history all-dry/any-wet states. Exact per-year/cut rows include n, positives, Brier, mean p, fixed-bin ECE, approximate PR/ROC-AUC, eligible count and observed denominator. Group AUC uses 1,000 equal-probability histogram bins and is explicitly approximate; overall AUC uses Spark MLlib numBins=1000. No subgroup is chosen using test outcomes. Coverage is of observed anchors, not the ideal station calendar; unknown history is retained in the coverage ledger but is unscored."
+  },
+  {
+    "type": "pagebreak"
+  },
+  {
+    "type": "heading",
+    "text": "Complete group summary"
+  },
+  {
+    "type": "table",
+    "headers": [
+      "Group",
+      "Equal-cut/year Brier",
+      "Approximate PR-AUC",
+      "Mean observed coverage"
+    ],
+    "rows": [
+      [
+        "history:dry",
+        "0.009236",
+        "0.504682",
+        "0.997436"
+      ],
+      [
+        "history:wet",
+        "0.096012",
+        "0.743264",
+        "0.996209"
+      ],
+      [
+        "month:1",
+        "0.022048",
+        "0.587031",
+        "0.986302"
+      ],
+      [
+        "month:10",
+        "0.015081",
+        "0.535226",
+        "0.991655"
+      ],
+      [
+        "month:11",
+        "0.020855",
+        "0.583308",
+        "0.991760"
+      ],
+      [
+        "month:12",
+        "0.021248",
+        "0.537261",
+        "0.988788"
+      ],
+      [
+        "month:2",
+        "0.015334",
+        "0.496253",
+        "0.988228"
+      ],
+      [
+        "month:3",
+        "0.017706",
+        "0.598740",
+        "0.991018"
+      ],
+      [
+        "month:4",
+        "0.016954",
+        "0.547442",
+        "0.992813"
+      ],
+      [
+        "month:5",
+        "0.012893",
+        "0.534878",
+        "0.992972"
+      ],
+      [
+        "month:6",
+        "0.016508",
+        "0.520768",
+        "0.994474"
+      ],
+      [
+        "month:7",
+        "0.013478",
+        "0.545833",
+        "0.991547"
+      ],
+      [
+        "month:8",
+        "0.017239",
+        "0.556444",
+        "0.991386"
+      ],
+      [
+        "month:9",
+        "0.013901",
+        "0.616816",
+        "0.992004"
+      ],
+      [
+        "station:S113",
+        "0.015187",
+        "0.547103",
+        "0.995828"
+      ],
+      [
+        "station:S120",
+        "0.017769",
+        "0.580334",
+        "0.995401"
+      ],
+      [
+        "station:S77",
+        "0.016764",
+        "0.573382",
+        "0.972816"
+      ],
+      [
+        "station:S88",
+        "0.017748",
+        "0.566842",
+        "0.990772"
+      ],
+      [
+        "station:S94",
+        "0.016102",
+        "0.560061",
+        "0.995448"
+      ]
+    ]
+  },
+  {
+    "type": "pagebreak"
+  },
+  {
+    "type": "heading",
+    "text": "Reproduction and immutable evidence"
+  },
+  {
+    "type": "paragraph",
+    "text": "Fresh-process model reload reconstructs 100 anchors from only past observations and compares 1,000 probabilities at ten cuts, including 3.14159 mm. Maximum error: 0.000000. Invalid station/time/history/threshold handling and monotonic examples pass. The model, report, ZIP, requirements lock and metadata stay inside this run. Finalization reads the executing Python environment via importlib.metadata, without private uv or OS-specific virtual-environment paths. All original source-run file hashes, including 2024 scores/model, pass preservation checks. Current evidence navigation identifies successful receipts without deleting historical failures."
+  },
+  {
+    "type": "heading",
+    "text": "Computing environment and timing"
+  },
+  {
+    "type": "paragraph",
+    "text": "Python 3.11.17, Spark 3.5.7, Java 17.0.20.1; macOS-14.1-arm64-arm-64bit; 14 logical CPUs. Each process: local[2], 6g heap, 128 shuffle partitions, 32 MiB reads. At most two fold processes overlapped. Peaks were not measured; timings are not benchmarks. Candidate timing includes fit/CDF estimation, saves, scoring and metrics; excludes shared hashes/startup, reports and packaging. Training timing includes preprocessing. Exact fold JSON and candidate_timing_summary.csv define the measured scopes."
+  },
+  {
+    "type": "heading",
+    "text": "Remaining limitations and AI use"
+  },
+  {
+    "type": "paragraph",
+    "text": "Development results motivated by review are now known and should not be relabelled untouched. Fixed train sampling and small candidate set limit conclusions. Overlapping windows/weather across stations are correlated; no independent-row bootstrap or significance claims are used. Observed gaps, composition changes and training leaf support affect performance. Event-time availability and official interval meaning remain assumptions; live deployment latency is unverified. OpenAI Codex assisted implementation, execution, tests, figures and drafting. All scores come from actual saved Spark outputs; member review is still required."
+  },
+  {
+    "type": "paragraph",
+    "text": "Official model references: [Spark DecisionTreeRegressor](https://spark.apache.org/docs/3.5.7/api/python/reference/api/pyspark.ml.regression.DecisionTreeRegressor.html) and [Spark RandomForestClassifier](https://spark.apache.org/docs/3.5.7/api/python/reference/api/pyspark.ml.classification.RandomForestClassifier.html)."
+  },
+  {
+    "type": "pagebreak"
+  },
+  {
+    "type": "heading",
+    "text": "Historical benchmark: original 2024 test"
+  },
+  {
+    "type": "paragraph",
+    "text": "The original depth-5 threshold classifier, selected before its 2024 test, achieved mean Brier 0.01773592 against frequency 0.02888294, a 38.59% reduction on 6,338,426 eligible anchors per cut. Its development mean was 0.01758544. These are preserved historical classifier results and do not evaluate the current conditional-CDF model. The selected model used development folds only and refit through 2023; 2024 has not been rescored or used to select the new model. An independent later test would be needed to establish its final generalization performance."
+  },
+  {
+    "type": "heading",
+    "text": "Computing environments across A/B/C"
+  },
+  {
+    "type": "paragraph",
+    "text": "A full raw processing was recorded on Windows with Intel i7-12700H; current Mac sample replay verifies a narrower scope and is not a new full raw run. The B rerun records Apple M5, 24 GB memory, 10 logical CPUs, macOS 26.6.2, local[2], 4g heap and 128 shuffle partitions. The C modelling run records Python 3.11.17, Spark 3.5.7, Java 17.0.20.1, macOS 14.1 arm64, 14 logical CPUs, local[2], 6g and 128 shuffle partitions. These are separate saved execution records; no common-machine speed comparison or measured peak-memory claim is made."
+  },
+  {
+    "type": "heading",
+    "text": "Conclusions and submission"
+  },
+  {
+    "type": "paragraph",
+    "text": "Coverage-aware Task 1 supports seasonal occurrence/intensity differences, four fixed eight-year same-month comparisons and additional local adjacent-year contrasts. It does not establish national annual trends. Task 2 selects a continuous-threshold conditional distribution with development mean Brier 0.01681224, 6.28% lower than the stronger persistence baseline. Persistence features give a small model-conditional gain; calendar/station additions do not. Month and history-state diagnostics show heterogeneous error, and overlapping windows are correlated. Arbitrary input support does not establish every-threshold or live-deployment reliability."
+  },
+  {
+    "type": "paragraph",
+    "text": "intro.txt requires complete source with run README, a trained model and a PDF naming all members by 18 October 2026. These materials are prepared; Canvas upload is not performed. Remaining improvement ownership is documented separately in remaining_improvement_ownership.md."
+  },
+  {
+    "type": "pagebreak"
+  },
+  {
+    "type": "heading",
+    "text": "AI usage declaration"
+  },
+  {
+    "type": "paragraph",
+    "text": "OpenAI Codex was used throughout this project as an AI-assisted coding and documentation tool. Assistance included planning and implementing Spark data audits, cleaning and exact-time target construction; coverage-aware rainfall analysis and visualization; historical feature engineering; Spark MLlib model and conditional-distribution implementation; baseline, feature-ablation, temporal-validation, calibration and subgroup experiments; debugging, integrity and model-reload checks; and drafting, editing, translating and integrating the report, README and submission materials."
+  },
+  {
+    "type": "paragraph",
+    "text": "Reported data counts, rainfall summaries and model scores are derived from executed Spark pipelines and saved experiment outputs. They are not invented by the AI. Synthetic edge-case tests and small reproduction fixtures are identified separately from full-data results. Automated checks establish only their recorded scope; they do not constitute independent human review of every source line, a full fresh-machine reproduction, Windows execution or verified live deployment. The selected model is supported by development validation; the historical 2024 result belongs to the historical classifier and was not used to claim a new untouched test."
+  },
+  {
+    "type": "paragraph",
+    "text": "The group retains responsibility for understanding the methods, checking assumptions and results, reviewing the final code and report, and making the submission. This declaration records the AI use established in the project work. Each member should add any other AI tools or uses they actually employed before submission; no unconfirmed tool use or completed human review is asserted here."
+  },
+  {
+    "type": "heading",
+    "text": "Data and source references"
+  },
+  {
+    "type": "paragraph",
+    "text": "NEA Historical Rainfall across Singapore: https://data.gov.sg/collections/2279/view. Spark 3.5.7 MLlib classification/regression and pipelines: https://spark.apache.org/docs/3.5.7/ml-classification-regression.html and https://spark.apache.org/docs/3.5.7/ml-pipeline.html. Evidence directories and identities are listed in integration_sources.json; CURRENT_EVIDENCE.md indexes model checks and the historical test. Signed provenance remains in submission/reproduction/frozen_release_metadata.zip."
+  },
+  {
+    "type": "pagebreak"
+  },
+  {
+    "type": "heading",
+    "text": "Appendix: selected continuous model, 2021"
+  },
+  {
+    "type": "table",
+    "headers": [
+      "Cut/mm",
+      "n",
+      "Event rate",
+      "Brier",
+      "Log loss",
+      "PR-AUC",
+      "ROC-AUC"
+    ],
+    "rows": [
+      [
+        "0.0",
+        "6976044",
+        "0.060931",
+        "0.030065",
+        "0.126697",
+        "0.708883",
+        "0.842429"
+      ],
+      [
+        "0.25",
+        "6976044",
+        "0.042799",
+        "0.021313",
+        "0.092896",
+        "0.691867",
+        "0.861718"
+      ],
+      [
+        "0.5",
+        "6976044",
+        "0.035763",
+        "0.018606",
+        "0.082267",
+        "0.664838",
+        "0.861190"
+      ],
+      [
+        "0.75",
+        "6976044",
+        "0.031126",
+        "0.016784",
+        "0.075100",
+        "0.641438",
+        "0.859054"
+      ],
+      [
+        "1.0",
+        "6976044",
+        "0.025885",
+        "0.014754",
+        "0.066834",
+        "0.607284",
+        "0.855207"
+      ],
+      [
+        "1.5",
+        "6976044",
+        "0.021097",
+        "0.012667",
+        "0.058338",
+        "0.569913",
+        "0.850451"
+      ],
+      [
+        "2.0",
+        "6976044",
+        "0.017239",
+        "0.010894",
+        "0.051177",
+        "0.533070",
+        "0.844222"
+      ],
+      [
+        "3.0",
+        "6976044",
+        "0.012973",
+        "0.008634",
+        "0.041846",
+        "0.487846",
+        "0.838366"
+      ],
+      [
+        "5.0",
+        "6976044",
+        "0.008877",
+        "0.006286",
+        "0.031184",
+        "0.431938",
+        "0.840369"
+      ]
+    ]
+  },
+  {
+    "type": "pagebreak"
+  },
+  {
+    "type": "heading",
+    "text": "Appendix: selected continuous model, 2022"
+  },
+  {
+    "type": "table",
+    "headers": [
+      "Cut/mm",
+      "n",
+      "Event rate",
+      "Brier",
+      "Log loss",
+      "PR-AUC",
+      "ROC-AUC"
+    ],
+    "rows": [
+      [
+        "0.0",
+        "7072758",
+        "0.064804",
+        "0.033501",
+        "0.139131",
+        "0.687444",
+        "0.831974"
+      ],
+      [
+        "0.25",
+        "7072758",
+        "0.044063",
+        "0.023178",
+        "0.100155",
+        "0.663440",
+        "0.850643"
+      ],
+      [
+        "0.5",
+        "7072758",
+        "0.035889",
+        "0.019627",
+        "0.086630",
+        "0.634773",
+        "0.849584"
+      ],
+      [
+        "0.75",
+        "7072758",
+        "0.030773",
+        "0.017331",
+        "0.077715",
+        "0.612955",
+        "0.847752"
+      ],
+      [
+        "1.0",
+        "7072758",
+        "0.025229",
+        "0.014914",
+        "0.068126",
+        "0.579162",
+        "0.842910"
+      ],
+      [
+        "1.5",
+        "7072758",
+        "0.020505",
+        "0.012662",
+        "0.059082",
+        "0.544686",
+        "0.837830"
+      ],
+      [
+        "2.0",
+        "7072758",
+        "0.016969",
+        "0.010851",
+        "0.051645",
+        "0.515843",
+        "0.834222"
+      ],
+      [
+        "3.0",
+        "7072758",
+        "0.013176",
+        "0.008830",
+        "0.042836",
+        "0.474682",
+        "0.832629"
+      ],
+      [
+        "5.0",
+        "7072758",
+        "0.009109",
+        "0.006524",
+        "0.031970",
+        "0.413762",
+        "0.838988"
+      ]
+    ]
+  },
+  {
+    "type": "pagebreak"
+  },
+  {
+    "type": "heading",
+    "text": "Appendix: selected continuous model, 2023"
+  },
+  {
+    "type": "table",
+    "headers": [
+      "Cut/mm",
+      "n",
+      "Event rate",
+      "Brier",
+      "Log loss",
+      "PR-AUC",
+      "ROC-AUC"
+    ],
+    "rows": [
+      [
+        "0.0",
+        "6686625",
+        "0.066713",
+        "0.033359",
+        "0.137338",
+        "0.706400",
+        "0.843920"
+      ],
+      [
+        "0.25",
+        "6686625",
+        "0.045559",
+        "0.023154",
+        "0.099173",
+        "0.683343",
+        "0.862185"
+      ],
+      [
+        "0.5",
+        "6686625",
+        "0.037479",
+        "0.019885",
+        "0.086546",
+        "0.655057",
+        "0.862460"
+      ],
+      [
+        "0.75",
+        "6686625",
+        "0.032254",
+        "0.017793",
+        "0.078275",
+        "0.629604",
+        "0.861374"
+      ],
+      [
+        "1.0",
+        "6686625",
+        "0.026297",
+        "0.015347",
+        "0.068634",
+        "0.591675",
+        "0.857637"
+      ],
+      [
+        "1.5",
+        "6686625",
+        "0.021309",
+        "0.013139",
+        "0.059809",
+        "0.550513",
+        "0.852940"
+      ],
+      [
+        "2.0",
+        "6686625",
+        "0.017291",
+        "0.011240",
+        "0.052198",
+        "0.509063",
+        "0.847619"
+      ],
+      [
+        "3.0",
+        "6686625",
+        "0.012949",
+        "0.008854",
+        "0.042404",
+        "0.461852",
+        "0.842480"
+      ],
+      [
+        "5.0",
+        "6686625",
+        "0.008702",
+        "0.006330",
+        "0.031068",
+        "0.399851",
+        "0.844842"
+      ]
+    ]
+  },
+  {
+    "type": "pagebreak"
+  },
+  {
+    "type": "heading",
+    "text": "Appendix: exact sample count for every plotted low-probability point (2023)"
+  },
+  {
+    "type": "table",
+    "headers": [
+      "Model",
+      "Cut/mm",
+      "Bin",
+      "n",
+      "Mean p",
+      "Observed rate"
+    ],
+    "rows": [
+      [
+        "Historical tree",
+        "0",
+        "3",
+        "6,273,227",
+        "0.010323",
+        "0.026913"
+      ],
+      [
+        "Selected model",
+        "0",
+        "4",
+        "6,080,591",
+        "0.020324",
+        "0.021151"
+      ],
+      [
+        "Historical tree",
+        "0.5",
+        "3",
+        "6,273,227",
+        "0.010323",
+        "0.011734"
+      ],
+      [
+        "Selected model",
+        "0.5",
+        "2",
+        "6,080,591",
+        "0.009796",
+        "0.010196"
+      ],
+      [
+        "Selected model",
+        "0.5",
+        "4",
+        "131,565",
+        "0.037973",
+        "0.046403"
+      ],
+      [
+        "Historical tree",
+        "1",
+        "3",
+        "6,273,227",
+        "0.010323",
+        "0.008240"
+      ],
+      [
+        "Selected model",
+        "1",
+        "2",
+        "6,083,547",
+        "0.007069",
+        "0.007347"
+      ],
+      [
+        "Selected model",
+        "1",
+        "3",
+        "78,833",
+        "0.017879",
+        "0.022998"
+      ],
+      [
+        "Selected model",
+        "1",
+        "4",
+        "141,115",
+        "0.031200",
+        "0.036290"
+      ],
+      [
+        "Historical tree",
+        "2",
+        "3",
+        "6,273,227",
+        "0.010323",
+        "0.005691"
+      ],
+      [
+        "Selected model",
+        "2",
+        "2",
+        "6,090,249",
+        "0.005025",
+        "0.005146"
+      ],
+      [
+        "Selected model",
+        "2",
+        "3",
+        "199,332",
+        "0.014067",
+        "0.017689"
+      ],
+      [
+        "Selected model",
+        "2",
+        "4",
+        "170,562",
+        "0.034507",
+        "0.042172"
+      ],
+      [
+        "Historical tree",
+        "5",
+        "3",
+        "6,273,227",
+        "0.010323",
+        "0.002857"
+      ],
+      [
+        "Selected model",
+        "5",
+        "1",
+        "6,140,717",
+        "0.002591",
+        "0.002648"
+      ],
+      [
+        "Selected model",
+        "5",
+        "2",
+        "180,870",
+        "0.006881",
+        "0.008094"
+      ],
+      [
+        "Selected model",
+        "5",
+        "3",
+        "128,921",
+        "0.014317",
+        "0.018872"
+      ],
+      [
+        "Selected model",
+        "5",
+        "4",
+        "97,200",
+        "0.030665",
+        "0.033158"
+      ]
+    ]
+  }
+]

@@ -1,0 +1,70 @@
+{
+  "status": "PREPARED_CURRENT_INTEGRATED_DELIVERY",
+  "files": [
+    {
+      "path": "Final_Report.pdf",
+      "bytes": 2312405,
+      "sha256": "c326f1b6f7ad02727a2b3884bf5c6d3df25fee6f15926520cf3fa4bdb1c3dc1b"
+    },
+    {
+      "path": "Final_Report_EN.md",
+      "bytes": 33198,
+      "sha256": "299f22a5f1b660890a4626b5f477dd8ff7bcdb6db9cacc5cd8ff5153b7023f12"
+    },
+    {
+      "path": "Final_Report_Summary_EN.md",
+      "bytes": 6932,
+      "sha256": "1f1ec26199f57107580f57b61ef3c93b51a48e72791b64bc6e63233f4248ce75"
+    },
+    {
+      "path": "README.md",
+      "bytes": 8464,
+      "sha256": "f1ca7cae89eebdcb37a02d67677edfec146ea0dca07143899aabc2eea17105b9"
+    },
+    {
+      "path": "members.json",
+      "bytes": 282,
+      "sha256": "d2b43b1ba36e6bd7baac3b7feafcee69132e7849d5d05c345c3fa4f78724a599"
+    },
+    {
+      "path": "Source_Code.zip",
+      "bytes": 18098130,
+      "sha256": "4b8aea699cbb5736c850e3f191653827329943057586c1a66c5a87939c2d4c26"
+    },
+    {
+      "path": "Trained_Model.zip",
+      "bytes": 154660,
+      "sha256": "5c721c8162cc34f0139b512a0b203976e745efe1cc96789033790ccc8320816a"
+    },
+    {
+      "path": "submission_status.json",
+      "bytes": 883,
+      "sha256": "8de3764ad6d44a2c0b6121f2bfcf68d03c4f582d71431bb7e8589909b501ef73"
+    },
+    {
+      "path": "integration_sources.json",
+      "bytes": 484,
+      "sha256": "3b2a6fee0d71ba8fff36aed6bbbb61de6aa02acdda20ec98a259f70aeee7c014"
+    },
+    {
+      "path": "intro_requirements_check.md",
+      "bytes": 2084,
+      "sha256": "1d3bbd8aed6556eee8bf34016cf0910f644257ac58ad56e7ec4c34c504f14569"
+    },
+    {
+      "path": "requirements_and_review_acceptance.md",
+      "bytes": 11111,
+      "sha256": "eeb1c04f3c186066e52875efef42a034aa03382d6f3a5d5b3cf4ad46d1b04317"
+    },
+    {
+      "path": "AI_USAGE_DECLARATION.md",
+      "bytes": 1646,
+      "sha256": "80591046e78645a01c36777803f39321b10da0b8d596010883b40f2dda26ac3d"
+    },
+    {
+      "path": "remaining_improvement_ownership.md",
+      "bytes": 3028,
+      "sha256": "bd2cf036b4f3cb17e6b8c1f8d97a8deb2e51ea51c83fcfa9ae538f61a092db88"
+    }
+  ]
+}

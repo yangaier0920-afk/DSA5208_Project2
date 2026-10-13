@@ -1,0 +1,82 @@
+{
+  "history:unknown": {
+    "observed": 38729,
+    "eligible": 0
+  },
+  "month:8": {
+    "observed": 577838,
+    "eligible": 575133
+  },
+  "history:wet": {
+    "observed": 608223,
+    "eligible": 606034
+  },
+  "station:S113": {
+    "observed": 101942,
+    "eligible": 101488
+  },
+  "month:11": {
+    "observed": 548438,
+    "eligible": 542202
+  },
+  "month:7": {
+    "observed": 580916,
+    "eligible": 575590
+  },
+  "station:S120": {
+    "observed": 101981,
+    "eligible": 101218
+  },
+  "station:S88": {
+    "observed": 100901,
+    "eligible": 99396
+  },
+  "history:dry": {
+    "observed": 6095938,
+    "eligible": 6080591
+  },
+  "month:4": {
+    "observed": 576841,
+    "eligible": 571297
+  },
+  "station:S77": {
+    "observed": 102010,
+    "eligible": 101692
+  },
+  "month:6": {
+    "observed": 575313,
+    "eligible": 573050
+  },
+  "month:3": {
+    "observed": 592235,
+    "eligible": 586659
+  },
+  "month:10": {
+    "observed": 566570,
+    "eligible": 561224
+  },
+  "station:S94": {
+    "observed": 102005,
+    "eligible": 101568
+  },
+  "month:12": {
+    "observed": 567756,
+    "eligible": 560396
+  },
+  "month:9": {
+    "observed": 564121,
+    "eligible": 562016
+  },
+  "month:1": {
+    "observed": 425022,
+    "eligible": 419930
+  },
+  "month:2": {
+    "observed": 565171,
+    "eligible": 560047
+  },
+  "month:5": {
+    "observed": 602669,
+    "eligible": 599081
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "source_path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/rebuilt_inputs_C_leaf_study_20261014/fold3/anchors",
+  "source_actual_join_audit_sha256": "4c2c1fe06045d84a7fe740da1a4e4444332664f68ae1164ed431531977566adf",
+  "train_anchors": 3401643,
+  "validation_anchors": 6686625,
+  "all_candidates_use_same_materialized_anchor_keys": true
+}

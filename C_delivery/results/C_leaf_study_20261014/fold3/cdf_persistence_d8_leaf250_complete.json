@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "training_seconds": 7.781951667042449,
+  "elapsed_seconds": 87.71787066711113,
+  "model": "cdf_persistence_d8_leaf250",
+  "year": 2023,
+  "train_anchors": 3401643,
+  "validation_anchors": 6686625,
+  "thresholds": [
+    0,
+    0.25,
+    0.5,
+    0.75,
+    1,
+    1.5,
+    2,
+    3,
+    5
+  ],
+  "source_2024_used": false,
+  "training_only_fit": true
+}

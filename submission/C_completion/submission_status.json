@@ -1,0 +1,32 @@
+{
+  "status": "PREPARED_CURRENT_INTEGRATED_DELIVERY",
+  "experiment_version": "C_leaf_study_20261014",
+  "selected_model": "cdf_persistence_d8_leaf1000",
+  "development_only_model_selection": true,
+  "C_required_nonoptional_model_changes": "COMPLETE",
+  "full_fresh_machine_AB_reproduction": "NOT_PERFORMED",
+  "Windows_execution": "NOT_PERFORMED",
+  "original_2024_test_retained_not_rescored": true,
+  "continuous_threshold_input": true,
+  "threshold_performance_scope": "Nine development cuts 0..5 mm; empirical far tail not validated",
+  "model_reload": "PASS",
+  "compact_evidence_validation": "PASS",
+  "original_preservation": "PASS",
+  "Canvas_upload": "NOT_PERFORMED",
+  "members": [
+    {
+      "name": "SHAO YUQING",
+      "student_id": "A0330603W"
+    },
+    {
+      "name": "YANG AIER",
+      "student_id": "A0354958J"
+    },
+    {
+      "name": "ZHU YIXU",
+      "student_id": "A0355117H"
+    }
+  ],
+  "language": "English integrated PDF and C revision sources; fetched B/history may be bilingual",
+  "source_payload_files": 1432
+}

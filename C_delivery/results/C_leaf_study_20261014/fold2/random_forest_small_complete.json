@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "training_seconds": 93.01775158313103,
+  "elapsed_seconds": 174.02475541713648,
+  "model": "random_forest_small",
+  "year": 2022,
+  "train_anchors": 2693419,
+  "validation_anchors": 7072758,
+  "thresholds": [
+    0,
+    0.5,
+    1,
+    2,
+    5
+  ],
+  "source_2024_used": false,
+  "training_only_fit": true,
+  "evidence_reused_from": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2",
+  "not_retrained_in_leaf_study": true
+}

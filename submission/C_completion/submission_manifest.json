@@ -1,0 +1,75 @@
+{
+  "status": "PREPARED_CURRENT_INTEGRATED_DELIVERY",
+  "files": [
+    {
+      "path": "Final_Report.pdf",
+      "bytes": 2326587,
+      "sha256": "ccf7e127eb66549543877f1bee9d03d6c7011e8fe3fd8f4ac76d32600d5e1a1b"
+    },
+    {
+      "path": "Final_Report_EN.md",
+      "bytes": 35467,
+      "sha256": "c6b4ac92a2e94ff8d37be09ad12c89aaa275f260540df483aaec9e2321e722e2"
+    },
+    {
+      "path": "Final_Report_Summary_EN.md",
+      "bytes": 7007,
+      "sha256": "f622542a2a7802a105732d0ac26566543665b420653d83193d50d5bc1c13baa2"
+    },
+    {
+      "path": "README.md",
+      "bytes": 9756,
+      "sha256": "70a63683d7fd63376a961bad4e9a3eb732e3630af8ecc9536f9ee7bdb1955eaf"
+    },
+    {
+      "path": "members.json",
+      "bytes": 282,
+      "sha256": "d2b43b1ba36e6bd7baac3b7feafcee69132e7849d5d05c345c3fa4f78724a599"
+    },
+    {
+      "path": "Source_Code.zip",
+      "bytes": 26989264,
+      "sha256": "7afbe5bb497385c6e7caaaa3cfb75e304a20b70e693d4981f83b18f45aee0b42"
+    },
+    {
+      "path": "Trained_Model.zip",
+      "bytes": 141001,
+      "sha256": "46a279532d13a129965eab92ac419db8ae67b9000e7d99ce645b85559e06fc5e"
+    },
+    {
+      "path": "submission_status.json",
+      "bytes": 1045,
+      "sha256": "1608817f4f92f89b5c34ca9832d2b659f692ea5c15a29aa61df8df3fb564fa61"
+    },
+    {
+      "path": "integration_sources.json",
+      "bytes": 486,
+      "sha256": "6217f04ee3db2ccecfa269dad2295a71ed50f11d36921579b91ca0f4c400895a"
+    },
+    {
+      "path": "intro_requirements_check.md",
+      "bytes": 2372,
+      "sha256": "11cde0d9729716371aa5723640dadb1c2f4044cfa3fee6b46b1ed681426427d1"
+    },
+    {
+      "path": "requirements_and_review_acceptance.md",
+      "bytes": 11838,
+      "sha256": "0c5dd8bcedc8593dd29a0004a35bc5fd2e50341a74b7f3656369ae5bb1217c78"
+    },
+    {
+      "path": "AI_USAGE_DECLARATION.md",
+      "bytes": 1646,
+      "sha256": "80591046e78645a01c36777803f39321b10da0b8d596010883b40f2dda26ac3d"
+    },
+    {
+      "path": "remaining_improvement_ownership.md",
+      "bytes": 3269,
+      "sha256": "7940327de106ea4aa7a9b6f0b43e62e1d45e0e9806d28616fa8b6e2d379658db"
+    },
+    {
+      "path": "C_REQUIRED_WORK_COMPLETION.md",
+      "bytes": 2870,
+      "sha256": "8ed73f34ac462615ed576a2b1fcfe1598f311c688d72d7d5d79081c9a521fe7d"
+    }
+  ]
+}

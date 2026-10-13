@@ -141,8 +141,9 @@ def run_fold(spark, targets, features, config, thresholds, role, eval_role, year
 def main():
     ap=argparse.ArgumentParser();ap.add_argument('--stage',choices=['pilot','develop','final'],required=True)
     ap.add_argument('--root',type=Path,required=True);ap.add_argument('--features',type=Path,required=True)
-    ap.add_argument('--output',type=Path,required=True);a=ap.parse_args()
-    config=load(CONFIG);out=a.output.resolve();out.mkdir(parents=True,exist_ok=True)
+    ap.add_argument('--output',type=Path,required=True);ap.add_argument('--config',type=Path,default=CONFIG);a=ap.parse_args()
+    config=load(a.config);out=a.output.resolve();out.mkdir(parents=True,exist_ok=True)
+    config['experiment_version']=out.name
     # Record fixed candidates and tie tolerance before any validation scores.
     frozen=out/'experiment_config.json'
     if frozen.exists():assert load(frozen)==config,'Experiment config changed; use a new run'
@@ -151,7 +152,7 @@ def main():
     for item in bmeta['outputs']:
         p=a.features/item['path'];assert p.is_file() and p.stat().st_size==item['bytes'] and sha256(p)==item['sha256'],str(p)
     dump(out/'input_integrity.json',{'A_release':integrity,'B_feature_metadata_sha256':sha256(a.features/'result_metadata.json'),
-        'B_feature_files_verified':len(bmeta['outputs']),'B_features':str(a.features.resolve()),'experiment_config_hash':sha256(CONFIG)})
+        'B_feature_files_verified':len(bmeta['outputs']),'B_features':str(a.features.resolve()),'experiment_config_hash':sha256(frozen)})
     spark=spark_start(config);begin=time.monotonic()
     try:
         from pyspark.sql import functions as F
@@ -194,11 +195,11 @@ def main():
             winner=next(name for name in config['simplicity_order'] if next(s['mean_brier'] for s in scores if s['model']==name)<=best+config['tie_absolute_tolerance'])
             # Persist selection and config hash BEFORE any 2024 scoring.
             dump(out/'selection.json',{'status':'LOCKED','selected_model':winner,'scores':scores,'thresholds':thresholds,
-                'experiment_config_hash':sha256(CONFIG),'selected_at_utc':datetime.now(timezone.utc).isoformat(),
+                'experiment_config_hash':sha256(frozen),'selected_at_utc':datetime.now(timezone.utc).isoformat(),
                 'test_labels_or_metrics_used':False,'selection_rule':config['selection'],'tie_absolute_tolerance':config['tie_absolute_tolerance']})
             log(f'LOCKED selection: {winner}; mean Brier '+str(next(s['mean_brier'] for s in scores if s['model']==winner)))
         else:
-            selection=load(out/'selection.json');assert selection['status']=='LOCKED' and selection['experiment_config_hash']==sha256(CONFIG)
+            selection=load(out/'selection.json');assert selection['status']=='LOCKED' and selection['experiment_config_hash']==sha256(frozen)
             assert not (out/'final/status.json').exists(),'Final test already completed; do not tune/retest'
             winner=selection['selected_model']
             metrics=run_fold(spark,targets,features,config,thresholds,'final_role','TEST',2024,

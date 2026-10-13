@@ -1,0 +1,66 @@
+{
+  "status": "PASS",
+  "counts_and_two_rolewise_row_hash_sums_match": true,
+  "all_key_target_feature_columns_included": true,
+  "signature_not_cryptographic_equality_proof": true,
+  "Parquet_bytes_expected_to_differ": true,
+  "final_comparison_TRAIN_only": true,
+  "2024_test_scored": false,
+  "folds": [
+    {
+      "fold": "fold1",
+      "role_signatures": {
+        "TRAIN": {
+          "n": 1995803,
+          "hash_sum_1": "-47070510148335766423",
+          "hash_sum_2": "-11311797270701649104430"
+        },
+        "VALIDATION": {
+          "n": 6976044,
+          "hash_sum_1": "-5380169785215473815369",
+          "hash_sum_2": "11106530140181550951974"
+        }
+      }
+    },
+    {
+      "fold": "fold2",
+      "role_signatures": {
+        "TRAIN": {
+          "n": 2693419,
+          "hash_sum_1": "-5013446048076438755325",
+          "hash_sum_2": "-10406702206033645791248"
+        },
+        "VALIDATION": {
+          "n": 7072758,
+          "hash_sum_1": "22660331443564146688342",
+          "hash_sum_2": "-16727202094963770959322"
+        }
+      }
+    },
+    {
+      "fold": "fold3",
+      "role_signatures": {
+        "TRAIN": {
+          "n": 3401643,
+          "hash_sum_1": "-2449689325353152036580",
+          "hash_sum_2": "-15654068199906161090499"
+        },
+        "VALIDATION": {
+          "n": 6686625,
+          "hash_sum_1": "3390666447020914678793",
+          "hash_sum_2": "-973460723055532180165"
+        }
+      }
+    },
+    {
+      "fold": "final",
+      "role_signatures": {
+        "TRAIN": {
+          "n": 4071679,
+          "hash_sum_1": "-3040059188850621439265",
+          "hash_sum_2": "-8538654915714179700636"
+        }
+      }
+    }
+  ]
+}

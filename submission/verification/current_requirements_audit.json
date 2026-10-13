@@ -1,0 +1,17 @@
+{
+  "zip_crc": "PASS",
+  "delivery_manifest": "PASS",
+  "source_payload_files_checked": 1120,
+  "logical_model_manifest": "PASS",
+  "candidate_fold_runs": 36,
+  "selected_development_brier": 0.016795031498689498,
+  "brier_reduction_vs_persistence_percent": 6.3767127325560224,
+  "summary_distinct_and_shorter": true,
+  "full_retraining_performed_during_audit": false,
+  "new_candidate_fold_cells": 6,
+  "reference_fold_cells_reused": 30,
+  "C_input_reconstruction_executed": true,
+  "selected_model": "cdf_persistence_d8_leaf1000",
+  "Windows_execution": false,
+  "full_fresh_AB_pipeline": false
+}

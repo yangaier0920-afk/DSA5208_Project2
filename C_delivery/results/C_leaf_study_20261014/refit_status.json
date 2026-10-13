@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "selected_model": "cdf_persistence_d8_leaf1000",
+  "train_anchors": 4071679,
+  "train_years": [
+    2017,
+    2023
+  ],
+  "training_seconds": 14.739085708046332,
+  "2024_read_or_scored": false,
+  "source_train_anchor_partition": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/rebuilt_inputs_C_leaf_study_20261014/final/anchors/final_role=TRAIN"
+}

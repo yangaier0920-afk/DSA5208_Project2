@@ -1,0 +1,1 @@
+PASS: strict Decimal equality/1e-18 boundary, fallback/shrinkage, arbitrary thresholds, monotonicity, controlled feature order, portable dependency capture

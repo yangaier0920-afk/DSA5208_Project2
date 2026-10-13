@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "source_path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_v1_20261012/fold2/anchors",
+  "source_actual_join_audit_sha256": "d6ebf38e5ed93bb4b1233922abd18a7e96c8c472501e57b1b9a0f8a9ec7526a7",
+  "train_anchors": 2693419,
+  "validation_anchors": 7072758,
+  "all_candidates_use_same_materialized_anchor_keys": true
+}

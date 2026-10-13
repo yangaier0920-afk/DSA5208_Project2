@@ -1,24 +1,18 @@
 {
-  "status": "READY_FOR_USER_SUBMISSION",
-  "requirements": {
-    "2017_2024_Spark_processing": "COMPLETE",
-    "Task1_analysis_visualizations_discussion": "COMPLETE",
-    "Task2_Spark_MLlib_probabilities_and_evaluation": "COMPLETE",
-    "cleaning_features_modelling_environment_limitations_AI_disclosure": "COMPLETE",
-    "complete_source_and_run_README": "COMPLETE",
-    "trained_model_saved_reloaded_prediction_checked": "COMPLETE",
-    "integrated_PDF_report": "COMPLETE",
-    "all_group_member_names_and_student_IDs": "COMPLETE",
-    "Canvas_upload": "NOT_PERFORMED",
-    "arbitrary_continuous_threshold_support": "NOT_IMPLEMENTED_FIXED_FIVE_THRESHOLD_DOMAIN"
-  },
-  "python_source_files": 64,
-  "source_payload_files": 796,
-  "data_version": "v1",
-  "release_id": "rainfall_v1_r4_en",
-  "selection_sha256": "14801e1b8f7bce70f7097dd43bb7a041ab491e0a7eb2140810678f255000f2eb",
-  "no_model_retraining_or_test_tuning_during_integration": true,
-  "threshold_domain": "0,0.5,1,2,5 mm only; see intro_requirements_check.md",
+  "status": "PREPARED_CURRENT_INTEGRATED_DELIVERY",
+  "experiment_version": "C_leaf_study_20261014",
+  "selected_model": "cdf_persistence_d8_leaf1000",
+  "development_only_model_selection": true,
+  "C_required_nonoptional_model_changes": "COMPLETE",
+  "full_fresh_machine_AB_reproduction": "NOT_PERFORMED",
+  "Windows_execution": "NOT_PERFORMED",
+  "original_2024_test_retained_not_rescored": true,
+  "continuous_threshold_input": true,
+  "threshold_performance_scope": "Nine development cuts 0..5 mm; empirical far tail not validated",
+  "model_reload": "PASS",
+  "compact_evidence_validation": "PASS",
+  "original_preservation": "PASS",
+  "Canvas_upload": "NOT_PERFORMED",
   "members": [
     {
       "name": "SHAO YUQING",
@@ -33,6 +27,6 @@
       "student_id": "A0355117H"
     }
   ],
-  "deadline_from_intro": "2026-10-18",
-  "language": "English documents, notebooks and reports"
+  "language": "English integrated PDF and C revision sources; fetched B/history may be bilingual",
+  "source_payload_files": 1494
 }

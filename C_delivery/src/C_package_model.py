@@ -6,6 +6,8 @@ def main():
     ap=argparse.ArgumentParser();ap.add_argument('--run',required=True,type=Path)
     ap.add_argument('--root',required=True,type=Path);a=ap.parse_args()
     selection=load(a.run/'selection.json');final=load(a.run/'final_test.json');assert final['status']=='PASS'
+    config=load(a.run/'experiment_config.json');config_hash=sha256(a.run/'experiment_config.json')
+    assert selection['experiment_config_hash']==config_hash
     artifact=a.run/'trained_model';artifact.mkdir(exist_ok=False)
     winner=selection['selected_model'];thresholds=selection['thresholds']
     contract={'selected_model':winner,'station_ids':load(a.run/'final/status.json')['station_ids'],
@@ -14,12 +16,12 @@ def main():
         'label_rule':'future_30m_mm > threshold_mm','timezone':'Asia/Singapore',
         'time_contract':'interval ends at t; current interval (t-300,t] assumed available; future six ends t+300..t+1800',
         'inference_scope':'supported training station, 5-minute grid, all 12 history endpoints, frozen discrete thresholds',
-        'baseline_probabilities':load(a.run/'final/baseline.json'),'experiment_config_hash':sha256(CONFIG),
+        'baseline_probabilities':load(a.run/'final/baseline.json'),'experiment_config_hash':config_hash,
         'selection_sha256':sha256(a.run/'selection.json'),**provenance(a.root)}
     dump(artifact/'prediction_contract.json',contract)
     shutil.copy2(a.run/'experiment_config.json',artifact/'experiment_config.json')
     if winner!='frequency_baseline':shutil.copytree(a.run/'final/models'/winner,artifact/'spark_model')
-    spark=spark_start(load(CONFIG))
+    spark=spark_start(config)
     try:
         from pyspark.sql import functions as F
         from pyspark.ml.functions import vector_to_array

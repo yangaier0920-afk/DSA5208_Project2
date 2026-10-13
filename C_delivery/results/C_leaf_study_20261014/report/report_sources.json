@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "run": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_leaf_study_20261014",
+  "original_run": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_v1_20261012",
+  "selection_sha256": "869fc412dd358d867fd2bdee155073cc985ddc2d132ec34dff4d9b44e241a3b2",
+  "reload_sha256": "fed7e8cf15903924c408f747b076019decd0d020fdf9c6efaef954475ed28533",
+  "2024_new_evaluation": false,
+  "language": "en",
+  "timing_scope": "Up to two independent local[2]/6g processes overlapped; elapsed times are not isolated benchmarks"
+}

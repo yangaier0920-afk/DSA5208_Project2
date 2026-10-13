@@ -1,6 +1,6 @@
 # Singapore rainfall patterns and 30-minute exceedance prediction
 
-DSA5208 Project 2 | 2017-2024 | 12 October 2026
+DSA5208 Project 2 | 2017-2024
 
 ## Group members
 
@@ -100,12 +100,14 @@ At the 90% rule, November has the highest descriptive wet-slot fraction (4.30%),
 
 Figure 5. Fixed eight-year same-month panels; 90% versus 95% coverage.
 
-| Month | Stations 90%/95% | Lowest year | Highest year | Largest mean difference (mm) |
+| Month | Stations 90%/95% | Lowest year | Highest year | Max \|90%-95% mean\| across years (mm) |
 |---|---|---|---|---|
 | 5 | 11/9 | 2023/2023 | 2024/2024 | 9.92 |
 | 9 | 20/17 | 2019/2019 | 2020/2020 | 4.90 |
 | 10 | 21/18 | 2023/2023 | 2022/2022 | 5.32 |
 | 12 | 18/15 | 2021/2021 | 2023/2023 | 8.00 |
+
+Sensitivity difference for month m is max over years y of |mean_90%(y,m) - mean_95%(y,m)|. It is not the difference between the wettest and driest years.
 
 Only May, September, October and December have supported eight-year panels. The lowest/highest years agree at both coverage cutoffs for each supported month. For October's 21-station 90% panel, the 2022 mean is 399.8 mm and the 2023 mean is 113.0 mm. May peaks in 2024, September in 2020, October in 2022 and December in 2023; no single year is wettest everywhere. Adding these four months would not create an annual comparison. The 95% cutoff changes composition and means, so stable extrema are sensitivity evidence rather than a significance test.
 
@@ -125,216 +127,267 @@ Figure 7. Station contrasts in October, the largest supported fixed same-month p
 
 October is selected by the largest 90% eight-year panel (21 stations), breaking ties toward the earliest month. S89 averages about 270.3 mm and S107 about 125.2 mm. This is an October contrast, not an annual station ranking or a location-adjusted causal result. The interval-start calendar has 64 entirely missing network dates versus 63 in the event-date audit; the additional 2018-02-17 reflects calendar definition. Missing dates are not dry dates.
 
-## 5. Task 2: causal feature construction and model inputs
+## 4.5 Adjacent-year comparisons and spatial context
 
-We retain all 48,538,627 B feature anchors. Of these, 47,347,833 (97.547%) have complete 60-minute history, with only 87.682% completeness in 2018. Windows and exact lags use epoch-key positions with cross-year context; missing slots stay null. Supervised samples also require complete future truth and safe temporal roles, so history retention is not final modelling retention.
+![Figure 8. Later minus earlier observed monthly rainfall on the same stations within each adjacent-year/month cell; labels show station counts.](assets/task1_09_adjacent_year_comparison.png)
 
-| Feature group | Numeric inputs and purpose |
-|---|---|
-| Recent level and exact lags | Current 5-minute rainfall; lags 5/10/15/30 minutes; capture short-term persistence. |
-| Window totals and changes | 15/30/60-minute totals, previous 15-minute total, changes over 5/15 minutes, 15/30 ratio. |
-| Window variability | 60-minute maximum, population standard deviation and wet-slot count. |
-| Wetness and persistence | Current/lag5/lag10 wet indicators; trailing wet run and its left-censor flag. |
-| Recency | Minutes since last observed wet slot capped at 60 plus no-wet-observed flag. |
-| Calendar | Hour sine/cosine and month sine/cosine. |
-| Additional inputs | Numeric rainfall threshold; station category fitted with training-only StringIndexer/OneHotEncoder. |
+Figure 8. Later minus earlier observed monthly rainfall on the same stations within each adjacent-year/month cell; labels show station counts.
 
-These groups total 26 B numeric columns. All-dry complete 30-minute windows have ratio zero; incomplete windows have null. An all-wet hour gives run length 12 and a left-censor flag; the true rain-run start may precede the window. No observed wet slot within a complete hour gives recency code 60 plus a censor flag, not a known true 60-minute gap. Full definitions are delivered in B_delivery/docs/FEATURE_DEFINITIONS.md and its CSV. No future rainfall, future completeness, eligibility, role or whole target record enters the feature vector.
+All seven adjacent-year pairs and 12 months were fixed in advance. Both years use the identical equal-weight station set meeting 90% monthly coverage. Of 84 cells, 63 are supported, including 35 outside the four-month eight-year panel. The largest increase is October 2021 to 2022: +255.27 mm across 63 stations; the largest decrease is October 2022 to 2023: -301.58 mm across 59 stations. These extrema are descriptive, without significance or multiple-comparison testing. Changing local panels cannot be chained into a national trend or annual total; February also differs in length across leap years.
 
-Features were specified from historical rainfall, persistence and periodic time structure. We compare complete model families using the same feature set; there is no old-versus-new feature ablation, so we do not claim that the additional B_v2 columns independently improve performance. With complete input history, no imputation is fitted. Logistic regression uses internal training-only standardization; tree splits do not require scaling. Station categories are fitted independently inside each sampled training fold.
+![Figure 9. Locations of the same 21-station October panel; colour shows mean observed October rainfall.](assets/task1_08_station_map.png)
 
-| Final tree feature | Normalized impurity importance |
-|---|---|
-| rain_sum_15m_mm | 0.616424 |
-| threshold_mm | 0.212747 |
-| current_5m_mm | 0.108971 |
-| rain_sum_30m_mm | 0.048103 |
-| minutes_since_last_rain_60m_capped | 0.006784 |
-| consecutive_wet_slots_60m | 0.004353 |
-| rain_change_15m_mm | 0.002619 |
+Figure 9. Locations of the same 21-station October panel; colour shows mean observed October rainfall.
 
-The final shallow tree splits on seven inputs. The 15-minute rainfall sum, threshold and current five-minute rainfall account for about 93.8% of its normalized impurity importance. Station and periodic-calendar inputs are accepted but are not used by this fitted tree's splits. Prediction time still determines the exact historical anchor and features, and station selects its series. Training impurity importance is neither causal attribution nor independent feature-selection evidence.
+Coordinates use the latest recorded metadata. S113 has two recorded positions approximately 39 metres apart; the cause is unknown. Fixed station IDs do not prove stable instruments or measurement conditions. The map provides context without spatial interpolation or location-adjusted causal interpretation.
 
-## 6. E2 temporal validation and prespecified selection
+The November occurrence peak and afternoon maximum are compatible with the seasonal and diurnal background described by Meteorological Service Singapore, Climate of Singapore (https://www.weather.gov.sg/climate-climate-of-singapore/; B source accessed 13 October 2026). This is contextual interpretation, not storm classification or physical attribution. Five-minute wet-slot frequency is not the official rain-day measure, and the differing periods, stations and coverage rules prevent direct numeric comparisons.
 
-We use explicit expanding temporal windows, not Spark's ordinary random-fold CrossValidator: train 2017-2020/validate 2021, train 2017-2021/validate 2022, and train 2017-2022/validate 2023. After selection, refit 2017-2023 and test 2024 once. Threshold support is determined only from the earliest full eligible training block (19,973,411 anchors), requiring at least 100 positives and negatives per threshold. All five candidates 0,0.5,1,2,5 mm pass; at 5 mm there are 149,425 positives.
+## 5. Task 2: current model and past-only features
 
-A 1% deterministic anchor sample first checks implementation, not selection. Formal training uses a fixed 10% hash sample, seed=20261012, with pmod(xxhash64(station_id,prediction_epoch_s,seed),10000)<1000. Sample anchors before threshold expansion and keep all five versions together. Sampling is not label-dependent; there is no class balancing or weighting. Validation/test score all eligible anchors from training-supported stations. These runs exclude no evaluation anchors for unknown stations; the deployed interface still rejects an unseen station.
+B preserves 48,538,627 anchors and publishes 26 numeric features; 47,347,833 (97.547%) have complete 60-minute history. The current selected model uses 22 recent-amount and wetness/persistence features. The four cyclic calendar columns and training-only station coding were tested in controlled ablations but did not improve mean Brier. Station chooses its historical series and prediction time chooses the exact anchor; neither must be a split feature to be a required API input.
 
-| Candidate | Fixed specification |
-|---|---|
-| Frequency baseline | Separate exceedance prevalence for each threshold, estimated only from sampled training anchors. |
-| Logistic regression | Spark MLlib; L2 regParam=0.01, elasticNet=0, maxIter=40, tol=1e-6, internal standardization. |
-| Decision tree | Spark MLlib; maxDepth=5, maxBins=32, minInstancesPerNode=100 expanded rows, fixed seed. |
+Recent features cover current rainfall, exact lags, 15/30/60-minute sums, preceding-window changes, maximum, population standard deviation and wet counts. Persistence adds wet indicators, trailing wet run with left-censor flag and capped recency with no-observed-rain flag. Complete dry windows use defined zeros; missing slots remain null. Feature definitions are in B_delivery/docs/FEATURE_DEFINITIONS.md. No future rainfall, target validity, role or eligibility enters inference features. Threshold is queried against the fitted distribution, not included in the current tree vector.
 
-The main criterion averages Brier across the five frozen thresholds within each validation year, then weights the three years equally. A predeclared absolute tie tolerance of 1e-5 favors baseline, then LR, then tree. Probability postprocessing and calibration are not tuned on 2024. The selected configuration is saved in selection.json at 2026-10-12 17:19:21 SGT, before final refit/test execution.
+The selected conditional-distribution model is evaluated on development folds. The historical classifier and its known 2024 test are retained as separate evidence.
 
-| Stage | Sampled train anchors | Full evaluation anchors | Observed-anchor coverage |
-|---|---|---|---|
-| fold1 | 1,995,803 | 6,976,044 | 99.026% |
-| fold2 | 2,693,419 | 7,072,758 | 99.152% |
-| fold3 | 3,401,643 | 6,686,625 | 99.166% |
-| final | 4,071,679 | 6,338,426 | 98.941% |
+## Findings
 
-Coverage is relative to all observed anchors in the evaluation year, not an ideal complete station-calendar grid. Actual filtered/sampled inputs are audited before threshold expansion for unique/null keys, full left matching and zero row inflation. Afterwards the station/time/threshold key is unique, every anchor has five thresholds and labels are nonnull. All four actual-input and expansion audits pass.
+Selected continuous candidate: cdf_persistence_d8_leaf1000, development equal-threshold/year Brier 0.016795. Strong persistence baseline: 0.017939; climate baseline: 0.028989; global frequency: 0.029194; historical tree: 0.017585. Relative Brier reduction is 6.38% versus persistence and 42.47% versus frequency. These are probability-error reductions relative to named baselines, not accuracy improvements or superiority on every metric.
 
-## 6.1 Development results and the metric trade-off
+## Data, selection and test policy
 
-| Model | 2021 Brier | 2022 Brier | 2023 Brier | Equal-year mean |
+Use freshly reconstructed inputs matching the original 10% fixed-hash training/full eligible validation anchors for each E2 fold. No new 2024 labels or scores are used. Original post-filter join and sample signatures are recorded; all candidates share keys. Selection uses five original cuts and equal year weights; only continuous-CDF candidates are deployment-eligible. Discrete tree/RF results are openly reported diagnostics. Held-out cuts 0.25/0.75/1.5/3 are not used to fit or select. A new 2017–2023 refit is saved after lock, but its evidence is development validation; there is no claim of a new untouched final test.
+
+| Candidate | 2021 | 2022 | 2023 | Mean Brier | Continuous eligible |
+|---|---|---|---|---|---|
+| frequency_cdf | 0.028542 | 0.029113 | 0.029928 | 0.029194 | True |
+| climatology_cdf | 0.028416 | 0.028968 | 0.029584 | 0.028989 | True |
+| persistence_cdf | 0.017216 | 0.018134 | 0.018467 | 0.017939 | True |
+| cdf_recent_d8 | 0.016166 | 0.017101 | 0.017271 | 0.016846 | True |
+| cdf_persistence_d8 | 0.016121 | 0.017084 | 0.017232 | 0.016812 | True |
+| cdf_calendar_d8 | 0.016202 | 0.017073 | 0.017251 | 0.016842 | True |
+| cdf_full_d5 | 0.016259 | 0.017175 | 0.017448 | 0.016961 | True |
+| cdf_full_d8 | 0.016202 | 0.017073 | 0.017251 | 0.016842 | True |
+| cdf_persistence_d8_leaf1000 | 0.016097 | 0.017067 | 0.017221 | 0.016795 | True |
+| cdf_persistence_d8_leaf250 | 0.016189 | 0.017126 | 0.017281 | 0.016865 | True |
+| threshold_tree_d8 | 0.016579 | 0.017585 | 0.017895 | 0.017353 | False |
+| random_forest_small | 0.018098 | 0.019147 | 0.019618 | 0.018954 | False |
+
+![Development comparison](assets/revision_01_revision_brier.png)
+
+Development comparison
+
+## Development ranking and probability-loss diagnostics
+
+| Candidate | Mean Brier | Mean log loss | Mean PR-AUC | Mean ROC-AUC |
 |---|---|---|---|---|
-| frequency_baseline | 0.028542 | 0.029113 | 0.029928 | 0.029194 |
-| logistic_regression | 0.017683 | 0.018778 | 0.019041 | 0.018501 |
-| decision_tree | 0.016875 | 0.017773 | 0.018108 | 0.017585 |
+| frequency_cdf | 0.029194 | 0.130588 | 0.030478 | 0.500000 |
+| climatology_cdf | 0.028989 | 0.128169 | 0.049425 | 0.610753 |
+| persistence_cdf | 0.017939 | 0.079660 | 0.544264 | 0.816221 |
+| cdf_recent_d8 | 0.016846 | 0.074189 | 0.574488 | 0.846418 |
+| cdf_persistence_d8 | 0.016812 | 0.074096 | 0.575936 | 0.846505 |
+| cdf_calendar_d8 | 0.016842 | 0.072624 | 0.562884 | 0.894917 |
+| cdf_full_d5 | 0.016961 | 0.073453 | 0.558996 | 0.885623 |
+| cdf_full_d8 | 0.016842 | 0.072624 | 0.562883 | 0.894933 |
+| cdf_persistence_d8_leaf1000 | 0.016795 | 0.073989 | 0.575114 | 0.846531 |
+| cdf_persistence_d8_leaf250 | 0.016865 | 0.074290 | 0.574482 | 0.846500 |
+| threshold_tree_d8 | 0.017353 | 0.080014 | 0.559288 | 0.828428 |
+| random_forest_small | 0.018954 | 0.082222 | 0.556613 | 0.839224 |
 
-![Figure 8. Equal-threshold rolling-validation Brier scores.](assets/model_01_rolling_brier.png)
+Additional ranking/log-loss metrics are diagnostics, not replacement selection criteria. A lower Brier does not imply superiority for every cut/year/ranking measure. Complete per-cut/year metrics are retained.
 
-Figure 8. Equal-threshold rolling-validation Brier scores.
+## Arbitrary threshold design
 
-Both learned models outperform the frequency baseline in all three validation years. The decision tree is best in each year's mean Brier, with a three-year score 0.017585 and a year range 0.001233. This improvement is consistent in these three years, but no independent-sample confidence intervals are reported because windows overlap and stations share weather.
+Training-only conditional empirical distributions provide P(S>h)=1-F(h) for finite nonnegative Decimal(38,18) thresholds. Right-sided CDF lookup makes equality negative. For tree candidates Spark DecisionTreeRegressor fits log1p future amount using past features, then exact training amounts form leaf CDFs. Fixed prior weights are 50 anchors for leaves and 200 for baseline groups. No validation outcomes are written back into predictions. This naturally gives threshold-specific probabilities and nonincreasing stepwise survival curves without post-hoc isotonic correction; arbitrary input is not a claim of a smooth curve. Nine checked cuts lie in 0..5 mm; arbitrary input acceptance and monotonicity do not prove every threshold or extreme-tail reliability. Beyond maximum training amount, empirical probability is zero with no proven tail guarantee.
 
-The tree is not best under every diagnostic. For the 2023 >2 mm task, LR has PR-AUC 0.481283 and ROC-AUC 0.900575 versus the tree's 0.429597 and 0.831717, while the tree has better Brier (0.011994 versus 0.012636). AUC evaluates ranking; Brier evaluates probability squared error. We retain this trade-off and choose the tree under the protocol specified before scoring, rather than switching to a favorable metric. A single shallow-tree configuration and one LR setting are a limited initial comparison, not an exhaustive search.
+| Untrained/selection-excluded cut (mm) | Mean Brier | Mean PR-AUC | Mean log loss |
+|---|---|---|---|
+| 0.25 | 0.022515 | 0.680357 | 0.097211 |
+| 0.75 | 0.017284 | 0.627793 | 0.076924 |
+| 1.5 | 0.012813 | 0.553890 | 0.059034 |
+| 3 | 0.008762 | 0.472734 | 0.042336 |
 
-## 7. Locked 2024 final test
+## Minimum leaf-size comparison
 
-The final tree is refitted on 4,071,679 sampled 2017-2023 anchors, expanding to 20,358,395 training rows. Station encoding is refitted on this training block. The 2024 test has 6,338,426 eligible anchors, or 31,692,130 threshold-expanded rows, with observed-anchor coverage 98.941%. The frequency reference is refitted from the same final training sample. No LR is newly evaluated on 2024 and no test-driven candidate selection is performed.
+The supplementary development experiment freezes minInstancesPerNode at 250, 500 and 1000, holding 22 persistence features, depth 8, seed, folds, primary cuts, prior and row identities fixed. Thirty earlier candidate/fold cells are explicitly reused, and six new cells fit the two added sizes. The main rule keeps the original candidate within absolute 1e-5 of the best, then prefers 1000 over 250. This is an incremental search on already-observed development years, not an independent test. No 2024 score selects the result.
 
-| Threshold mm | Event rate | Baseline Brier | Tree Brier | Skill % | Log loss | PR-AUC | ROC-AUC |
-|---|---|---|---|---|---|---|---|
-| 0 | 6.361% | 0.059571 | 0.034183 | 42.62 | 0.150547 | 0.681425 | 0.805980 |
-| 0.5 | 3.627% | 0.034960 | 0.020544 | 41.24 | 0.090920 | 0.610258 | 0.839476 |
-| 1 | 2.571% | 0.025050 | 0.015685 | 37.38 | 0.070748 | 0.550593 | 0.839012 |
-| 2 | 1.684% | 0.016555 | 0.011781 | 28.83 | 0.055588 | 0.438596 | 0.831617 |
-| 5 | 0.835% | 0.008279 | 0.006486 | 21.66 | 0.036065 | 0.357150 | 0.831203 |
+| Minimum leaf anchors | Mean Brier | Delta vs 500 | Mean PR-AUC | Mean log loss | Mean ECE |
+|---|---|---|---|---|---|
+| 250 | 0.016865 | 0.000053 | 0.574482 | 0.074290 | 0.002410 |
+| 500 | 0.016812 | 0.000000 | 0.575936 | 0.074096 | 0.002096 |
+| 1000 | 0.016795 | -0.000017 | 0.575114 | 0.073989 | 0.001819 |
 
-![Figure 9. Final-test probability error and relative skill by frozen threshold.](assets/model_02_final_brier.png)
+Selected leaf size is 1000. Mean PR-AUC is 0.575114, versus 0.575936 for leaf500; mean fixed-bin ECE is 0.001819, versus 0.002096. The Brier-selected model need not improve every ranking metric, and the small differences are not claimed statistically significant.
 
-Figure 9. Final-test probability error and relative skill by frozen threshold.
+## C input reconstruction acceptance
 
-The five-threshold mean Brier is 0.017736 versus 0.028883 for the frequency baseline (38.59% improvement). Improvements range from 42.62% at >0 mm to 21.66% at >5 mm. The >5 mm event occurs at only 0.835% of test anchors; its PR-AUC is 0.357150, substantially above prevalence, but rare-event performance is weaker than at lower thresholds. A smaller raw Brier at high thresholds does not by itself mean a more useful or easier task.
+The C reconstruction script was executed from an extracted source directory using the existing formal A data and B feature Parquet. It regenerated the three development TRAIN/VALIDATION inputs and final 2017–2023 TRAIN only. Counts and two role-wise row-hash sums across all keys, targets and features match the historical anchors; these signatures are diagnostics, not cryptographic proof of row equality. Parquet bytes are expected to differ. New leaf candidates train on the rebuilt inputs; final model refit/reload and compact checks also complete. This accepts the C part of the missing-anchor workflow, not fresh-machine full A/B reproduction or Windows execution.
 
-Brier is mean (p-y)^2; log loss is mean -y log p -(1-y) log(1-p), with probability clipped to [1e-15,1-1e-15] only for numeric stability in that metric. Stored probabilities remain unchanged. ROC-AUC and PR-AUC use Spark BinaryClassificationEvaluator with numBins=1000 (approximate curve integration); a single-class group would be NA. Accuracy is not used as the primary measure for rare events.
+## Controlled feature contribution experiment
 
-## 7.1 Reliability, threshold behaviour and inference
+All depth-8 CDF ablations hold rows, seed, min leaf size 500, bins, prior and shared feature ordering fixed. This feature ablation precedes the separate leaf-size search. The threshold is a CDF query, not a tree input. Sequential differences test recent amount -> persistence -> periodic time -> station. Negative Brier delta means adding that group helps under this design; positive means it does not. These are model/data-conditional associations, not causal attribution. Impurity weights are separately saved but are not used as contribution evidence.
 
-![Figure 10. Final tree reliability curves at fixed bins; bin counts are unequal.](assets/model_03_final_reliability.png)
+| Feature group | Mean Brier | Delta from previous | Relative reduction |
+|---|---|---|---|
+| Recent amount features only (14) | 0.016846 | NA | NA |
+| Add wetness/persistence (22) | 0.016812 | -0.000034 | 0.001990 |
+| Add cyclic time (26) | 0.016842 | 0.000030 | -0.001775 |
+| Add training-only station coding (26 + station) | 0.016842 | 0.000000 | -0.000001 |
 
-Figure 10. Final tree reliability curves at fixed bins; bin counts are unequal.
+## Calibration and low-risk discrimination
 
-Fixed bins compare mean predicted probability with observed event frequency; bin counts and probabilities are preserved in final/decision_tree_calibration.csv. The plot is a diagnostic, not a test-set calibration procedure. The fitted tree has zero adjacent-threshold probability increases in this test: predicted probabilities do not rise when the threshold increases at the same anchor. No monotonic postprocessing is applied, and this empirical check is not a guarantee for all possible future inputs.
+![Low-probability development reliability](assets/revision_02_low_probability_reliability.png)
 
-The final artifact stores the whole fitted station encoder, assembler and classifier, plus the discrete threshold/station/history contract. A fresh Spark process reloads it and compares 100 deterministic test anchors / 500 threshold probabilities against saved scoring: maximum absolute difference is 0. The single-anchor API receives only the station's observations ending at or before t and reproduces all five probabilities. Missing history, off-grid time, unknown station and an unsupported threshold are correctly rejected.
+Low-probability development reliability
 
-The API takes station_id, prediction_epoch_s and threshold_mm and returns a probability of the strict future event. It uses all 12 exact historical slots, including R(t) under the project availability assumption. Threshold support is deliberately restricted to 0,0.5,1,2,5 mm; arbitrary continuous thresholds are not claimed to be evaluated. If actual publication latency makes R(t) unavailable, the availability cutoff, features and evaluation must be redesigned rather than deploying these numbers unchanged.
+The 2023 plot zooms to 0..5% and point size shows support. Complete bin counts are in each fold calibration CSV; fixed-bin ECE and low-region rates are in selected_calibration_summary.csv. The appendix gives the exact n for every point shown in the 2023 low-probability plot. Low-region membership depends on each model prediction, so its support can differ; it is not a common held-fixed subgroup comparison. Dry/wet history group tables provide that common covariate-defined comparison. No held-out calibrator is fitted.
 
-## 8. Computing environment and reproducibility
+| Cut/mm | Original ECE | Selected ECE | Selected low mean p | Selected low observed rate |
+|---|---|---|---|---|
+| 0 | 0.016184 | 0.002969 | 0.020037 | 0.020952 |
+| 0.5 | 0.004827 | 0.001976 | 0.010161 | 0.010826 |
+| 1 | 0.003437 | 0.002026 | 0.007667 | 0.008366 |
+| 2 | 0.005694 | 0.001396 | 0.005958 | 0.006462 |
+| 5 | 0.009469 | 0.000730 | 0.003259 | 0.003584 |
 
-The original eight-year A audit/cleaning/target runs were on Windows 11 with an Intel Core i7-12700H (14 physical/20 logical cores), about 31.73 GiB visible memory, Python 3.11.5, PySpark 3.5.7 and Java 17.0.20.1. Local[4], 4g driver heap and 48 shuffle partitions are single-machine threads, not four cluster nodes. Lifecycle wall times are 31.48,34.27,9.82 minutes for audit, cleaning and targets; these are preserved original receipts, not claimed new Mac full raw runs.
+## Group performance and coverage
 
-The current replay/B/C execution uses an Apple M3 Max (14 logical CPUs), 36 GB memory and macOS 14.1, Python 3.11.17, PySpark 3.5.7, Py4J 0.10.9.7 and Java 17.0.20.1. B uses local[2],4g heap,128 shuffle partitions; C uses local[2],6g heap,128 partitions. Both cap input partitions at 32 MiB, enable AQE and disable adaptive partition coalescing. C persists projected training vectors with DISK_ONLY; neither B nor C caches complete observations. Heap is a configuration, not peak RSS; peak resources were not instrumented.
+![Observed-anchor sample flow](assets/revision_04_sample_flow.png)
 
-## 8.1 Measured runtime and functional checks
+Observed-anchor sample flow
 
-| Stage | Seconds | Timing scope |
-|---|---|---|
-| B Task 1 | 38.3 | Integrity/startup through aggregate CSV writes; excludes later charts and shutdown |
-| B features | 152.8 | Integrity, reading, computation, write/read checks and 513 probes; excludes output hashes/shutdown |
-| fold1 | 346.4 | Actual joins, materialization, expansion checks, fitting, full scoring and metrics |
-| fold2 | 383.9 | Actual joins, materialization, expansion checks, fitting, full scoring and metrics |
-| fold3 | 412.3 | Actual joins, materialization, expansion checks, fitting, full scoring and metrics |
-| final | 312.1 | Actual joins, materialization, expansion checks, fitting, full scoring and metrics |
+![Group Brier](assets/revision_03_group_brier.png)
 
-C fold timing excludes each stage's preceding file-hash check and Spark startup, subsequent report plotting and fresh-process packaging/reload. Candidate fit_seconds records classifier fitting only, excluding shared preprocessing and earlier frequency estimation. These are single local measurements with uncontrolled filesystem cache, not stable performance benchmarks. Formal A Parquet payload is 4,678,105,303 bytes; this is not peak disk demand.
+Group Brier
 
-The current Mac verifies both full tables at 48,538,627 rows and confirms one-to-one unique keys and null-future semantics. A's original target checks independently recompute 29 real cases / 522 expected positions. The current frozen-production replay uses 1,297 preserved raw fragments, all 86 collision pairs and 114 selected anchors; observations, lineage and targets match reference rows and Decimal oracles. It takes about 15 seconds on local[2]/2g/8 partitions and is a functionality check, not full-scale performance.
+Groups are 12 months, five stations chosen from first-fold training counts, and complete-history all-dry/any-wet states. Exact per-year/cut rows include n, positives, Brier, mean p, fixed-bin ECE, approximate PR/ROC-AUC, eligible count and observed denominator. Group AUC uses 1,000 equal-probability histogram bins and is explicitly approximate; overall AUC uses Spark MLlib numBins=1000. No subgroup is chosen using test outcomes. Coverage is of observed anchors, not the ideal station calendar; unknown history is retained in the coverage ledger but is unscored.
 
-B verifies 513 independent real timestamp probes, six synthetic feature edge cases and all 26 offline/online feature columns. A/B full-table joining has 100% matching, no duplicates and no inflation; C additionally audits its actual post-filter/post-sample training and evaluation inputs. Strict Decimal tests include equality and values exceeding a threshold by 10^-18, and hashing tests confirm order-independent nested samples. Model reloading and past-only inference checks complete the delivered end-to-end chain.
+## Complete group summary
 
-Current README and reader differ from frozen release hashes. A portable helper builds an isolated runtime with the matching historical README/reader bytes while retaining current source. Data and frozen algorithms are not changed. The current resource-adjusted reader (2 threads/256 partitions) passed full verification after the old resource settings exhausted aggregation memory. The submission preserves hashes, original evidence and runtime preparation instructions rather than silently relaxing integrity checks.
+| Group | Equal-cut/year Brier | Approximate PR-AUC | Mean observed coverage |
+|---|---|---|---|
+| history:dry | 0.009236 | 0.504682 | 0.997436 |
+| history:wet | 0.095812 | 0.743110 | 0.996209 |
+| month:1 | 0.022054 | 0.585831 | 0.986302 |
+| month:10 | 0.015065 | 0.535515 | 0.991655 |
+| month:11 | 0.020817 | 0.584223 | 0.991760 |
+| month:12 | 0.021228 | 0.537458 | 0.988788 |
+| month:2 | 0.015319 | 0.497674 | 0.988228 |
+| month:3 | 0.017689 | 0.598573 | 0.991018 |
+| month:4 | 0.016958 | 0.547426 | 0.992813 |
+| month:5 | 0.012869 | 0.535460 | 0.992972 |
+| month:6 | 0.016491 | 0.521667 | 0.994474 |
+| month:7 | 0.013469 | 0.546301 | 0.991547 |
+| month:8 | 0.017219 | 0.556388 | 0.991386 |
+| month:9 | 0.013865 | 0.616486 | 0.992004 |
+| station:S113 | 0.015176 | 0.547013 | 0.995828 |
+| station:S120 | 0.017745 | 0.580044 | 0.995401 |
+| station:S77 | 0.016741 | 0.574152 | 0.972816 |
+| station:S88 | 0.017730 | 0.567055 | 0.990772 |
+| station:S94 | 0.016078 | 0.561237 | 0.995448 |
 
-## 9. Limitations and further work
+## Reproduction and immutable evidence
 
-Missing observations affect descriptive support and evaluation population; an empty common panel or NA annual total is not zero rainfall. Station composition, potential relocation/measurement differences, extreme readings and unverified publication latency remain limitations. Neither coverage sensitivity nor zero quarantine establishes official climate quality. Eight years support descriptive comparisons, not long-run climate or causal attribution.
+Fresh-process model reload reconstructs 100 anchors from only past observations and compares 1,000 probabilities at ten cuts, including 3.14159 mm. Maximum error: 0.000000. Invalid station/time/history/threshold handling and monotonic examples pass. The model, report, ZIP, requirements lock and metadata stay inside this run. Finalization reads the executing Python environment via importlib.metadata, without private uv or OS-specific virtual-environment paths. All original source-run file hashes, including 2024 scores/model, pass preservation checks. Current evidence navigation identifies successful receipts without deleting historical failures.
 
-Forecast evaluation is conditional on complete past/future supervision, safe boundaries and trained station support. Overlapping 30-minute labels and nearby stations induce dependence; no independent-row significance claims or confidence intervals are made. Ten-percent anchor sampling is unbiased with respect to the observed keys but does not fix observational missingness. No full-training ablation, broader tree-ensemble search, feature ablation, external-weather integration or live latency reconstruction is performed. Those are defensible future experiments to develop on new validation data; 2024 must not be repeatedly reused as an untouched test.
+## Computing environment and timing
 
-## 10. AI usage declaration and conclusions
+Python 3.11.17, Spark 3.5.7, Java 17.0.20.1; macOS-14.1-arm64-arm-64bit; 14 logical CPUs. Each process: local[2], 6g heap, 128 shuffle partitions, 32 MiB reads. At most two fold processes overlapped. Peaks were not measured; timings are not benchmarks. Candidate timing includes fit/CDF estimation, saves, scoring and metrics; excludes shared hashes/startup, reports and packaging. Training timing includes preprocessing. Exact fold JSON and candidate_timing_summary.csv define the measured scopes.
 
-OpenAI Codex assisted across A/B/C with planning, code and documentation, data-quality and reproduction workflows, feature and model implementation, experiment execution, visualizations, integrity checks and report drafting/integration. Reported counts and predictive metrics are obtained from actual saved Spark outputs. Synthetic tests are identified as synthetic and are not presented as full-data findings. Automated checks do not imply that group members have independently reviewed every source line. The named submitting members should review the implementation, assumptions and this disclosure before submission and add any additional AI tools actually used.
+## Remaining limitations and AI use
 
-Task 1 reveals meaningful within-year occurrence/intensity differences and supported same-month interannual contrasts, while making the limits imposed by coverage explicit. Task 2 demonstrates that short-term rainfall history supplies useful probability information beyond historical threshold prevalence: the locked tree improves final-test mean Brier by 38.59%, with weaker relative skill for the rarest 5 mm event. The delivered model accepts station, time and threshold within a documented support scope and passes persisted-model/past-only checks. These conclusions are bounded by the retrospective time contract and do not establish real-time or long-term climate performance.
+Development results motivated by review are now known and should not be relabelled untouched. Fixed train sampling and small candidate set limit conclusions. Overlapping windows/weather across stations are correlated; no independent-row bootstrap or significance claims are used. Observed gaps, composition changes and training leaf support affect performance. Event-time availability and official interval meaning remain assumptions; live deployment latency is unverified. OpenAI Codex assisted implementation, execution, tests, figures and drafting. All scores come from actual saved Spark outputs; member review is still required.
 
-## References and evidence
+Official model references: [Spark DecisionTreeRegressor](https://spark.apache.org/docs/3.5.7/api/python/reference/api/pyspark.ml.regression.DecisionTreeRegressor.html) and [Spark RandomForestClassifier](https://spark.apache.org/docs/3.5.7/api/python/reference/api/pyspark.ml.classification.RandomForestClassifier.html).
 
-[1] NEA, Historical Rainfall across Singapore, data.gov.sg collection 2279. https://data.gov.sg/collections/2279/view (accessed 12 October 2026).
+## Historical benchmark: original 2024 test
 
-[2] Apache Spark 3.5.7, Classification and regression. https://spark.apache.org/docs/3.5.7/ml-classification-regression.html
+The original depth-5 threshold classifier, selected before its 2024 test, achieved mean Brier 0.01773592 against frequency 0.02888294, a 38.59% reduction on 6,338,426 eligible anchors per cut. Its development mean was 0.01758544. These are preserved historical classifier results and do not evaluate the current conditional-CDF model. The selected model used development folds only and refit through 2023; 2024 has not been rescored or used to select the new model. An independent later test would be needed to establish its final generalization performance.
 
-[3] Apache Spark 3.5.7, ML Pipelines. https://spark.apache.org/docs/3.5.7/ml-pipeline.html
+## Computing environments across A/B/C
 
-[4] Project E2 protocol and frozen config: archive/history_v1/docs/E2_ROLLING_VALIDATION.md; configs/project.json; C_delivery/configs/C_experiment.json. Primary local evidence includes A annual_cleaning_and_targets.csv, B findings/coverage tables, C development_metrics.csv, selection.json, final_test.json and model_reload_validation.json. A report/receipt evidence is distinguished from the current Mac replay.
+A full raw processing was recorded on Windows with Intel i7-12700H; current Mac sample replay verifies a narrower scope and is not a new full raw run. The B rerun records Apple M5, 24 GB memory, 10 logical CPUs, macOS 26.6.2, local[2], 4g heap and 128 shuffle partitions. The C modelling run records Python 3.11.17, Spark 3.5.7, Java 17.0.20.1, macOS 14.1 arm64, 14 logical CPUs, local[2], 6g and 128 shuffle partitions. These are separate saved execution records; no common-machine speed comparison or measured peak-memory claim is made.
 
-## Appendix: 2021 complete development metrics
+## Conclusions and submission
 
-| Model | mm | Event rate | Brier | Log loss | PR-AUC | ROC-AUC |
+Coverage-aware Task 1 supports seasonal occurrence/intensity differences, four fixed eight-year same-month comparisons and additional local adjacent-year contrasts. It does not establish national annual trends. Task 2 selects a continuous-threshold conditional distribution with development mean Brier 0.01679503, 6.38% lower than the stronger persistence baseline. Persistence features give a small model-conditional gain; calendar/station additions do not. Month and history-state diagnostics show heterogeneous error, and overlapping windows are correlated. Arbitrary input support does not establish every-threshold or live-deployment reliability.
+
+intro.txt requires complete source with run README, a trained model and a PDF naming all members by 18 October 2026. These materials are prepared; Canvas upload is not performed. Remaining improvement ownership is documented separately in remaining_improvement_ownership.md.
+
+## AI usage declaration
+
+OpenAI Codex was used throughout this project as an AI-assisted coding and documentation tool. Assistance included planning and implementing Spark data audits, cleaning and exact-time target construction; coverage-aware rainfall analysis and visualization; historical feature engineering; Spark MLlib model and conditional-distribution implementation; baseline, feature-ablation, temporal-validation, calibration and subgroup experiments; debugging, integrity and model-reload checks; and drafting, editing, translating and integrating the report, README and submission materials.
+
+Reported data counts, rainfall summaries and model scores are derived from executed Spark pipelines and saved experiment outputs. They are not invented by the AI. Synthetic edge-case tests and small reproduction fixtures are identified separately from full-data results. Automated checks establish only their recorded scope; they do not constitute independent human review of every source line, a full fresh-machine reproduction, Windows execution or verified live deployment. The selected model is supported by development validation; the historical 2024 result belongs to the historical classifier and was not used to claim a new untouched test.
+
+The group retains responsibility for understanding the methods, checking assumptions and results, reviewing the final code and report, and making the submission. This declaration records the AI use established in the project work. Each member should add any other AI tools or uses they actually employed before submission; no unconfirmed tool use or completed human review is asserted here.
+
+## Data and source references
+
+NEA Historical Rainfall across Singapore: https://data.gov.sg/collections/2279/view. Spark 3.5.7 MLlib classification/regression and pipelines: https://spark.apache.org/docs/3.5.7/ml-classification-regression.html and https://spark.apache.org/docs/3.5.7/ml-pipeline.html. Evidence directories and identities are listed in integration_sources.json; CURRENT_EVIDENCE.md indexes model checks and the historical test. Signed provenance remains in submission/reproduction/frozen_release_metadata.zip.
+
+## Appendix: selected continuous model, 2021
+
+| Cut/mm | n | Event rate | Brier | Log loss | PR-AUC | ROC-AUC |
 |---|---|---|---|---|---|---|
-| Baseline | 0 | 0.060931 | 0.057228 | 0.229608 | 0.060931 | 0.500000 |
-| Baseline | 0.5 | 0.035763 | 0.034500 | 0.154486 | 0.035763 | 0.500000 |
-| Baseline | 1 | 0.025885 | 0.025233 | 0.120534 | 0.025885 | 0.500000 |
-| Baseline | 2 | 0.017239 | 0.016950 | 0.087364 | 0.017239 | 0.500000 |
-| Baseline | 5 | 0.008877 | 0.008800 | 0.050912 | 0.008877 | 0.500000 |
-| LR | 0 | 0.060931 | 0.034720 | 0.139207 | 0.669028 | 0.875574 |
-| LR | 0.5 | 0.035763 | 0.019294 | 0.083506 | 0.640883 | 0.894947 |
-| LR | 1 | 0.025885 | 0.015335 | 0.068513 | 0.585358 | 0.890219 |
-| LR | 2 | 0.017239 | 0.012055 | 0.054929 | 0.507219 | 0.881205 |
-| LR | 5 | 0.008877 | 0.007010 | 0.034073 | 0.405241 | 0.878675 |
-| Tree | 0 | 0.060931 | 0.031502 | 0.141514 | 0.703433 | 0.807009 |
-| Tree | 0.5 | 0.035763 | 0.019297 | 0.086308 | 0.639686 | 0.843876 |
-| Tree | 1 | 0.025885 | 0.015246 | 0.069204 | 0.581411 | 0.841533 |
-| Tree | 2 | 0.017239 | 0.011711 | 0.055536 | 0.468497 | 0.830913 |
-| Tree | 5 | 0.008877 | 0.006618 | 0.036499 | 0.403634 | 0.828123 |
+| 0.0 | 6976044 | 0.060931 | 0.030033 | 0.126427 | 0.711561 | 0.842452 |
+| 0.25 | 6976044 | 0.042799 | 0.021276 | 0.092676 | 0.692554 | 0.861727 |
+| 0.5 | 6976044 | 0.035763 | 0.018574 | 0.082097 | 0.664752 | 0.861192 |
+| 0.75 | 6976044 | 0.031126 | 0.016755 | 0.074959 | 0.641330 | 0.859055 |
+| 1.0 | 6976044 | 0.025885 | 0.014719 | 0.066706 | 0.606510 | 0.855212 |
+| 1.5 | 6976044 | 0.021097 | 0.012644 | 0.058253 | 0.568850 | 0.850465 |
+| 2.0 | 6976044 | 0.017239 | 0.010882 | 0.051110 | 0.531067 | 0.844238 |
+| 3.0 | 6976044 | 0.012973 | 0.008613 | 0.041776 | 0.484888 | 0.838400 |
+| 5.0 | 6976044 | 0.008877 | 0.006276 | 0.031134 | 0.425757 | 0.840389 |
 
-All three candidates use the same supported full evaluation anchors: 6,976,044 per threshold. Approximate AUC uses Spark numBins=1000. The main selection rule remains equal-threshold/equal-year Brier.
+## Appendix: selected continuous model, 2022
 
-## Appendix: 2022 complete development metrics
-
-| Model | mm | Event rate | Brier | Log loss | PR-AUC | ROC-AUC |
+| Cut/mm | n | Event rate | Brier | Log loss | PR-AUC | ROC-AUC |
 |---|---|---|---|---|---|---|
-| Baseline | 0 | 0.064804 | 0.060644 | 0.240335 | 0.064804 | 0.500000 |
-| Baseline | 0.5 | 0.035889 | 0.034612 | 0.154810 | 0.035889 | 0.500000 |
-| Baseline | 1 | 0.025229 | 0.024599 | 0.117891 | 0.025229 | 0.500000 |
-| Baseline | 2 | 0.016969 | 0.016684 | 0.086115 | 0.016969 | 0.500000 |
-| Baseline | 5 | 0.009109 | 0.009028 | 0.051979 | 0.009109 | 0.500000 |
-| LR | 0 | 0.064804 | 0.038477 | 0.153046 | 0.646019 | 0.864880 |
-| LR | 0.5 | 0.035889 | 0.020353 | 0.087905 | 0.608708 | 0.881650 |
-| LR | 1 | 0.025229 | 0.015746 | 0.070586 | 0.553324 | 0.876966 |
-| LR | 2 | 0.016969 | 0.012192 | 0.056048 | 0.487333 | 0.870590 |
-| LR | 5 | 0.009109 | 0.007120 | 0.034610 | 0.401769 | 0.874589 |
-| Tree | 0 | 0.064804 | 0.034893 | 0.155426 | 0.686436 | 0.798052 |
-| Tree | 0.5 | 0.035889 | 0.020272 | 0.090266 | 0.613800 | 0.834824 |
-| Tree | 1 | 0.025229 | 0.015371 | 0.070209 | 0.545945 | 0.832217 |
-| Tree | 2 | 0.016969 | 0.011511 | 0.055234 | 0.437537 | 0.825002 |
-| Tree | 5 | 0.009109 | 0.006821 | 0.037170 | 0.397890 | 0.831761 |
+| 0.0 | 7072758 | 0.064804 | 0.033472 | 0.138865 | 0.689036 | 0.831978 |
+| 0.25 | 7072758 | 0.044063 | 0.023148 | 0.099966 | 0.664498 | 0.850638 |
+| 0.5 | 7072758 | 0.035889 | 0.019605 | 0.086493 | 0.635263 | 0.849580 |
+| 0.75 | 7072758 | 0.030773 | 0.017315 | 0.077611 | 0.613045 | 0.847743 |
+| 1.0 | 7072758 | 0.025229 | 0.014905 | 0.068068 | 0.577917 | 0.842889 |
+| 1.5 | 7072758 | 0.020505 | 0.012651 | 0.059044 | 0.543579 | 0.837805 |
+| 2.0 | 7072758 | 0.016969 | 0.010838 | 0.051617 | 0.514408 | 0.834181 |
+| 3.0 | 7072758 | 0.013176 | 0.008821 | 0.042835 | 0.472150 | 0.832588 |
+| 5.0 | 7072758 | 0.009109 | 0.006518 | 0.031972 | 0.410555 | 0.839019 |
 
-All three candidates use the same supported full evaluation anchors: 7,072,758 per threshold. Approximate AUC uses Spark numBins=1000. The main selection rule remains equal-threshold/equal-year Brier.
+## Appendix: selected continuous model, 2023
 
-## Appendix: 2023 complete development metrics
-
-| Model | mm | Event rate | Brier | Log loss | PR-AUC | ROC-AUC |
+| Cut/mm | n | Event rate | Brier | Log loss | PR-AUC | ROC-AUC |
 |---|---|---|---|---|---|---|
-| Baseline | 0 | 0.066713 | 0.062310 | 0.245457 | 0.066713 | 0.500000 |
-| Baseline | 0.5 | 0.037479 | 0.036092 | 0.160107 | 0.037479 | 0.500000 |
-| Baseline | 1 | 0.026297 | 0.025615 | 0.121837 | 0.026297 | 0.500000 |
-| Baseline | 2 | 0.017291 | 0.016996 | 0.087413 | 0.017291 | 0.500000 |
-| Baseline | 5 | 0.008702 | 0.008627 | 0.049975 | 0.008702 | 0.500000 |
-| LR | 0 | 0.066713 | 0.038800 | 0.152242 | 0.672113 | 0.888477 |
-| LR | 0.5 | 0.037479 | 0.020586 | 0.087468 | 0.635994 | 0.910461 |
-| LR | 1 | 0.026297 | 0.016073 | 0.070502 | 0.571362 | 0.908028 |
-| LR | 2 | 0.017291 | 0.012636 | 0.056382 | 0.481283 | 0.900575 |
-| LR | 5 | 0.008702 | 0.007112 | 0.034088 | 0.384725 | 0.899031 |
-| Tree | 0 | 0.066713 | 0.035137 | 0.155810 | 0.695372 | 0.803894 |
-| Tree | 0.5 | 0.037479 | 0.020765 | 0.091492 | 0.625878 | 0.843163 |
-| Tree | 1 | 0.026297 | 0.015974 | 0.071579 | 0.550121 | 0.841306 |
-| Tree | 2 | 0.017291 | 0.011994 | 0.056455 | 0.429597 | 0.831717 |
-| Tree | 5 | 0.008702 | 0.006670 | 0.036801 | 0.372486 | 0.831313 |
+| 0.0 | 6686625 | 0.066713 | 0.033326 | 0.137072 | 0.707493 | 0.843928 |
+| 0.25 | 6686625 | 0.045559 | 0.023122 | 0.098993 | 0.684018 | 0.862187 |
+| 0.5 | 6686625 | 0.037479 | 0.019862 | 0.086427 | 0.655063 | 0.862454 |
+| 0.75 | 6686625 | 0.032254 | 0.017782 | 0.078203 | 0.629006 | 0.861366 |
+| 1.0 | 6686625 | 0.026297 | 0.015341 | 0.068594 | 0.590120 | 0.857619 |
+| 1.5 | 6686625 | 0.021309 | 0.013145 | 0.059805 | 0.549242 | 0.852919 |
+| 2.0 | 6686625 | 0.017291 | 0.011247 | 0.052205 | 0.507950 | 0.847608 |
+| 3.0 | 6686625 | 0.012949 | 0.008853 | 0.042399 | 0.461164 | 0.842544 |
+| 5.0 | 6686625 | 0.008702 | 0.006329 | 0.031055 | 0.399262 | 0.845219 |
 
-All three candidates use the same supported full evaluation anchors: 6,686,625 per threshold. Approximate AUC uses Spark numBins=1000. The main selection rule remains equal-threshold/equal-year Brier.
+## Appendix: exact sample count for every plotted low-probability point (2023)
+
+| Model | Cut/mm | Bin | n | Mean p | Observed rate |
+|---|---|---|---|---|---|
+| Historical tree | 0 | 3 | 6,273,227 | 0.010323 | 0.026913 |
+| Selected model | 0 | 4 | 6,080,591 | 0.020324 | 0.021151 |
+| Historical tree | 0.5 | 3 | 6,273,227 | 0.010323 | 0.011734 |
+| Selected model | 0.5 | 2 | 6,080,591 | 0.009796 | 0.010196 |
+| Selected model | 0.5 | 4 | 130,423 | 0.037971 | 0.046173 |
+| Historical tree | 1 | 3 | 6,273,227 | 0.010323 | 0.008240 |
+| Selected model | 1 | 2 | 6,080,591 | 0.007068 | 0.007338 |
+| Selected model | 1 | 3 | 81,581 | 0.017711 | 0.023253 |
+| Selected model | 1 | 4 | 158,269 | 0.032974 | 0.038972 |
+| Historical tree | 2 | 3 | 6,273,227 | 0.010323 | 0.005691 |
+| Selected model | 2 | 2 | 6,103,843 | 0.005037 | 0.005167 |
+| Selected model | 2 | 3 | 181,278 | 0.014344 | 0.017989 |
+| Selected model | 2 | 4 | 172,908 | 0.034253 | 0.041062 |
+| Historical tree | 5 | 3 | 6,273,227 | 0.010323 | 0.002857 |
+| Selected model | 5 | 1 | 6,141,931 | 0.002593 | 0.002650 |
+| Selected model | 5 | 2 | 190,584 | 0.007050 | 0.008306 |
+| Selected model | 5 | 3 | 113,152 | 0.014816 | 0.018868 |
+| Selected model | 5 | 4 | 95,194 | 0.028774 | 0.032408 |

@@ -1,0 +1,61 @@
+{
+  "status": "PASS",
+  "checksum_scope": "Logical model files; Hadoop .crc sidecars are derived filesystem metadata, optional in source control",
+  "files": [
+    {
+      "path": "conditional_cdf.json",
+      "bytes": 1242304,
+      "sha256": "2b8e1346b894228db4595d6a7db22e0d81137fe53c330ecc10201003b48271af"
+    },
+    {
+      "path": "experiment_config.json",
+      "bytes": 2801,
+      "sha256": "9dc37acf64456d807f8fb4c0b2007a74426a316c459d11d7fb710ec03386a866"
+    },
+    {
+      "path": "prediction_contract.json",
+      "bytes": 3738,
+      "sha256": "3f5dc3b8d846513e654d5640562c3f20c54da04f87a58d2d32b7ff73ccd8a8a7"
+    },
+    {
+      "path": "spark_model/metadata/_SUCCESS",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "spark_model/metadata/part-00000",
+      "bytes": 246,
+      "sha256": "9333afb56ce70a4399b6db1b06df28af39a67125becbe2bd4cae38ebd2ee53ff"
+    },
+    {
+      "path": "spark_model/stages/0_VectorAssembler_aa3f41c2b418/metadata/_SUCCESS",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "spark_model/stages/0_VectorAssembler_aa3f41c2b418/metadata/part-00000",
+      "bytes": 730,
+      "sha256": "9a4d1183d851eb93e1e2490cab35a2106b72253217c2296ad26d1e0e933f5c0a"
+    },
+    {
+      "path": "spark_model/stages/1_DecisionTreeRegressor_1250484629b2/data/_SUCCESS",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "spark_model/stages/1_DecisionTreeRegressor_1250484629b2/data/part-00000-9ccf410e-279d-4c4c-baa3-e5a60c5240f2-c000.snappy.parquet",
+      "bytes": 21598,
+      "sha256": "7a6ed39f6dc2996680852397bb5c2d274462ef34ec7c5d5edd2f6f0533c5e1e4"
+    },
+    {
+      "path": "spark_model/stages/1_DecisionTreeRegressor_1250484629b2/metadata/_SUCCESS",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "spark_model/stages/1_DecisionTreeRegressor_1250484629b2/metadata/part-00000",
+      "bytes": 660,
+      "sha256": "a4f85d456b347e6bf87d8de6b8b1b51fa0fca25b91eb473311a40334f53c8bf9"
+    }
+  ]
+}

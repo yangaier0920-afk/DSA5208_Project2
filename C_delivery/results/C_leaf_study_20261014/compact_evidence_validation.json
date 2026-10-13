@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "threshold_metric_cells_checked": 300,
+  "maximum_mean_probability_reconciliation_roundoff": 1.1220607776252223e-12,
+  "probability_float_tolerance": 1e-10,
+  "checks": "Same candidate evaluation counts; calibration-bin counts/positives/mean p reconcile; exact sorted CDF/counts; all continuous threshold violations zero; group coverage denominators consistent",
+  "2024_used": false
+}

@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "execution_python": "/Users/kendallshao/Downloads/DSA5208_Project2/.venv/bin/python",
+  "configuration_sha256": "bbc232b9e219bddb08a9394f365c0ddebdc267d242ecdeb3f056b051b91997ed",
+  "input_anchors": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/rebuilt_inputs_C_leaf_study_20261014",
+  "new_training_used_rebuilt_anchors": true,
+  "final_TRAIN_only_through_2023": true,
+  "known_2024_not_scored": true,
+  "stages": [
+    "development",
+    "select",
+    "refit",
+    "reload",
+    "guard",
+    "compact_validation"
+  ],
+  "fresh_machine_full_AB_pipeline_claimed": false,
+  "Windows_executed": false
+}

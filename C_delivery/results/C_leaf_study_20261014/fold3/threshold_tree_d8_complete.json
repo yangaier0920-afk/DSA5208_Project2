@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "training_seconds": 143.48137120809406,
+  "elapsed_seconds": 242.28471445804462,
+  "model": "threshold_tree_d8",
+  "year": 2023,
+  "train_anchors": 3401643,
+  "validation_anchors": 6686625,
+  "thresholds": [
+    0,
+    0.5,
+    1,
+    2,
+    5
+  ],
+  "source_2024_used": false,
+  "training_only_fit": true,
+  "evidence_reused_from": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3",
+  "not_retrained_in_leaf_study": true
+}

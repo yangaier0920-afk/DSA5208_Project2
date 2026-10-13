@@ -1,0 +1,13 @@
+year,step,anchors,fraction_of_observed
+2021,Observed anchors,7044646,1.0
+2021,Complete past history,6995148,0.9929736710687804
+2021,Complete history + future,6976422,0.9903154821406214
+2021,Safe role + known station,6976044,0.9902618243698832
+2022,Observed anchors,7133230,1.0
+2022,Complete past history,7091648,0.9941706632198878
+2022,Complete history + future,7073178,0.9915813733750348
+2022,Safe role + known station,7072758,0.9915224940174368
+2023,Observed anchors,6742890,1.0
+2023,Complete past history,6704161,0.9942563203611507
+2023,Complete history + future,6687003,0.9917117141166473
+2023,Safe role + known station,6686625,0.9916556550677825

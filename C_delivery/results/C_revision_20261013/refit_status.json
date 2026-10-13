@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "selected_model": "cdf_persistence_d8",
+  "train_anchors": 4071679,
+  "train_years": [
+    2017,
+    2023
+  ],
+  "training_seconds": 24.035523040918633,
+  "2024_read_or_scored": false,
+  "source_train_anchor_partition": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_v1_20261012/final/anchors/final_role=TRAIN"
+}

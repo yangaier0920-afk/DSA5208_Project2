@@ -1,0 +1,7 @@
+{
+  "B_task1": "/Users/kendallshao/Downloads/DSA5208_Project2/B_delivery/results/task1_v2",
+  "original_C_run": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_v1_20261012",
+  "revision_C_run": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013",
+  "revision_selection_sha256": "f86dd8e47eea885373707f04e281144f0ac4f6a5b2546ec891fe99e372cf530b",
+  "2024_policy": "Historical original model only; current revision not rescored"
+}

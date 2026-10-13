@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "elapsed_seconds": 1421.511024333071,
+  "fold": 3,
+  "models": [
+    "cdf_recent_d8",
+    "cdf_persistence_d8",
+    "cdf_calendar_d8",
+    "cdf_full_d5",
+    "cdf_full_d8",
+    "threshold_tree_d8",
+    "random_forest_small"
+  ],
+  "2024_scored": false
+}

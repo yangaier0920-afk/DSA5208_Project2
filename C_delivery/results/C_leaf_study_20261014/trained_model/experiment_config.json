@@ -1,0 +1,126 @@
+{
+  "experiment_version": "C_leaf_study_20261014",
+  "seed": 20261012,
+  "formal_anchor_fraction": 0.1,
+  "folds": [
+    [
+      2017,
+      2020,
+      2021
+    ],
+    [
+      2017,
+      2021,
+      2022
+    ],
+    [
+      2017,
+      2022,
+      2023
+    ]
+  ],
+  "primary_thresholds_mm": [
+    0,
+    0.5,
+    1,
+    2,
+    5
+  ],
+  "held_out_thresholds_mm": [
+    0.25,
+    0.75,
+    1.5,
+    3
+  ],
+  "selection": "Equal primary-threshold/year Brier among continuous candidates; original simplicity order retained, then leaf1000 then leaf250; absolute tolerance 1e-5. Held-out cuts excluded.",
+  "tie_absolute_tolerance": 1e-05,
+  "continuous_candidates": [
+    "frequency_cdf",
+    "climatology_cdf",
+    "persistence_cdf",
+    "cdf_recent_d8",
+    "cdf_persistence_d8",
+    "cdf_calendar_d8",
+    "cdf_full_d5",
+    "cdf_full_d8",
+    "cdf_persistence_d8_leaf1000",
+    "cdf_persistence_d8_leaf250"
+  ],
+  "simplicity_order": [
+    "frequency_cdf",
+    "persistence_cdf",
+    "climatology_cdf",
+    "cdf_recent_d8",
+    "cdf_persistence_d8",
+    "cdf_calendar_d8",
+    "cdf_full_d5",
+    "cdf_full_d8",
+    "cdf_persistence_d8_leaf1000",
+    "cdf_persistence_d8_leaf250"
+  ],
+  "diagnostic_classifiers": {
+    "threshold_tree_d8": {
+      "maxDepth": 8,
+      "minInstancesPerNode": 500
+    },
+    "random_forest_small": {
+      "numTrees": 16,
+      "maxDepth": 6,
+      "minInstancesPerNode": 500
+    }
+  },
+  "tree_cdf": {
+    "maxBins": 32,
+    "minInstancesPerNode": 500,
+    "target": "log1p future_30m_mm; training outcome only",
+    "leaf_prior_anchors": 50
+  },
+  "baselines": {
+    "climatology_group": "station/month/hour",
+    "persistence_group": "rain_sum_15m bins [0,0.1,0.5,2,5,10] plus current wet flag",
+    "prior_anchors": 200
+  },
+  "inference_threshold_domain": "any finite nonnegative threshold representable as Decimal(38,18); performance checked at nine development thresholds in 0..5 mm; higher-tail predictions are empirical, not a validated extreme-tail guarantee",
+  "group_evaluation": {
+    "months": "all 12",
+    "stations": "five largest first-fold TRAIN station counts, frozen before metrics",
+    "history_state": "complete past 60-minute all-dry or any-wet",
+    "auc_histogram_bins": 1000
+  },
+  "spark": {
+    "threads": 2,
+    "driver_memory": "6g",
+    "shuffle_partitions": 128,
+    "read_partition_bytes": 33554432,
+    "adaptive_coalesce": false
+  },
+  "auc_num_bins": 1000,
+  "log_loss_clip": 1e-15,
+  "calibration_bin_edges": [
+    0,
+    0.001,
+    0.005,
+    0.01,
+    0.02,
+    0.05,
+    0.1,
+    0.2,
+    0.4,
+    0.6,
+    0.8,
+    1.0000001
+  ],
+  "test_policy": "No new 2024 selection or scoring; preserve v1 known test. Final new model refits 2017..2023 after development lock and reports development validation as evidence.",
+  "probability_postprocessing": "Conditional empirical survival CDF with fixed training-only global-prior mixture; structurally nonincreasing in threshold. No validation/test outcome calibration.",
+  "candidate_overrides": {
+    "cdf_persistence_d8_leaf250": {
+      "minInstancesPerNode": 250
+    },
+    "cdf_persistence_d8_leaf1000": {
+      "minInstancesPerNode": 1000
+    }
+  },
+  "study_scope": "Supplementary review-driven development search on the already-selected 22 persistence features; not a new independent validation or causal feature ablation. Freeze before first new leaf-size score.",
+  "baseline_evidence": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013",
+  "reproduction_policy": "Missing original fold Parquet is rebuilt from formal A/B tables; this execution uses fresh reconstructed anchors, verified against previous anchors before model fitting."
+}

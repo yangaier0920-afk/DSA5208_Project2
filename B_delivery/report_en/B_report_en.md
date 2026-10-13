@@ -1,5 +1,3 @@
-> English reference from the 2026-10-12 team evidence. The latest nine-figure Chinese B revision is in ../report_zh/B_report_zh.md; the integrated submission remains pinned to its declared experiment.
-
 # Singapore rainfall patterns and historical features: B report
 
 Feature version B_v2. This chapter covers Task 1 and historical inputs; completed C results are reported separately in C_delivery and the integrated submission.
@@ -111,7 +109,7 @@ October has the largest 90% panel, 21 stations; ties choose the earlier month. S
 
 R(t) is rainfall over (t-5min,t] under the project L1/D1 assumption, not independently verified official semantics. Original event_ts is retained; prediction keys use aligned slot_end_epoch_s. Exact endpoints are matched by epoch seconds and missing positions are never zero-filled.
 
-The following 26 rows follow B_feature_api.NUMERIC_FEATURES order. Station ID and numeric threshold are additional C inputs.
+The following 26 rows follow B_feature_api.NUMERIC_FEATURES order. Station and time identify the historical series/anchor. The current C model uses 22 selected numeric features and queries threshold against its fitted CDF; the legacy classifier included threshold as an extra feature.
 
 | Name | Definition/formula | Unit | Exact historical endpoints | Includes current slot | Missing/special values |
 |---|---|---|---|---|---|
@@ -204,4 +202,12 @@ B_v2 validation: 48,538,627 rows, 47,347,833 complete histories, annual A agreem
 
 ## Limitations and AI use
 
-Interval/event-time availability assumptions and actual publication delay remain unverified. Changing composition, missingness, approximate quantiles and complete-history eligibility limit interpretation. No causal control, significance test or feature ablation establishes independent predictive gains. C uses training-only transformations and prespecified E2 validation, then one locked 2024 test. OpenAI Codex assisted design, code, execution, checks, figures and drafting; actual counts come from saved outputs, and automated checks do not replace member review. Final submission requirements and completed group results are documented in submission.
+Interval/event-time availability assumptions and actual publication delay remain unverified. Changing composition, missingness, approximate quantiles and complete-history eligibility limit interpretation. No causal control or significance test establishes physical attribution. Current C controlled feature ablation provides model-conditional predictive comparisons, using training-only transformations and E2 development validation. The known 2024 test belongs only to the original C_v1 model. OpenAI Codex assisted design, code, execution, checks, figures and drafting; actual counts come from saved outputs, and automated checks do not replace member review. Final submission requirements and completed group results are documented in submission.
+
+## Integrated Task 1 additions and current modelling handoff
+
+The current main report in submission/Final_Report_EN.md integrates all nine task1_v2 figures. Adjacent-year analysis fixes all seven year pairs and 12 months and compares identical stations meeting 90% coverage within each cell. Of 84 cells, 63 are supported (35 outside the four fixed eight-year months); the largest October increase is +255.27 mm in 2021–2022 (63 stations), and decrease -301.58 mm in 2022–2023 (59 stations). Local station sets change, so these differences cannot form a national trend or annual total.
+
+The map uses the same 21-station October panel and latest recorded coordinates. S113 recorded positions differ by approximately 39 metres, of unknown cause; there is no spatial interpolation. November/afternoon occurrence patterns are compatible with the climate background described by MSS (https://www.weather.gov.sg/climate-climate-of-singapore/), without proving a physical mechanism or matching official rain-day definitions.
+
+Current C selects cdf_persistence_d8_leaf1000 using 22 recent/persistence features, development Brier 0.01679503 after the leaf250/500/1000 comparison. Calendar/station additions did not improve the separate controlled feature ablation, which remains a fixed-leaf500 experiment. Continuous threshold support, strong baselines, month/station/history diagnostics and development-only limitations are documented in C_delivery and the main report. Original 2024 scores are preserved and have not been reassigned to the current model.

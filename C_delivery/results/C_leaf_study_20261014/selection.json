@@ -1,0 +1,144 @@
+{
+  "status": "LOCKED",
+  "selected_model": "cdf_persistence_d8_leaf1000",
+  "scores": [
+    {
+      "model": "frequency_cdf",
+      "year_scores": {
+        "2021": 0.028542233903869896,
+        "2022": 0.029113437206478264,
+        "2023": 0.029927772783440793
+      },
+      "mean_brier": 0.02919448129792965,
+      "eligible_for_continuous_deployment": true
+    },
+    {
+      "model": "climatology_cdf",
+      "year_scores": {
+        "2021": 0.02841569143173086,
+        "2022": 0.02896796217599058,
+        "2023": 0.029584116131773856
+      },
+      "mean_brier": 0.028989256579831767,
+      "eligible_for_continuous_deployment": true
+    },
+    {
+      "model": "persistence_cdf",
+      "year_scores": {
+        "2021": 0.017215504324731686,
+        "2022": 0.01813412783593604,
+        "2023": 0.01846720760926964
+      },
+      "mean_brier": 0.017938946589979122,
+      "eligible_for_continuous_deployment": true
+    },
+    {
+      "model": "cdf_recent_d8",
+      "year_scores": {
+        "2021": 0.01616566370895669,
+        "2022": 0.01710107418413267,
+        "2023": 0.01727053950303523
+      },
+      "mean_brier": 0.01684575913204153,
+      "eligible_for_continuous_deployment": true
+    },
+    {
+      "model": "cdf_persistence_d8",
+      "year_scores": {
+        "2021": 0.016121007935674034,
+        "2022": 0.017083557426479427,
+        "2023": 0.01723214147838355
+      },
+      "mean_brier": 0.016812235613512336,
+      "eligible_for_continuous_deployment": true
+    },
+    {
+      "model": "cdf_calendar_d8",
+      "year_scores": {
+        "2021": 0.0162019340074041,
+        "2022": 0.017073376201482117,
+        "2023": 0.017250939138589886
+      },
+      "mean_brier": 0.016842083115825367,
+      "eligible_for_continuous_deployment": true
+    },
+    {
+      "model": "cdf_full_d5",
+      "year_scores": {
+        "2021": 0.0162589610051086,
+        "2022": 0.017175340606944884,
+        "2023": 0.017447852998879774
+      },
+      "mean_brier": 0.01696071820364442,
+      "eligible_for_continuous_deployment": true
+    },
+    {
+      "model": "cdf_full_d8",
+      "year_scores": {
+        "2021": 0.016202064540170445,
+        "2022": 0.017073287087964625,
+        "2023": 0.017250939138589886
+      },
+      "mean_brier": 0.01684209692224165,
+      "eligible_for_continuous_deployment": true
+    },
+    {
+      "model": "cdf_persistence_d8_leaf1000",
+      "year_scores": {
+        "2021": 0.0160968025050058,
+        "2022": 0.017067358938906117,
+        "2023": 0.01722093305215657
+      },
+      "mean_brier": 0.016795031498689498,
+      "eligible_for_continuous_deployment": true
+    },
+    {
+      "model": "cdf_persistence_d8_leaf250",
+      "year_scores": {
+        "2021": 0.016189099111096186,
+        "2022": 0.01712637391605198,
+        "2023": 0.017280928695452023
+      },
+      "mean_brier": 0.01686546724086673,
+      "eligible_for_continuous_deployment": true
+    },
+    {
+      "model": "threshold_tree_d8",
+      "year_scores": {
+        "2021": 0.016578937200058725,
+        "2022": 0.017584567496831415,
+        "2023": 0.017894737442616458
+      },
+      "mean_brier": 0.017352747379835533,
+      "eligible_for_continuous_deployment": false
+    },
+    {
+      "model": "random_forest_small",
+      "year_scores": {
+        "2021": 0.018098063668239843,
+        "2022": 0.019146833726195807,
+        "2023": 0.0196182685792887
+      },
+      "mean_brier": 0.018954388657908116,
+      "eligible_for_continuous_deployment": false
+    }
+  ],
+  "experiment_config_hash": "bbc232b9e219bddb08a9394f365c0ddebdc267d242ecdeb3f056b051b91997ed",
+  "selected_at_utc": "2026-10-13T17:23:12.089430+00:00",
+  "selection_rule": "Equal primary-threshold/year Brier among continuous candidates; original simplicity order retained, then leaf1000 then leaf250; absolute tolerance 1e-5. Held-out cuts excluded.",
+  "test_labels_or_metrics_used": false,
+  "2024_policy": "No new scoring; original v1 test already observed and retained",
+  "primary_thresholds_mm": [
+    0,
+    0.5,
+    1,
+    2,
+    5
+  ],
+  "held_out_thresholds_excluded_from_selection": [
+    0.25,
+    0.75,
+    1.5,
+    3
+  ]
+}

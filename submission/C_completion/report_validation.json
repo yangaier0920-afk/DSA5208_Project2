@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "pages": 25,
+  "English_text": true,
+  "members_cover": true,
+  "current_model_numbers": true,
+  "all_nine_Task1_figures": true,
+  "historical_test_separate": true,
+  "visible_version_labels_removed": true,
+  "dedicated_AI_declaration": true,
+  "leaf_size_experiment_and_reconstruction": true,
+  "visual_review": "All main/C pages checked at contact-sheet scale; minor heading/page-break repair checked separately"
+}

@@ -1,0 +1,11 @@
+{
+  "station_ids": [
+    "S88",
+    "S120",
+    "S94",
+    "S77",
+    "S113"
+  ],
+  "rule": "Five largest first-fold TRAIN sample counts, ties station ID; chosen before model metrics",
+  "source": "2017..2020 TRAIN only"
+}

@@ -1,0 +1,123 @@
+{
+  "status": "PASS",
+  "extracted_source_and_model": true,
+  "logical_artifact_checksums_verified_by_predictor": true,
+  "only_historical_fixture_observations_supplied": true,
+  "arbitrary_threshold_3_14159_accepted": true,
+  "exact_18_decimal_query_preserved": true,
+  "monotone_probabilities": true,
+  "selected_model": "cdf_persistence_d8_leaf1000",
+  "minimum_leaf_anchors": 1000,
+  "predictions": [
+    {
+      "station_id": "S06",
+      "prediction_epoch_s": 1483256100,
+      "threshold_mm": 0.0,
+      "threshold_decimal_mm": "0",
+      "probability": 0.020501019649279795,
+      "event": "future_30m_mm > threshold_mm",
+      "evaluation_scope": "Development validation at nine cuts in 0..5 mm; empirical higher tail not independently validated",
+      "information_availability": "Retrospective event-time assumption; not verified live publication latency"
+    },
+    {
+      "station_id": "S06",
+      "prediction_epoch_s": 1483256100,
+      "threshold_mm": 0.25,
+      "threshold_decimal_mm": "0.25",
+      "probability": 0.012051221263337929,
+      "event": "future_30m_mm > threshold_mm",
+      "evaluation_scope": "Development validation at nine cuts in 0..5 mm; empirical higher tail not independently validated",
+      "information_availability": "Retrospective event-time assumption; not verified live publication latency"
+    },
+    {
+      "station_id": "S06",
+      "prediction_epoch_s": 1483256100,
+      "threshold_mm": 0.5,
+      "threshold_decimal_mm": "0.5",
+      "probability": 0.009847125563494286,
+      "event": "future_30m_mm > threshold_mm",
+      "evaluation_scope": "Development validation at nine cuts in 0..5 mm; empirical higher tail not independently validated",
+      "information_availability": "Retrospective event-time assumption; not verified live publication latency"
+    },
+    {
+      "station_id": "S06",
+      "prediction_epoch_s": 1483256100,
+      "threshold_mm": 0.5,
+      "threshold_decimal_mm": "0.500000000000000001",
+      "probability": 0.009847125563494286,
+      "event": "future_30m_mm > threshold_mm",
+      "evaluation_scope": "Development validation at nine cuts in 0..5 mm; empirical higher tail not independently validated",
+      "information_availability": "Retrospective event-time assumption; not verified live publication latency"
+    },
+    {
+      "station_id": "S06",
+      "prediction_epoch_s": 1483256100,
+      "threshold_mm": 0.75,
+      "threshold_decimal_mm": "0.75",
+      "probability": 0.0085416064069854,
+      "event": "future_30m_mm > threshold_mm",
+      "evaluation_scope": "Development validation at nine cuts in 0..5 mm; empirical higher tail not independently validated",
+      "information_availability": "Retrospective event-time assumption; not verified live publication latency"
+    },
+    {
+      "station_id": "S06",
+      "prediction_epoch_s": 1483256100,
+      "threshold_mm": 1.0,
+      "threshold_decimal_mm": "1",
+      "probability": 0.007093736011377229,
+      "event": "future_30m_mm > threshold_mm",
+      "evaluation_scope": "Development validation at nine cuts in 0..5 mm; empirical higher tail not independently validated",
+      "information_availability": "Retrospective event-time assumption; not verified live publication latency"
+    },
+    {
+      "station_id": "S06",
+      "prediction_epoch_s": 1483256100,
+      "threshold_mm": 1.5,
+      "threshold_decimal_mm": "1.5",
+      "probability": 0.005997310632874987,
+      "event": "future_30m_mm > threshold_mm",
+      "evaluation_scope": "Development validation at nine cuts in 0..5 mm; empirical higher tail not independently validated",
+      "information_availability": "Retrospective event-time assumption; not verified live publication latency"
+    },
+    {
+      "station_id": "S06",
+      "prediction_epoch_s": 1483256100,
+      "threshold_mm": 2.0,
+      "threshold_decimal_mm": "2",
+      "probability": 0.00502018125242474,
+      "event": "future_30m_mm > threshold_mm",
+      "evaluation_scope": "Development validation at nine cuts in 0..5 mm; empirical higher tail not independently validated",
+      "information_availability": "Retrospective event-time assumption; not verified live publication latency"
+    },
+    {
+      "station_id": "S06",
+      "prediction_epoch_s": 1483256100,
+      "threshold_mm": 3.0,
+      "threshold_decimal_mm": "3",
+      "probability": 0.0038816778612480447,
+      "event": "future_30m_mm > threshold_mm",
+      "evaluation_scope": "Development validation at nine cuts in 0..5 mm; empirical higher tail not independently validated",
+      "information_availability": "Retrospective event-time assumption; not verified live publication latency"
+    },
+    {
+      "station_id": "S06",
+      "prediction_epoch_s": 1483256100,
+      "threshold_mm": 3.14159,
+      "threshold_decimal_mm": "3.14159",
+      "probability": 0.0038470965155370084,
+      "event": "future_30m_mm > threshold_mm",
+      "evaluation_scope": "Development validation at nine cuts in 0..5 mm; empirical higher tail not independently validated",
+      "information_availability": "Retrospective event-time assumption; not verified live publication latency"
+    },
+    {
+      "station_id": "S06",
+      "prediction_epoch_s": 1483256100,
+      "threshold_mm": 5.0,
+      "threshold_decimal_mm": "5",
+      "probability": 0.002566521151026343,
+      "event": "future_30m_mm > threshold_mm",
+      "evaluation_scope": "Development validation at nine cuts in 0..5 mm; empirical higher tail not independently validated",
+      "information_availability": "Retrospective event-time assumption; not verified live publication latency"
+    }
+  ]
+}

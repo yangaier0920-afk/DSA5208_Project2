@@ -1,20 +1,26 @@
-# C: Spark MLlib rainfall exceedance model
+# C: current Spark conditional rainfall model
 
-Completed probability model for strict accumulated rainfall > input threshold over the next 30 minutes. Inputs are station, five-minute endpoint prediction time and threshold, using B's 26 past-only features. Pinned Python 3.11/Java 17/PySpark 3.5.7; install requirements-C.txt. Follow the project README for formal data, frozen runtime and full reproduction.
+The selected model is results/C_leaf_study_20261014/trained_model/, candidate cdf_persistence_d8_leaf1000. It uses 22 recent/persistence features from the B 26-column API and supports finite nonnegative Decimal(38,18) threshold queries with strict exceedance. Development mean Brier 0.01679503 is 6.38% below the strong persistence baseline. Nine evaluated cuts lie in 0..5 mm; far-tail reliability is unverified. No new 2024 scoring occurred. The historical five-cut classifier retains its own known 2024 result.
+
+See ../README.md for installation, formal-data acquisition, predictor API, full reproduction and document packaging. CURRENT_EVIDENCE.md indexes successful receipts. docs/C_REVISION_PROTOCOL.md and docs/C_REVIEW_IMPLEMENTATION_CHECKLIST.md specify the comparisons and feature ablation.
 
 ```bash
 python C_delivery/src/C_test_contracts.py
-python C_delivery/src/C_train.py --help
+python C_delivery/src/C_test_distribution.py
+# For current full C reconstruction and tuning, use the explicit commands below.
 ```
 
-C_train.py handles training-only threshold support, 1% pilot, 10% deterministic anchor sampling, three expanding folds, selection lock and final refit/test. C_package_model.py persists/reloads the model; C_predict.py exposes RainfallPredictor.predict(observations, station_id, prediction_epoch_s, threshold_mm). C_make_report.py generates English evidence-based reports/figures; C_finalize.py records output inventory and packages the deployed model. Use new run/output paths and consult each --help rather than overwriting original receipts.
+The runner needs full formal A data and B features. Missing original anchors are reconstructed for 2017–2023 only and recorded with new joins/counts; the supplementary completed run used freshly reconstructed anchors whose counts and two role-wise row-hash sums match historical inputs. Set C_PYTHON, C_DATA_ROOT and C_FEATURES as required. Outputs remain run-local: report, trained_model, package, lock and manifests. C_finalize reads installed dependency metadata from its running interpreter; shell wrappers are Unix and Python stages can be run separately on Windows (not tested here). Model loading validates logical file hashes; inference uses complete past history and never future eligibility. AI use, assumptions and development-only limitations are declared in the main report.
 
-Results: results/C_v1_20261012. Selected depth-5 decision tree: development mean Brier 0.017585; final 2024 mean 0.017736 versus frequency baseline 0.028883 (38.59% skill). All five threshold metrics, reliability, coverage, joins, selection lock and timing are preserved in JSON/CSV. Final model is results/C_v1_20261012/trained_model/ and output/trained_model_C_v1.zip; source/model/PDF submission copies are under submission/.
+## Required leaf-size completion and C reconstruction
 
-```python
-from C_predict import RainfallPredictor
-predictor = RainfallPredictor(spark, model_path)
-result = predictor.predict(observations, station_id, prediction_epoch_s, threshold_mm)
+C_leaf_study.json freezes leaf sizes 250/500/1000 on the already selected 22-feature depth-8 model; compare primary five-cut/year mean Brier, with fixed 1e-5 tolerance and no known-2024 retuning. C_run_leaf_study.py uses the running interpreter and explicit paths. Compact CDF evidence is included in the current source package; multi-GB intermediate inputs are not.
+
+```bash
+python C_delivery/src/C_revision_rebuild_anchors.py --root .runtime/frozen_root --features B_delivery/results/features_reproduction --reference-run C_delivery/results/C_v1_20261012 --output C_delivery/results/rebuilt_inputs_reproduction
+python C_delivery/src/C_run_leaf_study.py --base-run C_delivery/results/C_revision_20261013 --source-run C_delivery/results/C_v1_20261012 --input-anchors C_delivery/results/rebuilt_inputs_reproduction --root .runtime/frozen_root --features B_delivery/results/features_reproduction --config C_delivery/configs/C_leaf_study.json --output C_delivery/results/C_leaf_reproduction --expected-anchor-signatures C_delivery/results/C_leaf_study_20261014/rebuilt_anchor_comparison.json
+python C_delivery/src/C_revision_report.py --run C_delivery/results/C_leaf_reproduction --source-run C_delivery/results/C_v1_20261012
+python C_delivery/src/C_finalize.py --run C_delivery/results/C_leaf_reproduction
 ```
 
-Supply only existing history if desired. The exact 12 endpoints t−3300,...,t must be valid. Reject unknown stations, off-grid times and thresholds outside 0/0.5/1/2/5 mm. Inference does not use future eligibility. Reload verification compared 100 anchors/500 probabilities with maximum difference zero; past-only predictions matched offline results. Official interval semantics/publication latency remain unverified assumptions. These five evaluated thresholds do not establish arbitrary continuous-threshold performance. See submission/Final_Report_EN.md for complete methods, limitations and AI use.
+With original full intermediate inputs available, --check-against-original-anchors compares both sides directly. With the compact package, --expected-anchor-signatures compares against saved role-wise signatures instead. Neither signature mode is claimed as a cryptographic row-equality proof. Regenerated Parquet bytes can differ; counts/new joins/roles and source identities must still pass. This workflow supports C acceptance without claiming fresh A/B generation, another machine or Windows execution.

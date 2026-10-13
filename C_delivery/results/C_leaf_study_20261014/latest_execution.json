@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "elapsed_seconds": 538.4977236669511,
+  "fold": null,
+  "models": [
+    "frequency_cdf",
+    "climatology_cdf",
+    "persistence_cdf",
+    "cdf_recent_d8",
+    "cdf_persistence_d8",
+    "cdf_calendar_d8",
+    "cdf_full_d5",
+    "cdf_full_d8",
+    "cdf_persistence_d8_leaf1000",
+    "cdf_persistence_d8_leaf250",
+    "threshold_tree_d8",
+    "random_forest_small"
+  ],
+  "2024_scored": false
+}

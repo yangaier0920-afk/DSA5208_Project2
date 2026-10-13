@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "mode": "Extracted compact legacy source/model evidence; current finalizer; no project-private uv or venv in extracted directory",
+  "metadata": {
+    "python_executable": "/Users/kendallshao/Downloads/DSA5208_Project2/.venv/bin/python",
+    "dependency_capture": "importlib.metadata in the executing interpreter; no machine-specific uv/pip path",
+    "python": "3.11.17"
+  },
+  "does_not_claim_full_raw_training_rerun": true
+}

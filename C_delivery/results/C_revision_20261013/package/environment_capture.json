@@ -1,0 +1,5 @@
+{
+  "python_executable": "/Users/kendallshao/Downloads/DSA5208_Project2/.venv/bin/python",
+  "dependency_capture": "importlib.metadata in the executing interpreter; no machine-specific uv/pip path",
+  "python": "3.11.17"
+}

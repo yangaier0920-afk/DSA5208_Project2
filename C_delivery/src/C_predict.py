@@ -7,12 +7,20 @@ class RainfallPredictor:
     def __init__(self, spark, artifact):
         self.spark=spark;self.artifact=Path(artifact)
         self.contract=load(self.artifact/'prediction_contract.json')
+        self.distribution=None
+        if self.contract.get('model_family')=='conditional_empirical_cdf':
+            from C_distribution import DistributionPredictor
+            self.distribution=DistributionPredictor(spark,self.artifact)
+            self.model=self.distribution.model
+            return
         self.model=None
         if self.contract['selected_model']!='frequency_baseline':
             from pyspark.ml import PipelineModel
             self.model=PipelineModel.load(str(self.artifact/'spark_model'))
 
     def predict(self, observations, station_id, prediction_epoch_s, threshold_mm):
+        if self.distribution is not None:
+            return self.distribution.predict(observations,station_id,prediction_epoch_s,threshold_mm)
         from pyspark.sql import functions as F
         from pyspark.ml.functions import vector_to_array
         if station_id not in self.contract['station_ids']:
@@ -39,11 +47,13 @@ def main():
     ap=argparse.ArgumentParser();ap.add_argument('--artifact',required=True,type=Path)
     ap.add_argument('--observations',required=True,type=Path)
     ap.add_argument('--station',required=True);ap.add_argument('--epoch',required=True,type=int)
-    ap.add_argument('--threshold',required=True,type=float);a=ap.parse_args()
+    ap.add_argument('--threshold',required=True,help='Exact numeric text for a conditional-CDF artifact; float for legacy discrete artifacts');a=ap.parse_args()
     spark=spark_start(load(CONFIG))
     try:
         frame=spark.read.parquet(str(a.observations))
-        print(json.dumps(RainfallPredictor(spark,a.artifact).predict(frame,a.station,a.epoch,a.threshold),indent=2))
+        predictor=RainfallPredictor(spark,a.artifact)
+        threshold=a.threshold if predictor.distribution is not None else float(a.threshold)
+        print(json.dumps(predictor.predict(frame,a.station,a.epoch,threshold),indent=2))
     finally:spark.stop()
 
 if __name__=='__main__':main()

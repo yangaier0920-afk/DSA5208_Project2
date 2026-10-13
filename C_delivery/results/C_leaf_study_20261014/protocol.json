@@ -1,0 +1,47 @@
+{
+  "status": "FROZEN_BEFORE_NEW_SCORES",
+  "minimum_leaf_sizes": [
+    250,
+    500,
+    1000
+  ],
+  "existing_500_results_reused": true,
+  "max_depth": 8,
+  "numeric_features": 22,
+  "prior_anchors": 50,
+  "seed": 20261012,
+  "primary_thresholds_mm": [
+    0,
+    0.5,
+    1,
+    2,
+    5
+  ],
+  "held_out_cuts_not_selected": [
+    0.25,
+    0.75,
+    1.5,
+    3
+  ],
+  "folds": [
+    [
+      2017,
+      2020,
+      2021
+    ],
+    [
+      2017,
+      2021,
+      2022
+    ],
+    [
+      2017,
+      2022,
+      2023
+    ]
+  ],
+  "selection": "Equal primary-threshold/year Brier among continuous candidates; original simplicity order retained, then leaf1000 then leaf250; absolute tolerance 1e-5. Held-out cuts excluded.",
+  "known_2024_not_scored": true,
+  "existing_candidate_fold_cells_reused": 30,
+  "new_candidate_fold_cells_planned": 6
+}

@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "pages": 24,
+  "English_text": true,
+  "members_cover": true,
+  "current_model_numbers": true,
+  "all_nine_Task1_figures": true,
+  "historical_test_separate": true,
+  "appendices_after_conclusions": true,
+  "visual_review": "Cover and changed chart checked after label removal; prior full-page layout review retained",
+  "visible_version_labels_removed": true,
+  "dedicated_AI_declaration": true
+}

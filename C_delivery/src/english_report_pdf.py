@@ -1,7 +1,7 @@
 """Render English evidence reports with embedded tables and figures."""
 import re,html
 from pathlib import Path
-from reportlab.platypus import SimpleDocTemplate,Paragraph,Spacer,Table,TableStyle,Image,PageBreak
+from reportlab.platypus import SimpleDocTemplate,Paragraph,Spacer,Table,TableStyle,Image,PageBreak,KeepTogether
 from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.lib.pagesizes import A4
 from reportlab.lib import colors
@@ -11,8 +11,9 @@ def render(markdown,pdf):
     styles=getSampleStyleSheet();styles['BodyText'].fontSize=9;styles['BodyText'].leading=13
     story=[];lines=markdown.read_text().splitlines();i=0
     def para(s,style='BodyText'):
-        s=html.escape(s);s=re.sub(r'`([^`]+)`',r'<font name="Courier">\1</font>',s);s=re.sub(r'\*\*([^*]+)\*\*',r'<b>\1</b>',s)
-        story.append(Paragraph(s,styles[style]));story.append(Spacer(1,6))
+        s=html.escape(s);s=re.sub(r'\[([^]]+)\]\((https?://[^)]+)\)',r'<link href="\2" color="#087f8c">\1</link>',s);s=re.sub(r'`([^`]+)`',r'<font name="Courier">\1</font>',s);s=re.sub(r'\*\*([^*]+)\*\*',r'<b>\1</b>',s)
+        story.append(Paragraph(s,styles[style]))
+        if not style.startswith('Heading'):story.append(Spacer(1,6))
     while i<len(lines):
         line=lines[i].strip();i+=1
         if not line:continue
@@ -26,7 +27,9 @@ def render(markdown,pdf):
                 line=lines[i].strip();i+=1
             n=max(map(len,rows));rows=[r+['']*(n-len(r)) for r in rows]
             content=[[Paragraph(html.escape(v),styles['BodyText']) for v in r] for r in rows]
-            t=Table(content,colWidths=[515/n]*n,repeatRows=1);t.setStyle(TableStyle([('VALIGN',(0,0),(-1,-1),'TOP'),('BACKGROUND',(0,0),(-1,0),colors.HexColor('#e5f1f2')),('GRID',(0,0),(-1,-1),.2,colors.lightgrey)]));story.append(t);story.append(Spacer(1,9));continue
+            t=Table(content,colWidths=[515/n]*n,repeatRows=1);t.setStyle(TableStyle([('VALIGN',(0,0),(-1,-1),'TOP'),('BACKGROUND',(0,0),(-1,0),colors.HexColor('#e5f1f2')),('GRID',(0,0),(-1,-1),.2,colors.lightgrey)]));story.append(KeepTogether([t,Spacer(1,9)]) if len(rows)<=6 else t)
+            if len(rows)>6:story.append(Spacer(1,9))
+            continue
         m=re.match(r'!\[([^]]*)\]\(([^)]+)\)',line)
         if m:
             p=markdown.parent/m[2]

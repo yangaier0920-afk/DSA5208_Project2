@@ -1,0 +1,1056 @@
+{
+  "files": [
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/sample_flow.csv",
+      "sha256": "fcfe37ca6ce5592bc031b168e1277383209b735400a3ba3929531443ccba893e"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/original_preservation_check.json",
+      "sha256": "10c7b791d232bed2df63146c01e7832c5b8248eda7b0c4a753a8177ebf88f987"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/reload_validation.json",
+      "sha256": "fed7e8cf15903924c408f747b076019decd0d020fdf9c6efaef954475ed28533"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/experiment_config.json",
+      "sha256": "9dc37acf64456d807f8fb4c0b2007a74426a316c459d11d7fb710ec03386a866"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/execution_policy.json",
+      "sha256": "5f371a014158da0850657a0877893767bb7afb8a5a128947bfb238708ea0e92f"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/result_metadata.json",
+      "sha256": "c38124543848301af4179731d91d9d2c1c2b65fe468793ff925efc70024d95a6"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/original_run_guard.json",
+      "sha256": "5887c3ad2b34544aa9efbc12e6047abdc46c5da6a3d78dfb48be6e196d5cf36a"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/delivery_manifest.json",
+      "sha256": "8a9fa25c3fc4f0b56ab63b45e6cd08e67ce18b9e61277431acebc9ed5b92ed72"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/candidate_timing_summary.csv",
+      "sha256": "449a4d4f45dee47ac3607455f11f0a9ce46f6471a2c068e8b1641506aaed39fd"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/reliability_plot_exact_counts_2023.csv",
+      "sha256": "34448909b8a322fcce3e35684c647b6db01511dc600fd09e783018915421db06"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/latest_execution.json",
+      "sha256": "c46ff91974b2802bdf6372ed5f26250bfdaf129a77feee7f173e635ff2019ec8"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/reused_anchor_hash_verification.json",
+      "sha256": "ce07caf6dc79a8ebda389379881cd03a8330d67a94db02b05250a888da5066b2"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/development_metrics.csv",
+      "sha256": "1d157aebcac06fea67f396712d2d26fe966447cd3156b6dce51e7e3b1641b18a"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/reload_probe_keys.json",
+      "sha256": "2a0266b090081aca9884648d1efc27453241d9300321252d245a6372497e5a12"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/legacy_model_compatibility_check.json",
+      "sha256": "9ed60ea9bb6b37d852ec8937dbd9deb0801114a37cbe586c93fd4f87f714b4c3"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/selected_group_metrics.csv",
+      "sha256": "8275509eecd59481cdf745007582ab982aec531b89d36b068790ec3a961fd4a6"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/candidate_probability_diagnostics.csv",
+      "sha256": "c0d09b5b49d875a9a4bc8a802f50ef12e7c541ea02aacc4d6db44dfa113dbd57"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/group_station_selection.json",
+      "sha256": "d78a6997c117d2a41a3e8252fd42335d1b606a39cad2eb7e7e25cf68467d2287"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/distribution_contract_tests.log",
+      "sha256": "82842520344fde76f8a44f1d24c4acb46bf8c5f510fd30ee9be6c2079ee4fea3"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/refit_status.json",
+      "sha256": "38e4f17f5c68602e1b772d0b36f0f3ec5c4db042b7abd8c7846be7e72b7bee4b"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/compact_evidence_validation.json",
+      "sha256": "23b9dd112af323a3c240bfa50d39d250924dc345388da9f4bccfbf7ce5106c4d"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/selection.json",
+      "sha256": "f86dd8e47eea885373707f04e281144f0ac4f6a5b2546ec891fe99e372cf530b"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/input_integrity.json",
+      "sha256": "e89a2de8fa13fb6955bdb39eb66c5800f48df05c3b93b89ab46703a5413ee41f"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/environment.json",
+      "sha256": "600568153b26f9dcd361404ad1887ff5ba4768d1d78c1bd3317b522157aee6f4"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/source_syntax_and_language_check.json",
+      "sha256": "42224b5ce8aa13b1d1fa76e2ca05194e56d82fefde7ea922b89ecfe54692d255"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/selected_calibration_summary.csv",
+      "sha256": "419d43627c46ac717c756f7df57a7521b0d6c1d57ac97f0086e5443b4839eb56"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/ablation_summary.csv",
+      "sha256": "08af95589852b3619555c5bc5d946f1a084375dd2173bb8baf251e12a03409da"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/finalizer_portability_validation.json",
+      "sha256": "d30c620b55ba586c0ab213b464b59188cf6b1327c8ce6dc4d8e58fd9846f7e7b"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/threshold_tree_d8_calibration.csv",
+      "sha256": "bb584b477840a155c061bffce57f1a3fa82c07aca1a9f1ada9fe5a4a25d6e83b"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/cdf_full_d8_evaluation.json",
+      "sha256": "d7dcb06aba8b626b818fa6691d8742ec7ce9d602eafb07390b1e858a62664a99"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/cdf_full_d5_feature_weights.csv",
+      "sha256": "9a87d2b04bda1a6c54702d76ed1c6509d5baa78416d5065ed7e12fbf34780faa"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/persistence_cdf_complete.json",
+      "sha256": "5ec6941317f16c87cad62fcab9715fbb1270723a448b2bc9ecea19f6fbaf97f7"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/cdf_full_d5_calibration.csv",
+      "sha256": "9ebebaf2d59748701573bcffc1d9ed52bac3fae0c52a24a5257dad37152345de"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/climatology_cdf_evaluation.json",
+      "sha256": "9908b7354b36482a9c72dedddeaf66d3a8d277cc174915547b2175f6d5dff5c4"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/cdf_recent_d8_calibration.csv",
+      "sha256": "c0a6ec29d8b8581c3d2a9929e028eec991b3390260b2ac415e6cb26d87cc2fa2"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/frequency_cdf_evaluation.json",
+      "sha256": "eac74b743e81feceb16d25872209c88bf7239b50a4b8e7734737569e7cbe2ca6"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/threshold_tree_d8_group_metrics.csv",
+      "sha256": "35389b710357415b452d862196cee93b4f8c8f4c615c24b2c8a15325775fa6f6"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/cdf_calendar_d8_calibration_summary.csv",
+      "sha256": "6e0c59c0e017df60ee835b7476e8673917fe271e31b5db48f64c11b4c163f9c5"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/persistence_cdf_evaluation.json",
+      "sha256": "f935697dd5d145f8270ee4fcb0d872d3a5304cc46cdb8ffcaedbd25b179e7a21"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/cdf_full_d5_calibration_summary.csv",
+      "sha256": "9c97818b61cb35b4c647b115c6e61bb9c300c0270eff539720971a5d873b1a82"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/climatology_cdf_complete.json",
+      "sha256": "3225e2950fc89070c876c4f4fbf2844ddd4c5f061daebfe988935ea03b722bef"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/cdf_persistence_d8_evaluation.json",
+      "sha256": "345f1a84eeb63133bda338c78781fae9f7bc15a5e8cfe7e0acc41e52ac1e485b"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/cdf_full_d8_metrics.csv",
+      "sha256": "3c753ce3105cdd413b811266e390cc64f1499474cedef32119d082b975f04301"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/climatology_cdf_metrics.csv",
+      "sha256": "9a226631366dc73083dce030893f1bb00598a10e6b33bb0ceefe3de5a4f754d0"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/threshold_tree_d8_complete.json",
+      "sha256": "19128e8b5d176bbe1a1599d71fb039ff30c41bc8e394b8ef55cfdb1bc9ea17a0"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/random_forest_small_metrics.csv",
+      "sha256": "40efe956bd873943c3ecbf03f9e8764e56617d4e50fa15bd83de07e9c16175f5"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/cdf_recent_d8_calibration_summary.csv",
+      "sha256": "59b6e7de18a89f3a0c6de4349d32f66aa17a4a152cf6cefb1521423a6e9d2c19"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/cdf_full_d5_group_metrics.csv",
+      "sha256": "9dc0f9e3753aec08d15c41f292c70352a1b694f0634770f74e578332eb21eb39"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/random_forest_small_complete.json",
+      "sha256": "afd57087008b839cefb1fce562346c2dba8f889960f75b6d5a36a098b2195f3e"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/cdf_recent_d8_complete.json",
+      "sha256": "a3a73ed52750b353b6cde5001df5c19e006c297e43a61080a9ec90951dee1861"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/random_forest_small_evaluation.json",
+      "sha256": "9139a156fb3952cfe8b9b842995ff908a17b05172d194179f0ab3c029fc7d7b4"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/persistence_cdf_metrics.csv",
+      "sha256": "211fc640340f696fc06a937ad9dc4599017d6d58c6787e8c21b1db6c79fec287"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/climatology_cdf_group_metrics.csv",
+      "sha256": "d98a0b48ce9024b0c0834a2f94d3af4fc65789976d9f1563238b539e5cb59fb1"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/cdf_persistence_d8_group_metrics.csv",
+      "sha256": "ceed06710575944570174e20c06211dbd86b671e5d16f93f77375f41f32a39e4"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/cdf_full_d8_feature_weights.csv",
+      "sha256": "19da99a3fb2ac9e0a83a6ac442bd629c1760d3c59990ee1f328c3cd4c254da4a"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/cdf_calendar_d8_feature_weights.csv",
+      "sha256": "4c66f50fb00b05eff30b3791509b2d798bf45c0e76a969c96785619e3ab45c6c"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/cdf_calendar_d8_calibration.csv",
+      "sha256": "e05f7f0f184e07bd2ab3e2218468b8f3e378711d7de03be145161ec04ba7e999"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/cdf_full_d8_group_metrics.csv",
+      "sha256": "3e4d3d1a47fe87fbbe0f857ce8467e3a32a83ee034d22ec8a3bdd381750d52d7"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/cdf_calendar_d8_complete.json",
+      "sha256": "cced600af17b45d2b429294a357fac3a418967d1ed61acb9a4231ec421933fa5"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/threshold_tree_d8_calibration_summary.csv",
+      "sha256": "f1f87b35988dad69657cd5087e30fcfaf4711e19a1b16615caa2520c2a2e9e29"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/group_coverage.json",
+      "sha256": "00341234503b1da132a6783a2b7fc0e3d7671ede98b5ea8243d3bd90e9fc8e5a"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/cdf_full_d5_complete.json",
+      "sha256": "d89451a1d83fbb2ed0421ed57442ca314f3adbc1c9a26bad5fbee3d3feb96ef7"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/cdf_persistence_d8_feature_weights.csv",
+      "sha256": "2aee2f80742ba948d3eb13c16c29b026ca94ded01017be994261c2308f9aca31"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/sample_identity.json",
+      "sha256": "100fb0e066b5f86a79e9733ad827c9a275063e86509525899f9dddb630d23358"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/cdf_calendar_d8_group_metrics.csv",
+      "sha256": "419dbf6aa054deae47b94bc67e54b300f88a2af4486165ba4193a6f3222be0ee"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/random_forest_small_calibration.csv",
+      "sha256": "fe5891a6bff071dbd86038e5b1a5803a9411f109210f891fd85827804040fadd"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/random_forest_small_calibration_summary.csv",
+      "sha256": "9d19ee7855ab371d8c9f1e4562d9f9bf3493b4c7b0bbf0d3ed6bc467d4509761"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/cdf_full_d5_metrics.csv",
+      "sha256": "6422a92f86af764fca2e4326849a4615ab580a60996642e34ccec8bdc12e24ab"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/frequency_cdf_complete.json",
+      "sha256": "89941881ce257f6590974441f59e1faadfdb058a5d56002475ddfd939c4c5571"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/random_forest_small_group_metrics.csv",
+      "sha256": "ecfda05eeadd04dbe56f21b1d3581cef4f5c3becc39d1756b2c127bd9942d8ef"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/cdf_persistence_d8_calibration_summary.csv",
+      "sha256": "0df304fe84de791885363929a43b0a4b53b47803e4d40d1f8bd1036233a39878"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/cdf_calendar_d8_evaluation.json",
+      "sha256": "2fc8f5984ac1eb8a047acab9994d67666384169f281ea84cf2032bcb1fbb59a7"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/cdf_full_d8_calibration.csv",
+      "sha256": "037968feca35f24cbe8a96c0b41e6b749e288a082994e94ee54b340d6555f071"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/frequency_cdf_metrics.csv",
+      "sha256": "29cb71873eb495401e2af301f41f8240acf47c1b124bf92b625bff98ee06601e"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/threshold_tree_d8_evaluation.json",
+      "sha256": "0c7a5ac1895212dddeae50ba5c3b68bc680a48a593a11fed72aff2b74b682805"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/frequency_cdf_group_metrics.csv",
+      "sha256": "e12286544a946392ab7f98c373083bfe59c77a1ae0d64df1410f65ff18809106"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/persistence_cdf_group_metrics.csv",
+      "sha256": "d72a98efad4f8d61ff0af056210c75521a6425b505f3f82f9789328030d8e4f3"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/cdf_recent_d8_evaluation.json",
+      "sha256": "2d9b36f42b95e464d07708b0c4c4c6786e89762ad7353d560f398be8f021703a"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/climatology_cdf_calibration.csv",
+      "sha256": "f5ba59915d3ebf3e8a203bb59ac16133f42428ac86d2d088e5223be2b3841f51"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/cdf_recent_d8_metrics.csv",
+      "sha256": "b1b0a0e4275e22959afdc7844175f04ffdbf063c2ad392d40ecb2ef12c782068"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/cdf_persistence_d8_complete.json",
+      "sha256": "97cd5ecf7abf7f3a56932f592c875a109c0d54cae4fb6d3aa31416853af30ecf"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/cdf_calendar_d8_metrics.csv",
+      "sha256": "930c5f0d27793d14c480569aeb7db72224d9eb973ad7504508df515539fda368"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/cdf_persistence_d8_metrics.csv",
+      "sha256": "839ebf5ad1b5cf5807aa7e846e6ad298a1158a6c3132db47eab81d221b27cb55"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/cdf_full_d5_evaluation.json",
+      "sha256": "8a4ef4fa3e09de81c71897ab2bdd41b4b524dc76f10f6cdd4b9109005b740f5f"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/cdf_full_d8_complete.json",
+      "sha256": "d7055f93597347a45e641855d47d85c0665d1b92de81635fd7c167465b4ffa32"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/cdf_recent_d8_group_metrics.csv",
+      "sha256": "88f78d68f6e20237a1281117e36a3503e69ebc3c59278f5162585caff960342b"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/frequency_cdf_calibration_summary.csv",
+      "sha256": "b78d5706d35c527c5d0206b56bde12f6a87c77bd87d9a94c26ebdbba348dd74e"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/threshold_tree_d8_metrics.csv",
+      "sha256": "716928657e8ac19cc247a966a51d03e8118e04ea24d9ca11551583ccdbe6dc7c"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/persistence_cdf_calibration.csv",
+      "sha256": "833f81cd4a4ac2efd70ebc4bbf66b132acdbbb8d8baf1e8fa9a0f0fb20809702"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/frequency_cdf_calibration.csv",
+      "sha256": "fcfbf55b04a375006b4dc80e8b33dd87cc790e2a213439db55e92b703a7d8e99"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/cdf_full_d8_calibration_summary.csv",
+      "sha256": "79b7c51cab974cc7e6aaad6c0ddf44ef640fe46977b6233d64f11210be8531dd"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/cdf_persistence_d8_calibration.csv",
+      "sha256": "3a062b02bea033fbb02d6e80f0d551ca4f0bad015687f2ae170c3589d93811d3"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/persistence_cdf_calibration_summary.csv",
+      "sha256": "1101bd8cadf6fbce0e3595b6eb3ab2a65938d2d6b700bbdc91a390c2c3eaf72a"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/cdf_recent_d8_feature_weights.csv",
+      "sha256": "b1b2b21163c4e37c0c3f1cdf9a1a40860353945738ebac33204ad3e6bbdf9323"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold2/climatology_cdf_calibration_summary.csv",
+      "sha256": "bbbd370177e6fe26dcdc70ff83c4951b44616734cb67a7e6e9173c642df00973"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/threshold_tree_d8_calibration.csv",
+      "sha256": "7693a0a3ff5900eb60df2936a45f4251b6041103d020a75acf511a2058ddd946"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/cdf_full_d8_evaluation.json",
+      "sha256": "dc392d06411365e37de581c046aa246e5ac0d3ba974fd8b0b25ba43ff48af131"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/cdf_full_d5_feature_weights.csv",
+      "sha256": "060d1b1e32c9be98cf630447888cfa1110068c603c2737f381c7a5e1eb16b8f4"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/persistence_cdf_complete.json",
+      "sha256": "a6e7bbe49fd16a7fe41e3872b18289c126168057e8de2ea7f5bab4ad623de853"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/cdf_full_d5_calibration.csv",
+      "sha256": "3270de229d97c175280c01f7bed595620dda69fdea3ad9c40cfc55c65bb411e3"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/climatology_cdf_evaluation.json",
+      "sha256": "55963befba664a3c607232f309ca3f64cf0a4d869a64ca2ca8c5dcb55da4ea7d"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/cdf_recent_d8_calibration.csv",
+      "sha256": "888198e204613f36fe3355d1a9dfeadd12b5f34774f8d9fe60b89efa1e405508"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/frequency_cdf_evaluation.json",
+      "sha256": "bfdfdbef8990215590e5ed991e7c2c9fd38a23f2ae2376a9ec8550d2a258c6b3"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/threshold_tree_d8_group_metrics.csv",
+      "sha256": "d6b349b92925890d29994451c42e901ae1375427a53e950e721cde395f81e7a6"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/cdf_calendar_d8_calibration_summary.csv",
+      "sha256": "41c7483f7177fbb24e2fa7ba71d300519eb7522bb15b9fb7d6538a4a62fbf317"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/persistence_cdf_evaluation.json",
+      "sha256": "98f626dd152936a41b88f1a429d809f997219b7133279da236454a5cc629b350"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/cdf_full_d5_calibration_summary.csv",
+      "sha256": "6851f9d73eb4528ed2d04f30f99a4586265207ba948f64dadaf1064611cc4276"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/climatology_cdf_complete.json",
+      "sha256": "8a942e0f4d8ca9c27b00d709218ab028b8e60f4815c44bfcb68d216408135e9a"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/cdf_persistence_d8_evaluation.json",
+      "sha256": "289c83495848445336d381924d9ae14a3535ec4e4c04409c936cd7f893eb1fe9"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/cdf_full_d8_metrics.csv",
+      "sha256": "d8c818332b75ab17a1e8275cf5d2a68e5cf44492fe6b3577f2f2f842b55e5a8f"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/climatology_cdf_metrics.csv",
+      "sha256": "ddb5758f0e62ca7521292171e13137505cc95a0b9a8b08dcb62dc0d484d6d00a"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/threshold_tree_d8_complete.json",
+      "sha256": "95a86e214ed0b81367c019be6f20c0a4399f5e919c3a049f88f2f505de61201b"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/random_forest_small_metrics.csv",
+      "sha256": "d9d07e49af28cc6676eb1da1a32cf4b5178fc240e1e9bdd0533a6f345df0768c"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/cdf_recent_d8_calibration_summary.csv",
+      "sha256": "626ebfbc9039873f486569affec691a69a826710d0f70b8587e405d83298fb77"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/cdf_full_d5_group_metrics.csv",
+      "sha256": "0035772b0bad03036fc0d78054892aad17b9457774e55a635403b713f4301b84"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/random_forest_small_complete.json",
+      "sha256": "128ce3fcc3fc46c655df5f7b9053a24e9325cf24f9c9ba291645d19eb1080fb8"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/cdf_recent_d8_complete.json",
+      "sha256": "5091646ee360a55dc68aa31b18362c896e32704c5d2a855f2805eb224cc6b160"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/random_forest_small_evaluation.json",
+      "sha256": "dff2337593f6d72f215c4174eed2d34e0caec4334c66af35d0b78086b5f9118b"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/persistence_cdf_metrics.csv",
+      "sha256": "83e7a82bfdf6051dbe9da2c19a044ddb0f641f182a3a63d1e2eb40e22d4f7880"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/climatology_cdf_group_metrics.csv",
+      "sha256": "e9ca441467c0ac439e81955b0abc05ceb1b55424199f82c8fd7ae3b96e3a264b"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/cdf_persistence_d8_group_metrics.csv",
+      "sha256": "e56221926b7eeaf6a1abba94e91ddff95479a78f6530133e7148d19d45a407d0"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/cdf_full_d8_feature_weights.csv",
+      "sha256": "f5727e68e7930aa2ec97325903a7c108ca96e2f1dbc33f9f1284b0bca0fee983"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/cdf_calendar_d8_feature_weights.csv",
+      "sha256": "b9683fd2b06cfbeb775f41094338e62184a2cc3989c71dbe21ca82ac8b96bf53"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/cdf_calendar_d8_calibration.csv",
+      "sha256": "3915b717c16a403116e8e62b6aa2c7f1d8fbe17af63e93fdca77b95a2fca5823"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/cdf_full_d8_group_metrics.csv",
+      "sha256": "2453fbce2244ddc07f3a03e64b92011449e5b266da42f8234485c85bcd2cc3be"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/cdf_calendar_d8_complete.json",
+      "sha256": "03c058fa0257fc8f46f77c10472d1ce2075d222e7386fb69f1e86362f5b739b2"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/threshold_tree_d8_calibration_summary.csv",
+      "sha256": "5e43815bd5dcd7e6c577f44a084f547c7a7c22de62eb028a15fb8492407ebc19"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/group_coverage.json",
+      "sha256": "46013bbda1de6b3207cbe0ecc3403b26455d8576d6c25357ea64e2b319d65a3c"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/cdf_full_d5_complete.json",
+      "sha256": "f1c9b3076d0d5dc98eac942f5315221ec1c1f77dceccc1ee67092ffaabc50d84"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/cdf_persistence_d8_feature_weights.csv",
+      "sha256": "e9a0266fb88d198efa22da3c7b5079693fc949003ca3300fcbf2be8236c6ca19"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/sample_identity.json",
+      "sha256": "86da00669e518e7cb4ea7b237750027f5ec552e54e31d50e4b6b26e50420809d"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/cdf_calendar_d8_group_metrics.csv",
+      "sha256": "c157adae1020123e258cbc2609549dc691119c974ce153213c5f1cf8c0db4bcb"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/random_forest_small_calibration.csv",
+      "sha256": "0225009af1c11707003de248da83ca1c0bcf9006701b36eb8bd8717391fbd1b1"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/random_forest_small_calibration_summary.csv",
+      "sha256": "366efdbdf71ce227d9d8cc971d446b452300a2b08948944ad586a3838165191b"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/cdf_full_d5_metrics.csv",
+      "sha256": "388f8c629a6ef21a95c1f0c17c71cddb5991bf87a769fcbfe9e7b7e2fcd788b3"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/frequency_cdf_complete.json",
+      "sha256": "5c403b33d7e102cc4c425fa4edca6aedb855cb2aa942168ce164a5caee5d3888"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/random_forest_small_group_metrics.csv",
+      "sha256": "c855a4f528749e22f97183f1475adf3d2dfc5f525f881809381d3312e4f4e374"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/cdf_persistence_d8_calibration_summary.csv",
+      "sha256": "f08fca759f5dd954f83628f71d346155b23e4954978d1effb2a2de43a088739d"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/cdf_calendar_d8_evaluation.json",
+      "sha256": "d600449103319d2a78b65b5d390503717a573eb3e09d4586ac7a39fc25228cd3"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/cdf_full_d8_calibration.csv",
+      "sha256": "6f0d9db1170ff1386db010c71c499c212d8e02bc336046d14496e48929e1fcda"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/frequency_cdf_metrics.csv",
+      "sha256": "452efb7f992dbae8d91cdcb365a3d21560381c1a3b02b824bf26bd3c312ac786"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/threshold_tree_d8_evaluation.json",
+      "sha256": "f66e114cc068c196effc69986a625877a6443adc8d75ba3a4a97314b9d427093"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/frequency_cdf_group_metrics.csv",
+      "sha256": "294b1a19b70cf54c3cab3581d38469f2e64b500cf8dc3b026e3d3b9d659e41a5"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/persistence_cdf_group_metrics.csv",
+      "sha256": "e98ad8ff4699aeda515fae7a82aa1bf32a9e0d57426c3d970141c68ab9c85b41"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/cdf_recent_d8_evaluation.json",
+      "sha256": "59014f16572213fc8963968f876d90794ad3885de5d32d4c9f6657ee435f9a7e"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/climatology_cdf_calibration.csv",
+      "sha256": "eb3d7f158287df31c3b9303d9d5364fb899d6000b469ac392a8ce3393533ee38"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/cdf_recent_d8_metrics.csv",
+      "sha256": "f9fbe80c9e7a0c5fac92a24eb392439dc56c43526b7ec8bc952f14f747ca5788"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/cdf_persistence_d8_complete.json",
+      "sha256": "86016b92df83dd54fb68f9a0afdcea02367087c0bf12a6266670f7224a4536d9"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/cdf_calendar_d8_metrics.csv",
+      "sha256": "3b3ef9ad334d8efa271d32aefd95f664e7fb31d771bd5eebddbabb9d9b8f45a5"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/cdf_persistence_d8_metrics.csv",
+      "sha256": "20de71b4cebf489f11b59fe78b4c432696a3b48e57070ce945039d1cb82d47a6"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/cdf_full_d5_evaluation.json",
+      "sha256": "f2b8f45630e72d62414a2af9c40429ac06153e29c1d4d8e62c5eef1e0237a156"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/cdf_full_d8_complete.json",
+      "sha256": "1d472e8ba9c6e680c0fa696e7f289446537cc109a7aa89fd9f92e453d174f6a6"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/cdf_recent_d8_group_metrics.csv",
+      "sha256": "2295bddae087f7a8af83a37b1f28b2ed05d4c0d2bd22d399a005c7b1bba88d00"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/frequency_cdf_calibration_summary.csv",
+      "sha256": "dd2a20dca39a1b8b64b5472d85482c918def4ff009b6033b3a8161293bb5f5bc"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/threshold_tree_d8_metrics.csv",
+      "sha256": "de5e3b3b1a9fab0e6f7aa1b2c503a6e48e77fb7b3b853021024c44133aeb985a"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/persistence_cdf_calibration.csv",
+      "sha256": "319e9f1de1bcd9571dd8313e7d836068bd9a0c9844e4a4a5d0e3e4f1965cf638"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/frequency_cdf_calibration.csv",
+      "sha256": "b9dc9bcd6807f1a80d4b0bc14484e3213ee23c544ebfa1a63c152335723b29f7"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/cdf_full_d8_calibration_summary.csv",
+      "sha256": "b9267b1ddad04cd255215298767b94761e370d4005969eeb0974b9208b18b435"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/cdf_persistence_d8_calibration.csv",
+      "sha256": "6375843a559d36519af7ffb5d9adfdbbea6be62e7e14bac2d6caf94db6cb9baf"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/persistence_cdf_calibration_summary.csv",
+      "sha256": "d9dc2550dc20fb1fd13cc3af404b961333111b382a7b3f94b03379d0e827e27a"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/cdf_recent_d8_feature_weights.csv",
+      "sha256": "e68ab5dca75e1ea683ad87a20fcf15ab6ebfe4566f9e66e04a07d5b09d8d4ef8"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold3/climatology_cdf_calibration_summary.csv",
+      "sha256": "e872532752d375ab6c159281f9105546be6ef316975776e466c006c133e137f6"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/trained_model/experiment_config.json",
+      "sha256": "9dc37acf64456d807f8fb4c0b2007a74426a316c459d11d7fb710ec03386a866"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/trained_model/prediction_contract.json",
+      "sha256": "3f5dc3b8d846513e654d5640562c3f20c54da04f87a58d2d32b7ff73ccd8a8a7"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/trained_model/conditional_cdf.json",
+      "sha256": "2b8e1346b894228db4595d6a7db22e0d81137fe53c330ecc10201003b48271af"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/trained_model/artifact_manifest.json",
+      "sha256": "ae709c003d329c39c0a22ce24425d72b32c07ae982a0737ce4fc8e2a5ac4da18"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/trained_model/spark_model/stages/0_VectorAssembler_aa3f41c2b418/metadata/._SUCCESS.crc",
+      "sha256": "1d44f510ec2ed7595badbec80583316defc14e8dd89130d719724149adfaa07d"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/trained_model/spark_model/stages/0_VectorAssembler_aa3f41c2b418/metadata/.part-00000.crc",
+      "sha256": "f0b7c5eaec1b158288a5faafdfc3f19715e36f5389fc4661d1176ef7cde6cba6"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/trained_model/spark_model/stages/0_VectorAssembler_aa3f41c2b418/metadata/_SUCCESS",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/trained_model/spark_model/stages/0_VectorAssembler_aa3f41c2b418/metadata/part-00000",
+      "sha256": "9a4d1183d851eb93e1e2490cab35a2106b72253217c2296ad26d1e0e933f5c0a"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/trained_model/spark_model/stages/1_DecisionTreeRegressor_1250484629b2/data/._SUCCESS.crc",
+      "sha256": "1d44f510ec2ed7595badbec80583316defc14e8dd89130d719724149adfaa07d"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/trained_model/spark_model/stages/1_DecisionTreeRegressor_1250484629b2/data/.part-00000-9ccf410e-279d-4c4c-baa3-e5a60c5240f2-c000.snappy.parquet.crc",
+      "sha256": "1216b8cde40988ea92aa548b39350c169b465653dfeb390b256ed0d652a29fdc"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/trained_model/spark_model/stages/1_DecisionTreeRegressor_1250484629b2/data/part-00000-9ccf410e-279d-4c4c-baa3-e5a60c5240f2-c000.snappy.parquet",
+      "sha256": "7a6ed39f6dc2996680852397bb5c2d274462ef34ec7c5d5edd2f6f0533c5e1e4"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/trained_model/spark_model/stages/1_DecisionTreeRegressor_1250484629b2/data/_SUCCESS",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/trained_model/spark_model/stages/1_DecisionTreeRegressor_1250484629b2/metadata/._SUCCESS.crc",
+      "sha256": "1d44f510ec2ed7595badbec80583316defc14e8dd89130d719724149adfaa07d"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/trained_model/spark_model/stages/1_DecisionTreeRegressor_1250484629b2/metadata/.part-00000.crc",
+      "sha256": "88875e3e19bfa79aa355f12451705503095ad04afce52f933050341fe04f2905"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/trained_model/spark_model/stages/1_DecisionTreeRegressor_1250484629b2/metadata/_SUCCESS",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/trained_model/spark_model/stages/1_DecisionTreeRegressor_1250484629b2/metadata/part-00000",
+      "sha256": "a4f85d456b347e6bf87d8de6b8b1b51fa0fca25b91eb473311a40334f53c8bf9"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/trained_model/spark_model/metadata/._SUCCESS.crc",
+      "sha256": "1d44f510ec2ed7595badbec80583316defc14e8dd89130d719724149adfaa07d"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/trained_model/spark_model/metadata/.part-00000.crc",
+      "sha256": "08a9d063a58e7255233b68ff3177d43c48f56a71f800bc1fd97302cc03fac7c8"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/trained_model/spark_model/metadata/_SUCCESS",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/trained_model/spark_model/metadata/part-00000",
+      "sha256": "9333afb56ce70a4399b6db1b06df28af39a67125becbe2bd4cae38ebd2ee53ff"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/threshold_tree_d8_calibration.csv",
+      "sha256": "8ff38afd666fa2271b73c8ce4a7ede2d0f6ca896e9897ace92b45a61b2c8bb88"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/cdf_full_d8_evaluation.json",
+      "sha256": "ff84ebb2b31c5218d72de5e37697b85053c797cb000cf00489ad41df84e86c9a"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/cdf_full_d5_feature_weights.csv",
+      "sha256": "5e7ebaaa8b8b550adf9e2f51292a744d45a090ca57964316ed7d1aadb090a40d"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/persistence_cdf_complete.json",
+      "sha256": "af3cc09deed4ddd1ad10236a5ba1e77f3324faedb5e798cf58be1412dc6dd67d"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/cdf_full_d5_calibration.csv",
+      "sha256": "9c8d933c85d2f20762fdea164cccea51a6ca9748393a172c621d7ec2679f769f"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/climatology_cdf_evaluation.json",
+      "sha256": "90ba0a9bcdc68e503a20fa70c88dd49e064ef5d39ab6ac8f6dd2ab29cca7aac9"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/cdf_recent_d8_calibration.csv",
+      "sha256": "be4e901a6c9123318338200cbe7588f39ba1641b2463b030e6f6f28c5ddadf97"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/frequency_cdf_evaluation.json",
+      "sha256": "efac24e0a372a28babbb0830b3a4de05b984ccff58b227028df6d3f17cfa8dd2"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/threshold_tree_d8_group_metrics.csv",
+      "sha256": "4d97c8331810061a1a7fe0a648d4722e3535c8e2482bd679c950cd1b03fa4f65"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/cdf_calendar_d8_calibration_summary.csv",
+      "sha256": "56133ba9d94d54a956c6b28ca520760a987fe20dd364df5688fc6a00c376749a"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/persistence_cdf_evaluation.json",
+      "sha256": "6a75bff2e0018e2efa006e63b5091dfef9ad7f4f9c87be09f45f7b28f46f4c69"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/cdf_full_d5_calibration_summary.csv",
+      "sha256": "5d391f368c4e51f6c5077fb4d86a01804b95ef36dc9cf675061bc34fb32eeef5"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/climatology_cdf_complete.json",
+      "sha256": "69cea9d805b2f48ef3ca855d969e15105aca97e1697e5fa34d691077e04e33ed"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/cdf_persistence_d8_evaluation.json",
+      "sha256": "fe58fd7300c2d8dbb106df7e946a9dc1848a1c97460df263b422ecaa3e61a225"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/cdf_full_d8_metrics.csv",
+      "sha256": "2a541e1a2a2b781b37bc13ef0f29d9518877a6785f3f3c545baac275c70da82e"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/climatology_cdf_metrics.csv",
+      "sha256": "07e60c9b9a6712443e2997eac73aa92359bef64a710237f8f8f0eb676c2299ee"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/threshold_tree_d8_complete.json",
+      "sha256": "1dbe43858d2b8a04d2d3186ea798dd9b2f4be899df5b0988bda7ecaa5d6efc45"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/random_forest_small_metrics.csv",
+      "sha256": "2d31d2aa2547530fdcb2a5e0253d2cd1b1a5dd91f627de127ef6e3ca3af63836"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/cdf_recent_d8_calibration_summary.csv",
+      "sha256": "6b22d18cbcdc2f677f2f3fcd428b253ff06d73eac4a781fa02204d9ce3040430"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/cdf_full_d5_group_metrics.csv",
+      "sha256": "31733e4f170bbef32e13d4c950212e80b5e0fb6fcce23187a08071d6d4315460"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/random_forest_small_complete.json",
+      "sha256": "48164ba19e407e617cb2a3c593072609f85d3f086fbdb982ba52f7a49228a1e2"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/cdf_recent_d8_complete.json",
+      "sha256": "8dee47a9171bb19a0688e87cef8e34e5b33afb5210a7ae0302dc8c8783e681a4"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/random_forest_small_evaluation.json",
+      "sha256": "6afc707320be9c8af6f045bd9b9cc6443ebea265969fff9c9d03d2ace34d9a78"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/persistence_cdf_metrics.csv",
+      "sha256": "86333af63241467124b847d5cce2e885c364ce46b91ee87b67071e8388d59b91"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/climatology_cdf_group_metrics.csv",
+      "sha256": "bf53ba1957e81f39405af35666191f9999d4b63c07fbe3516dc366e14b7a277c"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/cdf_persistence_d8_group_metrics.csv",
+      "sha256": "b0908f9a44820bb0946e309ee089713a24b6235b4ddf591b33805bd3b4291110"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/cdf_full_d8_feature_weights.csv",
+      "sha256": "37a85d2d9685690b01e2954d5eeda0edc7da8d66e37d1147ae46ef05bc64020b"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/cdf_calendar_d8_feature_weights.csv",
+      "sha256": "a3b4e279a18591deb526fb7c959793b9001ac9ec0bda071e87e0a4d5b755cc5e"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/cdf_calendar_d8_calibration.csv",
+      "sha256": "faf6b285e99b73fe3ba46241ea82aa92f37fffc5368406138e1a412bb8137628"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/cdf_full_d8_group_metrics.csv",
+      "sha256": "12559b97850d46a2df95fe1f227bc41ce0c4f707c3227eebccb82da91da9bd0d"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/cdf_calendar_d8_complete.json",
+      "sha256": "18424460a331d4ab114637971a7c0e8d9d434d37da448cda6d6659971784b2b0"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/threshold_tree_d8_calibration_summary.csv",
+      "sha256": "1594fcb95b24250496d93b84ecaf5095d793a7138ef85df0caabfdf0828a3dfa"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/group_coverage.json",
+      "sha256": "0d313aacb0fa2dee14f2aceeab16a3badc22ecfd8c60f6047d76cd8d45b0c12e"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/cdf_full_d5_complete.json",
+      "sha256": "52593f8bd2bc3b2ded2be9b518c23950b24b78a39014a14ddebf1d73e2bc4394"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/cdf_persistence_d8_feature_weights.csv",
+      "sha256": "73ceb92a28a19af43412bbba58df41b10988a1d8241c2e586baa2be173f13395"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/sample_identity.json",
+      "sha256": "c8ffdc3ef68fb5b6a60ff191c3437f7361dc07a051853aea4caf7663202fb93f"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/cdf_calendar_d8_group_metrics.csv",
+      "sha256": "20045d954deb5f80dd157e4d87670fb724d42fd6e2f2b14bda10fd0747807d22"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/random_forest_small_calibration.csv",
+      "sha256": "8563e3fb56c3b857259cda3150c997cc3a87a9377626d6de41d12c9054ff8f51"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/random_forest_small_calibration_summary.csv",
+      "sha256": "c3e14c3b3c4414305aed401d88b3bc766b36f2dd17eb2da6f416b76194355215"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/cdf_full_d5_metrics.csv",
+      "sha256": "701b38902bbcb027d608baa83aa02de418aab3543289e590e3cabf675701cd27"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/frequency_cdf_complete.json",
+      "sha256": "b50b44daccbe9137d82b51b1dbda9083960ecfbbfea44ba3598827892bdf48a1"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/random_forest_small_group_metrics.csv",
+      "sha256": "9e20aa12407d3869fba66606762b9a80f24ac4514200f7fcde9eeb9e73919c20"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/cdf_persistence_d8_calibration_summary.csv",
+      "sha256": "8e39661f3ddc4dd71dabc1ce36b16fafdd65c3951f2bbe6beaca73be5457d821"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/cdf_calendar_d8_evaluation.json",
+      "sha256": "bc50a5f8ecce0719714042636cdcffdd2e05228487eba18526e0cac18f4ae975"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/cdf_full_d8_calibration.csv",
+      "sha256": "8f7a5eb2cf3bcd5fbda513a06974e38273162b33ed2114ce10ab1e515778398c"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/frequency_cdf_metrics.csv",
+      "sha256": "976f51f565cbe5a485c5fa2bde973a0056b6b015a3f9c208d792fdb4af9bafe8"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/threshold_tree_d8_evaluation.json",
+      "sha256": "1c552748536f8cb918c3303a6934dfbcb04f8ef92191107df5e13b8ec57e60f0"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/frequency_cdf_group_metrics.csv",
+      "sha256": "d6d76d665b193cbc2e81820fb58ff7692caabc630d2adf6143501da033429921"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/persistence_cdf_group_metrics.csv",
+      "sha256": "a8d2e391f15fa0d40814c88edaa9044f0ec954870360c13f56cb8cacb93ade8b"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/cdf_recent_d8_evaluation.json",
+      "sha256": "c64adb6c587dc0fbec53d8b31d862458429819363e239e65e03291571b4225a0"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/climatology_cdf_calibration.csv",
+      "sha256": "dcd98d69a6dbe48aebb87953a745391b611bc98968b8ba7e5df20cdf4714f498"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/cdf_recent_d8_metrics.csv",
+      "sha256": "34a22535d88ccd1b7536823ca208d00b660a498b07f4c47c209e7cc3dc57deed"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/cdf_persistence_d8_complete.json",
+      "sha256": "f0e4721cf20bbead9e29471658d00c10583dcfd34c634ac933e29f0a170ca4a4"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/cdf_calendar_d8_metrics.csv",
+      "sha256": "c154cf1b942357d66ae1522172f118ee2b73c08d4a1f7860d2176f2ed3c1040e"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/cdf_persistence_d8_metrics.csv",
+      "sha256": "20a48d36b5f2fae7a2cb18b488b568243f3e394f6e10eb5076c049b29f24d4f2"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/cdf_full_d5_evaluation.json",
+      "sha256": "8e02530a522fbc289d246b5e94c15f3847356ac52015ba92ec598eff165a3f80"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/cdf_full_d8_complete.json",
+      "sha256": "ec72e9306fe5e81248812fe26597c3e86e4575f9ffb67c0c63c40eb189362275"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/cdf_recent_d8_group_metrics.csv",
+      "sha256": "7e57499e87eeaac99e6a54d83d8b8cfbdefcae12b8464fdeefd4852a98ada416"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/frequency_cdf_calibration_summary.csv",
+      "sha256": "6eb03f5c21add07e487496bce5ed11492cf9131bd45421004c6746e3f77a0d52"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/threshold_tree_d8_metrics.csv",
+      "sha256": "7ee31dbe22f6ce50fca4602680693df9ff94173bc729b8e32cd20cc3a9f21599"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/persistence_cdf_calibration.csv",
+      "sha256": "64e3486310de9d0c84837935169d0f53eb8dd2b12ed930525e0c0488381aa0ae"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/frequency_cdf_calibration.csv",
+      "sha256": "dae82fd0638b849e8fd8047e580c5dd30e1f77df2754e9f8870e85d0be1eca03"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/cdf_full_d8_calibration_summary.csv",
+      "sha256": "1b941c3d7a3085e46024657b4ec5cf18747840ecf657e24772a84b9fc85b6df9"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/cdf_persistence_d8_calibration.csv",
+      "sha256": "0c9a9cf9dec412ba28202c926dbb0a9e704b738e2cc2df11e88c711d52a2f5da"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/persistence_cdf_calibration_summary.csv",
+      "sha256": "e49a14212b0405c34a2882402fff2352c78d85867d1d5b5cbe5391ab3bf10444"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/cdf_recent_d8_feature_weights.csv",
+      "sha256": "4a6c177258dbfd09dc677be62b62349b2d3a9861f5f566546db744a31df6fcf9"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/fold1/climatology_cdf_calibration_summary.csv",
+      "sha256": "d44d8d1304b075b7af98dd81f3ef391767b61f53ed967f90d4491319c5dedc63"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/report/report_sources.json",
+      "sha256": "c5874f815b239bf07b334103088d55d9fe56fee77f05000aa5274cf24d7db7fc"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/report/C_report.pdf",
+      "sha256": "02cd083466f2f09b88bd76d8c65c4ac55954484d668cefabc442f0abea1834b5"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/report/C_report.md",
+      "sha256": "2be6a372ef251f41eef60e11dd547e360ef94056b3238b5295009b260d834181"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/report/figures/04_sample_flow.pdf",
+      "sha256": "aa2f181812307641af36aa7d39f39585f3ca8d0f154405d284138ebaf2a619a2"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/report/figures/04_sample_flow.png",
+      "sha256": "b6f4916147f077d4009d1cec1b0481becd668c69fdcf4e2dfab51db774a7bb07"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/report/figures/01_revision_brier.pdf",
+      "sha256": "dc895aaf4eed1ec29353809924066429202d85fa9dcab0d0f802e77da88072a3"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/report/figures/01_revision_brier.png",
+      "sha256": "1190dc6dff4d16b9ba8fb5b189fac31d33fff90c744750401a1c55f39d85e802"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/report/figures/02_low_probability_reliability.pdf",
+      "sha256": "337bf693f764c89558dd875125f318703ad4a7a69e858a09d0298446d83e2f65"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/report/figures/02_low_probability_reliability.png",
+      "sha256": "acd9d13ae1149b0c4292f672a27496189f5f03d3725f45e775883a65b18b56a9"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/report/figures/03_group_brier.pdf",
+      "sha256": "99c6516bcf4ae92098972b5ce9b9ae84e471bf8c406e7ef919f1f28b6a7a9815"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/report/figures/03_group_brier.png",
+      "sha256": "565812f2b63d24eb3098d5530aeb427f739c69f9fd3fb229a3a02fd8c33669c1"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/package/environment_capture.json",
+      "sha256": "984db71e5bd9fd81ffe92d39847bd124096bd6838ce6ae7af5f3080812258122"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/package/requirements.lock.txt",
+      "sha256": "c4178c271bd1e26a32a48da0fff22dd642e56410f6d9bcd64619fc4cb8a2ec16"
+    },
+    {
+      "path": "/Users/kendallshao/Downloads/DSA5208_Project2/C_delivery/results/C_revision_20261013/package/C_revision_20261013_trained_model.zip",
+      "sha256": "5c721c8162cc34f0139b512a0b203976e745efe1cc96789033790ccc8320816a"
+    }
+  ]
+}

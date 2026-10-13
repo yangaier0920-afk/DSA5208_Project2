@@ -1,0 +1,6 @@
+{
+  "status": "PASS",
+  "verified_parquet_and_sidecar_files": 1800,
+  "reference": "Source anchor metadata; original byte hashes or explicitly regenerated source",
+  "training_sample_and_validation_inputs_unchanged": true
+}

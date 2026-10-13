@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "selected_model": "cdf_persistence_d8_leaf1000",
+  "executed_from_extracted_source": true,
+  "private_uv_or_extracted_venv_required": false,
+  "metadata": {
+    "python_executable": "/Users/kendallshao/Downloads/DSA5208_Project2/.venv/bin/python",
+    "dependency_capture": "importlib.metadata in the executing interpreter; no machine-specific uv/pip path",
+    "python": "3.11.17"
+  },
+  "Windows_executed": false,
+  "full_fresh_AB_run_claimed": false
+}

@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "training_seconds": 0.9391399999149144,
+  "elapsed_seconds": 82.75881041702814,
+  "model": "frequency_cdf",
+  "year": 2022,
+  "train_anchors": 2693419,
+  "validation_anchors": 7072758,
+  "thresholds": [
+    0,
+    0.25,
+    0.5,
+    0.75,
+    1,
+    1.5,
+    2,
+    3,
+    5
+  ],
+  "source_2024_used": false,
+  "training_only_fit": true
+}

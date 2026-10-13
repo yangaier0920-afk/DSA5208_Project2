@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "training_seconds": 35.187919333111495,
+  "elapsed_seconds": 94.47400350007229,
+  "model": "threshold_tree_d8",
+  "year": 2021,
+  "train_anchors": 1995803,
+  "validation_anchors": 6976044,
+  "thresholds": [
+    0,
+    0.5,
+    1,
+    2,
+    5
+  ],
+  "source_2024_used": false,
+  "training_only_fit": true
+}
