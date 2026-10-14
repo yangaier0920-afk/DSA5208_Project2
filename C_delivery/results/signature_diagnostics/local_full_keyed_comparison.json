@@ -1,0 +1,326 @@
+{
+  "status": "PASS",
+  "environment": {
+    "python": "3.11.17",
+    "os": "macOS-14.1-arm64-arm-64bit",
+    "architecture": "arm64",
+    "logical_cpu_count": 14,
+    "pyspark": "3.5.7",
+    "java": "17.0.20.1",
+    "spark_master": "local[2]",
+    "peak_memory": "not measured"
+  },
+  "reference_schema": {
+    "station_id": "string",
+    "prediction_epoch_s": "bigint",
+    "year": "int",
+    "future_30m_mm": "decimal(38,18)",
+    "current_5m_mm": "double",
+    "lag_5m_mm": "double",
+    "rain_sum_15m_mm": "double",
+    "rain_sum_30m_mm": "double",
+    "rain_sum_60m_mm": "double",
+    "rain_sum_previous_15m_mm": "double",
+    "rain_change_15m_mm": "double",
+    "rain_max_60m_mm": "double",
+    "rain_std_60m_mm": "double",
+    "wet_slots_60m": "bigint",
+    "hour_sin": "double",
+    "hour_cos": "double",
+    "month_sin": "double",
+    "month_cos": "double",
+    "lag_10m_mm": "double",
+    "lag_15m_mm": "double",
+    "lag_30m_mm": "double",
+    "wet_current": "int",
+    "wet_lag_5m": "int",
+    "wet_lag_10m": "int",
+    "consecutive_wet_slots_60m": "int",
+    "wet_run_left_censored_60m": "int",
+    "minutes_since_last_rain_60m_capped": "double",
+    "no_rain_observed_60m": "int",
+    "rain_change_5m_mm": "double",
+    "rain_ratio_15m_30m": "double",
+    "fold1_role": "string"
+  },
+  "actual_schema": {
+    "station_id": "string",
+    "prediction_epoch_s": "bigint",
+    "year": "int",
+    "future_30m_mm": "decimal(38,18)",
+    "current_5m_mm": "double",
+    "lag_5m_mm": "double",
+    "rain_sum_15m_mm": "double",
+    "rain_sum_30m_mm": "double",
+    "rain_sum_60m_mm": "double",
+    "rain_sum_previous_15m_mm": "double",
+    "rain_change_15m_mm": "double",
+    "rain_max_60m_mm": "double",
+    "rain_std_60m_mm": "double",
+    "wet_slots_60m": "bigint",
+    "hour_sin": "double",
+    "hour_cos": "double",
+    "month_sin": "double",
+    "month_cos": "double",
+    "lag_10m_mm": "double",
+    "lag_15m_mm": "double",
+    "lag_30m_mm": "double",
+    "wet_current": "int",
+    "wet_lag_5m": "int",
+    "wet_lag_10m": "int",
+    "consecutive_wet_slots_60m": "int",
+    "wet_run_left_censored_60m": "int",
+    "minutes_since_last_rain_60m_capped": "double",
+    "no_rain_observed_60m": "int",
+    "rain_change_5m_mm": "double",
+    "rain_ratio_15m_30m": "double",
+    "fold1_role": "string"
+  },
+  "read_only": true,
+  "tolerance_based_acceptance": false,
+  "reference_keys": {
+    "n": 8971847,
+    "unique": 8971847,
+    "null_keys": 0
+  },
+  "actual_keys": {
+    "n": 8971847,
+    "unique": 8971847,
+    "null_keys": 0
+  },
+  "key_set_comparison": {
+    "joined_rows": 8971847,
+    "actual_only": 0,
+    "reference_only": 0
+  },
+  "column_comparison": [
+    {
+      "column": "consecutive_wet_slots_60m",
+      "type": "int",
+      "exact_unequal_rows": 0,
+      "null_mismatch_rows": 0,
+      "maximum_absolute_difference_double_diagnostic": 0.0
+    },
+    {
+      "column": "current_5m_mm",
+      "type": "double",
+      "exact_unequal_rows": 0,
+      "null_mismatch_rows": 0,
+      "maximum_absolute_difference_double_diagnostic": 0.0
+    },
+    {
+      "column": "fold1_role",
+      "type": "string",
+      "exact_unequal_rows": 0,
+      "null_mismatch_rows": 0
+    },
+    {
+      "column": "future_30m_mm",
+      "type": "decimal(38,18)",
+      "exact_unequal_rows": 0,
+      "null_mismatch_rows": 0,
+      "maximum_absolute_difference_double_diagnostic": 0.0
+    },
+    {
+      "column": "hour_cos",
+      "type": "double",
+      "exact_unequal_rows": 0,
+      "null_mismatch_rows": 0,
+      "maximum_absolute_difference_double_diagnostic": 0.0
+    },
+    {
+      "column": "hour_sin",
+      "type": "double",
+      "exact_unequal_rows": 0,
+      "null_mismatch_rows": 0,
+      "maximum_absolute_difference_double_diagnostic": 0.0
+    },
+    {
+      "column": "lag_10m_mm",
+      "type": "double",
+      "exact_unequal_rows": 0,
+      "null_mismatch_rows": 0,
+      "maximum_absolute_difference_double_diagnostic": 0.0
+    },
+    {
+      "column": "lag_15m_mm",
+      "type": "double",
+      "exact_unequal_rows": 0,
+      "null_mismatch_rows": 0,
+      "maximum_absolute_difference_double_diagnostic": 0.0
+    },
+    {
+      "column": "lag_30m_mm",
+      "type": "double",
+      "exact_unequal_rows": 0,
+      "null_mismatch_rows": 0,
+      "maximum_absolute_difference_double_diagnostic": 0.0
+    },
+    {
+      "column": "lag_5m_mm",
+      "type": "double",
+      "exact_unequal_rows": 0,
+      "null_mismatch_rows": 0,
+      "maximum_absolute_difference_double_diagnostic": 0.0
+    },
+    {
+      "column": "minutes_since_last_rain_60m_capped",
+      "type": "double",
+      "exact_unequal_rows": 0,
+      "null_mismatch_rows": 0,
+      "maximum_absolute_difference_double_diagnostic": 0.0
+    },
+    {
+      "column": "month_cos",
+      "type": "double",
+      "exact_unequal_rows": 0,
+      "null_mismatch_rows": 0,
+      "maximum_absolute_difference_double_diagnostic": 0.0
+    },
+    {
+      "column": "month_sin",
+      "type": "double",
+      "exact_unequal_rows": 0,
+      "null_mismatch_rows": 0,
+      "maximum_absolute_difference_double_diagnostic": 0.0
+    },
+    {
+      "column": "no_rain_observed_60m",
+      "type": "int",
+      "exact_unequal_rows": 0,
+      "null_mismatch_rows": 0,
+      "maximum_absolute_difference_double_diagnostic": 0.0
+    },
+    {
+      "column": "rain_change_15m_mm",
+      "type": "double",
+      "exact_unequal_rows": 0,
+      "null_mismatch_rows": 0,
+      "maximum_absolute_difference_double_diagnostic": 0.0
+    },
+    {
+      "column": "rain_change_5m_mm",
+      "type": "double",
+      "exact_unequal_rows": 0,
+      "null_mismatch_rows": 0,
+      "maximum_absolute_difference_double_diagnostic": 0.0
+    },
+    {
+      "column": "rain_max_60m_mm",
+      "type": "double",
+      "exact_unequal_rows": 0,
+      "null_mismatch_rows": 0,
+      "maximum_absolute_difference_double_diagnostic": 0.0
+    },
+    {
+      "column": "rain_ratio_15m_30m",
+      "type": "double",
+      "exact_unequal_rows": 0,
+      "null_mismatch_rows": 0,
+      "maximum_absolute_difference_double_diagnostic": 0.0
+    },
+    {
+      "column": "rain_std_60m_mm",
+      "type": "double",
+      "exact_unequal_rows": 0,
+      "null_mismatch_rows": 0,
+      "maximum_absolute_difference_double_diagnostic": 0.0
+    },
+    {
+      "column": "rain_sum_15m_mm",
+      "type": "double",
+      "exact_unequal_rows": 0,
+      "null_mismatch_rows": 0,
+      "maximum_absolute_difference_double_diagnostic": 0.0
+    },
+    {
+      "column": "rain_sum_30m_mm",
+      "type": "double",
+      "exact_unequal_rows": 0,
+      "null_mismatch_rows": 0,
+      "maximum_absolute_difference_double_diagnostic": 0.0
+    },
+    {
+      "column": "rain_sum_60m_mm",
+      "type": "double",
+      "exact_unequal_rows": 0,
+      "null_mismatch_rows": 0,
+      "maximum_absolute_difference_double_diagnostic": 0.0
+    },
+    {
+      "column": "rain_sum_previous_15m_mm",
+      "type": "double",
+      "exact_unequal_rows": 0,
+      "null_mismatch_rows": 0,
+      "maximum_absolute_difference_double_diagnostic": 0.0
+    },
+    {
+      "column": "wet_current",
+      "type": "int",
+      "exact_unequal_rows": 0,
+      "null_mismatch_rows": 0,
+      "maximum_absolute_difference_double_diagnostic": 0.0
+    },
+    {
+      "column": "wet_lag_10m",
+      "type": "int",
+      "exact_unequal_rows": 0,
+      "null_mismatch_rows": 0,
+      "maximum_absolute_difference_double_diagnostic": 0.0
+    },
+    {
+      "column": "wet_lag_5m",
+      "type": "int",
+      "exact_unequal_rows": 0,
+      "null_mismatch_rows": 0,
+      "maximum_absolute_difference_double_diagnostic": 0.0
+    },
+    {
+      "column": "wet_run_left_censored_60m",
+      "type": "int",
+      "exact_unequal_rows": 0,
+      "null_mismatch_rows": 0,
+      "maximum_absolute_difference_double_diagnostic": 0.0
+    },
+    {
+      "column": "wet_slots_60m",
+      "type": "bigint",
+      "exact_unequal_rows": 0,
+      "null_mismatch_rows": 0,
+      "maximum_absolute_difference_double_diagnostic": 0.0
+    },
+    {
+      "column": "year",
+      "type": "int",
+      "exact_unequal_rows": 0,
+      "null_mismatch_rows": 0,
+      "maximum_absolute_difference_double_diagnostic": 0.0
+    }
+  ],
+  "reference_signature": {
+    "TRAIN": {
+      "n": 1995803,
+      "hash_sum_1": "-47070510148335766423",
+      "hash_sum_2": "-11311797270701649104430"
+    },
+    "VALIDATION": {
+      "n": 6976044,
+      "hash_sum_1": "-5380169785215473815369",
+      "hash_sum_2": "11106530140181550951974"
+    }
+  },
+  "actual_signature": {
+    "TRAIN": {
+      "n": 1995803,
+      "hash_sum_1": "-47070510148335766423",
+      "hash_sum_2": "-11311797270701649104430"
+    },
+    "VALIDATION": {
+      "n": 6976044,
+      "hash_sum_1": "-5380169785215473815369",
+      "hash_sum_2": "11106530140181550951974"
+    }
+  },
+  "reason": "Exact keyed values and original signatures match",
+  "scope_note": "Reference original fold1 versus prior local reconstruction using existing B Parquet; this does not validate fresh B recomputation or another host."
+}

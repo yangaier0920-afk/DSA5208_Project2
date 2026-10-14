@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "equal_values_accepted": true,
+  "one_ulp_difference_rejected_and_localized": true,
+  "same_marginal_distribution_swapped_keys_rejected": true,
+  "missing_key_detected": true
+}

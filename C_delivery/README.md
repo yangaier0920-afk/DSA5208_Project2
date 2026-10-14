@@ -24,3 +24,5 @@ python C_delivery/src/C_finalize.py --run C_delivery/results/C_leaf_reproduction
 ```
 
 With original full intermediate inputs available, --check-against-original-anchors compares both sides directly. With the compact package, --expected-anchor-signatures compares against saved role-wise signatures instead. Neither signature mode is claimed as a cryptographic row-equality proof. Regenerated Parquet bytes can differ; counts/new joins/roles and source identities must still pass. This workflow supports C acceptance without claiming fresh A/B generation, another machine or Windows execution.
+
+The project-wide Python entry point, no-archive finalization, and read-only keyed input diagnostics are documented in [PORTABLE_RUN.md](../submission/PORTABLE_RUN.md). The runner records BLOCKED_INPUT_IDENTITY when reference signatures disagree and requires explicit signature validation.

@@ -1,0 +1,547 @@
+{
+  "schema": {
+    "type": "struct",
+    "fields": [
+      {
+        "name": "station_id",
+        "type": "string",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "prediction_epoch_s",
+        "type": "long",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "year",
+        "type": "integer",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "future_30m_mm",
+        "type": "decimal(38,18)",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "current_5m_mm",
+        "type": "double",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "lag_5m_mm",
+        "type": "double",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "rain_sum_15m_mm",
+        "type": "double",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "rain_sum_30m_mm",
+        "type": "double",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "rain_sum_60m_mm",
+        "type": "double",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "rain_sum_previous_15m_mm",
+        "type": "double",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "rain_change_15m_mm",
+        "type": "double",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "rain_max_60m_mm",
+        "type": "double",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "rain_std_60m_mm",
+        "type": "double",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "wet_slots_60m",
+        "type": "long",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "hour_sin",
+        "type": "double",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "hour_cos",
+        "type": "double",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "month_sin",
+        "type": "double",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "month_cos",
+        "type": "double",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "lag_10m_mm",
+        "type": "double",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "lag_15m_mm",
+        "type": "double",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "lag_30m_mm",
+        "type": "double",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "wet_current",
+        "type": "integer",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "wet_lag_5m",
+        "type": "integer",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "wet_lag_10m",
+        "type": "integer",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "consecutive_wet_slots_60m",
+        "type": "integer",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "wet_run_left_censored_60m",
+        "type": "integer",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "minutes_since_last_rain_60m_capped",
+        "type": "double",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "no_rain_observed_60m",
+        "type": "integer",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "rain_change_5m_mm",
+        "type": "double",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "rain_ratio_15m_30m",
+        "type": "double",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "fold1_role",
+        "type": "string",
+        "nullable": true,
+        "metadata": {}
+      }
+    ]
+  },
+  "sorted_hashed_columns": [
+    "consecutive_wet_slots_60m",
+    "current_5m_mm",
+    "future_30m_mm",
+    "hour_cos",
+    "hour_sin",
+    "lag_10m_mm",
+    "lag_15m_mm",
+    "lag_30m_mm",
+    "lag_5m_mm",
+    "minutes_since_last_rain_60m_capped",
+    "month_cos",
+    "month_sin",
+    "no_rain_observed_60m",
+    "prediction_epoch_s",
+    "rain_change_15m_mm",
+    "rain_change_5m_mm",
+    "rain_max_60m_mm",
+    "rain_ratio_15m_30m",
+    "rain_std_60m_mm",
+    "rain_sum_15m_mm",
+    "rain_sum_30m_mm",
+    "rain_sum_60m_mm",
+    "rain_sum_previous_15m_mm",
+    "station_id",
+    "wet_current",
+    "wet_lag_10m",
+    "wet_lag_5m",
+    "wet_run_left_censored_60m",
+    "wet_slots_60m",
+    "year"
+  ],
+  "floating_columns": [
+    "current_5m_mm",
+    "hour_cos",
+    "hour_sin",
+    "lag_10m_mm",
+    "lag_15m_mm",
+    "lag_30m_mm",
+    "lag_5m_mm",
+    "minutes_since_last_rain_60m_capped",
+    "month_cos",
+    "month_sin",
+    "rain_change_15m_mm",
+    "rain_change_5m_mm",
+    "rain_max_60m_mm",
+    "rain_ratio_15m_30m",
+    "rain_std_60m_mm",
+    "rain_sum_15m_mm",
+    "rain_sum_30m_mm",
+    "rain_sum_60m_mm",
+    "rain_sum_previous_15m_mm"
+  ],
+  "exact_full_row_signature": {
+    "TRAIN": {
+      "n": 1995803,
+      "hash_sum_1": "-47070510148335766423",
+      "hash_sum_2": "-11311797270701649104430"
+    },
+    "VALIDATION": {
+      "n": 6976044,
+      "hash_sum_1": "-5380169785215473815369",
+      "hash_sum_2": "11106530140181550951974"
+    }
+  },
+  "nonfloating_row_signature": {
+    "TRAIN": {
+      "n": 1995803,
+      "hash_sum_1": "3215436685581133760641",
+      "hash_sum_2": "8890036876287394365290"
+    },
+    "VALIDATION": {
+      "n": 6976044,
+      "hash_sum_1": "13080741364192496122703",
+      "hash_sum_2": "-16830833291603149101778"
+    }
+  },
+  "key_target_signature": {
+    "TRAIN": {
+      "n": 1995803,
+      "hash_sum_1": "6776479374781517238758",
+      "hash_sum_2": "6872385701940274588883"
+    },
+    "VALIDATION": {
+      "n": 6976044,
+      "hash_sum_1": "-15234760493153446344328",
+      "hash_sum_2": "6310822070936892357142"
+    }
+  },
+  "role_column_diagnostics": {
+    "TRAIN": {
+      "n": 1995803,
+      "columns": {
+        "consecutive_wet_slots_60m": {
+          "key_paired_hash_sum": "5009775864704556000072",
+          "nulls": 0
+        },
+        "current_5m_mm": {
+          "key_paired_hash_sum": "7185374591012181968943",
+          "nulls": 0
+        },
+        "future_30m_mm": {
+          "key_paired_hash_sum": "-2144233820517360984096",
+          "nulls": 0
+        },
+        "hour_cos": {
+          "key_paired_hash_sum": "-7168047306998411073151",
+          "nulls": 0
+        },
+        "hour_sin": {
+          "key_paired_hash_sum": "-1751370845763325845670",
+          "nulls": 0
+        },
+        "lag_10m_mm": {
+          "key_paired_hash_sum": "7818397276315371765829",
+          "nulls": 0
+        },
+        "lag_15m_mm": {
+          "key_paired_hash_sum": "7753371767383336719211",
+          "nulls": 0
+        },
+        "lag_30m_mm": {
+          "key_paired_hash_sum": "8801670559045533907768",
+          "nulls": 0
+        },
+        "lag_5m_mm": {
+          "key_paired_hash_sum": "7798720179066999377710",
+          "nulls": 0
+        },
+        "minutes_since_last_rain_60m_capped": {
+          "key_paired_hash_sum": "4089483163736532697329",
+          "nulls": 0
+        },
+        "month_cos": {
+          "key_paired_hash_sum": "-571722895267400868521",
+          "nulls": 0
+        },
+        "month_sin": {
+          "key_paired_hash_sum": "4053397892109041507526",
+          "nulls": 0
+        },
+        "no_rain_observed_60m": {
+          "key_paired_hash_sum": "-3275806503708248003693",
+          "nulls": 0
+        },
+        "prediction_epoch_s": {
+          "key_paired_hash_sum": "-6975648572384115646393",
+          "nulls": 0
+        },
+        "rain_change_15m_mm": {
+          "key_paired_hash_sum": "7491549393384757938089",
+          "nulls": 0
+        },
+        "rain_change_5m_mm": {
+          "key_paired_hash_sum": "10268594680913782570191",
+          "nulls": 0
+        },
+        "rain_max_60m_mm": {
+          "key_paired_hash_sum": "5711775701589166884754",
+          "nulls": 0
+        },
+        "rain_ratio_15m_30m": {
+          "key_paired_hash_sum": "11019800955766401168689",
+          "nulls": 0
+        },
+        "rain_std_60m_mm": {
+          "key_paired_hash_sum": "8126452883451245202025",
+          "nulls": 0
+        },
+        "rain_sum_15m_mm": {
+          "key_paired_hash_sum": "10492334274207081266920",
+          "nulls": 0
+        },
+        "rain_sum_30m_mm": {
+          "key_paired_hash_sum": "8480659241345263508794",
+          "nulls": 0
+        },
+        "rain_sum_60m_mm": {
+          "key_paired_hash_sum": "7786156856505800607096",
+          "nulls": 0
+        },
+        "rain_sum_previous_15m_mm": {
+          "key_paired_hash_sum": "8126770236528221137838",
+          "nulls": 0
+        },
+        "station_id": {
+          "key_paired_hash_sum": "15223198961969611283203",
+          "nulls": 0
+        },
+        "wet_current": {
+          "key_paired_hash_sum": "2598062709720887375220",
+          "nulls": 0
+        },
+        "wet_lag_10m": {
+          "key_paired_hash_sum": "3900436141608889904231",
+          "nulls": 0
+        },
+        "wet_lag_5m": {
+          "key_paired_hash_sum": "4693337475897453164629",
+          "nulls": 0
+        },
+        "wet_run_left_censored_60m": {
+          "key_paired_hash_sum": "4239720867494247846280",
+          "nulls": 0
+        },
+        "wet_slots_60m": {
+          "key_paired_hash_sum": "5628898585323840427075",
+          "nulls": 0
+        },
+        "year": {
+          "key_paired_hash_sum": "3858536183477200084101",
+          "nulls": 0
+        }
+      }
+    },
+    "VALIDATION": {
+      "n": 6976044,
+      "columns": {
+        "consecutive_wet_slots_60m": {
+          "key_paired_hash_sum": "13654988876665702987192",
+          "nulls": 0
+        },
+        "current_5m_mm": {
+          "key_paired_hash_sum": "-4002971088863538752159",
+          "nulls": 0
+        },
+        "future_30m_mm": {
+          "key_paired_hash_sum": "16269274801972705429136",
+          "nulls": 0
+        },
+        "hour_cos": {
+          "key_paired_hash_sum": "3789738329869424640595",
+          "nulls": 0
+        },
+        "hour_sin": {
+          "key_paired_hash_sum": "-3712025395451203800018",
+          "nulls": 0
+        },
+        "lag_10m_mm": {
+          "key_paired_hash_sum": "-4768688600266373537905",
+          "nulls": 0
+        },
+        "lag_15m_mm": {
+          "key_paired_hash_sum": "-7320238770577976081420",
+          "nulls": 0
+        },
+        "lag_30m_mm": {
+          "key_paired_hash_sum": "-5714762043626676841631",
+          "nulls": 0
+        },
+        "lag_5m_mm": {
+          "key_paired_hash_sum": "-1971561743042722053604",
+          "nulls": 0
+        },
+        "minutes_since_last_rain_60m_capped": {
+          "key_paired_hash_sum": "-660613780614993906990",
+          "nulls": 0
+        },
+        "month_cos": {
+          "key_paired_hash_sum": "-12674095431699119906839",
+          "nulls": 0
+        },
+        "month_sin": {
+          "key_paired_hash_sum": "3221878262570767740362",
+          "nulls": 0
+        },
+        "no_rain_observed_60m": {
+          "key_paired_hash_sum": "-940878049428476205686",
+          "nulls": 0
+        },
+        "prediction_epoch_s": {
+          "key_paired_hash_sum": "-3968847925066773131834",
+          "nulls": 0
+        },
+        "rain_change_15m_mm": {
+          "key_paired_hash_sum": "-2038638481506099493107",
+          "nulls": 0
+        },
+        "rain_change_5m_mm": {
+          "key_paired_hash_sum": "-5142926480718511284862",
+          "nulls": 0
+        },
+        "rain_max_60m_mm": {
+          "key_paired_hash_sum": "-5730960210849549553095",
+          "nulls": 0
+        },
+        "rain_ratio_15m_30m": {
+          "key_paired_hash_sum": "-5916919669062510781242",
+          "nulls": 0
+        },
+        "rain_std_60m_mm": {
+          "key_paired_hash_sum": "132817034951490290196",
+          "nulls": 0
+        },
+        "rain_sum_15m_mm": {
+          "key_paired_hash_sum": "-8059237842180197028205",
+          "nulls": 0
+        },
+        "rain_sum_30m_mm": {
+          "key_paired_hash_sum": "190815996900176496272",
+          "nulls": 0
+        },
+        "rain_sum_60m_mm": {
+          "key_paired_hash_sum": "36144780331717790518",
+          "nulls": 0
+        },
+        "rain_sum_previous_15m_mm": {
+          "key_paired_hash_sum": "-2459916293536365117963",
+          "nulls": 0
+        },
+        "station_id": {
+          "key_paired_hash_sum": "33261447752605580140676",
+          "nulls": 0
+        },
+        "wet_current": {
+          "key_paired_hash_sum": "14640994257143802652653",
+          "nulls": 0
+        },
+        "wet_lag_10m": {
+          "key_paired_hash_sum": "11100347088259539988180",
+          "nulls": 0
+        },
+        "wet_lag_5m": {
+          "key_paired_hash_sum": "14168092136190346348788",
+          "nulls": 0
+        },
+        "wet_run_left_censored_60m": {
+          "key_paired_hash_sum": "9159742353499578917926",
+          "nulls": 0
+        },
+        "wet_slots_60m": {
+          "key_paired_hash_sum": "-8055915415144894487188",
+          "nulls": 0
+        },
+        "year": {
+          "key_paired_hash_sum": "-27787301372992153141779",
+          "nulls": 0
+        }
+      }
+    }
+  },
+  "interpretation": "Exact typed hashes are sensitive to column set, data types and floating-point bits. Column hashes are diagnostics only; no tolerance-based PASS is granted.",
+  "status": "DIAGNOSTIC_ONLY",
+  "environment": {
+    "python": "3.11.17",
+    "os": "macOS-14.1-arm64-arm-64bit",
+    "architecture": "arm64",
+    "logical_cpu_count": 14,
+    "pyspark": "3.5.7",
+    "java": "17.0.20.1",
+    "spark_master": "local[2]",
+    "peak_memory": "not measured"
+  },
+  "timezone": "Asia/Singapore"
+}

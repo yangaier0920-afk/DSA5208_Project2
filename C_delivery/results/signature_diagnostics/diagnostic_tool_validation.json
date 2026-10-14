@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "one_ulp_float_change_localized": {
+    "column_set_matches": true,
+    "type_differences": {},
+    "full_row_hashes_match": false,
+    "key_target_hashes_match": true,
+    "nonfloating_hashes_match": true,
+    "columns_with_key_paired_hash_or_null_count_differences": {
+      "TRAIN": [
+        "rain_std_60m_mm"
+      ]
+    },
+    "acceptance_granted": false
+  },
+  "equal_numeric_value_different_type_localized": {
+    "column_set_matches": true,
+    "type_differences": {
+      "year": {
+        "expected": "integer",
+        "actual": "long"
+      }
+    },
+    "full_row_hashes_match": false,
+    "key_target_hashes_match": false,
+    "nonfloating_hashes_match": false,
+    "columns_with_key_paired_hash_or_null_count_differences": {
+      "TRAIN": [
+        "year"
+      ]
+    },
+    "acceptance_granted": false
+  },
+  "no_tolerance_PASS_added": true
+}

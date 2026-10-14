@@ -8,7 +8,7 @@ CONFIG = PACKAGE / 'configs/B_experiment.json'
 
 def dump(path, obj):
     path = Path(path); path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(obj, ensure_ascii=False, indent=2, default=str)+'\n')
+    path.write_text(json.dumps(obj, ensure_ascii=False, indent=2, default=str)+'\n',encoding='utf-8',newline='\n')
 
 def rows(path):
     with Path(path).open(encoding='utf-8-sig', newline='') as f:
@@ -35,6 +35,9 @@ def release(root):
     return data_release
 
 def start(root, name):
+    sys.path.insert(0,str(PACKAGE.parent/'scripts'))
+    from portable_runtime import configure_runtime
+    configure_runtime()
     import pyspark
     os.environ['SPARK_HOME']=str(Path(pyspark.__file__).resolve().parent)
     os.environ['PYSPARK_PYTHON']=sys.executable

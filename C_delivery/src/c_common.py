@@ -15,11 +15,11 @@ KEYS = ['station_id', 'prediction_epoch_s']
 CONFIG = PACKAGE / 'configs/C_experiment.json'
 
 def load(path):
-    return json.loads(Path(path).read_text())
+    return json.loads(Path(path).read_text(encoding='utf-8'))
 
 def dump(path, data):
     path = Path(path); path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(data, ensure_ascii=False, indent=2, default=str)+'\n')
+    path.write_text(json.dumps(data, ensure_ascii=False, indent=2, default=str)+'\n',encoding='utf-8',newline='\n')
 
 def csv_write(path, records):
     records = list(records)
@@ -33,11 +33,13 @@ def log(message):
     print(datetime.now().isoformat(timespec='seconds'), message, flush=True)
 
 def spark_start(config):
+    from portable_runtime import configure_runtime
+    configure_runtime()
     import pyspark
     os.environ.update(SPARK_HOME=str(Path(pyspark.__file__).parent), PYSPARK_PYTHON=sys.executable,
                       PYSPARK_DRIVER_PYTHON=sys.executable, SPARK_LOCAL_IP='127.0.0.1')
     from pyspark.sql import SparkSession
-    c=config['spark']; tmp=PACKAGE/'runtime/spark-local'; tmp.mkdir(parents=True,exist_ok=True)
+    c=config['spark']; tmp=Path(os.environ.get('C_SPARK_LOCAL_DIR',PACKAGE/'runtime/spark-local')); tmp.mkdir(parents=True,exist_ok=True)
     spark=(SparkSession.builder.master(f"local[{c['threads']}]").appName('C E2 rainfall probabilities')
            .config('spark.driver.memory',c['driver_memory']).config('spark.driver.host','127.0.0.1')
            .config('spark.driver.bindAddress','127.0.0.1').config('spark.sql.session.timeZone','Asia/Singapore')

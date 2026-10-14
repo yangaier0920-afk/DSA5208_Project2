@@ -1,0 +1,108 @@
+{
+  "status": "PASS_CURRENT_LOCKED_PROTOCOL",
+  "stages": [
+    {
+      "name": "frozen_inputs",
+      "status": "PASS",
+      "reused_from_previous_attempt": true
+    },
+    {
+      "name": "formal_input_verification",
+      "status": "PASS",
+      "reused_from_previous_attempt": true
+    },
+    {
+      "name": "A_sample",
+      "status": "PASS",
+      "reused_from_previous_attempt": true
+    },
+    {
+      "name": "B_task1",
+      "status": "PASS",
+      "reused_from_previous_attempt": true
+    },
+    {
+      "name": "B_coverage_sensitivity",
+      "status": "PASS"
+    },
+    {
+      "name": "B_plots",
+      "status": "PASS",
+      "reused_from_previous_attempt": true
+    },
+    {
+      "name": "B_features",
+      "status": "PASS",
+      "reused_from_previous_attempt": true
+    },
+    {
+      "name": "B_feature_contract",
+      "status": "PASS",
+      "reused_from_previous_attempt": true
+    },
+    {
+      "name": "B_join",
+      "status": "PASS",
+      "reused_from_previous_attempt": true
+    },
+    {
+      "name": "C_inputs",
+      "status": "PASS",
+      "reused_from_previous_attempt": true
+    },
+    {
+      "name": "C_locked_protocol",
+      "status": "PASS",
+      "reused_from_previous_attempt": true
+    },
+    {
+      "name": "C_report",
+      "status": "PASS",
+      "reused_from_previous_attempt": true
+    },
+    {
+      "name": "C_inventory",
+      "status": "PASS"
+    },
+    {
+      "name": "integrated_report",
+      "status": "PASS"
+    },
+    {
+      "name": "english_summary",
+      "status": "PASS"
+    }
+  ],
+  "all_36_trained_from_scratch": false,
+  "reference_model_fold_cells_reused": 30,
+  "new_model_fold_cells_planned": 6,
+  "new_2024_evaluation": false,
+  "zip_created": false,
+  "A_scope": "Representative frozen A sample replay; formal full A input is verified",
+  "resumed_run": true,
+  "prior_failure": "integrated_report failed; inspect /Users/kendallshao/Downloads/DSA5208_Project2/outputs/reproduction_portable_full_20261014/logs/integrated_report.log",
+  "completed_stages_reused": [
+    "frozen_inputs",
+    "formal_input_verification",
+    "A_sample",
+    "B_task1",
+    "B_plots",
+    "B_features",
+    "B_feature_contract",
+    "B_join",
+    "C_inputs",
+    "C_locked_protocol",
+    "C_report"
+  ],
+  "environment": {
+    "python_executable": "/Users/kendallshao/Downloads/DSA5208_Project2/.venv/bin/python",
+    "python": "3.11.17",
+    "pyspark": "3.5.7",
+    "py4j": "0.10.9.7",
+    "java": "17.0.20.1",
+    "java_home": "/Users/kendallshao/Downloads/DSA5208_Project2/.runtime/java17/jdk-17.0.20.1+1/Contents/Home",
+    "os": "macOS-14.1-arm64-arm-64bit",
+    "architecture": "arm64",
+    "timezone_contract": "Asia/Singapore"
+  }
+}

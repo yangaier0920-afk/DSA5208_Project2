@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "counts_and_two_rolewise_row_hash_sums_match": true,
+  "all_key_target_feature_columns_included": true,
+  "signature_not_cryptographic_equality_proof": true,
+  "Parquet_bytes_expected_to_differ": true,
+  "final_comparison_TRAIN_only": true,
+  "2024_test_scored": false,
+  "folds": [
+    {
+      "fold": "fold1",
+      "role_signatures": {
+        "TRAIN": {
+          "n": 1995803,
+          "hash_sum_1": "-47070510148335766423",
+          "hash_sum_2": "-11311797270701649104430"
+        },
+        "VALIDATION": {
+          "n": 6976044,
+          "hash_sum_1": "-5380169785215473815369",
+          "hash_sum_2": "11106530140181550951974"
+        }
+      }
+    }
+  ],
+  "scope": "single_fold"
+}

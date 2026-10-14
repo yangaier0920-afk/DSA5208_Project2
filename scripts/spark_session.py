@@ -4,6 +4,8 @@ from pathlib import Path
 
 
 def start_spark(name, threads=4, memory="4g", partitions=48):
+    from portable_runtime import configure_runtime
+    configure_runtime()
     from pyspark.sql import SparkSession
     root = Path(__file__).resolve().parents[1]
     local = root / ".runtime" / "spark-local"

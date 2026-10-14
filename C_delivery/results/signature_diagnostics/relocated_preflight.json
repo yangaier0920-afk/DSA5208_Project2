@@ -1,0 +1,23 @@
+{
+  "status": "PREFLIGHT_PASS_NOT_FULL_RUN",
+  "stages": [],
+  "all_36_trained_from_scratch": false,
+  "reference_model_fold_cells_reused": 30,
+  "new_model_fold_cells_planned": 6,
+  "new_2024_evaluation": false,
+  "zip_created": false,
+  "A_scope": "Representative frozen A sample replay; formal full A input is verified",
+  "resumed_run": false,
+  "environment": {
+    "python_executable": "/Users/kendallshao/Downloads/DSA5208_Project2/.venv/bin/python",
+    "python": "3.11.17",
+    "pyspark": "3.5.7",
+    "java": "17.0.20.1",
+    "java_home": "/Users/kendallshao/Downloads/DSA5208_Project2/.runtime/java17/jdk-17.0.20.1+1/Contents/Home",
+    "os": "macOS-14.1-arm64-arm-64bit",
+    "architecture": "arm64",
+    "timezone_contract": "Asia/Singapore"
+  },
+  "test": "Relocated minimal runner/runtime in a path containing spaces",
+  "relocated_root": "/var/folders/xz/s94pglt557s46p7qkqbs1pj80000gn/T/DSA portable path with spaces 5q9okkhr"
+}
